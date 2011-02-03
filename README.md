@@ -11,8 +11,7 @@ This training includes two course levels:
 To contribute a new training module, copy the template directory to a new directory, named by the __MODULE NUMBER__
 you will be using:
 
-	mkdir 101
-	cp -r template/* 101
+	cp -r template 101
 
 The template contains all the starter materials you will need.  Check out the template README for training module deliverables.
 
