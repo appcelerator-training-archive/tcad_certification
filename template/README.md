@@ -1,10 +1,9 @@
-# Starter Module
+# Module 101 - Welcome to Titanium!
 
-A training module consists of several deliverable items:
+Introductory module in the "Zero to App" series.  Objectives:
 
-* `README.md` - A README describing the module, it's contents, and any relevant notes (Markdown syntax)
-* `101.ppt` - A PowerPoint presentation containing the necessary slides for the module
-* `questions.md` - A Markdown-formatted list of (15) certification exam questions
-* `code/lab` directory - any lab code associated with this module (starter project, lab assignment sheet, finished product)
-* `code/samples` directory - any code samples associated with this training module (runnable Titanium projects, for instance)
-* `video` directory - an iMovie project for the on-demand video delivery method
+* Articulate the Titanium value proposition
+* Excite developers about the possibilities of the platform
+* Introduce the basic Titanium architecture
+* Brief developers on the resources available to them
+* Understand how to consume training modules
