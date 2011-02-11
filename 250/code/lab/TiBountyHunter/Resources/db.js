@@ -18,7 +18,7 @@
 				hasChild:true,
 				//add actual db fields
 				name: result.fieldByName("name"),
-				captured: (result.fieldByName("captured") === 0) ? false : true
+				captured: (Number(result.fieldByName("captured")) === 1)
 			});
 			result.next();
 		}
