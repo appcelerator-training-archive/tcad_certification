@@ -77,8 +77,17 @@
 					Ti.UI.createAlertDialog({
 						message:_data.message
 					}).show();
+					
+					//on android, give a bit of a delay before closing the window...
+					if (Ti.Platform.osname == 'android') {
+						setTimeout(function() {
+							win.close();
+						},2000);
+					}
+					else {
+						win.close();
+					}
 				});
-				win.close();
 			});
 			win.add(captureButton);
 		}
