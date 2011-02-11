@@ -45,6 +45,38 @@
 		return win;
 	};
 	
+	bh.ui.createMapWindow = function(/*Object*/ _bounty) {
+		Ti.API.info('Showing at coords... '+_bounty.capturedLat+':'+_bounty.capturedLong)
+		
+		var win = Ti.UI.createWindow({
+			title:L('busted_at'),
+			backgroundColor:'#fff'
+		});
+		
+		var ann = Ti.Map.createAnnotation({
+			latitude:_bounty.capturedLat,
+			longitude:_bounty.capturedLong,
+			title:_bounty.name,
+			subtitle:L('busted'),
+			pincolor:Ti.Map.ANNOTATION_RED,
+			animate:true
+		});
+		
+		var mapview = Ti.Map.createView({
+			mapType: Ti.Map.STANDARD_TYPE,
+			region:{latitude:_bounty.capturedLat, longitude:_bounty.capturedLong, latitudeDelta:0.1, longitudeDelta:0.1},
+			animate:true,
+			regionFit:true,
+			userLocation:false,
+			annotations:[ann]
+		});
+		
+		win.add(mapview);
+		
+		return win;
+	};
+	
+	Ti.Geolocation.purpose = 'Tracking down criminal scum';
 	bh.ui.createDetailWindow = function(/*Object*/ _bounty) {
 		Ti.API.info(_bounty.captured);
 		
@@ -116,24 +148,51 @@
 				width:200
 			});
 			captureButton.addEventListener('click', function() {
-				bh.db.bust(_bounty.id);
-				bh.net.bustFugitive(Ti.Platform.id, function(_data) {
+				if (Ti.Geolocation.locationServicesEnabled) {
+					Ti.Geolocation.accuracy = Ti.Geolocation.ACCURACY_BEST;
+					Ti.Geolocation.getCurrentPosition(function(e) {
+						var lng = e.coords.longitude;
+						var lat = e.coords.latitude;
+						bh.db.bust(_bounty.id,lat,lng);
+						
+						bh.net.bustFugitive(Ti.Platform.id, function(_data) {
+							Ti.UI.createAlertDialog({
+								message:_data.message
+							}).show();
+
+							//on android, give a bit of a delay before closing the window...
+							if (Ti.Platform.osname == 'android') {
+								setTimeout(function() {
+									win.close();
+								},2000);
+							}
+							else {
+								win.close();
+							}
+						});
+					});
+				}
+				else {
 					Ti.UI.createAlertDialog({
-						message:_data.message
+						title:L('geo_error'), 
+						message:L('geo_error_details')
 					}).show();
-					
-					//on android, give a bit of a delay before closing the window...
-					if (Ti.Platform.osname == 'android') {
-						setTimeout(function() {
-							win.close();
-						},2000);
-					}
-					else {
-						win.close();
-					}
-				});
+				}
 			});
 			win.add(captureButton);
+		}
+		else {
+			var mapButton = Ti.UI.createButton({
+				title:L('map_button'),
+				top:10,
+				height:40,
+				width:200
+			});
+			mapButton.addEventListener('click', function() {
+				var tab = (_bounty.captured) ? bh.capturedTab : bh.fugitivesTab;
+				tab.open(bh.ui.createMapWindow(_bounty));
+			});
+			win.add(mapButton);
 		}
 		
 		var deleteButton = Ti.UI.createButton({

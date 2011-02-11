@@ -3,7 +3,7 @@
 
 	//bootstrap database
 	var db = Ti.Database.open('TiBountyHunter');
-	db.execute('CREATE TABLE IF NOT EXISTS fugitives(id INTEGER PRIMARY KEY, name TEXT, captured INTEGER, url TEXT);');
+	db.execute('CREATE TABLE IF NOT EXISTS fugitives(id INTEGER PRIMARY KEY, name TEXT, captured INTEGER, url TEXT, capturedLat REAL, capturedLong REAL);');
 	db.close();
 
 	bh.db.list = function(_captured) {
@@ -17,9 +17,11 @@
 				id: result.fieldByName('id'), //custom data attribute to pass to detail page
 				hasChild:true,
 				//add actual db fields
-				name: result.fieldByName("name"),
-				captured: (Number(result.fieldByName("captured")) === 1),
-				url: result.fieldByName("url")
+				name: result.fieldByName('name'),
+				captured: (Number(result.fieldByName('captured')) === 1),
+				url: result.fieldByName('url'),
+				capturedLat: Number(result.fieldByName('capturedLat')),
+				capturedLong: Number(result.fieldByName('capturedLong'))
 			});
 			result.next();
 		}
@@ -47,9 +49,9 @@
 		Ti.App.fireEvent("databaseUpdated");
 	};
 
-	bh.db.bust = function(_id) {
+	bh.db.bust = function(_id,_lat,_lng) {
 		var db = Ti.Database.open('TiBountyHunter');
-		db.execute("UPDATE fugitives SET captured = 1 WHERE id = ?",_id);
+		db.execute("UPDATE fugitives SET captured = 1, capturedLat = ?, capturedLong = ? WHERE id = ?",_lat,_lng,_id);
 		db.close();
 
 		//Dispatch a message to let others know the database has been updated
