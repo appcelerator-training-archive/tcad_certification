@@ -30,6 +30,12 @@ var html_data = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http:
 	html_data += '<html xmlns="http://www.w3.org/1999/xhtml">';
 	html_data += '<head>';
 	html_data += '<title>About Switched RSS Reader</title>';
+	html_data += '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js" type="text/javascript"></script>';
+	html_data += '<script type="text/javascript">';
+	html_data += '$("#version").click(function(){';
+	html_data += '	$("#version").animate({"top": "+=100px"}, "slow");';
+	html_data += '});';
+	html_data += '</script>';
 	html_data += '<style>';
 	html_data += '	body{';
 	html_data += ' 		background-color: #ff6427;';
@@ -43,7 +49,7 @@ var html_data = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http:
 	html_data += '<body>';
 	html_data += '<p>Switched</p>';
 	html_data += '<p>RSS Reader</p>';	
-	html_data += '<p>verson 0.9.0</p>';
+	html_data += '<p id="version">version 0.9.0</p>';
 	html_data += '</body>';
 	html_data += '</html>';
 
