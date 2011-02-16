@@ -19,8 +19,46 @@ var rssTab = Titanium.UI.createTab({
     title:'Switched RSS Reader',
     window:rssWindow
 });
-
 tabGroup.addTab(rssTab);  
+
+var aboutWindow = Titanium.UI.createWindow({  
+    title:'',
+    backgroundColor:'#fff'
+});
+
+var html_data = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
+	html_data += '<html xmlns="http://www.w3.org/1999/xhtml">';
+	html_data += '<head>';
+	html_data += '<title>About Switched RSS Reader</title>';
+	html_data += '<style>';
+	html_data += '	body{';
+	html_data += ' 		background-color: #ff6427;';
+	html_data += ' 		color: #ffffff;';
+	html_data += '	}';
+	html_data += '	p{';
+	html_data += ' 		text-align: center;';
+	html_data += '	}';	
+	html_data += '</style>';	
+	html_data += '</head>';
+	html_data += '<body>';
+	html_data += '<p>Switched</p>';
+	html_data += '<p>RSS Reader</p>';	
+	html_data += '<p>verson 0.9.0</p>';
+	html_data += '</body>';
+	html_data += '</html>';
+
+
+var aboutWebView = Titanium.UI.createWebView({  
+    html:html_data,
+    backgroundColor:'#fff'
+});
+aboutWindow.add(aboutWebView);
+var aboutTab = Titanium.UI.createTab({  
+    icon:'KS_nav_views.png',
+    title:'About',
+    window:aboutWindow
+});
+tabGroup.addTab(aboutTab);
 
 tabGroup.open();
 
