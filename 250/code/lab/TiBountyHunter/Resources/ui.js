@@ -46,6 +46,8 @@
 	};
 	
 	bh.ui.createDetailWindow = function(/*Object*/ _bounty) {
+		Ti.API.info(_bounty.captured);
+		
 		var win = Ti.UI.createWindow({
 			title:_bounty.title,
 			layout:'vertical'
