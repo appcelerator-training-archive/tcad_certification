@@ -158,7 +158,7 @@ This file contains the final question pool for the initial TCAD exam by section.
 3. project root directory, in either the "iphone" or "android" directories
 4. "platform/iphone" or "platform/android" directories
 
-#### You can execute different JavaScript code at runtime in your application by...
+#### You can execute platfrom-specific JavaScript code at runtime in your application by...
 
 1. branching based on the global TITANIUM_PLATFORM variable
 2. passing platform-specific functions to the built-in Ti.Platform.os function

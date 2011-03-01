@@ -80,7 +80,7 @@
 			width:200
 		});
 		photoButton.addEventListener('click', function() {
-			Ti.Media.showCamera({
+			Ti.Media.openPhotoGallery({
 				success:function(event) {
 					var image = event.media;
 					imgView.image = image;

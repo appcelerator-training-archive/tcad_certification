@@ -29,7 +29,6 @@ var aboutWindow = Titanium.UI.createWindow({
 var html_data = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">';
 	html_data += '<html xmlns="http://www.w3.org/1999/xhtml">';
 	html_data += '<head>';
-	html_data += '<title>About Switched RSS Reader</title>';
 	html_data += '<style>';
 	html_data += '	body{';
 	html_data += ' 		background-color: #ff6427;';
@@ -51,6 +50,7 @@ var html_data = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http:
 
 var aboutWebView = Titanium.UI.createWebView({  
     html:html_data,
+		//url: 'about.html',
     backgroundColor:'#fff'
 });
 aboutWindow.add(aboutWebView);
