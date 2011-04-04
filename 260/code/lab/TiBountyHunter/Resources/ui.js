@@ -64,6 +64,50 @@
 			height:'auto'
 		}));
 		
+		Ti.API.info(_bounty.url);
+		var imgView = Ti.UI.createImageView({
+			image:(_bounty.url) ? _bounty.url : 'burglar.png',
+			height:150,
+			width:120,
+			top:10
+		});
+		win.add(imgView);
+		
+		var photoButton = Ti.UI.createButton({
+			title:L('photo'),
+			top:10,
+			height:40,
+			width:200
+		});
+		photoButton.addEventListener('click', function() {
+			Ti.Media.openPhotoGallery({
+				success:function(event) {
+					var image = event.media;
+					imgView.image = image;
+					
+					//save for future use
+					var f = Ti.Filesystem.getFile(Ti.Filesystem.applicationDataDirectory,'photo'+_bounty.id+'.png');
+					f.write(image);
+					bh.db.addPhoto(_bounty.id,f.nativePath);
+				},
+				cancel:function() {},
+				error:function(error) {
+					var a = Ti.UI.createAlertDialog({title:L('camera_error')});
+					if (error.code == Ti.Media.NO_CAMERA) {
+						a.setMessage(L('camera_error_details'));
+					}
+					else {
+						a.setMessage('Unexpected error: ' + error.code);
+					}
+					a.show();
+				},
+				saveToPhotoGallery:true,
+				allowEditing:true,
+				mediaTypes:[Ti.Media.MEDIA_TYPE_PHOTO]
+			});
+		});
+		win.add(photoButton);
+		
 		if (!_bounty.captured) {
 			var captureButton = Ti.UI.createButton({
 				title:L('capture'),
