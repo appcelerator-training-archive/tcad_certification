@@ -1,0 +1,290 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Appcelerator Cloud Services</title>
+		<meta name="description" content="Building Native Mobile Apps, Appcelerator Cloud Services">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Appcelerator Cloud Services</h1>
+					<h5 class="l_subtitle">LESSON SUBTITLE</h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"></p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
+			    	<ul>
+			    		<li class="l_agenda1">What is ACS?",</li>
+			    		<li class="l_agenda2">ACS vs. D.I.Y.</li>
+			    		<li class="l_agenda3">Requirements and Setup</li>
+			    		<li class="l_agenda4">Using ACS in your App</li>
+			    		<li class="l_agenda5">Lab</li>
+			    	</ul>
+				    <img src="images/cocoafish.png" style="width:300px;float:right;border:none;background-color:transparent;"/>
+					<div class="slidenote">
+						<p class="l_slidenote_agenda">We'll discuss ACS and what you might use it for. We'll also compare using ACS to creating your own web service. Then, we'll move on to covering how to implement ACS, including the setup and configuration work needed as well as implementing ACS in your app. We'll finish with a lab.</p>
+					</div>
+				</section>
+
+
+				<section>
+					<h2 class="l_whatis">What is ACS?</h2>
+					<ul style="width:400px;float:left;">
+						<li class="l_whatis1">Pre-built Web Backend</li>
+						<li class="l_whatis2">25+ APIs</li>
+						<li class="l_whatis3">Reliabled &amp; Scalable</li>
+						<li class="l_whatis4">Managed for You</li>
+						<li class="l_whatis5">Cross-platform SDKs for Titanium, Native, &amp; REST</li>
+					</ul>
+				    <img src="images/data.png" style="width:300px;float:right;padding:10px"/>
+					<div class="slidenote"><div class="l_slidenote_whatis">ACS is a pre-built web-based backend for your apps. It provides 25 pre-built APIs, including:<ul><li>User management</li><li>Push notifications</li><li>Social integration</li><li>File/photo storage</li><li>and more</li></ul></div></div>
+				</section>
+
+				<section>
+					<h1 class="l_apis">APIs</h1>
+					<p><img src="images/acs_apis.png" style="margin-top:-15px;height:360px;"></p>
+					<div class="slidenote"><p class="l_slidenote_apis"></p></div>
+				</section>
+				<section>
+				    <img src="images/tangram_users.png" style="width:150px;float:right;margin: 75px 0 0 20px;"/>						
+					<h2 class="l_apis_users">Users</h2>
+					<p class="l_apis_users_explanation"></p>
+					<div class="slidenote"><p class="l_slidenote_users"></p></div>
+				</section>
+				<section>
+				    <img src="images/tangram_places.png" style="width:150px;float:right;margin: 75px 0 0 20px;"/>						
+					<h2 class="l_apis_places">Places</h2>
+					<p class="l_apis_places_explanation"></p>
+					<div class="slidenote"><p class="l_slidenote_places"></p></div>
+				</section>
+				<section>
+				    <img src="images/tangram_social.png" style="width:150px;float:right;margin: 75px 0 0 20px;"/>						
+					<h2 class="l_apis_social">Social</h2>
+					<p class="l_apis_social_explanation"></p>
+					<div class="slidenote"><p class="l_slidenote_social"></p></div>
+				</section>
+				<section>
+				    <img src="images/tangram_collections.png" style="width:150px;float:right;margin: 75px 0 0 20px;"/>						
+					<h2 class="l_apis_photos">Photo Collections</h2>
+					<p class="l_apis_photos_explanation"></p>
+					<div class="slidenote"><p class="l_slidenote_photos"></p></div>
+				</section>
+				<section>
+				    <img src="images/tangram_keyvalues.png" style="width:150px;float:right;margin: 75px 0 0 20px;"/>						
+					<h2 class="l_apis_keyvalues">Key Value</h2>
+					<p class="l_apis_keyvalues_explanation"></p>
+					<div class="slidenote"><p class="l_slidenote_keyvalues">ACS offers many pre-built APIs and object types. You can create custom obects too.</p></div>
+				</section>
+
+				<section>
+					<h1 style="" class="l_acsdiy">ACS vs. DIY</h1>
+					<ul>
+						<li class="l_acsdiy1">Pre-built Web Backend</li>
+						<li class="l_acsdiy2">No IT Team Required</li>
+						<li class="l_acsdiy3">Scalable</li>
+						<li class="l_acsdiy4">Cost Scales as Use Scales</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_acsdiy"><ul><li>ACS is easier and less expensive than creating your own Web backend.</li><li>Appcelerator maintains the system and provides 24/7 monitoring and management.</li><li>Scaleable and cloud based so your server grows as you need.</li><li>Pricing not settled yet, but is likely to be far less than staffing your own cloud data center.</li></ul></div></div>
+				</section>
+
+				<section>
+					<h1 class="l_requirements">Requirements</h1>
+					<ol>
+						<li class="l_require1">Register your App</li>
+						<li class="l_require2">Configure App to Use ACS</li>
+						<li class="l_require3">Implement the ACS APIs</li>
+					</ol>
+					<div class="slidenote"><div class="l_slidenote_requirements">This is an overview slide, details on slides below.</div></div>
+				</section>
+				<section>
+					<h2 class="l_register">Register</h2>
+					<img src="images/enable_acs.png" style="float:right;"/>
+					<ul style="width:420px;">
+						<li class="l_register1">Option 1: Via tiapp.xml<br/></li>
+						<li class="l_register2" style="clear:both;">Option 2: Manually:<ul style='margin-left:30px;'><li style='font-size:smaller;'>Visit cloud.appcelerator.com</li><li style='font-size:smaller;'>Log in</li><li style='font-size:smaller;'>Click <strong>Register a new app</strong></li></ul>
+							</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_register">Option 1 is simple and works great for Titanium apps. Option 2 is what you'd use for native or REST apps. But see the next slide for security implications of option 1.</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_configure">Configure</h2>
+					<ul>
+						<li class="l_configure1">Option 1: In tiapp.xml<br/><pre style='width:675px;'><code contenteditable>
+&lt;property name='acs-api-key' type='string'>YOUR_API_KEY_HERE&lt;/property>
+&lt;property name='acs-oauth-key' type='string'>YOUR_OAUTH_KEY_HERE&lt;/property>
+&lt;property name='acs-oauth-secret' type='string'>YOUR_OAUTH_SECRET_HERE&lt;/property>
+						</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p></li>
+						<li class='l_configure2'>Option 2: In code<br/><pre style='width:675px;'><code contenteditable>
+var Cloud = require('ti.cloud');
+Cloud.apiKey = 'YOUR_API_KEY_HERE';
+Cloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';
+Cloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';
+						</code></pre></li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_configure">You can add your API keys to either the tiapp.xml or in your code. Adding to the code is more secure. The tiapp.xml file is stored as plain text in the app's package file while the JavaScript files are converted to bytecode or compiled. (Except in Mobile Web, where they're downloaded as part of the index.html file.)</div></div>
+				</section>
+
+
+				<section>
+					<h2 class="l_implement">Implement</h2>
+					<p style="font-size:0.65em;">http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud</p>
+				<pre style="width:750px;"><code contenteditable>
+var loggedIn = false;
+exports.login = function(username, password, callback) {
+	Cloud.Users.login({
+	    login: username,
+	    password: password
+	}, function (e) {
+	    if (e.success) {
+	    	currentUser = e.users[0];
+	    	loggedIn = true;
+	    	callback(loggedIn);
+	    } else {
+	        Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));
+	        loggedIn = false;
+	        currentUser = null;
+	        callback(loggedIn);
+	    }
+	});	
+};
+
+				</code></pre>
+
+					<div class="slidenote"><div class="l_slidenote_implement">Key points - Point out the call to Cloud.Users.login()<br/>The Cloud APIs are asynchronous. That means you can't rely on a return statement. You have to implement a callback as shown.</div></div>
+				</section>
+
+
+				<section>
+					<h1 style="" class="l_analytics">Analytics</h1>
+					<ul>
+						<li class="l_analytics1">Log onto your <strong>my.appcelerator.com</strong> page</li>
+						<li class="l_analytics2">Right-click Resources, choose <strong>Open Analytics Page</strong></li>
+						<li class="l_analytics3">Visit <strong style='font-size:0.75em;'>http://analytics.appcelerator.net/#app=YOUR_APP_GUID</strong></li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_analytics">You have three options for viewing your app's statistics.<br/>Pre-launch, the my.appcelerator.com page isn't working.</div></div>
+				</section>
+
+
+				<section>
+					<h1 style="margin-top:200px;" class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa">Any questions?</div></div>
+				</section>
+
+				<section>
+					<h1 style="" class="l_lab">Lab Objectives</h1>
+					<ul>
+						<li class="l_labobjective1">Implement ACS in the TiBountyHunter app</li>
+						<li class="l_labobjective2">Brag about our captures (via Status messages)</li>
+						<li class="l_labobjective3">Support logging in and creating accounts</li>
+						<li class="l_labobjective4">UI code pre-written for you</li>
+					</ul>
+					<p class="l_labURL" style="font-size:0.65em;">Lab: <a href='https://wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services'>wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services</a></p>
+					<div class="slidenote"><div class="l_slidenote_lab">You will download the starting point code. The UI-specific code is written so you can concentrate on the ACS-specific code.</div></div>
+				</section>
+
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
