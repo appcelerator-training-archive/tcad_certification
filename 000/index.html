@@ -2,8 +2,8 @@
 <html lang="en-US">
 	<head>
 		<meta charset="utf-8">
-		<title>LESSON TITLE</title>
-		<meta name="description" content="COURSE NAME, LESSON TITLE">
+		<title>Introduction</title>
+		<meta name="description" content="Introduction, Building Native Mobile Apps With Appcelerator Titanium">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -42,17 +42,18 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">LESSON TITLE</h1>
-					<h5 class="l_subtitle">LESSON SUBTITLE</h5>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Building Native Mobile Apps With Appcelerator Titanium</h1>
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide">add presenter notes here</p></div>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>This PPT is to introduce the whole course and take care of housekeeping tasks </b> (agendas, etc.)
+</p></div>
 				</section>
 				
-				<section id="agenda">
+				<!--section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
 			    	<ul>
 			    		<li class="l_agenda1">What is Titanium?</li>
@@ -66,43 +67,117 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda">You can include <strong>HTML tags</strong> in your <em>presenter</em> notes.</p>
+						<!--p class="l_slidenote_agenda">You can include <strong>HTML tags</strong> in your <em>presenter</em> notes.</p>
 						<code>
 							// presenter notes can include code
 							alert('foo')
 						</code>
 					</div>
-				</section>
+				</section-->
 
 
 				<section>
-					<h2 class="l_sample">Sample Slide</h2>
-					<ul style="width:400px;float:left;">
-						<li class="l_sample1">List item 1</li>
-						<li class="l_sample2">List item 2</li>
-						<li class="l_sample3">List item 3</li>
+					<h2 class="l_introduce_yourself">Introduce Yourself</h2>
+					<p class="l_briefly">Briefly please:</p>
+					<ul>
+						<li class="l_name">Name</li>
+						<li class="l_background">What's your background?</li>
+						<li class="l_experience">What's your Titanium experience?</li>
 					</ul>
-					<pre style="width:450px;float:right;"><code contenteditable>
-    var win = Ti.UI.createWindow({
-        backgroundColor: '#fff'
-    });
-    var view = Ti.UI.createView({
-        backgroundColor: '#a00',
-        height: 200,
-        width: 200
-    });
-    view.addEventListener('click', function(e) {
-        alert('clicked');
-    });
-
-    win.add(view);
-    win.open();
-					</code></pre>
-					<div class="slidenote"><p class="l_slidenote_sample">add presenter notes here</p></div>
+					<div class="slidenote"><p class="l_slidenote_introduce_yourself">Try to keep the introductions to 10 mins, total for the whole class</p></div>
 				</section>
 
-
+				
 				<section>
+					<h2 class="l_housekeeping">Housekeeping</h2>
+					<ul style="width:400px;float:left;">
+						<li class="l_class_hours">Class Hours</li>
+						<li class="l_parking">Parking</li>
+						<li class="l_restrooms">Restrooms</li>
+						<li class="l_meals">Meals</li>
+						<li class="l_network">Network Connectivity</li>
+						<li class="l_phone">Phones/ Pagers</li>
+						<li class="l_smoking">Smoking</li>
+						<li class="l_emergencies">Local Emergencies</li>
+						<li class="l_fire_exits">Fire Exits</li>
+					</ul>
+					<div class="slidenote"><p class="l_slidenote_housekeeping"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_course_objectives">Course Objectives</h2>
+					<p align="left" class="l_understand">Understand the high-level architecture of Titanium</p>
+					<p align="left" class="l_apply">Apply good design principles for JavaScript code</p>
+					<p align="left" class="l_navigate">Navigate the documentation and resources available</p>
+					<p align="left" class="l_master">Master key APIs and concepts</p>
+					<p align="left" class="l_attempt">Attempt (and pass!) a certification exam</p>
+					<div class="slidenote"><p class="l_slidenote_course_objectives"></p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_daily_schedule">Daily Schedule</h2>
+					<table border="0">
+					<tr>
+						<td align="left" class="l_dayone"><b>Day 1</b></td>
+						<td></td>
+						<td align="right" class="l_daytwo"><b>Day 2</b></td>
+					</tr>
+					<tr>
+						<td align="left" class="l_orientation">Orientation/Recap</td>
+						<td></td>
+						<td align="right" class="l_media">** Media/Filesystem</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_native">Native Dev Crash Course</td>
+						<td></td>
+						<td align="right" class="l_location">Location Services/td>
+					</tr>
+					<tr>
+						<td align="left" class="l_cross">Cross-Platform Dev</td>
+						<td></td>
+						<td align="right" class="l_contacts">Contacts/ Social APi</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_ui">UI Fundamentals</td>
+						<td></td>
+						<td align="right" class="l_web">Web Content</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_local">Local Data</td>
+						<td></td>
+						<td align="right" class="l_deploy">Deploy & Distribute</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_remote">Remote Data<</td>
+						<td></td>
+						<td align="right" class="l_study">Study Session/Review</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_media">** Media/Filesystem</td>
+						<td></td>
+						<td align="right" class="l_exam">Certification Exam</td>
+					</tr>
+					<tr>
+					<td> &nbsp; </td>
+					</tr>
+					<tr>
+						<td align="left" class="l_qa">Q&A, Hacking</td>
+						<td></td>
+						<td align="right" class="l_qa">Q&A, Hacking</td>
+					</tr>
+				</table>
+
+					
+					<div class="slidenote"><p class="l_slidenote_daily_schedule"></p>Depending on how fast people are completing the labs and the logisitcal flow of the class, we may cover Media/Filesystem on Day One, otherwise it may slip to Day Two.</div>
+				</section>
+				
+				<section>
+					<h2 class="l_qa_slide">Q&A</h2>
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+				
+				<!--section>
 					<h1 style="margin-top:200px;" class="l_qa">Q&amp;A</h1>
 					<div class="slidenote"></div>
 				</section>
@@ -115,7 +190,7 @@
 						<li class="l_labobjective3">Lab objective 3</li>
 					</ul>
 					<div class="slidenote"></div>
-				</section>
+				</section-->
 
 			</div>
 
