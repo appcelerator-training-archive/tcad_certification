@@ -1,5 +1,5 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Appcelerator Cloud Services</title>
@@ -151,7 +151,7 @@
 				<section>
 					<h2 style="" class="l_configure">Configure</h2>
 					<ul>
-						<li class="l_configure1">Option 1: In tiapp.xml<br/><pre style='width:675px;'><code contenteditable>
+						<li class="l_configure1">Option 1: In tiapp.xml<br/><pre style='width:725px;'><code contenteditable>
 &lt;property name='acs-api-key' type='string'>YOUR_API_KEY_HERE&lt;/property>
 &lt;property name='acs-oauth-key' type='string'>YOUR_OAUTH_KEY_HERE&lt;/property>
 &lt;property name='acs-oauth-secret' type='string'>YOUR_OAUTH_SECRET_HERE&lt;/property>
@@ -193,6 +193,12 @@ exports.login = function(username, password, callback) {
 				</code></pre>
 
 					<div class="slidenote"><div class="l_slidenote_implement">Key points - Point out the call to Cloud.Users.login()<br/>The Cloud APIs are asynchronous. That means you can't rely on a return statement. You have to implement a callback as shown.</div></div>
+				</section>
+
+				<section>
+					<h1 style="" class="l_manage">Management</h1>
+					<p class="l_manage_explanation">Visit my.appcelerator.com to manage your apps.<br/><img src='images/acs_manage.png' style='height:400px'/></p>
+					<div class="slidenote"><div class="l_slidenote_manage"></div></div>
 				</section>
 
 

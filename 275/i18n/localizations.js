@@ -8,7 +8,7 @@ String.toLocaleString({
 		"%l_filetitle": "This is the lesson title",
 		"%l_lessontitle": "Appcelerator Cloud Services",
 		"%l_subtitle": "(aka CocoaFish)",
-		"%l_slidenote_titleslide": "",
+		"%l_slidenote_titleslide": "Teaching time: 30 mins<br/>Lab time: 30 mins",
 
 		"%l_agenda_title": "AGENDA",
 		"%l_agenda1": "What is ACS?",
@@ -24,14 +24,14 @@ String.toLocaleString({
 		"%l_whatis3": "Reliable &amp; Scalable",
 		"%l_whatis4": "Managed for You",
 		"%l_whatis5": "Cross-platform SDKs for Titanium, Native, &amp; REST",
-		"%l_slidenote_whatis": "ACS is a pre-built web-based backend for your apps. It provides 25 pre-built APIs, including:<ul><li>User management</li><li>Push notifications</li><li>Social integration</li><li>File/photo storage</li><li>and more</li></ul>",
+		"%l_slidenote_whatis": "ACS is a pre-built cloud hosted backend for your apps. It provides 25 pre-built APIs, including:<ul><li>User management</li><li>Push notifications</li><li>Social integration</li><li>File/photo storage</li><li>and more</li></ul><br/>It is a hosted and managed service.<br/>SDKs for Objective C, Java, REST (= web), and Titanium",
 
 		"%l_apis": "APIs",
 		"%l_slidenote_apis": "ACS offers many pre-built APIs and object types. You can create custom obects too.",
 
 		"%l_apis_users": "Users",
 		"%l_apis_users_explanation": "Create, delete, and search for users.<br/>Plus, enable users to link to their accounts on popular social networks.",
-		"%l_slidenote_users": "Many of the APIs require users to be logged on. You're likely to use the Users API frequently (or the Social API).",
+		"%l_slidenote_users": "Many of the APIs require users to be logged on.<br/>For that, you can use the Users API.<br/>Alternately, you could use the Social API to let users log in via a Facebook or Twitter account.",
 
 		"%l_apis_places": "Places",
 		"%l_apis_places_explanation": "Create and manage places, and enable users to check into locations to help them connect with you and their peers.",
@@ -43,11 +43,11 @@ String.toLocaleString({
 
 		"%l_apis_photos": "Photo Collections",
 		"%l_apis_photos_explanation": "Enable users to upload photos and share single photos or collections.",
-		"%l_slidenote_photos": "Collections contain one or more photos and/or subcollections. These can be used as photo albums for a user. ",
+		"%l_slidenote_photos": "Collections contain one or more photos and/or subcollections. These can be used as photo albums for a user.<br/><br/>Photo files are stored on Amazon S3 and automatically provided in a range of sizes. So you don't have to create thumbnails, etc.",
 
 		"%l_apis_keyvalues": "Key Values",
 		"%l_apis_keyvalues_explanation": "Store any type of data with key/value pairs.",
-		"%l_slidenote_keyvalues": "Keys up to 256 characters; values as String or Binary up to 2 MB.",
+		"%l_slidenote_keyvalues": "For generic data storage, you can use the Key Values API. <br/>Keys can be up to 256 characters; values are storedas String or Binary up to 2 MB.",
 
 		"%l_acsdiy": "ACS vs. DIY",
 		"%l_acsdiy1": "Pre-built Web Backend",
@@ -65,15 +65,19 @@ String.toLocaleString({
 		"%l_register": "Register",
 		"%l_register1": "Option 1: Via tiapp.xml",
 		"%l_register2": "Option 2: Manually:<ul style='margin-left:30px;'><li style='font-size:smaller;'>Visit cloud.appcelerator.com</li><li style='font-size:smaller;'>Log in</li><li style='font-size:smaller;'>Click <strong>Register a new app</strong></li></ul>",
-		"%l_slidenote_register": "Option 1 is simple and works great for Titanium apps. Option 2 is what you'd use for native or REST apps. But see the next slide for security implications of option 1.",
+		"%l_slidenote_register": "Registering an app creates OAuth keys, and also creates app objects in our cloud servers.<br/><br/>You can do this in two ways:<br/><br/>Option 1 is simple and works great for Titanium apps. Simply check the box when you create your app.<br/>Option 2 is what you'd use for native or REST apps. You'll have to manually copy the keys into your app, which we'll cover on the next slide.",
 
 		"%l_configure": "Configure",
-		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:675px;'><code contenteditable>&lt;property name='acs-api-key' type='string'>YOUR_API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key' type='string'>YOUR_OAUTH_KEY_HERE\n&lt;/property>&lt;property name='acs-oauth-secret' type='string'>YOUR_OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
+		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:725px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
 		"%l_configure2": "Option 2: In code<br/><pre style='width:675px;'><code contenteditable>var Cloud = require('ti.cloud');\nCloud.apiKey = 'YOUR_API_KEY_HERE';\nCloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';\nCloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';		</code></pre>",
-		"%l_slidenote_configure": "You can add your API keys to either the tiapp.xml or in your code. Adding to the code is more secure. The tiapp.xml file is stored as plain text in the app's package file while the JavaScript files are converted to bytecode or compiled. (Except in Mobile Web, where they're downloaded as part of the index.html file.)",
+		"%l_slidenote_configure": "You can add your API keys to either the tiapp.xml or in your code.<br/><br/>Both production and development keys will be generated<br/><br/>Adding to the code is more secure. The tiapp.xml file is stored as plain text in the app's package file while the JavaScript files are converted to bytecode or compiled. (Except in Mobile Web, where they're downloaded as part of the index.html file.)",
 
 		"%l_implement": "Implement",
-		"%l_slidenote_implement": "Key points - Point out the call to Cloud.Users.login()<br/>The Cloud APIs are asynchronous. That means you can't rely on a return statement. You have to implement a callback as shown.",
+		"%l_slidenote_implement": "Once you've registered and configured your app with your keys, you're ready to implement the ACS functions.<br/><br/>Key points - Point out the call to <code>Cloud.Users.login()</code> and the <code>e.success</code> test within the callback.<br/><br/>Important: the Cloud APIs are asynchronous, which means you can't rely on a <code>return</code> statement. You have to implement a callback as shown.",
+
+		"%l_manage": "Management",
+		"%l_manage_explanation": "Visit my.appcelerator.com to manage your apps.<br/><img src='images/acs_manage.png' style='height:400px'/>" ,
+		"%l_slidenote_manage": "You can view stats, see the objects that have been created, data that's been uploaded, and so forth via your my.appcelerator page.<br/><br/><em>During the pre-release phase, you have to visit cloud.appcelerator.com instead of my.appcelerator.com</em>",
 
 		"%l_analytics": "Analytics",
 		"%l_analytics1": "Log onto your <strong>my.appcelerator.com</strong> page",
