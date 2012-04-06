@@ -42,7 +42,7 @@ String.toLocaleString({
 		"%l_local": "Local Data",
 		"%l_remote": "Remote Data",
 		"%l_media": "** Media/Filesystem",
-		"%l_qa": "Q&A, Hacking",
+		"%l_qa": "Q&amp;A, Hacking",
 		"%l_location": "Location Services",
 		"%l_contacts": "Contacts/ Social API",
 		"%l_web": "Web Content",
@@ -50,7 +50,7 @@ String.toLocaleString({
 		"%l_study": "Study Session/Review",
 		"%l_exam": "Certification Exam",
 		"%l_slidenote_daily_schedule": "Depending on how fast people are completing the labs and the logisitcal flow of the class, we may cover Media/Filesystem on Day One, otherwise it may slip to Day Two.",
-		"%l_qa_slide": "Q&A",
+		"%l_qa_slide": "Q&amp;A",
 		"%l_slidenote_qa": ""
 	}
 });
