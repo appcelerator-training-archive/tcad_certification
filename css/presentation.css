@@ -108,6 +108,26 @@
 	TRAINING SPECIFIC OVERRIDES OF DEFAULT TITAN/REVEAL CSS CLASSES
 */
 
+html {
+	background: #A2BCC6;
+	background: -moz-radial-gradient(center, ellipse cover, #ddd 0%, #A2BCC6 100%);
+	background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#ddd), color-stop(100%,#A2BCC6));
+	background: -webkit-radial-gradient(center, ellipse cover, #ddd 0%,#A2BCC6 100%);
+	background: -o-radial-gradient(center, ellipse cover, #ddd 0%,#A2BCC6 100%);
+	background: -ms-radial-gradient(center, ellipse cover, #ddd 0%,#A2BCC6 100%);
+	background: radial-gradient(center, ellipse cover, #ddd 0%,#A2BCC6 100%);
+}
+#reveal h1, 
+#reveal h2, 
+#reveal h3, 
+#reveal h4 {
+	color: #333;
+	text-shadow: 0.02em 0.02em 0.07em #666;
+}
+p, div, li, td, span { color: #333; }
+li { padding-bottom: 5px; }
+
+
 #reveal .controls a {
 	opacity: 0.25 !important;
 }
