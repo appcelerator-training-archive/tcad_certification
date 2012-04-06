@@ -118,3 +118,46 @@
 #reveal .progress span {
 	background: #9A0707 !important;
 }
+#reveal h1, #reveal h2, #reveal h3 {
+    text-transform: none;
+    font-variant: small-caps;
+}
+
+/* FOR THE LAB SLIDES */
+#labwrapper a:not(.image) {
+	text-decoration:underline;
+}
+#labwrapper ul {
+	margin-left:30px;
+}
+#labwrapper h1 {
+	font-size: 2.75em;
+}
+#labwrapper h2 {
+	font-size: 2.5em;
+}
+#labwrapper {
+	margin: 0 30px;
+	font-size: 0.6em;
+	line-height: 1.25em;
+	text-align: left !important;
+	overflow: scroll;
+	height: 120%;
+	width: 800px;
+}
+#labwrapper table {
+	border: 0;
+	width: 90%;
+	margin: 0 30px;
+}
+.tdfiller {
+	width: 80px;
+}
+.labinstructions {
+	padding-left:24px;
+	text-indent:-24px;
+}
+.labexplanations {
+	font-style: italic;
+	padding-bottom: 20px;
+}

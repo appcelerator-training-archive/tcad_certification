@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>Appcelerator Cloud Services</title>
+		<title class="l_labname">Lab: Integrating ACS</title>
 		<meta name="description" content="Building Native Mobile Apps, Appcelerator Cloud Services">
     	<meta name="author" content="Appcelerator, Inc." />
 		
@@ -12,44 +12,13 @@
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
-		<script type="text/javascript" src="i18n/localizations.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
 		<style>
 		html, body {
 			overflow: always !important;
 		}
 		.slides {
 			top: 40% !important;
-		}
-		#labwrapper h1 {
-			font-size: 2.75em;
-		}
-		#labwrapper h2 {
-			font-size: 2.5em;
-		}
-		#labwrapper {
-			margin: 0 30px;
-			font-size: 0.6em;
-			line-height: 1.25em;
-			text-align: left !important;
-			overflow: scroll;
-			height: 120%;
-			width: 800px;
-		}
-		#labwrapper table {
-			border: 0;
-			width: 90%;
-			margin: 0 30px;
-		}
-		.tdfiller {
-			width: 80px;
-		}
-		.labinstructions {
-			padding-left:24px;
-			text-indent:-24px;
-		}
-		.labexplanations {
-			font-style: italic;
-			padding-bottom: 20px;
 		}
 		</style>
 	</head>
@@ -83,132 +52,87 @@
 <section>
 
 <!-- YOUR LAB CONTENT GOES HERE -->
-<h1 class="l_labname">Lab - Native Android Development</h1>
-<p class="l_mission"><strong>Mission: </strong>In this lab, you will build and run a simple 'Hello World' app using Android native tools. Your goal is to become familiar with the Android toolset and the steps that native developers must endure to create even simple Android projects.</p>
+<h1 class="l_labname">Lab - Integrating ACS</h1>
+<p class="l_mission"><strong>Mission: </strong>In this lab, you will integrate Appcelerator Cloud Services into the TiBountyHunter application to enable users to boast about their captured bounties. You will use the ACS Status API to enable users to post messages that are saved in the ACS cloud. While we won't be building it in this lab, presumably there would be a Web page where user would see those boasts or perhaps the app would feature a way to see other users' boasts. Creating those features is an 'exercise left to the reader.'</p>
 
 <table>
 	<tr>
-		<td colspan="2" class="labinstructions l_step1">1. At a command prompt, create a folder in your home directory named <strong>HelloWorldAndroid</strong></td>
+		<td colspan="2" class="labinstructions l_step1">1. Download the starting file set from <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBH275'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH275.zip'>AWS/S3<a> and import the resulting files as a new Titanium Mobile project.</td>
 	</tr>
 	<tr>
 		<td class="tdfiller"><!-- leave empty--></td>
-		<td class="labexplanations l_stepexplanation1">You will store the files for your Android project in that folder.</td>
+		<td class="labexplanations l_stepexplanation1"></td>
 	</tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step2">2. At a command prompt, enter <pre><code>
-android list targets</code></pre></td>
+	<td colspan="2" class="labinstructions l_step2">2. Build the project for either the iPhone simulator or Android emulator. Capture a bounty and then click the Captured tab. Tap the captured fugitive's name. Tap Log in to Brag.<div><img src='labimages/acs1.png' height='300' align='left'><img src='labimages/acs2.png' height='300' align='left'></td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_stepexplanation2">To get a list of Android API targets available on your system. You'll need to use a valid target number in the next step.</td>
+	<td class="labexplanations l_stepexplanation2">We've written most of the UI features and changes so that you can concentrate on adding the ACS functionality. Of course, at this point, those fields and buttons don't do anything.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step3">3. Enter: <br/>
-		<pre><code>
-android create project --target TARGET_NUMBER
---name MyAndroidApp 
---path ./HelloWorldAndroid
---activity MyAppActivity 
---package com.app.myandroid
-</code></pre>
-	</td>
+	<td colspan="2" class="labinstructions l_step3">3. Open the <strong>ui/common/DetailWindow.js</strong> and examine the ACS-related code that starts around line 176.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_stepexplanation3">To create a new project, where TARGET_NUMBER is a valid target number as determined in step 1. </td>
+	<td class="labexplanations l_stepexplanation3">This code creates the buttons and windows of the UI, and responds to events. The ACS functions are in a separate file.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step4">4. Switch into the HelloWorldAndroid directory and explore the files that were created.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_stepexplanation4">The various files and folders contain the </td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep5">5. With a text editor, open <strong>HelloWorldAndroid/src/com/app/myandroid/MyAppActivity.java</strong><br/><img src='labimages/myappactivity.jpg'></td>
+	<td colspan="2" class="labinstructions l_step4">4. Open <strong>lib/acs.js</strong> and examine its contents.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation5">This Java file is used to open your app's "activity" which in Android represents a component of an application with which the user can interact. As a native developer, you would modify this file with the Java code that enables your app's functionality.</td>
+	<td class="labexplanations l_stepexplanation4">This file contains function skeletons that you will write to enable ACS. </td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep6">6. Close that file. Then, with your text editor, open <strong>HelloWorldAndroid/res/layout/main.xml</strong>. Modify the "Hello World" text to a message of your choice. Save and close the file.<br/><img src='labimages/mainxml.jpg'></td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation6">This is the XML layout file for your app. As a native developer, you would modify this file and files like it to create your app's user interface.</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep7">7. In the HelloWorldAndroid directory, enter <pre><code>
-ant debug</code></pre></td>
+	<td colspan="2" class="labinstructions l_labstep5">5. Following the comments included in the acs.js file, write each of the functions required to enable the ACS functions of the app.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation7">The ant build script will build and sign the resulting apk file. You will see the message “BUILD SUCCESSFUL” upon completion. If you get an error regarding an expired Debug Certificate, remove the file debug.keystore from the ./android directory. A new version will be created when you next execute “ant debug.”</td>
+	<td class="labexplanations l_labstepexplanation5"></td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep8">8. Enter <pre><code>
-android</code></pre></td>
+	<td colspan="2" class="labinstructions l_labstep6">6. Open the tiapp.xml file and click <strong>Enable Cloud Services</strong>. Switch to the XML view and examine the tags added to the file.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation8">To open the Android SDK Manager application. You will use this app to create an Android Virtual Device (an emulator) in which to run your app.</td>
+	<td class="labexplanations l_labstepexplanation6">Clicking this button registered the app with the cloud.appcelerator.com site, generates the necessary keys, and added the required tags to your tiapp.xml file. Remember that for a production app, you'd want to move these keys to the JavaScript code to prevent their compromise.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep9">9. From the Tools menu, choose <strong>AVD Manager</strong> to open the window shown here:<br/><img src='labimages/avdmanager.png' width="400"/></td>
+	<td colspan="2" class="labinstructions l_labstep7">7. Save your changes in all files and build your project for the simulator/emulator.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation7"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep8">8. Test your app by capturing a fugitive and on his or her details page, click <strong>Log in to Brag</strong>. Click <strong>Create Account</strong> and complete the username, password, and confirm boxes. Tap Return or a blank area of the window to hide the keyboard. Click <strong>Create Account</strong>. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation8">Correct any errors and repeat the test until you can successfully post a message and retrieve the list of boasts.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep9">9. Close the simulator/emulator and all open files in Studio.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
 	<td class="labexplanations l_labstepexplanation9"></td>
 </tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep10">10. Click <strong>New</strong> and create an AVD with a target API level equal to or higher than your app's target. Examine the other options, such as the SD card size, skin (screen size and resolution), and emulated hardware features.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation10"></td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep11">11. Click <strong>Start</strong>, then click <strong>Launch</strong>.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanationSAME_STEP_NUMBER">To start your AVD. It will take a few minutes, depending on the speed of your computer, to fully start up.</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep12">12. Back at the command prompt, in the HelloWorldAndroid folder, enter <br/><pre><code>
-adb install bin/MyAndroidApp-debug.apk</code></pre></td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation12">To download and install your app on the emulator. If you need to reinstall it later, you can add the <code>-r</code> switch to the command above, or remove the app with <code>adb uninstall com.app.myandroid</code> (notice that you use the package name to uninstall, but the file name to install).</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep13">13. In the emulator, click the Tray button, then click <strong>MyAppActivity</strong></td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanationSAME_STEP_NUMBER">To launch the app. Your custom text should be displayed on the screen.</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep14">14. Back at the command prompt, enter <pre><code>
-ddms</code></pre></td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation14">To open the Dalvik Debug Monitor. The Dalvik Debug Monitor is your window to the AVD. Here you can inspect your application, view logs, look at threads, and depending on your hardware setup, simulate things like GPS coordinates or making calls. You should be able to see your application in the process list as com.app.myandroid. Click it and explore the threads and other debug information. You can also stop the process from here if needed.</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep15">15. Close DDMS, the emulator, the AVD manager, and all open windows.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation15"></td>
-</tr>
 
 
 </table>
 
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you implemented a couple of the ACS APIs. There are many more for you to explore. Obviously, we didn't complete a feature-complete app. There's no way to share messages or see those posted by others. But this lab's steps give you a taste of what can be done with ACS. And most notably, it highlights how you can add server-side functionality to your app without doing any server-side coding. </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">Finished code: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBountyHunter'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>AWS/S3</a></li>
+	<li class="l_resources2"><a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud'>API Docs: Cloud</a></li>
+	<li class="l_resources3"><a href='http://cloud.appcelerator.com/docs/quickstart'>Cloud QuickStart Guide</a></li>
+</ul>
 
 
 <!-- MAKE NO CHANGES BELOW THIS LINE -->
