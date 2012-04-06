@@ -54,6 +54,7 @@
 	SELECTORS FOR PRESENTATION NOTES
 */
 #appclogo {
+	/* ICON/BUTTON IN SLIDESHOW */
 	position: absolute;
 	bottom: 20px;
 	left: 20px;
@@ -61,19 +62,52 @@
 	height: 50px;
 }
 #presenternotes {
+	/* ICON/BUTTON IN SLIDESHOW */
 	position: absolute;
-	bottom: 20px;
+	bottom: 32px;
 	left: 125px;
-	width: 32px;
-	height: 32px;
+	width: 36px;
+	height: 36px;
 }
 .slidenote {
+	/* HIDES PRESENTER NOTES IN THE SLIDESHOW ITSELF */
 	display:none;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('OpenSans-Semibold.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+#presenter {
+	/* CONTROLS TEXT OUTPUT IN THE PRESENTER NOTES WINDOW */
+	margin:5px 10px;
+	font-size: 0.65em !important;
+	font-family: 'Open Sans';
+}
+.nestedarrow {
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	bottom:0;
+	left:50%;
+	margin: 0;
+	background: rgba(0,0,0,0) !important;
+	border: 0px !important;
+}
+.nestedarrow img {
+	margin: 0;
+	background: rgba(0,0,0,0) !important;
+	border: 0px !important;
+	width: 50px;
+	height: 50px;
+	
 }
 
 /*
 	TRAINING SPECIFIC OVERRIDES OF DEFAULT TITAN/REVEAL CSS CLASSES
 */
+
 #reveal .controls a {
 	opacity: 0.25 !important;
 }
@@ -83,8 +117,4 @@
 }
 #reveal .progress span {
 	background: #9A0707 !important;
-}
-#presenter {
-	margin:5px 10px;
-	font-size: small !important;
 }
