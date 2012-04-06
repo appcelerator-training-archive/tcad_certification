@@ -1,0 +1,339 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Building Native Mobile Apps With Titanium</title>
+		<meta name="description" content="Building Native Mobile Apps With Titanium">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Building Native Mobile Apps With Titanium</h1>
+					<!--h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5-->
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 30 mins </b> (10 mins for code demo) </p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Course Particulars/Logistics</li>
+			    		<li class="l_agenda2">Titanium Architecture Overview</li>
+			    		<li class="l_agenda3">Developer Resources</li>
+			    		<li class="l_agenda4">Code and Project Structure</li>
+						
+			    		
+			    	</ul>
+					
+					<div class="l_agenda5" style="vertical-align:bottom;"><i>* All topics should be review from 'Zero To App'</i></div>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda">In this module, we’ll cover these items</p>
+						
+					</div>
+				</section>
+
+
+				<section>
+					<h2 class="l_introduction">Introduction</h2>
+					<p style="margin-top:150px;" class="l_introduction_text" style="align:center;">Titanium enables web developers to create native mobile, desktop, and tablet applications using open web technologies (JavaScript, HTML, and CSS)</p>
+					<div class="slidenote"><p class="l_slidenote_introduction"></p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_key_facts">Titanium Key Facts</h2>
+					<p align="left" class="l_open_source">Open Source (Apache 2.0)</p>
+					<p align="left" class="l_pro_services" >Pro Services, Training, Analytics and SLA Support available from Appcelerator</p>
+					<p align="left" p class="l_mobile_platforms" >Mobile Platforms: iOS, Android, and BlackBerry (beta)</p>
+					<p align="left" p class="l_desktop_platforms" >Desktop Platforms: Windows, OS X, and Linux</p>
+					
+					<div class="slidenote"><p class="l_slidenote_key_facts"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_titanium_10000_feet">Titanium from 10,000 Feet</h2>
+					<p><img src="images/Titanium-architecture.png" style="margin-top:-15px;height:200px;"></p>
+					<table border="0">
+					<tr>
+						<td align="left" class="l_desktop"><b>Desktop</b></td>
+						<td></td>
+						<td align="left" class="l_mobile"><b>Mobile</b></td>
+					</tr>
+					<tr>
+						<td align="left" class="l_html5"><ul><li>HTML 5/ CSS 3 for UI (Webkit)</ul></li></td>
+						<td></td>
+						<td align="left" class="l_javascript_api"><ul><li>JavaScript APIs for UI (Native)</ul></li></td>
+					</tr>
+					<tr>
+						<td align="left" class="l_javascript"><ul><li>JavaScript, Ruby, PHP or Python for scripting</ul></li></td>
+						<td></td>
+						<td align="left" class="l_javascript_scripting"><ul><li>JavaScript for scripting</ul></li></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td align="left" class="l_webview"><ul><li>WebView available, but not required</ul></li></td>
+					</tr>
+					
+				</table>
+
+					<div class="slidenote"><p class="l_slidenote_titanium_10000_feet">
+					Business logic / application files include Javascript, HTML, and CSS, plus PHP, Ruby, and Python for Desktop.<br> Titanium JavaScript APIs provide access to platform-specific features and functionality<br> Desktop – runs within WebKit browser<br> Mobile – leverage native UI controls and device features<br>Not just a web wrapper like some other projects (jQuery mobile)
+					</p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_mobile_platform_features">Mobile Platform Features</h2>
+					<img src="images/mobile-platform-features.png" style="margin-top:15px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_l_mobile_platform_features"></p>Titanium exposes these key platform features via its API</div>
+				</section>
+				
+				<section>
+					<h2 class="l_titanium_projects">Titanium Projects</h2>
+					<p align="left" class="l_titanium_mobile">Titanium Mobile</p>
+					<p align="left" class="l_titanium_desktop" >Titanium Desktop</p>
+					<p align="left" p class="l_mobile_web" >Titanium Mobile Web</p>
+					<p align="left" p class="l_titanium_studio" >Titanium Studio</p>
+					
+					<div class="slidenote"><p class="l_slidenote_titanium_projects">Some of the products and projects that Appcelerator offers include …</p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_powered_by">Powered By Titanium</h2>
+					<h3 align="left" class="l_latest_apps"><b>Latest Applications:</b></h3>
+					<ul style="width:400px;float:left;">
+						<li class="l_nbc">NBC iPad app</li>
+						<li class="l_late">Late Night with Jimmy Fallon</li>
+						<li class="l_wunderlist">Wunderlist</li>
+						<li class="l_getglue">GetGlue</li>
+						
+					</ul>
+					
+					<img src="images/powered-by.png" style="width:300px;float:right;padding:10px;margin-top:-15px"/>
+					<h3 align="left" class="l_companies"><b>Companies:</b></h3>
+					<ul style="width:400px;float:left;">
+						<li class="l_nbc_company">NBC/ Universal</li>
+						<li class="l_kellogg">Kellogg's</li>
+						<li class="l_eBay">eBay and PayPal</li>
+						<li class="l_anheuser">Anheuser Busch</li>
+						<li class="l_jaguar">Jaguar</li>
+						<li class="l_mtv">MTV</li>
+						
+					</ul>
+					
+					<p vertical-align="bottom" class="l_many_more"><b><i>Many more ...</i></b></p>
+				    
+					<div class="slidenote"><div class="l_slidenote_powered_by">21,000 apps<br>1.5 million developers
+					</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_titanium_mobile_exists">Titanium Mobile exists to help developers build native apps that...</h2>
+					<p align="left" class="l_run_cross_platform">Run cross-platform</p>
+					<p align="left" class="l_leverage_common" >Leverage common skill sets and a gorgeous dynamic programming language</p>
+					<p align="left" p class="l_look_feel" >Look, feel*, and perform native</p>
+					<p align="left" p class="l_fit_well" >Fit well into the native app ecosystem (local notifications, activities/intents, background services...)</p>
+					
+					<p align="left" class="l_this_is_a_fuzzy" style="font-size:0.65em;">*this is a fuzzy but important point - users can perceive differences and can tell when something isn't quite 'right'</p>
+					
+					<div class="slidenote"><p class="l_slidenote_titanium_mobile_exists">Feeling native examples<br>iOS Cocoa UI elements<br>Android - hardware menu and back buttons
+					</p></div>
+				</section>
+				
+			
+				<section>
+				    <h2 class="l_hello_world">Hello World</h2>
+					<p><img src='images/hello-world.png' style="margin-top:170px;height:200px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_hello_world">Script for demo:<br><i>(take time to introduce Ti Studio as you demo)</i><br>
+					<ul>
+					<li>Generate new mobile project</li>
+					<li>
+						<ul><li>Package ID must be valid Java package ID(so can’t start with a number, must match Apple Bundle Seed ID)</li>
+						(so can’t start with a number, must match Apple Bundle Seed ID)</ul>
+					</li>
+					<li>Run new mobile project</li>
+					<li>Step through app.js default code</li>
+					<li>Point out the following directories/files and their purpose:</li>
+					<li>
+					    <ul>
+							<li>Build</li>
+							<li>Resources</li>
+							<li>I18n</li>
+							<li>Tiapp.xml</li>
+						</ul>
+					</li>
+					</ul>
+					</div>
+					</div>
+				</section>
+
+				<section>
+					<h2 class="l_under_the_covers">Under the Covers</h2>
+					<p align="left" class="l_titanium_python">Titanium’s Python build scripts interact with native SDK tools</p>
+					<p align="left" class="l_titanium_javascript" >JavaScript is statically analyzed, native project stub generated</p>
+					<p align="left" p class="l_javascript_precompiled" >JavaScript precompiled to bytecode (Android) or inlined in a generated C file (iOS)</p>
+					<p align="left" p class="l_javascript_and_native" >JavaScript and native code bindings are shipped along with JavaScriptCore (iOS) or Rhino (Android) to interpret JS code at runtime</p>
+					<div class="slidenote"><p class="l_slidenote_under_the_covers"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_resources">Resources</h2>
+					<p><img src='images/resources.png' style="margin-top:170px;height:200px;"/></p>
+					<div class="slidenote"><p class="l_slidenote_resources"></p></div>
+				</section>
+				
+				<section>
+					<h2 style="" class="l_my">My.Appcelerator.com</h1>
+					<p><img src='images/my-appcelerator.png' style='height:400px'/></p>
+					<div class="slidenote"><div class="l_slidenote_my_appcelerator"></div>my.appcelerator.com portal is jumping off point to Titanium resources available to you<br>Documentation, downloads, wiki, and more</div>
+				</section>
+				
+				<section>
+					<h2 style="" class="l_documentation">Documentation</h1>
+					<img src='images/documentation.png' style='height:330px'/>
+					<img src='images/wiki.png' style='height:330px'/>
+					<div class="slidenote"><div class="l_slidenote_documentation"></div>Here are some of the direct links to the pages you get to from your my.appcelerator.com portal</div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_example_code">Example Code</h1>
+					<img src='images/github-1.png' style='height:330px'/>
+					<img src='images/github-2.png' style='height:330px'/>
+					<div class="slidenote"><div class="l_slidenote_example_code"></div></div>
+				</section>
+				
+				<section>
+					<h2 style="" class="l_getting_help">Getting Help</h1>
+					<img src='images/twitter.png' style='height:300px'/>
+					<img src='images/dev-center.png' style='height:300px'/>
+					<div class="slidenote"><div class="l_slidenote_getting_help"></div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_qa_slide">Q&A</h1>
+					<p><img src='images/qa.png' style="margin-top:170px;height:200px;"/></p>
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+				
+				<!--section>
+					<h1 style="margin-top:200px;" class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"></div>
+				</section>
+
+				<section>
+					<h1 style="margin-top:200px;" class="l_lab">Lab Objectives</h1>
+					<ul>
+						<li class="l_labobjective1">Lab objective 1</li>
+						<li class="l_labobjective2">Lab objective 2</li>
+						<li class="l_labobjective3">Lab objective 3</li>
+					</ul>
+					<div class="slidenote"></div>
+				</section-->
+
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>

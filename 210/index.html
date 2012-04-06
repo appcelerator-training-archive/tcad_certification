@@ -1,0 +1,364 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>You're a Native App Developer Now</title>
+		<meta name="description" content="You're a Native App Developer Now">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">You're a Native App Developer Now</h1>
+					<!--h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5-->
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins (20 mins teaching</b>, 20 mins for Android lab, 20 mins for iPhone lab)<br><b>Be brief, do not cover the native tools in depth></b><br>Goal is to be aware of native tools and workflows. Might need to use some of these tools during development or debugging.</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Overview of a generic tool chain</li>
+			    		<li class="l_agenda2">The Android tool chain and "Hello World!"</li>
+			    		<li class="l_agenda3">The iPhone tool chain and "Hello World!"</li>
+			    		<li class="l_agenda4">Titanium and the native SDKs</li>
+						<li class="l_agenda5">Lab Exercise</li>
+		    		
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda">Present the agenda...</p>
+						
+					</div>
+				</section>
+
+				<section>
+					<h2 class="l_toolchain">Tool Chains - Everybody Has Them</h2>
+					<p style="margin-top:150px;" class="l_" style="align:left;">DEFINITION<br>A tool chain is a set of executables/scripts that together form a work flow from code to distributed applications</p>
+					<div class="slidenote"><p class="l_slidenote_introduction">They are usually a set of executables/scripts that can be invoked outside an IDE (integrated development environment)<br>Titanium abstracts away a lot of the daunting work of the tool chain setup and maintaining the environment, however to be effective it is essential to understand the background tools of that process<br>Titanium executes those tools as necessary to make your life easier and more productive.
+</p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_generic_toolchain">A Generic Tool Chain</h2>
+					<p><img src="images/generic-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					
+					<div class="slidenote"><p class="l_slidenote_generic_toolchain"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_android_toolchain">The Android Tool Chain</h2>
+					<p><img src="images/android-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					
+					<div class="slidenote"><p class="l_slidenote_android_toolchain"></p></div>
+				</section>
+				
+				
+				<section>
+					<h2 class="l_whats_in_the_box">What's in the box?</h2>
+					<img src="images/whats-in-the-box.png" style="margin-top:170px;height:200px;"/>					
+					<div class="slidenote"><p class="l_slidenote_whats_in_the_box"></p>Quick tour of what comes with the Android SDK<br>
+					<ul>
+						<li>Show SDK location</li>
+						<li>Describe platforms directory (OS version files)</li>
+						<li>Describe add-ons directory</li>
+						<li>Difference between vanilla and google-apis SDKs</li>
+						<li>Describe tools / platform-tools directory</li>
+						<li>Briefly describe adb, ddms, and android files</li>
+					</ul></div>
+				</section>
+				
+				<section>
+					<h2 class="l_hello_world">Hello World</h2>
+					<img src="images/hello-world-android-toolchain.png" style="margin-top:170px;height:200px;"/>					
+					<div class="slidenote"><p class="l_slidenote_hello_world"></p>Now lets demonstrate how to create, build and run your first hello world application on the emulator of Android.<br>This demonstration is based on the command line approach of Android development.
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_creating_hello_world">Creating the Hello World Project Structure</h2>
+					<img src="images/android-create-project.png" style="margin-top:15px;height:150px;width:750px;"/>					
+					<img src="images/android-project-explorer.png" style="margin-top:15px;height:200px;width:750px;"/>
+					<div class="slidenote"><p class="l_slidenote_creating_hello_world"></p>
+					<ol>
+					<li>Describe command and its arguments...target # is NOT the android SDK version<br></li>
+					<li>Do it in the terminal></li>
+					<li>Show project files that are created</li>
+					</ol>
+					Target: enter <u>android list targets</u> to get a list
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_how_to_build">How to build your hello world application</h2>
+					<img src="images/ant-debug.png" style="margin-top:15px;height:40px;width:750px;"/>					
+					<img src="images/ant-cmd.png" style="margin-top:15px;height:320px;width:750px;"/>
+					<div class="slidenote"><p class="l_slidenote_how_to_build"></p>Build using Apache Ant (might not be installed on your system)<br>Watch for 'Build Successful'<br>Next we need a virtual device in which to run our app
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_create_virtual_device">Creating a virtual device</h2>
+					<img src="images/create-virtual-device.png" style="margin-top:15px;height:450px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_create_virtual_device"></p>When issuing the command ”android” stand alone it will start this android virtual device manager, by clicking new you will be able to create a new virtual device for your needs.<br> Note that Titanium creates AVDs for you
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_virtual_device_parameters">Virtual Device Parameters</h2>
+					<img src="images/virtual-device-parameters.png" style="margin-top:15px;height:450px;width:750px;"/>				
+					<div class="slidenote"><p class="l_slidenote_virtual_device_parameters"></p>Options dialog permits settings for each virtual device. It is possible to customize hardware settings as well.<br>Before installation you need to start your virtual device, in the android virtual manager, simply click start and it will show up, it takes about a minute or two.
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_how_to_install">How to install your application to the target</h2>
+					<img src="images/adb-install.png" style="margin-top:15px;height:40px;width:550px;"/>					
+					<img src="images/android-emulator.png" style="margin-top:15px;height:320px;width:550px;"/>
+					<div class="slidenote"><p class="l_slidenote_how_to_install"></p>You install the apk file to the target with the help of the android debug bridge tool by specifying an install argument.<br>It can be installed onto an emulated device or the connected phone.
+					</div>
+				</section>
+
+				<section>
+					<h2 class="l_hello_world_running">Hello World application running</h2>
+					<img src="images/android-hello-world.png" style="margin-top:15px;height:380px;width:550px;"/>
+					<div class="slidenote"><p class="l_slidenote_hello_world_running"></p>When the application is running you can use the emulator to simulate things on the phone as well as stimulating it's user interface.
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_application_starting_point">Application starting point</h2>
+					<img src="images/application-starting-point.png" style="margin-top:15px;height:380px;width:550px;"/>
+					<div class="slidenote"><p class="l_slidenote_application_starting_point"></p>View layouts are represented by xml files and properties in the XML files.Here we can see a simple TextView specified on the view layout.
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_dalvik_debug_monitor">Dalvik Debug Monitor</h2>
+					<img src="images/dalvik-debug-monitor.png" style="margin-top:15px;height:380px;width:550px;"/>
+					<div class="slidenote"><p class="l_slidenote_dalvik_debug_monitor"></p>With the Dalvik Monitor you can monitor threads, processes and memory in Android emulated or target devices.<br>Demo ddms: show log output, simple filter, plus setting GPS coords<br>Also demo / introduce adb –d logcat (use –e for emulator)
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_iphone_toolchain">The iPhone Tool Chain</h2>
+					<p><img src="images/iphone-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					
+					<div class="slidenote"><p class="l_slidenote_iPhone_toolchain"></p>** Apple has replaced gcc with LLVM compiler<br>
+					** Apple has replaced gdb with LLDB debugger<br>
+					Using the iPhone tool chain is done in the IDE and at first glance it may seem that you need less steps to build your application than in Android, however the difference is that in XCode the build process is linked to the debugger and simulator more tightly.<br>
+					Project manager.<br>
+					First you create the project and set the appropriate parameters in the crate project wizard<br>
+					Then you will be presented with an IDE Editor.<br>
+					The IDE has a built in editor with capabilities like code completion and color coding, etc<br>
+					Separate editor can be used as well<br>
+					Building, compiling and running the debugger in your simulator.<br>
+					In XCode when you hit the build and run icon you will start the compiler and linker to create an executable<br>
+					The executable is then downloaded into the iPhone simulator and is ready to use for testing.<br>
+					Adding breakpoints in the code makes the simulator stop and wait for your input.<br>
+					XCode uses the LLDB debugger as well as the LLVM compiler<br>
+					Signing and package<br>
+					Signing iPhone applications is far more complicated than on Android, you need to go through a number of steps to create key files, device ID registrations and provisioning files from the Apple development portal.<br>
+					Those are then used in your XCode environment to correctly sign your applications before uploading with the help of iTune Connect. Tools use are the key manager in utilities folder as well as the apple portal and XCode.
+				</div>
+				</section>
+
+				<section>
+					<h2 class="l_iphone_whats_in_the_box">What's in the box?</h2>
+					<img src="images/iphone-whats-in-the-box.png" style="margin-top:170px;height:200px;"/>					
+					<div class="slidenote"><p class="l_slidenote_whats_in_the_box"></p>Quick tour of what comes with the iOS SDK<br>
+					<ul>
+						<li>Show SDK location</li>
+						<li>Describe Applications directory</li>
+							<ul>
+								<li>Briefly describe Xcode, Interface Builder, Dashcode editor, Instruments</li>
+							</ul>
+						<li>Describe usr/bin directory</li>
+							<ul>
+								<li>Command-line tools used by Xcode and Ti Developer</li>
+								<li>Xcodebuild command – used by Ti python scripts</li>
+							</ul>
+					</ul>
+					</div>
+				</section>
+
+				<section>
+					<h2 class="l_hello_world_iphone">Hello World</h2>
+					<img src="images/hello-world-iphone-toolchain.png" style="margin-top:170px;height:200px;"/>					
+					<div class="slidenote"><p class="l_slidenote_hello_world_iphone"></p>Creating apps for iPhone is mainly done in Xcode, included in Macintosh computers.<br>XCode is an IDE which wrappes all the tools you need, similar to Eclipse in Android.
+					</div>
+				</section>
+				
+				<section>
+					<h2 class="l_create_new_iphone_project">Create a new XCode project for iPhone</h2>
+					<img src="images/create-iphone-project.png" style="margin-top:15px;height:380px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_create_new_iphone_project"></p>
+					<ol>
+					<li>Find and boot the XCode IDE, chose to make an new XCode project.</li>
+					<li>Click ”Application” in iOS (for iPhone) and then a template<br>Use either the ”view based” or “tabbbed” application template</li>
+					<li>Click choose and you will enter the name and location of your iphone application</li>
+					<li>Demo Interface Builder to add a button to your view</li>
+					<li>Compile and run</li>
+					</ol>
+					</div>
+				</section>
+
+				<section>
+					<h2 class="l_xcode_ide_tools">The XCode IDE tools</h2>
+					<img src="images/xcode-ide-tools.png" style="margin-top:15px;height:380px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_xcode_ide_tools"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_storyboard_editor">Storyboard Editor</h2>
+					<img src="images/storyboard-editor.png" style="margin-top:15px;height:400px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_storyboard_editor"></p>Storyboard shows graphical “outline” of your app’s screens</div>
+				</section>
+
+				<section>
+					<h2 class="l_storyboard_editor_contd">Storyboard Editor, continued</h2>
+					<img src="images/storyboard-details.png" style="margin-top:15px;height:400px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_storyboard_editor_contd"></p>Target can be iPhone or iPad depending on project<br>Select a view/window next<br>Select any control it contains<br>Then, you can drag&drop new controls to page</div>
+				</section>
+
+				<section>
+					<h2 class="l_running_your_app">Running your application on the simulator</h2>
+					<img src="images/iphone-simulator.png" style="margin-top:15px;height:400px;width:200px;"/>					
+					<div class="slidenote"><p class="l_slidenote_running_your_app"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_instrument">Instrumental tools to aid the test process</h2>
+					<img src="images/instrument.png" style="margin-top:15px;height:400px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_instrument">Just like the dalvik monitor in Android, you can start different instrumentation tools to find memory leaks, track threads and processes and to find potential errors. These can be found in the run/run with performance tools menu.</p></div>
+				</section>
+
+				<section>
+					<h2 class="l_titanium_studio">Titanium Studio and the SDKs</h2>
+					<p align="left" class="l_python">Titanium Studio relies on Python build scripts(mobile SDK)</p>
+					<p align="left" class="l_scripts">Scripts interact with native tool chains</p>
+					<p align="left" class="l_mobile_sdk">Titanium Mobile SDK requires and is dependent on these native tool chains</p>
+					<p align="left" class="l_native_toolchain">Will still need to use native tool chains (on occasion)</p>
+					<div class="slidenote"><p class="l_slidenote_titanium_studio"></p><b>Slide Flow</b><br>
+					Titanium Studio calls the build scripts in the mobile SDK<br>
+					<b>Demo:</b> Navigate to the mobile SDK directory on the filesystem, show build scripts and brief explanation of what they are used for (invoking the compilers, shipping to a device)<br>
+					Since the build scripts interface with command line tools like adb, the native SDKs are a hard requirement for mobile development.<br> Ti Studio Premium offers built-in debugging tools, but you may need to use the native tools for debugging<br> In some cases, if your application gets very large or uses lots of different media assets at once, you may need to start profiling your application’s memory use and experiment with ways to reduce memory consumption, but this is a very rare case since Titanium handles memory management for you.</div>
+				</section>
+				
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:15px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa">Before we jump into the lab, what questions do you have? tools menu.</p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_lab">Q&A</h2>
+					<img src="images/lab.png" style="margin-top:15px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab">We don’t expect you to be working a lot with the native tools, but some of them are handy at times. <br>In the lab, you’ll create Android and iOS projects using the native tool chains.<br>Roughly 25-30 mins for both labs</p></div>
+				</section>
+
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
