@@ -1,0 +1,238 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Working With Local Data</title>
+		<meta name="description" content="Working With Local Data">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Working With Local Data</h1>
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(30 teaching, 30 lab)</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Understand the different mechanisms for persistence in Titanium Mobile</li>
+			    		<li class="l_agenda2">Learn the basics of the SQLite database engine</li>
+			    		<li class="l_agenda3">Learn how to use the Properties API to store configuration and JavaScript objects</li>
+			    		<li class="l_agenda4">Use persistent data to back user interface elements</li>
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda">We’ll cover the differences between mechanisms and when you’d each</p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_local_data">Local Data Persistence methods</h2>
+					<p align="left" class="l_sql">SQLite Database</p>
+					<p align="left" class="l_properties">Properties API</p>
+					<p align="left" class="l_lots">Lots of structured data === Database</p>
+					<p align="left" class="l_configuration">Configuration or less than 20 objects === Properties</p>
+					<p align="left" class="l_images">Images, binary data - don't use blobs if you can avoid it</p>
+					<div class="slidenote"><p class="l_slidenote_local_data"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_properties_api">Properties API</h2>
+					<p align="left" class="l_lightweight">Lightweight Key/Value Store</p>
+					<p align="left" class="l_best_suited">Best suited for light persistence needs (configuration options, saved application state)</p>
+					<p align="left" class="l_coupled">Coupled with JSON, can be used to store complex JavaScript objects</p>
+					<div class="slidenote"><p class="l_slidenote_properties_api"></p>Properties plus JSON is live-coded in the persistence app, with you writing out a JavaScript object to a string property and then reading it back in.</div>
+				</section>
+				
+				<section>
+					<h2 class="l_json">JSON = JavaScript Object Notation</h2>
+					<p align="left" class="l_language">Language-independent text-based means to represent arrays and objects (without methods)</p>
+					<p align="left" class="l_compact">Compact data format, efficient over slow networks</p>
+					<p align="left" class="l_standardized">Standardized and widely supported, see json.org</p>
+					<p><img src="images/json.png" style="margin-top:20px;height:200px;align:right"></p>
+					<div class="slidenote"><p class="l_slidenote_json"></p>Quick intro to JSON<br>Skip if students are familiar with topic</div>
+				</section>
+				
+				<section>
+					<h2 class="l_demo_string_props">Demo: String Properties</h2>
+					<p><img src="images/demo.png" style="margin-top:0px;height:420px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_demo_string_props"></p>Demo for plain old properties uses the “Persistence” demo app<br><ol><li>Launch in Developer and demo app</li><li>Enter data and quit</li><li>Fully quit app</li><li>Re-open to demonstrate persistence</li></ul><br>Code review:<ul><li>Open Resources/properties.js</li><li>Ti.App.Properties.getString() and mention data types</li><li>createTextField()</li><li>Change event listener, setString()</li></ul></div>
+				</section>
+				
+				<section>
+					<h2 class="l_simple_obj">Simple Object Storage</h2>
+					<p><img src="images/simple-obj.png" style="margin-top:0px;height:300px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_simple_obj"></p>Ti Properties can be used to store simple objects<br>Example user object<br>Save to userData property via JSON.stringify()<br>Reconstitute using JSON.parse()</div>
+				</section>
+				
+				<section>
+					<h2 class="l_database_api">Database API</h2>
+					<p align="left" class="l_each_platform">Each platform features and embedded SQLite database</p>
+					<p align="left" class="l_best_used">Best used for large amounts of structured data</p>
+					<p align="left" class="l_you_can">You can use a pre-populated SQLite database file using Ti.Database.install</p>
+					<p align="left" class="l_interact">Interact with the DB using standard SQL statements</p>
+					<p align="left" class="l_demo_persistence">Demo: Persistence app</p>
+					<div class="slidenote"><p class="l_slidenote_database_api"></p><b>NOTE:</b> When shipping a pre-populated database, this will NOT use the SD card on Android and will increase the size of the installable binary.  This can be an issue on older Android devices.  Also, any time the binary size gets bigger, you should look at alternatives, like downloading your database from the web
+					<b>Demo --  Persistence app</b><ol><li>Open app, switch to Database tab</li><li>Add an entry</li><li>Click row, alert shows row index</li><li>Click Edit, click delete button, click Delete</li></ol><br><b>Don’t do the code review here, next slides</b></div>
+				</section>
+				
+				<section>
+					<h2 class="l_persistence_demo">Persistence - Database demo</h2>
+					<p><img src="images/persistence-demo-1.png" style="margin-top:0px;height:420px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_persistence_demo"></p>Code walkthrough:<br><ol><li>Open Resources/app.js and explain basic app structure</li><li>Open database.js</li><ol><li>Grab reference to database with open()</li><li>Create table if it doesn’t exist</li><li>Very brief on views/buttons for entry</li><li>Retrieving data from DB and building the table row data</li><li>rows.next() critical, moves cursor to next record</li><li>rows.close() important for memory optimization<br>better to open and close than to leave open</li><li>Creating table, point out editable: true</li><li>Event handler on table for alert()</li><li>Event handler for delete</li><li>Event for adding new row to table<br>should use db.lastInsertRowID property instead</li></ol></ol></div>
+				</section>
+
+				<section>
+					<h2 class="l_persistence_demo">Persistence - Database demo</h2>
+					<p><img src="images/persistence-demo-2.png" style="margin-top:0px;height:420px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_persistence_demo_2"></p><b>iOS only is the table editing and delete event listener</b><br>Code walkthrough:<br><ol><li>Open Resources/app.js and explain basic app structure</li><li>Open database.js</li><ol><li>Grab reference to database with open()</li><li>Create table if it doesn’t exist</li><li>Very brief on views/buttons for entry</li><li>Retrieving data from DB and building the table row data</li><li>rows.next() critical, moves cursor to next record</li><li>rows.close() important for memory optimization<br>better to open and close than to leave open</li><li>Creating table, point out editable: true</li><li>Event handler on table for alert()</li><li>Event handler for delete</li><li>Event for adding new row to table<br>should use db.lastInsertRowID property instead</li></ol></ol></div>
+				</section>	
+
+				<section>
+					<h2 class="l_sqllite_data_types">SQLite Data Types</h2>
+					<p align="left" class="l_small_number">Small number of built-in data types</p>
+					<p align="left" class="l_text">Text, Integer, Real, Blob</p>
+					<p align="left" class="l_need_to">Need to represent other data types within these primitives</p>
+					<p align="left" class="l_boolean">Integer 0 or 1</p>
+					<p align="left" class="l_date">Timestamp as text</p>
+					<div class="slidenote"><p class="l_sqllite_data_type"></p>SQLite supports more keywords when creating fields, such as VARCHAR<br>But “under the hood” the various field types are mapped to the four shown here</div>
+				</section>
+
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_lab_goals">Lab Goals</h2>
+					<p align="left" class="l_back_our">Back our TiBountyHunter application with live data from a SQL database</p>
+					<p align="left" class="l_requirements">Requirements:</p>
+					<div align="left"><ul>
+						<li class="l_crud">CRUD operations on our fugitive database</li>
+						<li class="l_adding">Adding behavior to our detail and add windows</li>
+						<li class="l_provide_window"Update the fugitive lists on create, update or delete</li>
+					</ul></div>
+					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
+					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Sticking with our recommendation for self-contained UI components, you’ll want your tableviews to be able to update themselves when fugitives are added, deleted, or updated. You’ll want to use events to notify elements of changes and add methods to your components to update themselves with the new data.<br>Demo app<br><ol><li>Add a fugitive or two</li><li>Click to show details, capture (boolean switch)</li><li>Switch to Captured tab and there’s the fugitive</li><li>Delete the scoundrel and he’s gone from the table</li></ol>Show that you’ll be using the menu on Android. Demo.<br>You can get menu code from the KitchenSink</div>
+				</section>
+
+				<section>
+					<h2 class="l_lab">Lab Exercise</h2>
+					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_solution">Solution Walkthrough</h2>
+					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_solution">Walk through – TiBH250<br><u>app.js</u><ul><li>new included file</li></ul><u>db.js</u><ul><li>DB open, create table, and close statements</li><li>list()</li><li>ternary operator</li><li>add() - not application level event</li><li>delete()</li><li>bust()</li></ul></p></div>
+				</section>
+				
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
