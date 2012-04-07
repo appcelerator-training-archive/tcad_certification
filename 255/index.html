@@ -1,0 +1,245 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Working With Remote Data</title>
+		<meta name="description" content="Working With Remote Data">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Working With Remote Data</h1>
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(30 teaching, 30 lab)</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Using the HTTPClient API to fetch remote data</li>
+			    		<li class="l_agenda2">File uploads and downloads</li>
+			    		<li class="l_agenda3">Working with JSON and XML</li>
+			    		<li class="l_agenda4">Working with SOAP</li>
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda"></p></div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_xmlhttp">The XMLHTTPRequest Object</h2>
+					<p align="center" class="l_in_the_browser">In the web browser, Ajax requests rely on the XMLHTTPRequest object provided by the browser</p>
+					<p><img src="images/xmlhttprequest.png" style="margin-top:20px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_xmlhttp">In a web browser, Ajax works through a five step process as shown he <br><ol><li>User interacts with page</li><li>Which creates an XHR object  = ReadyState 1</li><li>Which passes an HTTP request to the server = ReadyState 2</li><li>The server creates a response and sends back XML or JSON data<br>ReadyState 3 when data begins to arrive<br>ReadyState 4 when data is all there</li><li>The callback function of the XHR object updates the UI</li></ol></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_httpclient">The HTTPClient Object</h2>
+					<p align="left" class="l_ti_network">Ti.Network.HTTPClient implements the XHR specification</p>
+					<p align="left" class="l_thats_why">That's why you see 'xhr' in sample code</p>
+					<p align="left" class="l_low_level">Low level HTTP client interface with support for all HTTP verbs</p>
+					<p align="left" class="l_should_be">Should be familiar to Ajax programmers</p>
+					<div class="slidenote"><p class="l_slidenote_httpclient"></p>Xhr refers to the XMLHTTPRequest object, and is seen in demo apps like the Kitchen Sink<br>Titanium implements XHR<br>Very similar to low-level Ajax without a jQuery type library<br>Support for all verbs: get, post, delete, put</div>
+				</section>
+				
+				<section>
+					<h2 class="l_typical">A Typical Network Request</h2>
+					<p align="left" class="l_language">Language-independent text-based means to represent arrays and objects (without methods)</p>
+					<p align="left" class="l_compact">Compact data format, efficient over slow networks</p>
+					<p align="left" class="l_standardized">Standardized and widely supported, see json.org</p>
+					<p><img src="images/network-request.png" style="margin-top:5px;height:280px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_typical"></p>Define XHR object<br>Specify an onload callback and other lifecycle handlers<br>Open the the request<br>Then finally send the request<br>You can set HTTP headers: after open before send<br>To send data as part of a request, pass a JSON-serializable object within send()</div>
+				</section>
+
+				<section>
+					<h2 class="l_lifecycle">Lifecycle Callbacks</h2>
+					<p align="left" class="l_generally">This is a good idea - synchronous network is a bad idea</p>
+					<p align="left" class="l_good_idea">Compact data format, efficient over slow networks</p><br>
+					<p align="left" class="l_onload"><b>onload:</b>function called when HTTP request returns</p><br>
+					<p align="left" class="l_onerror"><b>onerror:</b>function called for HTTP request error</p><br>
+					<p align="left" class="l_onreadystatechange"><b>onreadystatechange:</b>low-level handler for HTTP state</p><br>
+					<p align="left" class="l_onsendstream"><b>onsendstream/ondatastream:</b>file upload/download</p>
+					<div class="slidenote"><p class="l_slidenote_lifecycle"></p>XHR centered around callbacks<br>So, asynchronous<br>Could probably do sync but that’s not a best practice<br>As of SDK 1.8, HTTP 4xx & 5xx errors cause onerror() to be called rather than onload()</div>
+				</section>				
+				
+			
+				<section>
+					<h2 class="l_demo_download">Demo: File Download</h2>
+					<p><img src="images/file-download.png" style="margin-top:30px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_demo_download"></p>Demo - KitchenSink<br>Platform > XHR > File Download<br>- click Set Web View (url)<br><u>examples/xhr_filedownload.js ~line 28</u><ul<li>show onload(), responseData, and webview</li><li>show ondatastream()</li><li>show onerror()</li>Then, show open() and send()</li></ul></div>
+				</section>
+				
+				<section>
+					<h2 class="l_working_json">Working With JSON</h2>
+					<p align="left" class="l_json_namespace">JSON namespace is built in to global scope</p>
+					<p align="left" class="l_recommended">Recommended data transport format for Titanium Mobile</p>
+					<p align="left" class="l_super_easy">Super easy to serialize response data</p>
+					<p align="left" class="l_json_parse"><b>JSON.parse()</b> – convert string to JavaScript object</p>
+					<p align="left" class="l_json_stringify"><b>JSON.stringify()</b> - convert JavaScript object to string</p>
+					<div class="slidenote"><p class="l_slidenote_working_json"></p>JSON is built into and accessible in global scope<br>JSON is compact, easy to serialize and re-hydrate</div>
+				</section>
+
+				<section>
+					<h2 class="l_working_xml">Working With XML</h2>
+					<p align="left" class="l_xml_dom">XML DOM Level 2 API built in</p>
+					<p align="left" class="l_xml_doc">XML document created for your for every HTTPClient request</p>
+					<p align="left" class="l_xml_related">XML related functions in the Ti.XML namespace</p>
+					<p align="left" class="l_many_xml">Many XML/XHR examples in Kitchen Sink</p>
+					<p align="left" class="l_more_data">More data over the wire, but still commonly used</p>
+					<div class="slidenote"><p class="l_slidenote_working_xml"></p>Web services often publish their data in XML<br>An XML doc object is created when you fetch an XML document<br>See the Ti.XML namespace on the API docs<br>Examples in the KitchenSink</div>
+				</section>
+
+				<section>
+					<h2 class="l_demo_twitter">Demo: Twitter XML</h2>
+					<p><img src="images/demo-twitter.png" style="margin-top:30px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_demo_download"></p>Demo - KitchenSink<br>Platform > XHR > XML Data<br>- Pulls public data stream from Twitter API<br><ul><li>Get data from XML for label</li><li>Dumping raw data into a text field</li></ul><br>examples/xhr_xml.js<ul><li>XHR object, onload handler</li><li>Show how variables are extracted:</li><ul><li>doc, elements, screenName, and text node</li></ul><li>responseText dumped into textarea</li><li>open() & URL</li></ul></div>
+				</section>				
+
+				<section>
+					<h2 class="l_few_words">A Few Words on SOAP</h2>
+					<p align="left" class="l_soap">'Simple Object Access Protocol'- possibly the most ironic acronym in tech history</p>
+					<p align="left" class="l_at_end">At the end of the day, it is just a layer of abstraction over the top of XML and HTTP</p>
+					<p align="left" class="l_plan_a">Plan A: Use a server-side proxy to return JSON</p>
+					<p align="left" class="l_plan_b">Plan B: Use the Suds helper library</p>
+					<p align="left" class="l_plan_c">Plan C: Manually construct SOAP envelopes</p>
+					<p align="left" class="l_in_practice">In practice, people usually go with Plan C</p>
+					<div class="slidenote"><p class="l_slidenote_few_words_slide"></p>Examples in the Kitchen Sink<br>Consuming/invoking SOAP web services means correctly setting the HTTP headers and XML payload (SOAP envelope) of the request<br>Lots of meta data included in every request, which means lots of data over a slow cellular connection<br>Suds at github.com/kwhinnery/Suds</div>
+				</section>
+
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_lab_goals">Lab Goals</h2>
+					<p align="left" class="l_make">Make TiBountyHunter communicate with a very simple web service over HTTP</p><br>
+					<p align="left" class="l_requirements">Requirements:</p>
+					<div align="left"><ul>
+						<li class="l_seed">Seed the database with results from the web service</li>
+						<li class="l_send">Send a request to the server when a fugitive is captured</li>
+					</ul></div>
+					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
+					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Communicate over HTTP<br>Uninstall because of database changes<br>Seed database on first-run with data from web service<br>Demo: <b>TiBHH255</b><ul<li>Show populated and empty tabs</li><li>Capture a fugitive</li><li>Delete a fugitive</li></ul></div>
+				</section>
+
+				<section>
+					<h2 class="l_lab">Lab Exercise</h2>
+					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_solution">Solution Walkthrough</h2>
+					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_solution">Walk through – TiBH260<br><u>network.js</u><ul><li>Walk through all code, top to bottom</li><li>Load url in browser to show JSON data</li></ul><u>db.js</u><ul><li>‘seeded’ block at end</li><li>network call to get fugitives</li></ul></p></div>
+				</section>
+				
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
