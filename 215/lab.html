@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title class="l_labname">Lab: Native Android Development</title>
-		<meta name="description" content="Building Native Mobile Apps, You're a Native Developer Now">
+		<meta name="description" content="Building Native Mobile Apps, Cross-Platform Mobile Development">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -52,27 +52,62 @@
 <section>
 
 <!-- YOUR LAB CONTENT GOES HERE -->
-<h1 class="l_labname">Lab - Native Android Development</h1>
-<p class="l_mission"><strong>Mission: </strong>In this lab, you will build and run a simple 'Hello World' app using Android native tools. Your goal is to become familiar with the Android toolset and the steps that native developers must endure to create even simple Android projects.</p>
+<h1 class="l_labname">Lab - Cross-Platform Mobile Development</h1>
+<p class="l_mission"><strong>Mission: </strong>In this lab assignment, you will begin to create a cross-platform mobile application for Android and iPhone devices called TiBountyHunter.  TiBountyHunter is derived from an example application developed in the iOS development primer Head First iPhone Development.  The TiBountyHunter application enables bounty hunters to track a list of fugitives on their mobile device.  In this lab, you will be asked to create and begin implementing this example application.</p>
 
 <table>
 	<tr>
-		<td colspan="2" class="labinstructions l_step1">1. At a command prompt, create a folder in your home directory named <strong>HelloWorldAndroid</strong></td>
+		<td colspan="2" class="labinstructions l_step1">1. In Studio, create a new Titanium Mobile project. Name the app <strong>TiBountyHunter</strong> and give it an app ID of <strong>com.appcelerator.tibh</strong>. Uncheck the "Automatically cloud-enable this application" option.</td>
 	</tr>
 	<tr>
 		<td class="tdfiller"><!-- leave empty--></td>
-		<td class="labexplanations l_stepexplanation1">You will store the files for your Android project in that folder.</td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_step2">2. Once the project has been created, close the tiapp.xml file. Delete the contents of app.js.</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2">You will write your own code that implements a CommonJS module pattern.</td>
 	</tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step2">2. At a command prompt, enter <pre><code>
-android list targets</code></pre></td>
+	<td colspan="2" class="labinstructions l_labstep3">3. Write a self-calling function with an empty function body. </td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_stepexplanation2">To get a list of Android API targets available on your system. You'll need to use a valid target number in the next step.</td>
+	<td class="labexplanations l_labstepexplanation3">You will enclose your code in a self-calling function so that you don't pollute the global scope.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step3">3. Enter: <br/>
+	<td colspan="2" class="labinstructions l_step4">4. Add an Ti.API.info logging message that outputs the message 'Welcome to TiBountyHunter for ' and include the platform's osname in that log message.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. Declare a variable named ApplicationTabGroup which will store the results of requiring the 'ui/common/ApplicationTabGroup' module. This module will create and return the tab group for your app. Create a new instance of ApplicationTabGroup and open it. Save and close the file.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5">This is all you'll add to the app.js file. It simply bootstraps your application.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep6">6. Create the ui/common folders and then create a file named ApplicationTabGroup.js. In that file, define a function named ApplicationTabGroup that will define a tab group, add two windows, and return the tab group. Tab 1 should be titled 'Fugitives' and tab 2 should be 'Captured' (make sure to use the internationalization file for these strings). You will need a new module, named Window, that will create Ti.UI.Window objects for your app. It's constructor should accept a Boolean value, which will be used to distinguish between the window showing at-large vs. captured bounties.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation6"></td>
+</tr>
+
+
+
+
+
+
+
+
+<tr>
+	<td colspan="2" class="labinstructions l_step5">5. Enter: <br/>
 		<pre><code>
 android create project --target TARGET_NUMBER
 --name MyAndroidApp 
@@ -184,9 +219,9 @@ ddms</code></pre></td>
 <h2 class="l_resources">Resources</h2>
 
 <ul>
-	<li class="l_resources1"><a href='http://developer.apple.com/'>http://developer.apple.com/</a></li>
-	<li class="l_resources2"><a href='http://developer.apple.com/library/ios/#documentation/Xcode/Conceptual/iphone_development/000-Introduction/introduction.html'>Apple: iPhone development introduction</a></li>
-	<li class="l_resources3"><a href='http://developer.apple.com/library/ios/#documentation/ToolsLanguages/Conceptual/Xcode4UserGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40010215-CH1-SW1'>Apple: Xcode introduction</a></li>
+	<li class="l_resources1">Localizing Strings: <a href='http://wiki.appcelerator.org/display/guides/Internationalizing+your+Application'>wiki.appcelerator.org/display/guides/Internationalizing+your+Application</a></li>
+	<li class="l_resources2">Titanium Window Reference: <a href='http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.Window-object'>developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.Window-object</a></li>
+	<li class="l_resources3">CommonJS modules in Titanium: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/CommonJS_Modules_in_Titanium'>docs.appcelerator.com/titanium/2.0/index.html#!/guide/CommonJS_Modules_in_Titanium</a></li>
 </ul>
 
 

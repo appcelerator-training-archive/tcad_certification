@@ -128,6 +128,11 @@ p, div, li, td, span { color: #333 !important; }
 section a { color: #333 !important; text-decoration:underline !important;}
 li { padding-bottom: 5px; }
 
+#reveal pre code {
+	font-size: 1.2em;
+	line-height: 1.2em;
+}
+
 #reveal .slides {
 	position: absolute;
 	width: 900px;

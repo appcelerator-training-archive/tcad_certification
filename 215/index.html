@@ -152,36 +152,137 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_critical">Critical: don't use "get/set" in methods you add</p>
 					<p align="left" class="l_you_cant">You can't override built-in methods and properties</p>
 					<p align="left" class="l_but">(But, it's usually okay to add a property or two)</p>
-					<div class="slidenote"><div class="l_slidenote_dont_extend">Titanium proxies represent native objects. E.g. Ti.UI.Button has a native button counterpart<br>Adding properties and methods could break the link between the JavaScript objects and their native equivalents<br>Can't use words get or set in method names -- those are reserved “magic” on iOS and Titanium will ignore your code and try to call those methods on the native proxy instead<br>You can't override (replace) any of the built in methods or properties<br>Despite all that, it's usually okay to add one or two properties, like adding a property to store the primary key of a database record in a table row or map annotation.</div></div>
+					<div class="slidenote"><div class="l_slidenote_dont_extend">Let's talk about how you <em>should</em> structure your projects.<br/>Titanium proxies represent native objects. E.g. Ti.UI.Button has a native button counterpart<br>Adding properties and methods could break the link between the JavaScript objects and their native equivalents<br>Can't use words get or set in method names -- those are reserved 'magic' on iOS and Titanium will ignore your code and try to call those methods on the native proxy instead<br>You can't override (replace) any of the built in methods or properties<br>DUsually okay to add one or two properties (e.g. primary key of a database record in a table row or map annotation).</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_namespaces">Namespaces</h2>
-					<p align="left" class="l_discrete">Discrete "containers" for variables &amp; other identifiers</p>
-					<p align="left" class="l_prevent">Prevents collisions</p>
-					<p align="left" class="l_ti_namespaces">Titanium namespaces:<br>Titanium.UI, Titanium.App, Titanium.API, etc.<br>Ti = Titanium</p>
-					<p align="left" class="l_define">Define custom namespaces in your app</p>
-					<div class="slidenote"><div class="l_slidenote_namespaces">Prevent name conflicts<br>Access variables across scopes<br>Don't pollute the global scope</div></div>
+					<p align="left" class="l_globalnamespace">JavaScript shares a single global namespace</p>
+					<p align="left" class="l_createyourown">Namespace your variables to:</p>
+					<ul style="margin-left:50px;">
+						<li class="l_prevent">Prevent collisions</li>
+						<li class="l_discrete">Provide discrete "containers" for variables &amp; other identifiers</li>
+						<li class="l_ti_namespaces">Follow the model of Titanium -- <br>Ti namespaces: Titanium.UI, Titanium.App, Titanium.API, etc.</p>
+					</ul>
+					<pre><code contenteditable class="l_namespacecode">
+var MyApp = {}; // create an object, serves as app's single global variable
+MyApp.someproperty = 'foo';
+MyApp.somefunction = function() {};
+MyApp.DB = {}; // a 'sub-namespace' for specific, related functionality
+
+</code></pre>
+					<div class="slidenote"><div class="l_slidenote_namespaces">Don't pollute the global scope!</div></div>
 				</section>
+
+				<section>
+					<h2 style="" class="l_cjsconsiderations">CommonJS Considerations</h2>
+					<ul>
+						<li class="l_cjs1">Modules have their own global namespaces</li>
+						<li class="l_cjs2">No access to the calling context's namespace</li>
+						<li class="l_cjs3">Return properties and methods you specify</li>
+						<li class="l_cjs4">Others are 'private'</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_cjsconsiderations"></div></div>
+				</section>
+
 
 				<section>
 					<h2 class="l_so_what">So what does a sane app look like?</h2>
 					<p align="left" class="l_app_js">app.js is your bootstrap file</p>
 					<p align="left" class="l_defines">Defines app's name space</p>
-					<p align="left" class="l_includes">Includes app's files</p>
+					<p align="left" class="l_includes">Requires in the app's files</p>
 					<p align="left" class="l_creates">Creates and opens the first UI component</p>
-					<p><img src="images/sane-app-code.png" style="margin-top:50px;height:200px;"></p>
+<pre><code contenteditable class="l_saneapp1code">
+var myapp = {}; // define your app's namespace
+myapp.someproperty = 'foo'; // runtime variables are stored w/in myapp
+
+myapp.ui = {}; // sub-namespace for our UI-related properties/methods
+myapp.ui.mainWindow = require('ui/mainWindow').init();
+
+// you can pass data to modules should you need to
+myapp.ui.mainWindow.add(require('ui/someComponent').init(myapp.someproperty));
+
+myapp.ui.mainWindow.open(); // open our app's main UI component
+
+</code></pre>
 					<div class="slidenote"><div class="l_slidenote_so_what">Not much logic in app.js -- just bootstraps your app</div></div>
 				</section>
+
+				<section>
+					<h2 style="" class="l_saneapp2">So what does a sane app look like?</h2>
+					<p align="left" class="l_saneapp2_explanation">Or take it even further...no global variables!</p>
+<pre><code contenteditable class="l_saneapp2code" style="width:800px">
+(function() {
+	var myapp = {}; // define your app's namespace
+	myapp.someproperty = 'foo'; // runtime variables are stored w/in myapp
+
+	myapp.ui = {}; // sub-namespace for our UI-related properties/methods
+	myapp.ui.mainWindow = require('ui/mainWindow').init();
+
+	// you can pass data to modules should you need to
+	myapp.ui.mainWindow.add(require('ui/someComponent').init(myapp.someproperty));
+
+	myapp.ui.mainWindow.open(); // open our app's main UI component
+	
+})();	
+
+</code></pre>
+					<div class="slidenote"><div class="l_slidenote_saneapp2">You can wrap your code in a self-calling function to avoid any variables to the global namespace.<br/><br/>If you use Ti.include() instead of require, this is how you should structure your code.</div></div>
+				</section>
+
 				
 				<section>
-					<h2 class="l_so_what_contd">So what does a sane app look like?</h2>
-					<p align="left" class="l_additional">Additional files to implement app functionality</p>
-					<p align="left" class="l_self">Self-calling functions define scope</p>
-					<p align="left" class="l_demo">Demo</p>
-					<p><img src="images/sane-app-code-contd.png" style="margin-top:10px;height:320px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_so_what_contd"></p>Not much logic in app.js -- just bootstraps your app</div>
+					<h2 class="l_modules">CommonJS modules implement app functionality</h2>
+<pre><code contenteditable class="l_modulescode">
+// file is mainWindow.js
+
+var foo = 'bar'; // this is a local variable
+
+// anything assigned to exports is sent back to calling context
+exports.init() {
+	// require in other modules as needed
+	var uiprefs = require('ui/uiprefs'); // maybe an app-wide preferences dictionary
+	
+	return Ti.UI.createWindow({
+		backgroundColor: uiprefs.windowBGColor
+	});
+	
+};
+
+</code></pre>
+				<div class="slidenote"><div class="l_slidenote_modules">Define local variables and functions as needed.<br/><br/>Anything assigned to <code>exports</code> is available to calling context.<br/><br/>Make sure to return something!</div></div>
 				</section>
+
+				<section>
+					<h2 style="" class="l_modfactories">Modules as Constructors</h2>
+<pre><code contenteditable class="l_modfactorycode">
+// file is Button.js
+
+// creates a UI component we'll need many copies of
+var Button = function(title) {
+	return Ti.UI.createButton({ title: title });
+};
+
+module.exports = Button; // return the constructor
+
+</code></pre>
+<br/>
+<pre><code contenteditable class="l_modfactorycode2">
+// how to use it
+
+var Button = require('ui/Button');
+
+// now make some instances
+var button1 = new Button('foo');
+var button2 = new Button('bar');
+
+</code></pre>
+
+					<p style="text-align:left;" class="l_modfactories_explanation"><p>
+					<div class="slidenote"><div class="l_slidenote_modfactories">By assigning a function to the module.exports variable, you can use the returned object as a constructor. Great for UI components.</div></div>
+				</section>
+
 
 				<section>
 					<h2 class="l_cross_platform">Cross-Platform in Titanium</h2>
@@ -190,7 +291,7 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_we_should">We should be building "Best of Breed" apps</p>
 					<p align="left" class="l_non_visual">Non-visual code and much UI code can be 100% portable</p>
 					<p align="left" class="l_accept">Accept and embrace platform differences</p>
-					<div class="slidenote"><p class="l_slidenote_cross_platform"></p>The Titanium philosophy of cross-platform is not write once, run everywhere.  In practice, that usually turns out to be a lie anyway, as even platforms as mature as Flash have proven.<br>Titanium provides the tools to reuse 60-90% of code across platforms, depending on the UI needed -- write once, adapt anywhere is the mantra.<br>Titanium is intended to build best of breed applications -- on iOS, that mean using Cocoa UI components and local notifications, or registering intents or controlling the hardware back button on Android<br>The best cross-platform mobile apps will focus on delivering the right native app on the platform, while sharing as much code as possible<br>Cross-platform differences, for that reason, should be expected and welcomed.</div>
+					<div class="slidenote"><div class="l_slidenote_cross_platform">Code reuse is about 60-90% across platforms. UI especially must be tailored.<br/><br/>Embrace platform: on iOS, that means using Cocoa UI components and local notifications<br/>On Android: registering intents or controlling the hardware back button on Android</div></div>
 				</section>
 				
 				<section>
@@ -198,8 +299,8 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_android">Android: intents, background services, hardware menu button</p>
 					<p align="left" class="l_ios">iOS: routes in maps, pre-built animations, Cocoa UI</p>
 					<p align="left" class="l_platform">Platform-specific APIs are implemented in a platform-specific namespace</p>
-					<div class="slidenote"><p class="l_slidenote_platform_specific"></p>special api sections, platform only supported logic, etc<br>
-					resolutions, services, intents/actions.<br>Because you have these diffs, the API provided is not always supported in all platforms, be aware of this.</div>
+					<div class="slidenote"><div class="l_slidenote_platform_specific">Special api sections, platform only supported logic, etc<br>
+					resolutions, services, intents/actions.<br>Because you have these diffs, the API provided is not always supported in all platforms, be aware of this.</div></div>
 				</section>
 				
 				<section>
@@ -210,70 +311,69 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 						<li class="l_code">Code files</li>
 						<li class="l_images">Images, text, and any other file type	</li>
 					</ul>
-					<p align="left" class="l_per_platform">Per-platform styles with JSS</p>
-					<div class="slidenote"><p class="l_slidenote_platform_specific"></p>The core of customization would be the platform name variable<br>
-					How ever using Javascript you can implement it in a number of ways<br>Simple if statements being the simplest form<br>You can read the variable once and use it later for if statements<br>You would also be able to implement functions that return your variable so that it is easier to use in your code<br>Custom folders, containing javascript code/images and icons<br>Titanium API has special sections for each platform to be able to use the strengths from them<br>actions, intents, UI transitions etc<br>JSS new in SDK 1.5.0 can be used favorably to implement differences in platforms<br>Tiapp.xml provides special config options per platform<br>Kitchen Sink cross-platform examples of branching logic, platform specific resources and config.</div>
+					<p style="text-align:left;margin-top:20px;" class="l_tiappxml">Platform configuration in tiapp.xml</p>
+					<div class="slidenote"><div class="l_slidenote_developing_for">If/then branching -- great when differences are few<br/>Platform-specific directories -- great with many differences between platforms, or for varying graphics. <br>Tiapp.xml provides special config options per platform</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_platform_name">Platform Name</h2>
 					<p align="left" class="l_use_the">Use the platform name to branch:</p>
-					<p><img src="images/platform-name.png" style="margin-top:0px;height:120px;align:right"></p>
-					<p align="left" class="l_best_to">Best to store in a single variable:</p>
-					<p><img src="images/single-variable.png" style="margin-top:0px;height:200px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_platform_name"></p>Define local variable to minimize trips “across the bridge”<br>(going from JS to Native back to JS)</div>
+<pre><code contenteditable class="l_branchcode">
+var isAndroid = false;
+if(Ti.Platform.osname == 'android') {
+  isAndroid = true;
+  // some other Android-specific code here...
+}
+ 
+</code></pre>
+					<p align="left" class="l_ternary">Use with JavaScript's ternary operator</p>
+<pre><code contenteditable class="l_ternarycode">
+var win = Ti.UI.createWindow({
+  backgroundColor: (isAndroid) ? 'green' : 'blue'
+});
+
+// is equivalent to
+if(Ti.Platform.name == 'android') {
+  var win = Ti.UI.createWindow({
+    backgroundColor: 'green'
+  });
+} else {
+  var win = Ti.UI.createWindow({
+    backgroundColor: 'blue'
+  });
+}
+ 
+</code></pre>
+					<div class="slidenote"><div class="l_slidenote_platform_name">Define local variables to minimize trips 'across the bridge' (going from JavaScript to Native and back</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_platform_specific_resources">Platform-Specific Resources</h2>
 					<p><img src="images/platform-specific.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_platform_specific_resources"></p>Files in these directories supersede those in Resources <br>As the build process runs it will compose files from these folders so that if a file is here it will be exchanged so that the correct one is used in the root project instead.</div>
+					<div class="slidenote"><div class="l_slidenote_platform_specific_resources">Files in these directories supersede those in Resources <br>As the build process runs it will compose files from these folders so that if a file is here it will be exchanged so that the correct one is used in the root project instead.</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_resolution_specific_resources">Resolution-Specific Resources</h2>
 					<p><img src="images/resolution-specific.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_resolution_specific_features"></p>Retina / non-retina on iOS<br>Resolution, orientation, and aspect ratio versions on Android<br>Refer by the base name on all and the correct version will be used.</div>
-				</section>
-				
-				<section>
-					<h2 class="l_platform_namespaces">Platform Namespaces</h2>
-					<p align="left" class="l_functionality">Platform-specific functionality is broken out into sub-namespaces where appropriate</p>
-					<p><img src="images/platform-namespaces.png" style="margin-top:0px;height:350px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_platform_namespaces"></p>Separate name spaces for platform-specific functionality</div>
-				</section>
-				
-				<section>
-					<h2 class="l_platform_js">Platform-Specific JSS</h2>
-					<p align="left" class="l_jss">JSS can be segregated per-platform:</p>
-					<p align="left" class="l_app_jss">app.js</p>
-					<p align="left" class="l_app_android_jss">app.android.jss</p>
-					<p align="left" class="l_app_android_high_jss">app.android.high.jss</p>
-					<p align="left" class="l_app_android_med_jss">app.android.medium.jss</p>
-					<p align="left" class="l_app_android_low_jss">app.android.low.jss</p>
-					<p align="left" class="l_app_iphone_jss">app.iphone.jss</p>
-					<div><img src="images/jss.png" style="margin-top:0px;height:220px;align:right"></div>
-					<p align="right" class="l_wiki_url">http://wiki.appcelerator.org/display/guides/User+Interface+Fundamentals</p>
-					<div class="slidenote"><p class="l_slidenote_platform_js"></p>JSS files <br>
-					http://wiki.appcelerator.org/display/guides/Designing+the+User+Interface</div>
+					<div class="slidenote"><div class="l_slidenote_resolution_specific_features">Retina / non-retina on iOS<br>Resolution, orientation, and aspect ratio versions on Android<br>Refer by the base name on all and the correct version will be used.</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_icons">Icons and splash screens</h2>
 					<p><img src="images/icons.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_icons"></p>Appicon.png is your app's icon<br>Default.png is the splash screen<br>Must be in platform-specific folders<br>Can set resolution-specific versions by using the appropriate folders</div>
+					<div class="slidenote"><div class="l_slidenote_icons">Appicon.png is your app's icon<br>Default.png is the splash screen<br>Can be in platform-specific folders for platform-specific icons<br>Can set resolution-specific versions by using the appropriate folders</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_internationalization">Internationalization</h2>
 					<p align="left" class="l_functionality">Platform-specific functionality is broken out into sub-namespaces where appropriate</p>
-					<p><img src="images/internationalization.png" style="margin-top:0px;height:350px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_l_internationalization"></p>Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app's name</div>
+					<p><img src="images/internationalization.png" style="margin-top:0px;height:500px;align:right"></p>
+					<div class="slidenote"><div class="l_slidenote_l_internationalization">Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app's name</div></div>
 				</section>
 				
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<h1 class="l_qa">Q&amp;A</h1>
 					<div class="slidenote"><p class="l_slidenote_qa">Before we move into the lab, what questions do you have?</p></div>
 				</section>
 				
@@ -283,7 +383,7 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_lines">863 lines of low level, single platform Objective-C</p>
 					<p align="left" class="l_we_will">We will write a more complete, cross-platform app in less than 50% of the code</p>
 					<div><img src="images/tibountyhunter.png" style="margin-top:0px;height:300px;align:right"></div>
-					<div class="slidenote"><p class="l_slidenote_introducing"></p>TiBountyHunter is based on iBountyHunter from Head First iPhone Development, which is a solid book.<br>In addition to the Objective C code, there are also interface builder files which contain the bulk of the UI layout, so it's closer to 30% of the code.<br>Our app will have more features, and run cross platform</div>
+					<div class="slidenote"><div class="l_slidenote_introducing">TiBountyHunter is based on iBountyHunter from Head First iPhone Development, which is a solid book.<br>In addition to the Objective C code, there are also interface builder files which contain the bulk of the UI layout, so it's closer to 30% of the code.<br>Our app will have more features, and run cross platform</div></div>
 				</section>
 				
 				<section>
@@ -291,21 +391,11 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_create">Create the foundation for a localizable, cross-platform application</p>
 					<p align="left" class="l_setup">Set up JavaScript code framework</p>
 					<p align="left" class="l_become">Become familiar with foundational JavaScript coding techniques</p>
-					<p align="left" class="l_ibounty">iBountyHunter demo, Lab Demo, and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Demo original iBountyHunter -- code at:<br>
-					http://examples.oreilly.com/9780596803551/Chapter_9.zip<br>Demo TiBountyHunter as of end of this lab<br><ul><li>Two tabs</li><li>Separate window titles</li><li>Compile and run on both platforms</li></ul></div>
-				</section>
+					<p align="left" class="l_ibounty">iBountyHunter demo, Lab Demo</p>
+					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;"><a href='http://wiki.appcelerator.org/display/td/215+Cross+Platform+Mobile+Development+in+Titanium'>wiki.appcelerator.org/display/td/215+Cross+Platform+Mobile+Development+in+Titanium</a></p>
 
-				<section>
-					<h2 class="l_lab">Lab Exercise</h2>
-					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
-				</section>
-				
-				<section>
-					<h2 class="l_solution">Solution Walkthrough</h2>
-					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_solution">Code Walkthrough - TiBH215<br><u>app.js</u><ul><li>namespace definition</li><li>include statements</li></ul><u>ui.js</u><ul><li>explain basic UI elements</li></ul><u>i18n</u><ul><li>language strings file</li></ul></p></div>
+					<div class="slidenote"><div class="l_slidenote_lab_goals">Demo original iBountyHunter -- code at:<br>
+					http://examples.oreilly.com/9780596803551/Chapter_9.zip<br>Demo TiBountyHunter as of end of this lab<br><ul><li>Two tabs</li><li>Separate window titles</li><li>Compile and run on both platforms</li></ul></div></div>
 				</section>
 
 			</div>
