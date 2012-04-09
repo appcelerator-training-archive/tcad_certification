@@ -1,0 +1,224 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Using Location Services</title>
+		<meta name="description" content="Using Location Services">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Using Location Services</h1>
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 1:30</b>(30 mins teach, 60 mins lab)</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">Objectives</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Learn to use GPS positioning in your applications</li>
+			    		<li class="l_agenda2">Use forward and reverse geo-coding</li>
+			    		<li class="l_agenda3">Integrate native maps</li>
+			    		<li class="l_agenda4">Use custom map annotations</li>
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda"></p>GPS positioning in your apps<br>Forward & reverse geocoding to convert addresses to lat/long coords<br> or convert lat/long coords to addresses<br>Include native maps in your apps<br>Customize map annotations</div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_overview">Overview</h2>
+					<p align="left" class="l_location_apis">Location APIs can be used for everything from device positioning to augmented reality applications. Taking location into account is mobile’s killer feature.</p>
+					<p><img src="images/overview.png" style="margin-top:30px;height:320px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_overview"></p>Location is one of mobile’s killer features<br>Data delivery, augmented reality, mapping are all great features you can enable via location services</div>
+				</section>
+				
+				<section>
+					<h2 class="l_geolocation_support">Geolocation Support in Titanium</h2>
+					<p align="left" class="l_detect_if">Detect if geolocation support is available</p>
+					<p align="left" class="l_obtain_once">Obtain once or continually monitor the user's location</p>
+					<p align="left" class="l_device_compass">Device Compass (if available)</p>
+					<p align="left" class="l_forward_and">Forward and reverse geo-coding</p>
+					<p align="left" class="l_ios_must">iOS: Must set Ti.Geolocation.purpose</p>
+					<p align="left" class="l_demo_kitchen_sink">Demo: Kitchen Sink Geolocation</p>
+					<div class="slidenote"><p class="l_slidenote_geolocation_support"></p>You can … (1st three bullets)<br>Forward: Address -> lat/long<br>Reverse: lat/long -> address<br>Must set geolocation purpose<br>User will be prompted<br>Demo: Kitchen Sink > Phone > Geolocation<br><ul><li>Explain fields</li></ul><br>Code: examples/geolocation.js<ul><li>purpose</li><li>if(locationServicesEnabled==false)</li><li>authorization</li><li>getCurrentPosition() – single shot</li><ul><li>coords object</li></ul><li>addEventListener and locationCallback function</li><li>forward and reverse geo</li><li>point out Android lifecycle events for managing GPS</li></ul></div>
+				</section>
+				
+				<section>
+					<h2 class="l_geolocation_gotchas">Geolocation Gotchas</h2>
+					<p align="left" class="l_continually_monitoring">Continually monitoring GPS drains battery faster</p>
+					<p align="left" class="l_android_emulator">Android emulator: GPS might not be enabled<br>    Edit the AVD to add GPS support</p>
+					<p align="left" class="l_android_emulator_no_default">Android emulator: no default location<br>    Use DDMS to send location</p>
+					<p align="left" class="l_android_need">Android: need API key from Google</p>
+					<p align="left" class="l_maps_demo">Maps demo</p>
+					<div class="slidenote"><p class="l_slidenote_geolocation_gotchas"></p>If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed<br>Used to have to delete/re-create the AVD. Can edit it to add GPS emulation<br><b>Demo – do on Android</b><ol><li>Start Android emulator</li><li>Open Maps – no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here – you can demo more about maps on the next slides</div>
+				</section>
+
+				<section>
+					<h2 class="l_native_map_kits">Native Map Kits</h2>
+					<p align="left" class="l_native_maps">Native maps provide zooming, scrolling, and different display types</p>
+					<p align="left" class="l_points_of">Points of interest are added with Annotations (pins)</p>
+					<p align="left" class="l_support_for">Support for drawing routes (iOS)</p>
+					<p align="left" class="l_can_choose">Can choose center point and initial display range</p>
+					<p><img src="images/native-map-kit.png" style="margin-top:30px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_native_map_kits"></p>Embed or full screen maps<br>Routes on iOS, check the Q&A for an Android solution</div>
+				</section>
+
+				<section>
+					<h2 class="l_more_on">More on Annotations</h2>
+					<p align="left" class="l_annotations_can">Annotations can be added on or after creation</p>
+					<p align="left" class="l_can_customize">Can customize:</p>
+					<div align="left"><ul>
+						<li class="l_pin_image">Pin image/color</li>
+						<li class="l_title_sub">Title/Subtitle</li>
+						<li class="l_right_left">Right/Left Button</li>
+					</ul></div>
+					<p align="left" class="l_can_individually">Can individually update pins, all are set at the same time</p>
+					<p><img src="images/mapview.png" style="margin-top:30px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_more_on"></p>Adding Points of Interest (POI)<br>Create annotations prior to rendering the map or add dynamically after<br>Pins/annotations customizable<br>Gotchas:<ul><li>Need Google API extensions for Android</li><li>Android: need a map key (free) see KitchenSink</li></ul></div>
+				</section>
+				
+				<section>
+					<h2 class="l_demo">Demo</h2>
+					<p><img src="images/demo.png" style="margin-top:30px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_demo"></p>KitchenSink:<br>Base UI > Views > Map View<br><ul><li>embedded map</li><li>discuss annotation components</li><li>map types</li><li>zooming</li><li>user location (no default on Android)</li></ul>examples/map_view.js<ul><li>~line 22 createAnnotation()</li><li>~line 60 createMapView()</li><ul><li>mapType reference API docs</li><li>region: lat/long & delta</li><li>userLocation</li><li>annotations</li></ul><li>tiapp.xml</li><ul><li>Google map keys & link to get your own</li></ul></ul></div>
+				</section>
+
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_TiBountyHunter">TiBountyHunter - Location APIs</h2>
+					<p align="left" class="l_add_captured">Add captured-at coordinates to a fugitive's record in the database</p><br>
+					<p align="left" class="l_lab_spec">Lab Spec:</p>
+					<div align="left"><ul>
+						<li class="l_uninstall_app">Uninstall app</li>
+						<li class="l_modify_db">Modify database to include capturedLat and capturedLong properties for GPS</li>
+						<li class="l_when_a">When a fugitive is captured, persist their location</li>
+						<li class="l_from_the">From the detail page, provide a native map which shows their position when they were captured.</li>
+					</ul></div>
+					<div class="slidenote"><p class="l_slidenote_TiBountyHunter"></p>Uninstalling because database is changing<br>Demo app: TiBH270<ol>li>Capture a fugitive</li><li>Explain location prompt (if it shows)</li><li>On captured tab, view details</li><li>Click Show on Map</li><li>Click pin to show custom annotation</li></ul></div>
+				</section>
+
+				<section>
+					<h2 class="l_lab">Lab Exercise</h2>
+					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_solution">Solution Walkthrough</h2>
+					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_solution"><b>Code Walk through – TiBH270</b><br><u>db.js</u><ul><li>new database fields</li><li>list() – new properties for lat/long</li><li>bust() – new lat/long properties saved</li></ul><u>ui.js</u><ul><li>createMapWindow() function</li><ul><li>accepts _bounty which has lat/long data</li><li>annotation</li><li>createMapView()</li></ul><li>Geolocation.purpose</li><li>createDetailWindow()</li><ul><li>changes to capture button event handler(one-time geolocation, call to bust() )</li><li>New map button</li></ul></p></div>
+				</section>
+				
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
