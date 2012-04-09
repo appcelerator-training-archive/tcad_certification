@@ -1,15 +1,15 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Cross-Platform JavaScript Applications</title>
-		<meta name="description" content="You're a Native App Developer Now">
+		<meta name="description" content="BNAPP: Cross-Platform JavaScript Applications">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -55,7 +55,7 @@
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
-			    	<ul>
+			    	<ul style="width:100%">
 			    		<li class="l_agenda1">Building JavaScript applications for Titanium</li>
 			    		<li class="l_agenda2">Coping with (and taking advantage of) different platforms</li>
 			    		<li class="l_agenda3">Cross-platform techniques in action</li>
@@ -67,7 +67,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda">How to structure JS code in large application<br>Coping with platform differences, but taking advantage of those differences<br>We’ll introduce our lab and sample application and lay the foundation for the rest of that app.</p>
+						<p class="l_slidenote_agenda">How to structure JS code in large application<br>Coping with platform differences, but taking advantage of those differences<br>We'll introduce our lab and sample application and lay the foundation for the rest of that app.</p>
 						
 					</div>
 				</section>
@@ -75,19 +75,19 @@
 				<section>
 					<h2 class="l_large_js_apps">Large JavaScript Applications</h2>
 					<p align="left" class="l_for_many">For many developers, Titanium Mobile may be their first large JavaScript app</p>
-					<p align="left" class="l_procredural">Procedural JavaScript (like random Ajax or UI on a web page) won’t cut it</p>
+					<p align="left" class="l_procredural">Procedural JavaScript (like random Ajax or UI on a web page) won't cut it</p>
 					<p align="left" class="l_need">Need to adhere to some baseline best practices:</p>
 					<ul>
 						<li class="l_protect">Protect the global scope</li>
 						<li class="l_be_modular">Be modular (mix of OO and module pattern)</li>
 						<li class="l_need_to_strive">Need to strive to keep code DRY</li>
 					</ul>
-					<div class="slidenote"><p class="l_slidenote_large_js_apps"></p>Ti projects go beyond DOM manipulation on a web page. Need strategies for organizing and writing JS code.<br> You have to write well-formed, strictly syntactically correct code to compile without errors on both platforms. <br>Protecting the global scope means being careful with global variables and scope.<br>Being <i>modular</i> means creating JavaScript business objects when it makes sense (for actual data model objects, for instance), and modules when that makes sense (data or network access)<br>DRY means Don’t Repeat Yourself.  Need to reuse code as much as possible for the sake of maintainability</div>
+					<div class="slidenote"><p class="l_slidenote_large_js_apps"></p>Ti projects go beyond DOM manipulation on a web page. Need strategies for organizing and writing JS code.<br> You have to write well-formed, strictly syntactically correct code to compile without errors on both platforms. <br>Protecting the global scope means being careful with global variables and scope.<br>Being <i>modular</i> means creating JavaScript business objects when it makes sense (for actual data model objects, for instance), and modules when that makes sense (data or network access)<br>DRY means Don't Repeat Yourself.  Need to reuse code as much as possible for the sake of maintainability</div>
 				</section>
 				
 				<section>
 					<h2 class="l_write_rich_js_apps">Writing Rich Client Applications</h2>
-					<p align="left" class="l_similar">Similar in spirit to single-page web applications</p><br><br>
+					<p align="left" class="l_similar">Similar in spirit to single-page web applications</p>
 					<p align="left" class="l_rich_clients">Rich Clients share characteristics:</p>
 					<ul>
 						<li class="l_sophisticated_ui">Sophisticated UI controls</li>
@@ -96,7 +96,7 @@
 					</ul>
 					<p align="left" class="l_component_oriented">Component Oriented, Event Driven (more later)</p>
 					<div class="slidenote"><p class="l_slidenote_write_rich_js_apps"></p>Titanium Mobile applications have a lot in common with rich client browser apps written in Flex or ExtJS<br>Native Cocoa Touch and Android controls<br>Business-related data objects on the client side<br>
-Remote data – web API, just data & no presentation logic<br>Component oriented – UI loosely coupled from app logic</div>
+Remote data -- web API, just data &amp; no presentation logic<br>Component oriented -- UI loosely coupled from app logic</div>
 				</section>
 				
 				<section>
@@ -110,31 +110,40 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 				
 				<section>
 					<h2 class="l_structuring_js_code">Structuring JavaScript Code</h2>
-					<p align="left" class="l_ti_include">Ti.include()</p>
-					<p align="left" class="l_commonjs">CommonJS require()</p>
-					<p align="left" class="l_windows">Windows with URL properties</p>
-					<p align="left" class="l_one_file">One file per window is not recommended*</p>
-					<p align="left" class="l_usage_demos">Usage Demos</p>
-					<div class="slidenote"><p class="l_slidenote_structuring_js_code"></p>Ti.include() - code injected into current execution context<br>
-					CommonJS – set up isolated scope and return only published properties and methods<br>
-					All three JavaScript code inclusion methods are demonstrated in the Kitchen Sink.<br>
-					One file per window is only recommended when a “clean slate” for execution is desired<br>
-					Ti.include() Demo:<br>
-					<ol>
-					<li>Create new project</li>
-					<li>Launch and run in simulator</li>
-					<li>Open app.js</li>
-					<li>Use Ti.include statement to include file
-					(Android: absolute paths / iOS: relative to current directory based on context)</li>
-					<li>Create that include file—add log statement</li>
-					<li>Launch, show log statement in console</li><br>
+					<p style="text-align:left;" class="structuring_goals"><strong>Goals:</strong></p>
+					<ul>
+						<li class="l_structure1">Ease of writing, maintaining, and updating</li>
+						<li class="l_structure2">Support team development</li>
+						<li class="l_structure3">Performance</li>
+						<li class="l_structure4">Avoid name collisions</li>
+					</ul>
+					<p style="text-align:left;margin-top:10px;" class="structuring_options"><strong>Options:</strong></p>
+					<ul style="text-align:left;">
+						<li style="margin-left:-150px;" class="l_structureoption1">Windows with URL properties</li>
+						<li style="margin-left:-150px;" class="l_structureoption2">Ti.include()</li>
+						<li style="margin-left:-150px;" class="l_structureoption3">CommonJS require()</li>
+					</ul>
+					<p align="left" class="l_usage_demos"><strong>Usage Demos</strong></p>
+					<div class="slidenote"><div class="l_slidenote_structuring_js_code"><p>Goals: Ease, performance, no errors &lt;- structured code</p>
+<ul>
+<li>Window/URL - KitchenSink style, separate contexts, difficulty sharing data,  useful in a only few situations.</li>
+<li>Ti.include - code injected into current execution context, single global namespace, easy to develop but can be slow especially on Android</li>
+<li>CommonJS - isolated scopes, modules return published properties and methods</li>
+</ul>
+<p><strong>Demos -- Create new default project</strong></p>
+<ul>
+<li>Win/URL: Copy all win1 components to new file, add <code>win1.url</code> property, build, add event listener on label2 to update text of label1, add App-level events to 'fix' the problem</li>
+<li>Ti.include() - use include() rather than URL property, update event listener</li>
+<li>CommonJS Demo:
+<ol>
+<li>Create logger.js file:exports.info = function(_str) { Ti.API.info(_str); }</li>
+<li>In app.js, enter require('logger')</li>
+<li>In app.js, enter logger.info('logged with common js');</li>
+<li>Launch and show console</li></ol>
+</li>
+</ul>
 
-					CommonJS Demo:
-					<ol>
-					<li>In app.js, enter require(‘logger’)</li>
-					<li>Create logger.js file:exports.info = function(_str) { Ti.API.info(_str); }</li>
-					<li>In app.js, enter logger.info(‘logged with common js’);</li>
-					<li>Launch and show console</li></ul></div>
+					</div></div>
 				</section>
 
 				<section>
@@ -143,16 +152,16 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_critical">Critical: don't use "get/set" in methods you add</p>
 					<p align="left" class="l_you_cant">You can't override built-in methods and properties</p>
 					<p align="left" class="l_but">(But, it's usually okay to add a property or two)</p>
-					<div class="slidenote"><p class="l_slidenote_dont_extend"></p>Titanium proxies represent native objects. E.g. Ti.UI.Button has a native button counterpart<br>Adding properties and methods could break the link between the JavaScript objects and their native equivalents<br>Can’t use words get or set in method names – those are reserved “magic” on iOS and Titanium will ignore your code and try to call those methods on the native proxy instead<br>You can’t override (replace) any of the built in methods or properties<br>Despite all that, it’s usually okay to add one or two properties, like adding a property to store the primary key of a database record in a table row or map annotation.</div>
+					<div class="slidenote"><div class="l_slidenote_dont_extend">Titanium proxies represent native objects. E.g. Ti.UI.Button has a native button counterpart<br>Adding properties and methods could break the link between the JavaScript objects and their native equivalents<br>Can't use words get or set in method names -- those are reserved “magic” on iOS and Titanium will ignore your code and try to call those methods on the native proxy instead<br>You can't override (replace) any of the built in methods or properties<br>Despite all that, it's usually okay to add one or two properties, like adding a property to store the primary key of a database record in a table row or map annotation.</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_namespaces">Namespaces</h2>
-					<p align="left" class="l_discrete">Discrete "containers" for variables & other identifiers</p>
+					<p align="left" class="l_discrete">Discrete "containers" for variables &amp; other identifiers</p>
 					<p align="left" class="l_prevent">Prevents collisions</p>
 					<p align="left" class="l_ti_namespaces">Titanium namespaces:<br>Titanium.UI, Titanium.App, Titanium.API, etc.<br>Ti = Titanium</p>
 					<p align="left" class="l_define">Define custom namespaces in your app</p>
-					<div class="slidenote"><p class="l_slidenote_namespaces"></p>Prevent name conflicts<br>Access variables across scopes<br>Don’t pollute the global scope</div>
+					<div class="slidenote"><div class="l_slidenote_namespaces">Prevent name conflicts<br>Access variables across scopes<br>Don't pollute the global scope</div></div>
 				</section>
 
 				<section>
@@ -162,7 +171,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_includes">Includes app's files</p>
 					<p align="left" class="l_creates">Creates and opens the first UI component</p>
 					<p><img src="images/sane-app-code.png" style="margin-top:50px;height:200px;"></p>
-					<div class="slidenote"><p class="l_slidenote_so_what"></p>Not much logic in app.js – just bootstraps your app</div>
+					<div class="slidenote"><div class="l_slidenote_so_what">Not much logic in app.js -- just bootstraps your app</div></div>
 				</section>
 				
 				<section>
@@ -171,7 +180,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_self">Self-calling functions define scope</p>
 					<p align="left" class="l_demo">Demo</p>
 					<p><img src="images/sane-app-code-contd.png" style="margin-top:10px;height:320px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_so_what_contd"></p>Not much logic in app.js – just bootstraps your app</div>
+					<div class="slidenote"><p class="l_slidenote_so_what_contd"></p>Not much logic in app.js -- just bootstraps your app</div>
 				</section>
 
 				<section>
@@ -181,7 +190,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_we_should">We should be building "Best of Breed" apps</p>
 					<p align="left" class="l_non_visual">Non-visual code and much UI code can be 100% portable</p>
 					<p align="left" class="l_accept">Accept and embrace platform differences</p>
-					<div class="slidenote"><p class="l_slidenote_cross_platform"></p>The Titanium philosophy of cross-platform is not write once, run everywhere.  In practice, that usually turns out to be a lie anyway, as even platforms as mature as Flash have proven.<br>Titanium provides the tools to reuse 60-90% of code across platforms, depending on the UI needed – write once, adapt anywhere is the mantra.<br>Titanium is intended to build best of breed applications – on iOS, that mean using Cocoa UI components and local notifications, or registering intents or controlling the hardware back button on Android<br>The best cross-platform mobile apps will focus on delivering the right native app on the platform, while sharing as much code as possible<br>Cross-platform differences, for that reason, should be expected and welcomed.</div>
+					<div class="slidenote"><p class="l_slidenote_cross_platform"></p>The Titanium philosophy of cross-platform is not write once, run everywhere.  In practice, that usually turns out to be a lie anyway, as even platforms as mature as Flash have proven.<br>Titanium provides the tools to reuse 60-90% of code across platforms, depending on the UI needed -- write once, adapt anywhere is the mantra.<br>Titanium is intended to build best of breed applications -- on iOS, that mean using Cocoa UI components and local notifications, or registering intents or controlling the hardware back button on Android<br>The best cross-platform mobile apps will focus on delivering the right native app on the platform, while sharing as much code as possible<br>Cross-platform differences, for that reason, should be expected and welcomed.</div>
 				</section>
 				
 				<section>
@@ -252,14 +261,14 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 				<section>
 					<h2 class="l_icons">Icons and splash screens</h2>
 					<p><img src="images/icons.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_icons"></p>Appicon.png is your app’s icon<br>Default.png is the splash screen<br>Must be in platform-specific folders<br>Can set resolution-specific versions by using the appropriate folders</div>
+					<div class="slidenote"><p class="l_slidenote_icons"></p>Appicon.png is your app's icon<br>Default.png is the splash screen<br>Must be in platform-specific folders<br>Can set resolution-specific versions by using the appropriate folders</div>
 				</section>
 
 				<section>
 					<h2 class="l_internationalization">Internationalization</h2>
 					<p align="left" class="l_functionality">Platform-specific functionality is broken out into sub-namespaces where appropriate</p>
 					<p><img src="images/internationalization.png" style="margin-top:0px;height:350px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_l_internationalization"></p>Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app’s name</div>
+					<div class="slidenote"><p class="l_slidenote_l_internationalization"></p>Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app's name</div>
 				</section>
 				
 				<section>
@@ -274,7 +283,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_lines">863 lines of low level, single platform Objective-C</p>
 					<p align="left" class="l_we_will">We will write a more complete, cross-platform app in less than 50% of the code</p>
 					<div><img src="images/tibountyhunter.png" style="margin-top:0px;height:300px;align:right"></div>
-					<div class="slidenote"><p class="l_slidenote_introducing"></p>TiBountyHunter is based on iBountyHunter from Head First iPhone Development, which is a solid book.<br>In addition to the Objective C code, there are also interface builder files which contain the bulk of the UI layout, so it’s closer to 30% of the code.<br>Our app will have more features, and run cross platform</div>
+					<div class="slidenote"><p class="l_slidenote_introducing"></p>TiBountyHunter is based on iBountyHunter from Head First iPhone Development, which is a solid book.<br>In addition to the Objective C code, there are also interface builder files which contain the bulk of the UI layout, so it's closer to 30% of the code.<br>Our app will have more features, and run cross platform</div>
 				</section>
 				
 				<section>
@@ -283,7 +292,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 					<p align="left" class="l_setup">Set up JavaScript code framework</p>
 					<p align="left" class="l_become">Become familiar with foundational JavaScript coding techniques</p>
 					<p align="left" class="l_ibounty">iBountyHunter demo, Lab Demo, and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Demo original iBountyHunter – code at:<br>
+					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Demo original iBountyHunter -- code at:<br>
 					http://examples.oreilly.com/9780596803551/Chapter_9.zip<br>Demo TiBountyHunter as of end of this lab<br><ul><li>Two tabs</li><li>Separate window titles</li><li>Compile and run on both platforms</li></ul></div>
 				</section>
 
@@ -305,7 +314,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
@@ -358,7 +367,7 @@ Remote data – web API, just data & no presentation logic<br>Component oriented –
 		<script>
 			var presenterNotesWindow = null;
 			function openPresenterNotes() {
-				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
 			}
 		</script>
 	</body>

@@ -94,30 +94,12 @@
 				
 				<section>
 					<h2 class="l_titanium_10000_feet">Titanium from 10,000 Feet</h2>
-					<p><img src="images/Titanium-architecture.png" style="margin-top:-15px;height:200px;"></p>
-					<table border="0">
-					<tr>
-						<td align="left" class="l_desktop"><b>Desktop</b></td>
-						<td></td>
-						<td align="left" class="l_mobile"><b>Mobile</b></td>
-					</tr>
-					<tr>
-						<td align="left" class="l_html5"><ul><li>HTML 5/ CSS 3 for UI (Webkit)</ul></li></td>
-						<td></td>
-						<td align="left" class="l_javascript_api"><ul><li>JavaScript APIs for UI (Native)</ul></li></td>
-					</tr>
-					<tr>
-						<td align="left" class="l_javascript"><ul><li>JavaScript, Ruby, PHP or Python for scripting</ul></li></td>
-						<td></td>
-						<td align="left" class="l_javascript_scripting"><ul><li>JavaScript for scripting</ul></li></td>
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td align="left" class="l_webview"><ul><li>WebView available, but not required</ul></li></td>
-					</tr>
-					
-				</table>
+					<p><img src="images/tistudio_architecture_med.png" style="margin-top:-15px;height:350px;float:right;"></p>
+					<ul style="float:left">
+						<li class="l_javascript_api">JavaScript APIs for UI (Native)</li>
+						<li class="l_javascript_scripting">JavaScript for scripting</li>
+						<li class="l_webview">WebView available, but not required</li>
+					</ul>
 
 					<div class="slidenote"><p class="l_slidenote_titanium_10000_feet">
 					Business logic / application files include Javascript, HTML, and CSS, plus PHP, Ruby, and Python for Desktop.<br> Titanium JavaScript APIs provide access to platform-specific features and functionality<br> Desktop – runs within WebKit browser<br> Mobile – leverage native UI controls and device features<br>Not just a web wrapper like some other projects (jQuery mobile)
@@ -133,40 +115,23 @@
 				
 				<section>
 					<h2 class="l_titanium_projects">Titanium Projects</h2>
-					<p align="left" class="l_titanium_mobile">Titanium Mobile</p>
-					<p align="left" class="l_titanium_desktop" >Titanium Desktop</p>
-					<p align="left" p class="l_mobile_web" >Titanium Mobile Web</p>
-					<p align="left" p class="l_titanium_studio" >Titanium Studio</p>
+					<ul>
+						<li class="l_titanium_mobile">Titanium Mobile</li>
+						<li class="l_mobile_web" >Titanium Mobile Web</li>
+						<li class="l_titanium_studio" >Titanium Studio</li>
+						<li class="l_cloudservices">Appcelerator Cloud Services</li>
+					</ul>
 					
 					<div class="slidenote"><p class="l_slidenote_titanium_projects">Some of the products and projects that Appcelerator offers include …</p></div>
 				</section>
 				
 				<section>
 					<h2 class="l_powered_by">Powered By Titanium</h2>
-					<h3 align="left" class="l_latest_apps"><b>Latest Applications:</b></h3>
-					<ul style="width:400px;float:left;">
-						<li class="l_nbc">NBC iPad app</li>
-						<li class="l_late">Late Night with Jimmy Fallon</li>
-						<li class="l_wunderlist">Wunderlist</li>
-						<li class="l_getglue">GetGlue</li>
-						
-					</ul>
-					
-					<img src="images/powered-by.png" style="width:300px;float:right;padding:10px;margin-top:-15px"/>
-					<h3 align="left" class="l_companies"><b>Companies:</b></h3>
-					<ul style="width:400px;float:left;">
-						<li class="l_nbc_company">NBC/ Universal</li>
-						<li class="l_kellogg">Kellogg's</li>
-						<li class="l_eBay">eBay and PayPal</li>
-						<li class="l_anheuser">Anheuser Busch</li>
-						<li class="l_jaguar">Jaguar</li>
-						<li class="l_mtv">MTV</li>
-						
-					</ul>
-					
-					<p vertical-align="bottom" class="l_many_more"><b><i>Many more ...</i></b></p>
+					<img src="images/powered-by.png" style="width:600px;padding:10px;margin-top:-15px;padding-bottom:-15px;"/>
 				    
-					<div class="slidenote"><div class="l_slidenote_powered_by">21,000 apps<br>1.5 million developers
+					<div class="slidenote"><div class="l_slidenote_powered_by"><p><strong>35,000 apps<br>2 million developers</strong></p>
+						<p><strong>Apps: </strong>NBC app for iOS and Android, Late Night with Jimmy Fallon, TripLingo</p>
+						<p><strong>Companies: </strong>NBC/ Universal, Kellogg's, eBay and PayPal, Reuters, and more</p>
 					</div></div>
 				</section>
 
@@ -186,18 +151,16 @@
 			
 				<section>
 				    <h2 class="l_hello_world">Hello World</h2>
-					<p><img src='images/hello-world.png' style="margin-top:170px;height:200px;"/></p>
-					<div class="slidenote"><div class="l_slidenote_hello_world">Script for demo:<br><i>(take time to introduce Ti Studio as you demo)</i><br>
+					<p class="l_hello_world_explanation">(Tools, project structure, code tour)</p>
+					<div class="slidenote"><div class="l_slidenote_hello_world">Script for demo:<br><i>(take time to introduce Ti Studio as you demo)</i>
 					<ul>
-					<li>Generate new mobile project</li>
-					<li>
-						<ul><li>Package ID must be valid Java package ID(so can’t start with a number, must match Apple Bundle Seed ID)</li>
-						(so can’t start with a number, must match Apple Bundle Seed ID)</ul>
+					<li>Generate new mobile project
+						<ul><li>Package ID must be valid Java package ID(so can't start with a number, must match Apple Bundle Seed ID)<br/>
+						(so can't start with a number, must match Apple Bundle Seed ID)</li></ul>
 					</li>
 					<li>Run new mobile project</li>
 					<li>Step through app.js default code</li>
-					<li>Point out the following directories/files and their purpose:</li>
-					<li>
+					<li>Point out the following directories/files and their purpose:
 					    <ul>
 							<li>Build</li>
 							<li>Resources</li>
@@ -220,8 +183,7 @@
 				</section>
 
 				<section>
-					<h2 class="l_resources">Resources</h2>
-					<p><img src='images/resources.png' style="margin-top:170px;height:200px;"/></p>
+					<h1 class="l_resources">Resources</h1>
 					<div class="slidenote"><p class="l_slidenote_resources"></p></div>
 				</section>
 				
@@ -253,8 +215,7 @@
 				</section>
 
 				<section>
-					<h2 style="" class="l_qa_slide">Q&A</h1>
-					<p><img src='images/qa.png' style="margin-top:170px;height:200px;"/></p>
+					<h1 style="" class="l_qa_slide">Q&amp;A</h1>
 					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
 				</section>
 				
@@ -279,7 +240,7 @@
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
@@ -332,7 +293,7 @@
 		<script>
 			var presenterNotesWindow = null;
 			function openPresenterNotes() {
-				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
 			}
 		</script>
 	</body>

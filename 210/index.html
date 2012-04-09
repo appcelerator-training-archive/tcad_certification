@@ -1,5 +1,5 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>You're a Native App Developer Now</title>
@@ -9,7 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -54,7 +54,7 @@
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
-			    	<ul>
+			    	<ul style="width:100%">
 			    		<li class="l_agenda1">Overview of a generic tool chain</li>
 			    		<li class="l_agenda2">The Android tool chain and "Hello World!"</li>
 			    		<li class="l_agenda3">The iPhone tool chain and "Hello World!"</li>
@@ -82,22 +82,22 @@
 				
 				<section>
 					<h2 class="l_generic_toolchain">A Generic Tool Chain</h2>
-					<p><img src="images/generic-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					<p><img src="images/generic-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
 					<div class="slidenote"><p class="l_slidenote_generic_toolchain"></p></div>
 				</section>
 				
 				<section>
 					<h2 class="l_android_toolchain">The Android Tool Chain</h2>
-					<p><img src="images/android-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					<p><img src="images/android-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
 					<div class="slidenote"><p class="l_slidenote_android_toolchain"></p></div>
 				</section>
 				
 				
 				<section>
-					<h2 class="l_whats_in_the_box">What's in the box?</h2>
-					<img src="images/whats-in-the-box.png" style="margin-top:170px;height:200px;"/>					
+					<h1 class="l_whats_in_the_box">What's in the box?</h1>
+					<img src="images/android_logo.png" style="margin-top:170px;height:200px;"/>					
 					<div class="slidenote"><p class="l_slidenote_whats_in_the_box"></p>Quick tour of what comes with the Android SDK<br>
 					<ul>
 						<li>Show SDK location</li>
@@ -110,15 +110,23 @@
 				</section>
 				
 				<section>
-					<h2 class="l_hello_world">Hello World</h2>
-					<img src="images/hello-world-android-toolchain.png" style="margin-top:170px;height:200px;"/>					
+					<h1 class="l_hello_world">Hello World</h1>
+					<p class="l_hiworldtoolchain"><strong><em>for the Android Native Tool Chain</em></strong>
 					<div class="slidenote"><p class="l_slidenote_hello_world"></p>Now lets demonstrate how to create, build and run your first hello world application on the emulator of Android.<br>This demonstration is based on the command line approach of Android development.
 					</div>
 				</section>
 				
 				<section>
 					<h2 class="l_creating_hello_world">Creating the Hello World Project Structure</h2>
-					<img src="images/android-create-project.png" style="margin-top:15px;height:150px;width:750px;"/>					
+					<pre><code contenteditable>
+C:\Lab> android create project
+--target 8
+--name MyAndroidApp
+--path ./HelloWorldAndroid
+--activity MyAppActivity
+--package com.app.myandroid
+
+</code></pre>
 					<img src="images/android-project-explorer.png" style="margin-top:15px;height:200px;width:750px;"/>
 					<div class="slidenote"><p class="l_slidenote_creating_hello_world"></p>
 					<ol>
@@ -129,10 +137,20 @@
 					Target: enter <u>android list targets</u> to get a list
 					</div>
 				</section>
+
+				<section>
+					<h2 class="l_application_starting_point">Application starting point</h2>
+					<img src="images/application-starting-point.png" style="margin-top:15px;height:500px;"/>
+					<div class="slidenote"><p class="l_slidenote_application_starting_point"></p>View layouts are represented by xml files and properties in the XML files.Here we can see a simple TextView specified on the view layout.
+					</div>
+				</section>
 				
 				<section>
 					<h2 class="l_how_to_build">How to build your hello world application</h2>
-					<img src="images/ant-debug.png" style="margin-top:15px;height:40px;width:750px;"/>					
+					<pre><code contenteditable>
+C:\Lab> ant debug
+
+</code></pre>
 					<img src="images/ant-cmd.png" style="margin-top:15px;height:320px;width:750px;"/>
 					<div class="slidenote"><p class="l_slidenote_how_to_build"></p>Build using Apache Ant (might not be installed on your system)<br>Watch for 'Build Successful'<br>Next we need a virtual device in which to run our app
 					</div>
@@ -154,36 +172,34 @@
 				
 				<section>
 					<h2 class="l_how_to_install">How to install your application to the target</h2>
-					<img src="images/adb-install.png" style="margin-top:15px;height:40px;width:550px;"/>					
-					<img src="images/android-emulator.png" style="margin-top:15px;height:320px;width:550px;"/>
+				<pre><code contenteditable>
+C:\Lab> adb install bin/MyAndroidApp-debug.apk
+
+</code></pre>
+
+					<img src="images/android-emulator.png" style="margin-top:15px;width:550px;"/>
 					<div class="slidenote"><p class="l_slidenote_how_to_install"></p>You install the apk file to the target with the help of the android debug bridge tool by specifying an install argument.<br>It can be installed onto an emulated device or the connected phone.
 					</div>
 				</section>
 
 				<section>
 					<h2 class="l_hello_world_running">Hello World application running</h2>
-					<img src="images/android-hello-world.png" style="margin-top:15px;height:380px;width:550px;"/>
+					<img src="images/android-hello-world.png" style="margin-top:15px;height:500;"/>
 					<div class="slidenote"><p class="l_slidenote_hello_world_running"></p>When the application is running you can use the emulator to simulate things on the phone as well as stimulating it's user interface.
 					</div>
 				</section>
 				
-				<section>
-					<h2 class="l_application_starting_point">Application starting point</h2>
-					<img src="images/application-starting-point.png" style="margin-top:15px;height:380px;width:550px;"/>
-					<div class="slidenote"><p class="l_slidenote_application_starting_point"></p>View layouts are represented by xml files and properties in the XML files.Here we can see a simple TextView specified on the view layout.
-					</div>
-				</section>
 				
 				<section>
 					<h2 class="l_dalvik_debug_monitor">Dalvik Debug Monitor</h2>
-					<img src="images/dalvik-debug-monitor.png" style="margin-top:15px;height:380px;width:550px;"/>
-					<div class="slidenote"><p class="l_slidenote_dalvik_debug_monitor"></p>With the Dalvik Monitor you can monitor threads, processes and memory in Android emulated or target devices.<br>Demo ddms: show log output, simple filter, plus setting GPS coords<br>Also demo / introduce adb –d logcat (use –e for emulator)
+					<img src="images/dalvik-debug-monitor.png" style="margin-top:15px;height:500px;"/>
+					<div class="slidenote"><p class="l_slidenote_dalvik_debug_monitor"></p>With the Dalvik Monitor you can monitor threads, processes and memory in Android emulated or target devices.<br>Demo ddms: show log output, simple filter, plus setting GPS coords<br>Also demo / introduce adb -d logcat (use -e for emulator)
 					</div>
 				</section>
 				
 				<section>
 					<h2 class="l_iphone_toolchain">The iPhone Tool Chain</h2>
-					<p><img src="images/iphone-toolchain.png" style="margin-top:50px;height:400px;"></p>
+					<p><img src="images/iphone-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
 					<div class="slidenote"><p class="l_slidenote_iPhone_toolchain"></p>** Apple has replaced gcc with LLVM compiler<br>
 					** Apple has replaced gdb with LLDB debugger<br>
@@ -206,7 +222,7 @@
 
 				<section>
 					<h2 class="l_iphone_whats_in_the_box">What's in the box?</h2>
-					<img src="images/iphone-whats-in-the-box.png" style="margin-top:170px;height:200px;"/>					
+					<img src="images/apple-logo.png" style="margin-top:170px;height:200px;"/>					
 					<div class="slidenote"><p class="l_slidenote_whats_in_the_box"></p>Quick tour of what comes with the iOS SDK<br>
 					<ul>
 						<li>Show SDK location</li>
@@ -217,7 +233,7 @@
 						<li>Describe usr/bin directory</li>
 							<ul>
 								<li>Command-line tools used by Xcode and Ti Developer</li>
-								<li>Xcodebuild command – used by Ti python scripts</li>
+								<li>Xcodebuild command -- used by Ti python scripts</li>
 							</ul>
 					</ul>
 					</div>
@@ -225,7 +241,7 @@
 
 				<section>
 					<h2 class="l_hello_world_iphone">Hello World</h2>
-					<img src="images/hello-world-iphone-toolchain.png" style="margin-top:170px;height:200px;"/>					
+					<p class="l_hiworldtoolchainios"><strong><em>for the iPhone Native Tool Chain</em></strong>
 					<div class="slidenote"><p class="l_slidenote_hello_world_iphone"></p>Creating apps for iPhone is mainly done in Xcode, included in Macintosh computers.<br>XCode is an IDE which wrappes all the tools you need, similar to Eclipse in Android.
 					</div>
 				</section>
@@ -269,7 +285,7 @@
 				</section>
 
 				<section>
-					<h2 class="l_instrument">Instrumental tools to aid the test process</h2>
+					<h2 class="l_instrument">Instruments</h2>
 					<img src="images/instrument.png" style="margin-top:15px;height:400px;width:750px;"/>					
 					<div class="slidenote"><p class="l_slidenote_instrument">Just like the dalvik monitor in Android, you can start different instrumentation tools to find memory leaks, track threads and processes and to find potential errors. These can be found in the run/run with performance tools menu.</p></div>
 				</section>
@@ -287,24 +303,29 @@
 				</section>
 				
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:15px;height:200px;width:750px;"/>					
+					<h1 class="l_qa">Q&amp;A</h1>
 					<div class="slidenote"><p class="l_slidenote_qa">Before we jump into the lab, what questions do you have? tools menu.</p></div>
 				</section>
 				
 				<section>
-					<h2 class="l_lab">Q&A</h2>
-					<img src="images/lab.png" style="margin-top:15px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab">We don’t expect you to be working a lot with the native tools, but some of them are handy at times. <br>In the lab, you’ll create Android and iOS projects using the native tool chains.<br>Roughly 25-30 mins for both labs</p></div>
+					<h1 style="" class="l_lab">Lab Objectives</h1>
+					<ul>
+						<li class="l_labobjective1">Create a native Android or iOS project</li>
+						<li class="l_labobjective2">Become familiar with the native tool chains</li>
+					</ul>
+
+					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;">Android: <a href='http://wiki.appcelerator.org/display/td/210+Native+Android+Development'>wiki.appcelerator.org/display/td/210+Native+Android+Development</a></p>
+					<p class="l_labURL2" style="font-size:0.7em;">iOS: <a href='http://wiki.appcelerator.org/display/td/210+Native+iPhone+Development'>wiki.appcelerator.org/display/td/210+Native+iPhone+Development</a></p>
+
+					<div class="slidenote"><p class="l_slidenote_lab">We don't expect you to be working a lot with the native tools, but some of them are handy at times. <br>In the lab, you'll create Android and iOS projects using the native tool chains.<br>Roughly 25-30 mins for both labs</p></div>
 				</section>
 
 			</div>
-
 			<!-- MAKE NO CHANGES BELOW THIS LINE -->
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
@@ -357,7 +378,7 @@
 		<script>
 			var presenterNotesWindow = null;
 			function openPresenterNotes() {
-				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
 			}
 		</script>
 	</body>

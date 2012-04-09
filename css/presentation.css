@@ -124,9 +124,21 @@ html {
 	color: #333;
 	text-shadow: 0.02em 0.02em 0.07em #666;
 }
-p, div, li, td, span { color: #333; }
+p, div, li, td, span { color: #333 !important; }
+section a { color: #333 !important; text-decoration:underline !important;}
 li { padding-bottom: 5px; }
 
+#reveal .slides {
+	position: absolute;
+	width: 900px;
+	height: 600px;
+	
+	left: 50%;
+	top: 40%;
+	margin-left: -450px;
+	margin-top: -320px;
+	padding: 20px 0px;
+}
 
 #reveal .controls a {
 	opacity: 0.25 !important;
