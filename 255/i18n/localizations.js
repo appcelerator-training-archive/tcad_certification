@@ -14,7 +14,7 @@ String.toLocaleString({
 		"%l_agenda3": "Working with JSON and XML",
 		"%l_agenda4": "Working with SOAP",
 		"%l_slidenote_agenda": "",
-		"%l_xmlhttp": ">The XMLHTTPRequest Object",
+		"%l_xmlhttp": "The XMLHTTPRequest Object",
 		"%l_in_the_browser": "In the web browser, Ajax requests rely on the XMLHTTPRequest object provided by the browser",
 		"%l_slidenote_xmlhttp": "In a web browser, Ajax works through a five step process as shown he <br><ol><li>User interacts with page</li><li>Which creates an XHR object  = ReadyState 1</li><li>Which passes an HTTP request to the server = ReadyState 2</li><li>The server creates a response and sends back XML or JSON data<br>ReadyState 3 when data begins to arrive<br>ReadyState 4 when data is all there</li><li>The callback function of the XHR object updates the UI</li></ol>",
 		"%l_httpclient": "The HTTPClient Object",
