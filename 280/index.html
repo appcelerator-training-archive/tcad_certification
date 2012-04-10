@@ -1,0 +1,338 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Integrating Contacts & Social APIs</title>
+		<meta name="description" content="Address Book & Social APIs">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Integrating Contacts & Social APIs</h1>
+					<h5 class="l_subtitle">Address Book & Social APIs</h5>
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 1:15</b>(Teaching: 30 mins, lab: 45 mins)</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">Agenda</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Overview of contacts</li>
+			    		<li class="l_agenda2">Retrieving contact basics</li>
+			    		<li class="l_agenda3">Facebook Apps & Quick Setup</li>
+			    		<li class="l_agenda4">Using the Graph API</li>
+						<li class="l_agenda5">Demonstration</li>
+						<li class="l_agenda6">Q&A</li>
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda"></p>Add, remove, modify contacts on iOS / View on Android<br>Retrieve contacts and details<br>Create an app on Facebook.com<br>Retrieve data from and publish to Facebook<br>A quick demonstration and showing of the contact system and facebook information</div>
+				</section>
+
+				
+				<section>
+					<h2 class="l_overview_contacts">Overview of Contacts</h2>
+					<p align="left" class="l_contacts">Contacts are globally accessible.<br>However there are limitations.</p>
+					<br><br>
+					<table border="0" align="center">
+					<tr>
+						<td align="left" class="l_iOS"><b>iOS</b></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_android"><b>Android</b></td>
+					</tr>
+					<tr>
+						<td align="left" class="l_view_contacts">View contacts</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_view_contacts">View contacts</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_new_contacts">Add new contacts</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_remove_contacts">Remove contacts</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_group_contacts">Group contacts</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>					
+				</table>
+					<div class="slidenote"><p class="l_slidenote_overview_contacts"></p>Contacts are primarily iOS strong as far as feature sets<br>At this time Android can only retrieve contact information<br>You can store local data agaist that information if you want, but it will be only accessible by that application<br><br>With iOS you have all control except editing a contact’s information.<br>A work around for this is removal and re-adding.<br>	   - Exception is if it is stored in a favorites list (it will be removed from the list)<br>Group contacts – see effects on desktop only, not on phone</div>
+				</section>
+				
+				<section>
+					<h2 class="l_retrieving_contacts">Retrieving Contacts</h2>
+					<p align="left" class="l_contact_retrieval">Contact retrieval - get array of Person objects</p>
+					<pre style="width:450px;float:center;"><code contenteditable>
+var people = Titanium.Contacts.getAllPeople();
+var people = Titanium.Contacts.getPeopleWithName();
+					</code></pre>
+					<p align="left" class="l_platform_specific">Platform-specific contacts picker:</p>
+					<pre style="width:450px;float:center;"><code contenteditable>
+showContacts()
+					</code></pre>					
+					<p align="left" class="l_you_cannnot">You cannot trace output to console</p>
+					<div class="slidenote"><p class="l_slidenote_retrieving_contacts"></p>Get an array of Person objects<br>Grab all or subset<br>ShowContacts will open a modal window with all contacts in there. Not customizable. Think of it as a gallery picker. Define callbacks to handle selected contact</div>
+				</section>
+				
+				<section>
+					<h2 class="l_contact_data_structure">Contact Data Structure</h2>
+					<p align="left" class="l_groups_person">Groups & Person</p>
+					<p align="left" class="l_ti_person">Ti.Contact.Person - Represents a single contact</p>
+					<p align="left" class="l_ti_group">Ti.Contact.Group - Represents a group of contacts</p>
+					<div class="slidenote"><p class="l_slidenote_contact_data_structure"></p>Person is a single contact with all the proper information that is expected. name, address, phone…. etc…<br>Group is not used as part of address book but is used in OSX’s address book application<br><br>The simulator has no default contact data. You’ll need to add some manually or via code to begin working with contacts in your app.</div>
+				</section>
+
+				<section>
+					<h2 class="l_contact_person">Contact Person</h2>
+					<p align="left" class="l_there_are">There are strings & objects<br></p>
+					<br><br>
+					<table border="0" align="center">
+					<tr>
+						<td align="left" class="l_strings"><b>Strings</b></td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_objects"><b>Objects</b></td>
+					</tr>
+					<tr>
+						<td align="left" class="l_firstName">firstName</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_was_url">url (was URL)</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_lastname">lastName</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_address">address</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_created">Created</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_date">date</td>
+					</tr>
+					<tr>
+						<td align="left" class="l_modified">modified</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td align="right" class="l_email">email</td>
+					</tr>					
+					<tr>
+						<td align="left" class="l_birthday">birthday</td>
+						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					</tr>
+				</table>
+					<div class="slidenote"><p class="l_slidenote_contact_person"></p>It is important to note the items that are strings and objects. The objects can be looped to provide multiple addresses, dates (anniversary, others) and emails.<br>Strings are things that we would only have one entry for. Birthday you think would be a object rolled into date, but it is a string.<br>the URL property was renamed in SDK 1.8 because all-caps implied a CONSTANT which it’s not</div>
+				</section>
+			
+				<section>
+					<h2 class="l_fb_introduction">Facebook Introduction</h2>
+					<div align="center"><ul>
+					<li class="l_must_have">Must have a valid Facebook Account</li>
+					<li class="l_need_to">Need to create an App</li>
+					<li class="left" class="l_fb_url">http://www.facebook.com/developers/</li>
+					</ul></div>
+					<p><img src="images/fb-intro.png" style="margin-top:30px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_fb_introduction"></p><b>Trainer Note:</b>If time is short or interest is low, just present the slides. Otherwise, key through these steps in your browser @ Facebook.<br>Create FB app via Facebook developers site<br>Alternate URL: developer.facebook.com</div>
+				</section>
+
+				<section>
+					<h2 class="l_fb_apps">Facebook Apps</h2>
+					<p><img src="images/fb-apps-1.png" style="margin-top:30px;height:160px;width:350px;align:center"></p>
+					<p align="center" class="l_create_app">Create an App Name: </p>
+					<p align="center" class="l_your_app"><i>Your App Name</i></p>
+					<div class="slidenote"><p class="l_slidenote_fb_apps"></p>Creating an application is very simple, provide an app name.<br>Can’t use word “Facebook” or similar in your app name</div>
+				</section>
+
+				<section>
+					<h2 class="l_fb_apps">Facebook Apps</h2>
+					<p align="center" class="l_once_you"><i>Once your done this is the screen you'll see.<br>We are only concerned with one other section.<br>Mobile & Devices</i></p>
+					<p><img src="images/fb-apps-2.png" style="margin-top:30px;height:350px;width:450px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_fb_apps_2"></p>More info than you’ll need<br>Worry only about name here (maybe users)<br>Then, click Mobile & Devices<br>The users can be testers, admins, or other. This will help with sandboxing the application</div>
+				</section>
+
+				<section>
+					<h2 class="l_fb_apps">Facebook Apps</h2>
+					<p align="center" class="l_you_need"><i><b>You need the following:</b><br>Application Type: Native App<br>Application ID<br>Application Secret</i></p>
+					<p><img src="images/fb-apps-3.png" style="margin-top:30px;height:350px;width:450px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_fb_apps_3"></p>Application type: Native app<br>Use HTML5 for web app, phonegap, etc.</div>
+				</section>
+				
+				<section>
+					<h2 class="l_fb_apps">Facebook Apps</h2>
+					<p><img src="images/fb-apps-4.png" style="margin-top:30px;height:160px;width:650px;align:center"></p>
+					<p align="center" class="l_sandbox_mode">Sandbox Mode!</p>
+					<div class="slidenote"><p class="l_slidenote_fb_apps_4"></p>Sandbox mode ensures that only the people that you specify have access to your application.<br>Disable Sandbox when you go live<br>Return to “About” screen slide and show users section: good for testing roles during development</div>
+				</section>
+
+				<section>
+					<h2 class="l_fb_config">Facebook Configuration</h2>
+					<p align="left" class="l_in_tiapp"><u>In tiapp.xml (required for iOS only)</u></p>
+					<pre style="width:450px;float:center;"><code contenteditable>
+< property name="ti.facebook.appid" >XXXX< / property >
+					</code></pre>
+					<p align="left" class="l_in_your_app"><u>In your app:</u></p>
+					<pre style="width:450px;float:center;"><code contenteditable>
+Ti.Facebook.appid = "XXXXXXX"; 
+Ti.Facebook.permissions = ['publish_stream'];
+					</code></pre>				
+					<div class="slidenote"><p class="l_slidenote_fb_config"></p>New slide, new process<br>Used to update info.plist file. Now, all config is through tiapp.xml<br>Get the FB ID from Facebook when you create your app<br>In your app, you’ll add your FB ID and a list of permissions your app needs</div>
+				</section>
+
+
+				<section>
+					<h2 class="l_fb_permissions">Facebook Permissions</h2>
+					<p align="left" class="l_url">http://developers.facebook.com/docs/authentication/permissions/</p>
+					<p align="left" class="l_can_customize">Can customize:</p>
+					<div align="left"><ul>
+						<li class="l_email">email</li>
+						<li class="l_offline_access">offline_access</li>
+						<li class="l_sms">sms</li>
+						<li class="l_publish">publish_stream</li>
+						<li class="l_create_event">create_event</li>
+						<li class="l_rsvp">rsvp_event</li>
+						<li class="l_publish_checkins">publish_checkins</li>
+						<li class="l_user_bday">user_birthday</li>
+						<li class="l_user_site">user_website</li>
+					</ul></div>
+					<div class="slidenote"><p class="l_slidenote_fb_permissions"></p>Ton of permissions available:<br>Email – see their email address<br>Offfline access – non-expiring token so they don’t have to re-logon to your app</div>
+				</section>
+				
+				<section>
+					<h2 class="l_fb_mobile">Facebook & Mobile Experience</h2>
+					<p><img src="images/fb-and-mobile.png" style="margin-top:30px;height:500px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_fb_mobile"></p><b>Key point</b> is that user is prompted to grant permissions for your app. Permissions you request are listed on this page. User has to go through this only once.<br>If a user doesn’t have the Facebook app on their phone it will be a slightly different process<br>The app will use mobile web to authorize.<br>It is important to discuss the user experience here and test on device at this time.<br>Android – pop-up window similar to old Facebook Connect experience</div>
+				</section>
+
+				<section>
+					<h2 class="l_fb_graph">Facebook Graph API</h2>
+					<p><img src="images/fb-graph.png" style="margin-top:30px;height:300px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_fb_mobile"></p>Official means to request or send information to Facebook<br>Access via user’s unique ID or their unique login name<br>Responses as JSON<br>Use POST requests to publish to Facebook</div>
+				</section>
+				
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_lab_goals">Lab Goals</h2>
+					<p align="left" class="l_integrate_fb">Integrate with Facebook:</p><br>
+					<div align="left"><ul>
+						<li class="l_add_fb_login">Add Facebook Login button</li>
+						<li class="l_add_share">Add Share on Facebook button (brag about your bounties!)</li>
+						<li class="l_use_our">Use our Facebook App ID</li>
+						<li class="l_demo_wiki">Demo and Wiki URL</li>
+					</ul></div>
+					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Demo finished TiBounty hunter<br>Capture a fugitive, brag about it on Facebook<br>1. Log in<br> 2. Share<br>3. Visit Facebook to see the notification</div>
+				</section>
+
+				<section>
+					<h2 class="l_lab_exercise">Lab Exercise</h2>
+					<img src="images/lab-exercise.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab_exercise"><b>Code walkthrough – TiBH280:</b><br><ol><li>Open ui.js</li><li>Around line 210, see FB id and permissions</li><li>shareButton and event listener<br>imgView.toBlob()<br>requestWithGraphPath()</li><li>fbButton & createLoginButton()<br>Put within a view to ease catching events and interactions on that button</li></ul></p></div>
+				</section>
+				
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
