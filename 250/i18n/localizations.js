@@ -60,8 +60,9 @@ String.toLocaleString({
 		"%l_crud": "CRUD operations on our fugitive database",
 		"%l_adding": "Adding behavior to our detail and add windows",
 		"%l_provide_window": "Update the fugitive lists on create, update or delete",
-		"%l_demo_lab": "Demo and Lab URL",
-		"%l_slidenote_lab_goals": "Sticking with our recommendation for self-contained UI components, you'll want your tableviews to be able to update themselves when fugitives are added, deleted, or updated. You'll want to use events to notify elements of changes and add methods to your components to update themselves with the new data.<br>Demo app<br><ol><li>Add a fugitive or two</li><li>Click to show details, capture (boolean switch)</li><li>Switch to Captured tab and there's the fugitive</li><li>Delete the scoundrel and he's gone from the table</li></ol>Show that you'll be using the menu on Android. Demo.<br>You can get menu code from the KitchenSink",
+		"%l_labURL": "<a href='https://wiki.appcelerator.org/display/td/250+Working+With+Local+Data'>wiki.appcelerator.org/display/td/250+Working+With+Local+Data</a>",
+
+		"%l_slidenote_lab_goals": "Sticking with our recommendation for self-contained UI components, you'll want your tableviews to be able to update themselves when fugitives are added, deleted, or updated. You'll want to use events to notify elements of changes and add methods to your components to update themselves with the new data.<br>Demo app<br><ol><li>Add a fugitive or two</li><li>Click to show details, capture (boolean switch)</li><li>Switch to Captured tab and there's the fugitive</li><li>Delete the scoundrel and he's gone from the table</li></ol>",
 		"%l_lab": "Lab Exercise",
 		"%l_slidenote_lab": "",
 		"%l_solution": "Solution Walkthrough",

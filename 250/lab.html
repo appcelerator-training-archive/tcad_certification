@@ -1,0 +1,190 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title class="l_labname">Lab: Working with Local Data</title>
+		<meta name="description" content="Building Native Mobile Apps, Working with Local Data">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../css/magula.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				LAB FILE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+<div class="slides">
+<div id="labwrapper">			
+<section>
+
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - Working with Local Data</h1>
+<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will back our fugitive list with actual data from a local SQL database (SQLite).  You will display the data-driven fugitive list, and update with every database change.</p>
+
+<p class="l_specification"><strong>Specification: </strong>Start with the TiBountyHunter project you created for the last assignment. You will now add event handlers to update a local database. To successfully complete this lab, you must develop an application that meets the following description:</p>
+
+<ul style="width:70%">
+	<li class="l_spec1">Populate a table view with results from a SQL database</li>
+	<li class="l_spec2">Keep the fugitive lists up to date with every database change</li>
+	<li class="l_spec3">Implement the “Add” screen for the fugitive list, allowing the bounty hunter to add a new fugitive to the database</li>
+	<li class="l_spec4">Allow the user to delete fugitives</li>
+	<li class="l_spec5">Implement the “Capture” button, which will update a fugitive’s status in the database to “captured” and display him or her in the proper tab</li>
+</ul>
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip</a></td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_labstep2">2. Create a new folder named 'lib' and in it a database module file. In that file, add the statements needed to create a database named 'TiBountyHunter' containing a table named 'fugitives'. That table should have these fields:<ul><li>id &mdash; INTEGER PRIMARY KEY</li><li>name &mdash; TEXT</li><li>captured &mdash; INTEGER</li></ul></td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2">Make sure to open, then close the database connection when your code finishes.</td>
+	</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep3">3. Write the following functions, each of which should be added to the exports list (so they can be called by the other modules):<ul><li>list(BOOLEAN) &mdash; Returns a set of table rows representing either captured or at-large fugitives. Each row should have title, id, hasChild=true, color='#fff', name (duplicate of title), and captured=boolean properties</li><li>add(STRING) &mdash; Adds the named fugitive to the database. Fire an App-level event noting that the database has been updated.</li><li>del(PRIMARY_KEY) &mdash; Deletes the fugitive with the given ID. Fire the 'database updated' App-level event.</li><li>bust(PRIMARY_KEY) &mdash; Marks the fugitive with the given ID as captured.  Fire the 'database updated' App-level event.</li></ul></td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation3"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step4">4. Update the ui/common/BountyTable.js file. Replace the statically-defined table with a call to your db.list() function. You will need to require in the module. Add an App-level event listener that will call populateData() when the 'database updated' event is received.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. Update the /ui/common/DetailWindow.js file. Add a click event listener to the Capture button. It should call your db.bust() function then close the detail window. Add a click event listener for the Delete button that calls your db.del() function and closes the window. Don't forget to require() in the database library file within the event listeners. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep6">6. Update the /ui/common/AddWindow.js file. Add a text field with hintText that directs the user to enter a new fugitive's name. Add a Save button that when clicked calls your db.add() function. Close the Add window after saving the new fugitive. Don't forget to require() in the database library within the event listener.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation6"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep7">7. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation7"></td>
+</tr>
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you improved upon TiBountyHunter by backing it with a SQLite database. Fugitives are now stored in a database for easy retrieval and updating. You enabled add, capture, and delete functionality with just a few lines of code. </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">Guide: Working with a SQLite Database: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_a_SQLite_Database'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_a_SQLite_Database</a></li>
+	<li class="l_resources2">API docs: Databases <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database</a></li>
+	<li class="l_resources3">KitchenSink database example: <a href='https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js'>https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js</a></li>
+	<li class="l_resources4">Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH250'>GitHub</a></li>
+</ul>
+
+
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+	</body>
+</html>
