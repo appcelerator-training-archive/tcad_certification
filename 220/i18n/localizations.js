@@ -7,7 +7,7 @@ String.toLocaleString({
 	"en-US": {
 		"%l_filetitle": "UI Fundamentals",
 		"%l_lessontitle": "UI Fundamentals",
-		"%l_slidenote_titleslide": "<b>Module time: 1 hour, 15 mins</b>(30 mins teaching, 45 mins lab",
+		"%l_slidenote_titleslide": "<b>Module time: 1 hour, 15 mins</b><br/>(30 mins teaching, 45 mins lab",
 		"%l_agenda1": "Basic Titanium user interface structures",
 		"%l_agenda2": "The Titanium View Hierarchy",
 		"%l_agenda3": "Layouts and positioning",
@@ -25,20 +25,53 @@ String.toLocaleString({
 		"%l_namespace": "Ti.UI namespace provides many specialized controls (buttons, text field, pickers, scroll views)",
 		"%l_ui_objects": "UI objects are composed in JavaScript similarly to DOM fragments",
 		"%l_slidenote_for_you": "UI elements composed in constructor style structure, pass parameters and get an object in return",
-		"%l_view_hierarchy": "View Hierarchy and Positioning",
-		"%l_modeled": "Mobile deployment and distribution features",
-		"%l_views": "Views positioned relative to parent",
-		"%l_layout": "Layout options:",
+
+		"%l_units": "Units",
+		"%l_defns": "Definitions:<br/>&nbsp;&nbsp;&nbsp;dip = display-independent pixels == 'points'<br/>&nbsp;&nbsp;&nbsp;System units - on Android = pixels; on iOS = dip",
+		"%l_absmeasures": "Absolute measurements: px (pixels), dp/dip, mm, cm, in",
+		"%l_relmeasures": "Relative measurements: % = percent of the parent's height or width",
+		"%l_unitcode": "\nvar view = Ti.UI.createView({\n  /* You would not normally mix units like this */\n  top: '10mm',\n  left: '5px',\n  width: '30%',\n  height: 50 /* default system units are used here */\n});\n ",
+		"%l_slidenote_units": "Can set a default unit in tiapp.xml<br/>See wiki for how-to",
+
+		"%l_coordinates": "Coordinates Grid",
+		"%l_coords1": "iPhone (original or Retina) - 320 by 480 point grid",
+		"%l_coords2": "iPad (original or Retina) - 1024 by 768 grid",
+		"%l_coords3": "Android sizes vary:<br/><ul style='align:left;margin-left:70px;'><li>HVGA = 320 by 480 px</li><li>WVGA800 = 480 by 800 px</li><li>WVGA854 = 480 by 854 px</li></ul>",
+		"%l_slidenote_coordinates": "You can use dp/dip units on Android to achieve the same density independent grid as is default on iOS.",
+
+		"%l_positioning": "Positioning",
+		"%l_position1": "<code>top</code> and <code>left</code>",
+		"%l_position2": "<code>bottom</code> and <code>right</code>",
+		"%l_position3": "<code>center</code>",
+		"%l_position4": "<code>size</code> provides <em>rendered</em> dimensions",
+		"%l_slidenote_positioning": "Coords relative to parent<br/>Typically use top/left, but can use bottom/right instead<br/>center is a dictionary of {x,y} from top/left of parent<br/>size is available after the element has been rendered",
+
+		"%l_view_hierarchy": "Layout Modes",
 		"%l_absolute": "Absolute",
 		"%l_vertical": "Vertical",
 		"%l_horizontal": "Horizontal",
-		"%l_points": "Points or percentage heights/widths",
 		"%l_slidenote_view_hierarchy": "Absolute &mdash; relative to parent not screen Vertical & horizontal &mdash; apply to parent object &mdash; we'll see examples in upcoming slides",
 		"%l_absolute_layout": "Absolute Layout",
 		"%l_slidenote_absolute_layout": "We have here a window with a couple UI elements<br>The button is positioned 170 points from the parent's top edge",
 		"%l_slidenote_absolute_layout_2": "Absolute, left 30 points from left edge",
 		"%l_vertical_layout": "Vertical Layout",
 		"%l_slidenote_vertical_layout": "Parent object has the Vertical layout<br>Child object's positions are then in relation to each other within the parent",
+
+		"%l_auto": "'Auto' Behaviors",
+		"%l_auto1": "Deprecated - use Ti.UI.SIZE or Ti.UI.FILL instead",
+		"%l_auto1": "SIZE: buttons, labels, images, text fields and areas",
+		"%l_auto1": "FILL: windows, views, tables, webviews",
+		"%l_auto1": "Some are mixed: table rows - FILL for width and SIZE for height",
+		"%l_slidenote_auto": "Used to set 'auto' as value for height or width and Ti would 'figure it out'<br/>But that was inconsistent across platforms and view components<br/>You can now be more explicity by specifying FILL (fills parent) or SIZE (sized to fit its contents)",
+
+		"%l_layoutmethods": "Batch Updates",
+		"%l_layoutmethod1": "Default: Coordinate/dimension changes are processed serially",
+		"%l_layoutmethod1": "Call <code>startLayout()</code> before, <code>finishLayout()</code> after to batch changes",
+		"%l_layoutmethod1": "Or call <code>updateLayout(params)</code>",
+		"%l_slidenote_layoutmethods": "When moving or resizing objects, changes are processed one at a time<br/>Use these techniques to perform those changes as a single batch -- <em>faster</em>",
+
+
+
 		"%l_event_handling": "Event Handling",
 		"%l_similar": "Similar To JavaScript in the browser",
 		"%l_can_use": "Can use addEventListener on nearly any JS object",
@@ -65,12 +98,14 @@ String.toLocaleString({
 		"%l_critical": "Critical API in component oriented applications",
 		"%l_demo_cross_context": "Demo: Cross-context messages in the default application",
 		"%l_slidenote_application_events": "Using App level events, we can de-couple our UI from our logic<br>UI components can listen for events and update themselves<br>Events can just alert or pass JSON serializable data<br>Demo:<ol><li>Move win 2 to win2.js, using Ti.UI.currentWindow</li><li>Label2, subscribe to app:labelclicked event</li><ul><li>receives data in event object</li><li>update label2 text & color</li></ul><li>In win1.js, click event handler fires app:labelclicked</li><ul><li>pass message text as second arg</li</ul><li>Build &mdash; doesn't work &mdash; window has to have been opened to receive events</li></ul>",
+
 		"%l_composing": "Composing Your App's UI",
 		"%l_50_percent": "50% or more of your job is UI component construction",
 		"%l_most_of": "Most of the rest is event handling logic",
 		"%l_your_app": "Your app will be more maintainable if you break it down into small components",
 		"%l_recommendation": "Recommendation: Use app.js to bootstrap your application and create/show/open one single UI component from your app",
 		"%l_slidenote_composing": "Self-contained, self-updating components are easiest to maintain<br>Single context is recommended",
+
 		"%l_iterative": "Iterative UI Programming",
 		"%l_ui_prog": "UI programming can boil down to pushing pixels",
 		"%l_need_to": "Need to have the fastest possible cycles, but also need to test cross-platform from the get-go!",
@@ -80,17 +115,19 @@ String.toLocaleString({
 		"%l_slidenote_iterative": "Don't wait to test cross-platform, Android and iOS can be very different",
 		"%l_qa": "Q&A",
 		"%l_slidenote_qa": "",
+
+
 		"%l_lab_goals": "Lab Goals",
 		"%l_compose": "Compose a basic two tab application",
 		"%l_requirements": "Requirements:",
 		"%l_display_list": "Display list of fugitives (dummy data)",
 		"%l_drill_down": "Drill down into a detail window",
 		"%l_provide_window": "Provide a window to add a fugitive",
-		"%l_demo_lab": "Demo and Lab URL",
-		"%l_slidenote_lab_goals": "Detail window &mdash; buttons don't do anything, show labels with actual data<br>Add window will be empty at this point<br>Demo finished code: TiBH220<br>Hint: try to re-use as much as possible. So, one function to show detail window that accepts a busted boolean to show the details for the at-large and captured fugitives",
-		"%l_lab": "Lab Exercise",
-		"%l_slidenote_lab": "",
+		"%l_labURL": "<a href='https://wiki.appcelerator.org/display/td/220+UI+Fundamentals'>wiki.appcelerator.org/display/td/220+UI+Fundamentals</a>",
+		"%l_slidenote_lab_goals": "Demo finished code: TiBH220<br>Detail window &mdash; buttons don't do anything, show labels with actual data<br>Add window will be empty at this point<br>Hint: try to re-use as much as possible. So, one function to show detail window that accepts a busted boolean to show the details for the at-large and captured fugitives",
+		
+
 		"%l_solution": "Solution Walkthrough",
-		"%l_slidenote_solution": "TiBH220 &mdash; ui.js file<br><ul><li>createAddWindow() function</li><li>createDetailWindow()</li></ul><ul><li>The _bounty param & comment</li><li>ternary operator</li></ul><li>createBountyTableView()</li><ul><li>single function for both tables</li><li>boolean param</li><li>grab handle to tab</li><li>table data construction</li></ul><li>createBountyWindow()</li><ul><li>boolean param</li>Android menu<li>platform switch to set right nav button</li></ul><li>createApplicationTabGroup()</li><ul><li>single function</li><li>call createBountyWindow() twice</li></ul></ul>"
+		"%l_slidenote_solution": "TiBH220 &mdash; Explain these files and changes:<ul><li>ui/BountyTable &mdash; populateTable() and row objects</li><li>ui/common/DetailWindow &mdash; window constructor, labels, and buttons</li><li>ui/common/AddWindow &mdash; window constructor</li><li>ui/handheld/ApplicationWindow &mdash; table instantiation, event listener, menu, and rightNavButton</li></ul>"
 	}
 });

@@ -1,0 +1,195 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title class="l_labname">Lab: UI Fundamentals</title>
+		<meta name="description" content="Building Native Mobile Apps, UI Fundamentals">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../css/magula.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				LAB FILE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+<div class="slides">
+<div id="labwrapper">			
+<section>
+
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - UI Fundamentals</h1>
+<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will create the basic user interface for TiBountyHunter, including table views and windows, and populate it with dummy data.  You will add a window for viewing fugitive details, a window for adding new fugitives, and basic event handling.</p>
+
+<p class="l_specification"><strong>Specification: </strong>Start with the TiBountyHunter project you created for the last assignment. You will now create the main components of the application with new custom component constructors.  Additionally, you will learn the basics of event handling by opening a new window when a table view row or button is clicked.<br/><br/>To successfully complete this lab, you must develop an application that meets the following description:</p>
+
+<ul>
+	<li class="l_spec1">Creates a table view in each window that shows a list of fugitives and a list of captured suspects.  Use dummy data in the tables for now</li>
+	<li class="l_spec2">Provides a blank window that will (eventually) be used to add a new fugitive.  This window will be opened by either clicking a button in the nav bar (customary on iOS) or by pressing a button in the menu (customary on Android)</li>
+	<li class="l_spec3">When a table view row is clicked, open a detail window for a fugitive which will contain text and buttons</li>
+</ul>
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH220.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH220.zip</a></td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_step2">2. In the ui/common folder, add a new module named BountyTable. In it, define a constructor for a the bounty table view; it should accept a Boolean value to determine whether the table will hold captured or at-large fugitives. Set the background color to 'transparent' (so the window background shows through). Add a function to populate your table's data and add a few rows. Each row should specify a title (bounty's name), a white text color, hasChild=true, and a custom property named captured which will hold the Boolean value passed to the constructor.</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2"></td>
+	</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep3">3. In the ui/common folder, add a new module named DetailWindow. In it, define a constructor for the details window. The background colors and so forth should match those you set for the application's main window. This constructor should accept an object represent the fugitive (and his/her details). Set the title to the bounty's name. Add a label that displays a busted or still at large string. If the bounty isn't captured, display a capture button (you don't have to add an event listener). Add a delete button, again without an event listener.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation3"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step4">4. In the ui/common folder, add a new module named AddWindow. In it, define a constructor for the add-a-fugitive window. The background colors and so forth should match those you set for the application's main window. Set the title to something like New Fugitive. The rest of this window can be empty.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. In the ui/handheld/ApplicationWindow.js file, add the code necessary to display the bounties table. Remember, this window will be instantiated twice: once for at-large and once for captured bounties. On the table instance, add an event listener. When a row is tapped, instantiate and then open the detail window. You'll need to pass the row's data to the DetailWindow to represent the fugitive. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5">(Hint: you added a self.containingTab property so that you can open with window within the parent tab.)</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep6">6. To the createWindow() call, add the code necessary to display the menu on Android. That menu should display a single button titled 'Add' that when clicked opens the AddWindow within the current tab.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation6">(Hint: See the Resources below for a link to the guide on creating an Android menu.)</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep7">7. Create a button titled 'Add' and display it as the rightNavButton. When that button is clicked, open the AddWindow within the containing tab. Make sure to wrap this whole block of code in an 'is-iphone' conditional statement so that it won't run on Android or Mobile Web.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation7"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep8">8. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation8">What functionality is missing from Mobile Web and how would you account for it? Be prepared to discuss these with your instructor and the class.</td>
+</tr>
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you built upon the foundation you laid in the previous lab. You added a table, windows, buttons, and other UI elements as a way to practice UI composition and layout. </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">Creating a table view: <a href='http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.TableView-object'>http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.TableView-object</a></li>
+	<li class="l_resources2">Android UI guide (contains section on menus) <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Android_UI_Components_and_Conventions'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Android_UI_Components_and_Conventions</a></li>
+	<li class="l_resources3">Windows in Titanium: <a href='http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.Window-object'>http://developer.appcelerator.com/apidoc/mobile/latest/Titanium.UI.Window-object</a></li>
+	<li class="l_resources4">Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH220'>GitHub</a></li>
+</ul>
+
+
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+	</body>
+</html>

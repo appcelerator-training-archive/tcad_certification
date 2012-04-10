@@ -172,7 +172,17 @@ var view = Ti.UI.createView({
 						<li class="l_auto3">FILL: windows, views, tables, webviews</li>
 						<li class="l_auto4">Some are mixed: table rows - FILL for width and SIZE for height</li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_auto"></div></div>
+					<div class="slidenote"><div class="l_slidenote_auto"></div>Used to set 'auto' as value for height or width and Ti would 'figure it out'<br/>But that was inconsistent across platforms and view components<br/>You can now be more explicity by specifying FILL (fills parent) or SIZE (sized to fit its contents)</div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_layoutmethods">Batch Updates</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_layoutmethod1">Default: Coordinate/dimension changes are processed serially</li>
+						<li class="l_layoutmethod2">Call <code>startLayout()</code> before, <code>finishLayout()</code> after to batch changes</li>
+						<li class="l_layoutmethod3">Or call <code>updateLayout(params)</code></li>
+					</ul>					
+					<div class="slidenote"><div class="l_slidenote_layoutmethods">When moving or resizing objects, changes are processed one at a time<br/>Use these techniques to perform those changes as a single batch -- <em>faster</em></div></div>
 				</section>
 
 			
@@ -189,10 +199,10 @@ var view = Ti.UI.createView({
 					<h2 class="l_execution_contexts">Execution Contexts</h2>
 					<p align="left" class="l_app_has">App has one execution context by default - similar to JS thread in the browser</p>
 					<p align="left" class="l_can_create">Can create more by:</p>
-					<div align="left"><ul>
+					<ul style="width:90%;margin-left:25px;margin-bottom:20px;">
 						<li class="l_windows_with">Windows with URLs</li>
 						<li class="l_background">Background Services</li>
-					</ul></div>
+					</ul>
 					<p align="left" class="l_each_has">Each has unique symbol space - variables declared in one context unavailable in another</p>
 					<p align="left" class="l_demo_execution">Demo: Execution Contexts in the default application</p>
 					<div class="slidenote"><div class="l_slidenote_execution_contexts">Execution context is a variable space, processing thread<br>App.js is default context, which you get automatically<br>Can create others, but maybe not desirable<br>Demo:<br><ol><li>In your test app, move win1 code to separate file</li><li>Update app.js to load the windows from those files</li><li>Build &mdash; error &mdash; can't find window object</li><li>Fix with Ti.UI.currentWindow, re-build</li></ul></div></div>
@@ -242,20 +252,20 @@ var view = Ti.UI.createView({
 
 				<section>
 					<h2 class="l_lab_goals">Lab Goals</h2>
-					<p align="left" class="l_compose">Compose a basic two tab application</p>
+					<p align="left" class="l_compose">Build the TiBountyHunter UI</p>
 					<p align="left" class="l_requirements">Requirements:</p>
-					<div align="left"><ul>
+					<ul style="width:100%;margin-left:50px;">
 						<li class="l_display_list">Display list of fugitives (dummy data)</li>
 						<li class="l_drill_down">Drill down into a detail window</li>
 						<li class="l_provide_window">Provide a window to add a fugitive</li>
-					</ul></div>
-					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
+					</ul>
+					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;"><a href='https://wiki.appcelerator.org/display/td/220+UI+Fundamentals'>wiki.appcelerator.org/display/td/220+UI+Fundamentals</a></p>
 					<div class="slidenote"><div class="l_slidenote_lab_goals">Detail window &mdash; buttons don't do anything, show labels with actual data<br>Add window will be empty at this point<br>Demo finished code: TiBH220<br>Hint: try to re-use as much as possible. So, one function to show detail window that accepts a busted boolean to show the details for the at-large and captured fugitives</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_solution">Solution Walkthrough</h2>
-					<div class="slidenote"><div class="l_slidenote_solution">TiBH220 &mdash; ui.js file<br><ul><li>createAddWindow() function</li><li>createDetailWindow()</li></ul><ul><li>The _bounty param &amp; comment</li><li>ternary operator</li></ul><li>createBountyTableView()</li><ul><li>single function for both tables</li><li>boolean param</li><li>grab handle to tab</li><li>table data construction</li></ul><li>createBountyWindow()</li><ul><li>boolean param</li>Android menu<li>platform switch to set right nav button</li></ul><li>createApplicationTabGroup()</li><ul><li>single function</li><li>call createBountyWindow() twice</li></ul></ul></div></div>
+					<div class="slidenote"><div class="l_slidenote_solution">TiBH220 &mdash; Explain these files and changes:<ul><li>ui/BountyTable &mdash; populateTable() and row objects</li><li>ui/common/DetailWindow &mdash; window constructor, labels, and buttons</li><li>ui/common/AddWindow &mdash; window constructor</li><li>ui/handheld/ApplicationWindow &mdash; table instantiation, event listener, menu, and rightNavButton</li></ul></div></div>
 				</section>
 				
 			</div>
