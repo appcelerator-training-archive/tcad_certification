@@ -1,9 +1,9 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>UI Fundamentals</title>
-		<meta name="description" content="UI Fundamentals">
+		<meta name="description" content="Building Native Mobile Apps, UI Fundamentals">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -49,12 +49,12 @@
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 1 hour, 15 mins</b>(30 mins teaching, 45 mins lab)</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 1 hour, 15 mins</b>(30 mins teaching, 45 mins lab)</p></div>
 				</section>
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
-			    	<ul>
+			    	<ul style="width:100%;">
 			    		<li class="l_agenda1">Basic Titanium user interface structures</li>
 			    		<li class="l_agenda2">The Titanium View Hierarchy</li>
 			    		<li class="l_agenda3">Layouts and positioning</li>
@@ -65,25 +65,25 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda">View hierarchy = relationship components have to each other as you lay them out<br>Event handling on a component and app level</p></div>
+						<div class="l_slidenote_agenda">View hierarchy = relationship components have to each other as you lay them out<br>Event handling on a component and app level</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_iOS_components">iOS User Interface Components</h2>
 					<p><img src="images/ios-components.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_iOS_components"></p>Briefly introduce the key iOS user interface components especially for the Android users in the class</div>
+					<div class="slidenote"><div class="l_slidenote_iOS_components">Briefly introduce the key iOS user interface components especially for the Android users in the class</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_android_components">Android User Interface Components</h2>
 					<p><img src="images/android-components.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_android_components"></p>Briefly introduce the key Android user interface components especially for the iOS users in the class</div>
+					<div class="slidenote"><div class="l_slidenote_android_components">Briefly introduce the key Android user interface components especially for the iOS users in the class</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_basic_app_structure">Basic Application Structure</h2>
 					<p><img src="images/basic-app-structure.png" style="margin-top:0px;height:420px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_basic_app_structure"></p>Brief: there are two basic ways to structure an app<br>Tab group with multiple windows<br>Single window with individual views or stack of sub-windows<br>Key goal is to make our UI elements self-contained and self-updating to abstract the UI from the app’s logic</div>
+					<div class="slidenote"><div class="l_slidenote_basic_app_structure">Brief: there are two basic ways to structure an app<br>Tab group with multiple windows<br>Single window with individual views or stack of sub-windows<br>Key goal is to make our UI elements self-contained and self-updating to abstract the UI from the app's logic</div></div>
 				</section>
 	
 				<section>
@@ -92,42 +92,61 @@
 					<p align="left" class="l_view">A "view" is analogous to a "div"</p>
 					<p align="left" class="l_namespace">Ti.UI namespace provides many specialized controls (buttons, text field, pickers, scroll views)</p>
 					<p align="left" class="l_ui_objects">UI objects are composed in JavaScript similarly to DOM fragments</p>
-					<div class="slidenote"><p class="l_slidenote_for_you"></p>UI elements composed in constructor style structure, pass parameters and get an object in return</div>
+					<div class="slidenote"><div class="l_slidenote_for_you">UI elements composed in constructor style structure, pass parameters and get an object in return</div></div>
 				</section>
+
+				<section>
+					<h1 class="l_units">Units</h1>
+					<p align="left" class="l_points">Points or percentage heights/widths</p>
+					<div class="slidenote"><div class="l_slidenote_units"></div></div>
+				</section>
+
+				<section>
+					<h1 class="l_coordinates">Coordinates Grid</h1>
+					<div class="slidenote"><div class="l_slidenote_coordinates"></div></div>
+				</section>
+
+				<section>
+					<h1 class="l_positioning">Positioning</h1>
+					<div class="slidenote"><div class="l_slidenote_positioning"></div></div>
+				</section>
+
 				
 				<section>
-					<h2 class="l_view_hierarchy">View Hierarchy and Positioning</h2>
-					<p align="left" class="l_modeled">Mobile deployment and distribution features</p>
-					<p align="left" class="l_views">Views positioned relative to parent</p>
-					<p align="left" class="l_layout">Layout options:</p>
-					<div align="left"><ol>
+					<h2 class="l_view_hierarchy">Layout modes</h2>
+					<ul>
 						<li class="l_absolute">Absolute</li>
 						<li class="l_vertical">Vertical</li>
 						<li class="l_horizontal">Horizontal</li>
-					</ol></div>
-					<p align="left" class="l_points">Points or percentage heights/widths</p>
-					<div class="slidenote"><p class="l_slidenote_view_hierarchy">Absolute – relative to parent not screen Vertical & horizontal – apply to parent object – we’ll see examples in upcoming slides</p></div>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_view_hierarchy">Absolute &mdash; relative to parent not screen Vertical &amp; horizontal &mdash; apply to parent object &mdash; we'll see examples in upcoming slides</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_absolute_layout">Absolute Layout</h2>
 					<p><img src="images/absolute-layout-snippet.png" style="margin-top:0px;height:220px;align:left"></p>
 					<p><img src="images/window-layout.png" style="margin-top:0px;height:220px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_absolute_layout"></p>We have here a window with a couple UI elements<br>The button is positioned 170 points from the parent’s top edge</div>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout">We have here a window with a couple UI elements<br>The button is positioned 170 points from the parent's top edge</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_absolute_layout">Absolute Layout</h2>
 					<p><img src="images/absolute-layout-snippet-2.png" style="margin-top:0px;height:220px;align:left"></p>
 					<p><img src="images/window-layout-2.png" style="margin-top:0px;height:220px;align:right"></p>
-					<div class="slidenote"><p class="l_slidenote_absolute_layout_2"></p>Absolute, left 30 points from left edge</div>
+					<div class="slidenote"><div class="l_slidenote_absolute_layout_2">Absolute, left 30 points from left edge</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_vertical_layout">Vertical Layout</h2>
 					<p><img src="images/vertical-layout.png" style="margin-top:0px;height:420px;align:left"></p>
-					<div class="slidenote"><p class="l_slidenote_vertical_layout"></p>Parent object has the Vertical layout<br>Child object’s positions are then in relation to each other within the parent</div>
+					<div class="slidenote"><div class="l_slidenote_vertical_layout">Parent object has the Vertical layout<br>Child object's positions are then in relation to each other within the parent</div></div>
 				</section>
+
+				<section>
+					<h1 class="l_auto">'Auto' Behaviors</h1>
+					<div class="slidenote"><div class="l_slidenote_auto"></div></div>
+				</section>
+
 			
 				<section>
 					<h2 class="l_event_handling">Event Handling</h2>
@@ -135,7 +154,7 @@
 					<p align="left" class="l_can_use">Can use addEventListener on nearly any JS object</p>
 					<p align="left" class="l_can_prog">Can programmatically fire events on objects as well</p>
 					<p align="left" class="l_demo">Demo: A simple event handler in the default project</p>
-					<div class="slidenote"><p class="l_slidenote_event_handling"></p>Add event listeners to objects at a component, object or app level<br>Programmatically fire events<br>Demo:<br><ol><li>Test app from prev. module or new default app</li><li>Add event listener to the label on win1, change text of label(Note: “tap” event is the same as “click”)</li><li>Build, click label to see event fired</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_event_handling">Add event listeners to objects at a component, object or app level<br>Programmatically fire events<br>Demo:<br><ol><li>Test app from prev. module or new default app</li><li>Add event listener to the label on win1, change text of label(Note: 'tap' event is the same as 'click')</li><li>Build, click label to see event fired</li></ul></div></div>
 				</section>
 
 				<section>
@@ -148,7 +167,7 @@
 					</ul></div>
 					<p align="left" class="l_each_has">Each has unique symbol space - variables declared in one context unavailable in another</p>
 					<p align="left" class="l_demo_execution">Demo: Execution Contexts in the default application</p>
-					<div class="slidenote"><p class="l_slidenote_execution_contexts"></p>Execution context is a variable space, processing thread<br>App.js is default context, which you get automatically<br>Can create others, but maybe not desirable<br>Demo:<br><ol><li>In your test app, move win1 code to separate file</li><li>Update app.js to load the windows from those files</li><li>Build – error – can’t find window object</li><li>Fix with Ti.UI.currentWindow, re-build</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_execution_contexts">Execution context is a variable space, processing thread<br>App.js is default context, which you get automatically<br>Can create others, but maybe not desirable<br>Demo:<br><ol><li>In your test app, move win1 code to separate file</li><li>Update app.js to load the windows from those files</li><li>Build &mdash; error &mdash; can't find window object</li><li>Fix with Ti.UI.currentWindow, re-build</li></ul></div></div>
 				</section>
 
 				<section>
@@ -157,7 +176,7 @@
 					<p align="left" class="l_use_multiples">Use multiples only when "clean slate" is desired</p>
 					<p align="left" class="l_if_multiples">If multiple contexts are in use, it is often necessary to share data across them</p>
 					<p align="left" class="l_for_this">For this, use application-level events</p>
-					<div class="slidenote"><p class="l_slidenote_more_execution_contexts"></p>Kitchen Sink specifically uses separate contexts because it needs / wants those clean slates</div>
+					<div class="slidenote"><div class="l_slidenote_more_execution_contexts">Kitchen Sink specifically uses separate contexts because it needs / wants those clean slates</div></div>
 				</section>
 				
 				<section>
@@ -166,7 +185,7 @@
 					<p align="left" class="l_publishing">Useful for publishing and subscribing to application events even in a single context</p>
 					<p align="left" class="l_critical">Critical API in component oriented applications</p>
 					<p align="left" class="l_demo_cross_context">Demo: Cross-context messages in the default application</p>
-					<div class="slidenote"><p class="l_slidenote_application_events"></p>Using App level events, we can de-couple our UI from our logic<br>UI components can listen for events and update themselves<br>Events can just alert or pass JSON serializable data<br>Demo:<ol><li>Move win 2 to win2.js, using Ti.UI.currentWindow</li><li>Label2, subscribe to app:labelclicked event</li><ul><li>receives data in event object</li><li>update label2 text & color</li></ul><li>In win1.js, click event handler fires app:labelclicked</li><ul><li>pass message text as second arg</li</ul><li>Build – doesn’t work – window has to have been opened to receive events</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_application_events">Using App level events, we can de-couple our UI from our logic<br>UI components can listen for events and update themselves<br>Events can just alert or pass JSON serializable data<br>Demo:<ol><li>Move win 2 to win2.js, using Ti.UI.currentWindow</li><li>Label2, subscribe to app:labelclicked event</li><ul><li>receives data in event object</li><li>update label2 text &amp; color</li></ul><li>In win1.js, click event handler fires app:labelclicked</li><ul><li>pass message text as second arg</li</ul><li>Build &mdash; doesn't work &mdash; window has to have been opened to receive events</li></ul></div></div>
 				</section>
 
 				<section>
@@ -175,7 +194,7 @@
 					<p align="left" class="l_most_of">Most of the rest is event handling logic</p>
 					<p align="left" class="l_your_app">Your app will be more maintainable if you break it down into small components</p>
 					<p align="left" class="l_recommendation">Recommendation: Use app.js to bootstrap your application and create/show/open one single UI component from your app</p>
-					<div class="slidenote"><p class="l_slidenote_composing"></p>Self-contained, self-updating components are easiest to maintain<br>Single context is recommended</div>
+					<div class="slidenote"><div class="l_slidenote_composing">Self-contained, self-updating components are easiest to maintain<br>Single context is recommended</div></div>
 				</section>
 				
 				<section>
@@ -185,13 +204,12 @@
 					<p align="left" class="l_ios_sim">iOS Simulator is fast for dev, device cycle is slow</p>
 					<p align="left" class="l_android_emu">Android Emulator is S-L-O-W - keep it running!</p>
 					<p align="left" class="l_android_dev">Android devices are faster (better for dev)</p>
-					<div class="slidenote"><p class="l_slidenote_iterative"></p>Don’t wait to test cross-platform, Android and iOS can be very different</div>
+					<div class="slidenote"><div class="l_slidenote_iterative">Don't wait to test cross-platform, Android and iOS can be very different</div></div>
 				</section>
 
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+					<h1 class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 
 				<section>
@@ -204,19 +222,12 @@
 						<li class="l_provide_window">Provide a window to add a fugitive</li>
 					</ul></div>
 					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Detail window – buttons don’t do anything, show labels with actual data<br>Add window will be empty at this point<br>Demo finished code: TiBH220<br>Hint: try to re-use as much as possible. So, one function to show detail window that accepts a busted boolean to show the details for the at-large and captured fugitives</div>
-				</section>
-
-				<section>
-					<h2 class="l_lab">Lab Exercise</h2>
-					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
+					<div class="slidenote"><div class="l_slidenote_lab_goals">Detail window &mdash; buttons don't do anything, show labels with actual data<br>Add window will be empty at this point<br>Demo finished code: TiBH220<br>Hint: try to re-use as much as possible. So, one function to show detail window that accepts a busted boolean to show the details for the at-large and captured fugitives</div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_solution">Solution Walkthrough</h2>
-					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_solution">TiBH220 – ui.js file<br><ul><li>createAddWindow() function</li><li>createDetailWindow()</li></ul><ul><li>The _bounty param & comment</li><li>ternary operator</li></ul><li>createBountyTableView()</li><ul><li>single function for both tables</li><li>boolean param</li><li>grab handle to tab</li><li>table data construction</li></ul><li>createBountyWindow()</li><ul><li>boolean param</li>Android menu<li>platform switch to set right nav button</li></ul><li>createApplicationTabGroup()</li><ul><li>single function</li><li>call createBountyWindow() twice</li></ul></ul></p></div>
+					<div class="slidenote"><div class="l_slidenote_solution">TiBH220 &mdash; ui.js file<br><ul><li>createAddWindow() function</li><li>createDetailWindow()</li></ul><ul><li>The _bounty param &amp; comment</li><li>ternary operator</li></ul><li>createBountyTableView()</li><ul><li>single function for both tables</li><li>boolean param</li><li>grab handle to tab</li><li>table data construction</li></ul><li>createBountyWindow()</li><ul><li>boolean param</li>Android menu<li>platform switch to set right nav button</li></ul><li>createApplicationTabGroup()</li><ul><li>single function</li><li>call createBountyWindow() twice</li></ul></ul></div></div>
 				</section>
 				
 			</div>

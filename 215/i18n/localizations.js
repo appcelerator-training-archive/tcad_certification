@@ -108,6 +108,15 @@ String.toLocaleString({
 		"%l_platform": "Platform-specific APIs are implemented in a platform-specific namespace",
 		"%l_slidenote_platform_specific": "Special api sections, platform only supported logic, etc<br> resolutions, services, intents/actions.<br>Because you have these diffs, the API provided is not always supported in all platforms, be aware of this.",
 
+		"%l_mobileweb": "Mobile Web",
+		"%l_mwexplanation": "Native vs. Web app vs. Hybrid",
+		"%l_mwexplanation2": "What Mobile Web Can Do",
+		"%l_mwexplanation3": "What Mobile Web Can't Do",
+		"%l_mwexplanation4": "Supported Browsers and Limitations",
+		"%l_slidenote_mobileweb": "Mobile Web is our new HTML5 build target. Virtually the same code compile to native (iOS/Android) or HTML.<ul><li>Native - runs directly on device OS</li><li>Web app - mobile-ready web pages</li><li>Hybrid - Web app 'wrapped' so it's installable (WebView or Phonegap)</ul>First RC release with Ti2.0 - Common UI elements, HTTP networking, local storage, modules via AMD or CommonJS<br/>But can't do platform-specifics (such as iOS local notifications), provide universal access to hardware sensors (not supported on all browsers/OSes), access Contacts or Calendars.<br/>See the wiki for other limitations.",
+
+
+
 		"%l_developing_for": "Developing for Multiple Platforms",
 		"%l_titanium_api": "Titanium API provides a platform variable that can be used with if statements",
 		"%l_specific_resources": "Platform-specific resources:",
@@ -121,17 +130,12 @@ String.toLocaleString({
 		"%l_branchcode": "\nvar isAndroid = false;\nif(Ti.Platform.osname == 'android') {\n  isAndroid = true;\n  // some other Android-specific code here...n}\n ",
 		"%l_ternary": "Use with JavaScript's ternary operator:",
 		"%l_ternarycode": "\nvar win = Ti.UI.createWindow({\n  backgroundColor: (isAndroid) ? 'green' : 'blue'\n});\n\n// is equivalent to\nif(Ti.Platform.name == 'android') {\n  var win = Ti.UI.createWindow({\n    backgroundColor: 'green'\n  });\n} else {\n  var win = Ti.UI.createWindow({\n    backgroundColor: 'blue'\n  });\n}\n ",
-
-
-
-
 		"%l_slidenote_platform_name": "Define local variables to minimize trips 'across the bridge' (going from JavaScript to Native and back)",
-
 
 		"%l_platform_specific_resources": "Platform-specific resources:",
 		"%l_slidenote_platform_specific_resources": "Files in these directories supersede those in Resources <br>As the build process runs it will compose files from these folders so that if a file is here it will be exchanged so that the correct one is used in the root project instead.",
-		"%l_specific_resources": "Resolution-Specific Resources",
-		"%l_resolution_specific_resources": "Platform-specific resources:",
+		"%l_specific_resources": "Platform-specific resources:",
+		"%l_resolution_specific_resources": "Resolution-Specific Resources",
 		"%l_slidenote_resolution_specific_features": "Retina / non-retina on iOS<br>Resolution, orientation, and aspect ratio versions on Android<br>Refer by the base name on all and the correct version will be used.",
 		"%l_slidenote_resolution_specific_featuresspaces": "Platform Namespaces",
 		"%l_functionality": "Platform-specific functionality is broken out into sub-namespaces where appropriate",
