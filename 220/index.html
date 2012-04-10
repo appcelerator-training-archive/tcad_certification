@@ -9,7 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -96,25 +96,47 @@
 				</section>
 
 				<section>
-					<h1 class="l_units">Units</h1>
-					<p align="left" class="l_points">Points or percentage heights/widths</p>
-					<div class="slidenote"><div class="l_slidenote_units"></div></div>
+					<h2 class="l_units">Units</h2>
+					<p align="left" class="l_defns">Definitions: dip = display-independent pixels == 'points'<br/>System units - on Android = pixels; on iOS = dip</p>
+					<p align="left" class="l_absmeasures">Absolute measurements: px (pixels), dp/dip, mm, cm, in</p>
+					<p align="left" class="l_relmeasures">Relative measurements: % = percent of the parent's height or width</p>
+<pre><code contenteditable class="l_unitcode">
+var view = Ti.UI.createView({
+  /* You would not normally mix units like this */
+  top: '10mm',
+  left: '5px',
+  width: '30%',
+  height: 50 /* default system units are used here */
+});
+
+</code></pre>
+					<div class="slidenote"><div class="l_slidenote_units">Can set a default unit in tiapp.xml<br/>See wiki for how-to</div></div>
 				</section>
 
 				<section>
-					<h1 class="l_coordinates">Coordinates Grid</h1>
-					<div class="slidenote"><div class="l_slidenote_coordinates"></div></div>
+					<h2 class="l_coordinates">Coordinates Grid</h2>
+					<p align="left" class="l_coords1">iPhone (original or Retina) - 320 by 480 point grid</p>
+					<p align="left" class="l_coords2">iPad (original or Retina) - 1024 by 768 grid</p>
+					<div align="left" class="l_coords3">Android sizes vary:<br/><ul style="align:left;margin-left:70px;"><li>HVGA = 320 by 480 px</li><li>WVGA800 = 480 by 800 px</li><li>WVGA854 = 480 by 854 px</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_coordinates">You can use dp/dip units on Android to achieve the same density independent grid as is default on iOS.</div></div>
 				</section>
 
 				<section>
-					<h1 class="l_positioning">Positioning</h1>
+					<h2 class="l_positioning">Positioning</h2>
+					<img src="images/layout.png" style="float:right;height:400px;">
+					<ul style="text-align:left;width:70%;float:left;">
+						<li class="l_position1"><code>top</code> and <code>left</code></li>
+						<li class="l_position2"><code>bottom</code> and <code>right</code></li>
+						<li class="l_position3"><code>center</code></li>
+						<li class="l_position4"><code>size</code> provides <em>rendered</em> dimensions</li>
+					</ul>
 					<div class="slidenote"><div class="l_slidenote_positioning"></div></div>
 				</section>
 
 				
 				<section>
 					<h2 class="l_view_hierarchy">Layout modes</h2>
-					<ul>
+					<ul style="text-align:left;width:90%;">
 						<li class="l_absolute">Absolute</li>
 						<li class="l_vertical">Vertical</li>
 						<li class="l_horizontal">Horizontal</li>
@@ -143,7 +165,13 @@
 				</section>
 
 				<section>
-					<h1 class="l_auto">'Auto' Behaviors</h1>
+					<h2 class="l_auto">'Auto' Behaviors</h2>
+					<ul style="text-align:left;width:90%;">
+						<li class="l_auto1">Deprecated - use Ti.UI.SIZE or Ti.UI.FILL instead</li>
+						<li class="l_auto2">SIZE: buttons, labels, images, text fields and areas</li>
+						<li class="l_auto3">FILL: windows, views, tables, webviews</li>
+						<li class="l_auto4">Some are mixed: table rows - FILL for width and SIZE for height</li>
+					</ul>
 					<div class="slidenote"><div class="l_slidenote_auto"></div></div>
 				</section>
 
