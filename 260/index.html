@@ -1,15 +1,15 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
 		<title>Media and the Filesystem</title>
-		<meta name="description" content="Media and the Filesystem">
+		<meta name="description" content="Building Native Mobile Apps with Titanium, Media and the Filesystem">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -49,12 +49,12 @@
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(30 teaching, 30 lab)</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 60 mins</b><br/>(30 teaching, 30 lab)</div></div>
 				</section>
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">AGENDA</h1>
-			    	<ul>
+			    	<ul style="width:100%;">
 			    		<li class="l_agenda1">Explore Titanium Media APIs</li>
 			    		<li class="l_agenda2">Leveraging media in your application</li>
 			    		<li class="l_agenda3">Explore Titanium Filesystem APIs</li>
@@ -65,7 +65,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda"></p>Media – will be exploring KitchenSink examples</div>
+						<div class="l_slidenote_agenda">Media &mdash; will be exploring KitchenSink examples</div></div>
 				</section>
 
 				
@@ -75,7 +75,7 @@
 					<p align="left" class="l_streaming_audio">Streaming audio support (AudioPlayer)</p>
 					<p align="left" class="l_audio_recording">Audio recording support</p>
 					<p align="left" class="l_demos_audio">Demos and Code Walkthrough</p>
-					<div class="slidenote"><p class="l_slidenote_audio_api"></p>Demos in the Kitchen Sink<br><ul><li>Phone tab / Sounds / Local  (demo each button)</li><li>Sounds / Record (record with lo/hi fidelity & playback)</li></ul>Show code: examples/sound_local.js<ul><li>Show: createSound()</li><li>play(), pause(), stop() in button event handlers</li><li> looping</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_audio_api">Demos in the Kitchen Sink<br><ul><li>Phone tab / Sounds / Local  (demo each button)</li><li>Sounds / Record (record with lo/hi fidelity &amp; playback)</li></ul>Show code: examples/sound_local.js<ul><li>Show: createSound()</li><li>play(), pause(), stop() in button event handlers</li><li> looping</li></ul></div></div>
 				</section>
 				
 				<section>
@@ -84,7 +84,7 @@
 					<p align="left" class="l_streaming_video">Streaming video support - HTTP Live Streaming (iOS), RTSP (Android), pseudo-streaming</p>
 					<p align="left" class="l_video_capture">Video capture support</p>
 					<p align="left" class="l_demos_video">Demos and Code Walkthrough for Local Video</p>
-					<div class="slidenote"><p class="l_slidenote_video_api"></p>Demos in the Kitchen Sink<br><ul><li>Phone tab / Play Movie / Local -- point out overlays</li><li>Phone tab / Play Movie / Remote streaming</li></ul>Show code: examples/movie_local.js<ul><li>Show: contentURL property, label overlay</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_video_api">Demos in the Kitchen Sink<br><ul><li>Phone tab / Play Movie / Local -- point out overlays</li><li>Phone tab / Play Movie / Remote streaming</li></ul>Show code: examples/movie_local.js<ul><li>Show: contentURL property, label overlay</li></ul></div></div>
 				</section>
 				
 				<section>
@@ -95,7 +95,7 @@
 					<p align="left" class="l_demo_local">Demo: Image from Local URL</p>
 					<p align="left" class="l_demo_remote">Demo: Image from Remote URL</p>
 					<p align="left" class="l_demo_blob">Demo: Image from file blob</p>
-					<div class="slidenote"><p class="l_slidenote_still_api"></p>Demos in the Kitchen Sink<br><ul><li>Base UI tab / Views / Image Views / Basic – responds to events</li><li>Remote image</li><li>Animated – array of images / flipbook effect</li></ul>Show code:<ul><li>examples/imageview_basic.js -- Show: createImageView</li><li>Examples/imageview_file.js – show image property pointing to local file</li><li>explain the flexible nature of property (accepts file path, url, file system object)</li></ul></div>
+					<div class="slidenote"><div class="l_slidenote_still_api">Demos in the Kitchen Sink<br><ul><li>Base UI tab / Views / Image Views / Basic &mdash; responds to events</li><li>Remote image</li><li>Animated &mdash; array of images / flipbook effect</li></ul>Show code:<ul><li>examples/imageview_basic.js -- Show: createImageView</li><li>Examples/imageview_file.js &mdash; show image property pointing to local file</li><li>explain the flexible nature of property (accepts file path, url, file system object)</li></ul></div></div>
 				</section>
 
 				<section>
@@ -105,14 +105,14 @@
 					<p align="left" class="l_success"><b>success:</b>called on photo retrieval</p><br>
 					<p align="left" class="l_error"><b>error:</b>called on a device error</p><br>
 					<p align="left" class="l_cancel"><b>cancel:</b>called when a user cancels photo retrieval</p><br>
-					<div class="slidenote"><p class="l_slidenote_capturing_images"></p>Same signature means you can use nearly identical code whether working with the camera or gallery<br>Demo notes on next slide</div>
+					<div class="slidenote"><div class="l_slidenote_capturing_images">Same signature means you can use nearly identical code whether working with the camera or gallery<br>Demo notes on next slide</div></div>
 				</section>				
 				
 			
 				<section>
 					<h2 class="l_demo_photo_gallery">Demo: Photo Gallery</h2>
-					<p><img src="images/demo-photo-gallery.png" style="margin-top:30px;height:200px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_demo_photo_gallery"></p>** Make sure to have images pre-installed in your simulator/emulator<br>Demos in the Kitchen Sink<ul><li>Phone tab / Photo Gallery</li></ul>Show code: examples/photo_gallery.js<ul><li>createImageView (holds image), openPhotoGallery and its 3 callbacks</li><li>allowEditing and mediaTypes</li><li>imageView.image</li></ul>Show code: examples/camera_basic.js<ul><li>showCamera</li><li>image = event.media</li><li>saveToPhotoGallery and mediaTypes properties</li></ul></div>
+					<p style="text-align:left;" class="l_photodemo">From KitchenSink:<br/>Phone > Photo Gallery<br/>examples/photo_gallery.js and examples/camera_basic.js</p>
+					<div class="slidenote"><div class="l_slidenote_demo_photo_gallery">** Make sure to have images pre-installed in your simulator/emulator<br>Demos in the Kitchen Sink<ul><li>Phone tab / Photo Gallery</li></ul>Show code: examples/photo_gallery.js<ul><li>createImageView (holds image), openPhotoGallery and its 3 callbacks</li><li>allowEditing and mediaTypes</li><li>imageView.image</li></ul>Show code: examples/camera_basic.js<ul><li>showCamera</li><li>image = event.media</li><li>saveToPhotoGallery and mediaTypes properties</li></ul></div></div>
 				</section>
 				
 				<section>
@@ -120,7 +120,7 @@
 					<p align="left" class="l_many_titanium">Many Titanium APIs return Blob objects which point to binary data</p>
 					<p align="left" class="l_these_blobs">These blobs and other data (strings, commonly) can be written to Files</p>
 					<p align="left" class="l_the_filesystem">The filesystem is the appropriate place to store binary data</p>
-					<div class="slidenote"><p class="l_slidenote_files"></p></div>
+					<div class="slidenote"><div class="l_slidenote_files"></div></div>
 				</section>
 
 				<section>
@@ -133,20 +133,19 @@
 					<p align="left" class="l_filesystem_tempDir"><b>Ti.Filesystem.tempDirectory - read/write</b></p>
 					<p align="left" class="l_filesystem_extDir"><b>Ti.Filesystem.externalStorageDirectory - read/write</b></p>
 					<p align="left" class="l_plus">plus Ti.Filesystem.isExternalStoragePresent()</p>
-					<div class="slidenote"><p class="l_slidenote_filesystem"></p>Temp directory is wiped on reboot<br>externalStorageDirectory is Android only<br>SDK 1.8 adds iOS “do not backup” flag support for files that don’t need to be synced to iCloud<br>That’s a concern for iOS 5.x+ devices only (older iOS versions don’t support iCloud)</div>
+					<div class="slidenote"><div class="l_slidenote_filesystem">Temp directory is wiped on reboot<br>externalStorageDirectory is Android only<br>SDK 1.8 adds iOS “do not backup” flag support for files that don't need to be synced to iCloud<br>That's a concern for iOS 5.x+ devices only (older iOS versions don't support iCloud)</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_demo_file_io">Demo: File I/O</h2>
-					<p><img src="images/demo-file-io.png" style="margin-top:30px;height:200px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_demo_file_io"></p>Using the Persistence demo app<br>Run app in simulator, Filesystem tab<br>Reading in JSON file, parsing it to populate text fields<br>Changes to fields are saved to a file on the file system<br>Code walkthrough:
-					<ol><li>Open Persistence project</li><li>Open Resources/test.json and explain contents</li><li>Open Resources/filesystem.js, show:</li></ol><ol><li>Simulator special – writing to Resources directory</li><li>getFile()</li><li>JSON.parse()</li><li>Setting values of fields</li><li>Event listeners on the fields</li><li>Save button and event handler that saves the values</li></ol></div>
+					<p style="text-align:left;" class="l_filedemo">From KitchenSink:<br/>Persistence app</p>
+					<div class="slidenote"><div class="l_slidenote_demo_file_io">Using the Persistence demo app<br>Run app in simulator, Filesystem tab<br>Reading in JSON file, parsing it to populate text fields<br>Changes to fields are saved to a file on the file system<br>Code walkthrough:
+					<ol><li>Open Persistence project</li><li>Open Resources/test.json and explain contents</li><li>Open Resources/filesystem.js, show:</li></ol><ol><li>Simulator special &mdash; writing to Resources directory</li><li>getFile()</li><li>JSON.parse()</li><li>Setting values of fields</li><li>Event listeners on the fields</li><li>Save button and event handler that saves the values</li></ol></div></div>
 				</section>
 
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+					<h1 class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
 				<section>
@@ -154,11 +153,11 @@
 					<p align="left" class="l_no_images">No images included by default</p><br>
 					<div align="left"><ol>
 						<li class="l_open_gallery">Open gallery in simulator, then close it</li>
-						<li class="l_find_images">Find images using simulator’s web browser (e.g. Google Images search)</li>
+						<li class="l_find_images">Find images using simulator's web browser (e.g. Google Images search)</li>
 						<li class="l_press">Press and hold on image</li>
 						<li class="l_choose">Choose Save image</li>
 					</ol></div>
-					<div class="slidenote"><p class="l_slidenote_images_in"></p>Need images in the gallery for this lab.<br>Gotcha: You might need to open the gallery first before you can save to it.</div>
+					<div class="slidenote"><div class="l_slidenote_images_in">Need images in the gallery for this lab.<br>Gotcha: You might need to open the gallery first before you can save to it.</div></div>
 				</section>
 
 				<section>
@@ -170,20 +169,13 @@
 						<li class="l_store_image">Store image on the filesystem</li>
 						<li class="l_associate_image">Associate the image with a row in the database</li>
 					</ul></div>
-					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p>Will need to uninstall app from simulator because of database changes<br>Store the path to the image in the database, not a blob<br>Get the placeholder image from the Wiki<br>Demo - <b>TiBH260</b><ul><li>Make sure to have an image in your sim’s gallery</li><li>Show app in both simulator/emulator</li><li>Select a photo for a bounty and show it sticks</li></ul></div>
-				</section>
-
-				<section>
-					<h2 class="l_lab">Lab Exercise</h2>
-					<img src="images/lab.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab"></p></div>
+					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;"><a href='https://wiki.appcelerator.org/display/td/260+Working+With+Media+and+the+File+System'>wiki.appcelerator.org/display/td/260+Working+With+Media+and+the+File+System</a></p>
+					<div class="slidenote"><div class="l_slidenote_lab_goals">Will need to uninstall app from simulator because of database changes<br>Store the path to the image in the database, not a blob<br>Get the placeholder image from the Wiki<br>Demo - <b>TiBH260</b><ul><li>Make sure to have an image in your sim's gallery</li><li>Show app in both simulator/emulator</li><li>Select a photo for a bounty and show it sticks</li></ul></div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_solution">Solution Walkthrough</h2>
-					<img src="images/solution.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_solution"><b>Code Walk through – TiBH255</b><br><u>ui.js</u><ul><li>~line 76 – openPhotoGallery()</li><li>discuss the three call back functions</li></ul><u>db.js</u><ul><li>new database structure</li><li>addPhoto() on line ~59</li></ul></p></div>
+					<div class="slidenote"><div class="l_slidenote_solution">Walk through &mdash; TiBH260<br><ul><li><strong>lib/db.js</strong> &mdash; new DB creation statement and new addPhoto() function</li><li><strong>ui/common/DetailWindow.js</strong> &mdash; imgView, photoButton, and its event listener</li></ul></div></div>
 				</section>
 				
 			</div>

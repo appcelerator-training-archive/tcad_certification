@@ -33,7 +33,7 @@ String.toLocaleString({
 		"%l_labstep6": "6. Update the /ui/common/AddWindow.js file. Add a text field with hintText that directs the user to enter a new fugitive's name. Add a Save button that when clicked calls your db.add() function. Close the Add window after saving the new fugitive. Don't forget to require() in the database library within the event listener.",
 		"%l_labstepexplanation6": "",
 
-		"%l_labstep7": "7. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).",
+		"%l_labstep7": "7. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. ",
 		"%l_labstepexplanation7": "",
 
 		"%l_summary": "Summary",

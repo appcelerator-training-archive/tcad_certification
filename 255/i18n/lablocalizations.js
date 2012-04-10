@@ -23,7 +23,7 @@ String.toLocaleString({
 		"%l_labstep4": "4. Update the /ui/common/DetailWindow.js file. In the Capture button's click handler, require your network library. Pass to it the device's MAC address and a callback function. That function should alert() the data returned from the network service. It should also close the window after a two-second delay on Android or immediately on iOS and Mobile Web.",
 		"%l_labstepexplanation4": "",
 
-		"%l_labstep5": "5. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).",
+		"%l_labstep5": "5. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. ",
 		"%l_labstepexplanation5": "",
 
 		"%l_summary": "Summary",
