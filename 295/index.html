@@ -1,0 +1,293 @@
+<!doctype html>  
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8">
+		<title>Deployment & Distribution</title>
+		<meta name="description" content="Deployment & Distribution">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/localizations.js"></script>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				SLIDE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+			<div class="slides">
+				
+				<section>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Deployment & Distribution</h1>
+					<!--h5 class="l_subtitle">Address Book & Social APIs</h5-->
+					<script>
+						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
+						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
+						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
+					</script>
+				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(30 mins teaching, 30 mins for lab)</p></div>
+				</section>
+				
+				<section id="agenda">
+					<h1 style="margin-top:50px;" class="l_agenda_title">Agenda</h1>
+			    	<ul>
+			    		<li class="l_agenda1">Deploying to a device for testing</li>
+			    		<li class="l_agenda2">Publishing to the Android Market</li>
+			    		<li class="l_agenda3">Publishing to the AppStore</li>
+			    		<li class="l_agenda4">AdHoc, Enterprise, and private distribution</li>
+						<li class="l_agenda5">Lab Exercise</li>
+			    	</ul>
+					
+					<div class="slidenote">
+						<!-- Please use a classname that relates to the associated slide content. For example, this
+							slide is the agenda, thus the class is l_slidenote_agenda
+						 -->
+						<p class="l_slidenote_agenda"></p>Present the agenda...</div>
+				</section>
+				
+				<section>
+					<h2 class="l_deployment">Deployment</h2>
+					<p align="left" class="l_getting_your">Getting your app onto a device for testing</p><br>
+					<p align="left" class="l_locally_connected">Locally connected devices</p><br>
+					<p align="left" class="l_remote_devices">Remote devices</p><br>
+					<p align="left" class="l_ios_android">iOS and Android processes very different</p><br>
+					<div class="slidenote"><p class="l_slidenote_deployment"></p>You can deploy over a USB connection<br>There are techniques for deploying to remote devices<br>iOS/Android processes different</div>
+				</section>
+			
+				<section>
+					<h2 class="l_android_deployment">Android Deployment</h2>
+					<p><img src="images/android-deployment.png" style="margin-top:60px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_android_deployment"></p>Let’s talk first about deploying your app for testing on Android devices</div>
+				</section>
+
+				<section>
+					<h2 class="l_android_deployment_testing">Android deployment for testing</h2>
+					<p><img src="images/android-deployment-testing.png" style="margin-top:60px;height:250px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_android_deployment_testing"></p>Simple, two-step process for Android</div>
+				</section>
+
+				<section>
+					<h2 class="l_configure_device">Configure device for testing</h2>
+					<p><img src="images/configure-device.png" style="margin-top:60px;height:450px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_configure_device"></p>First, configure device for testing<br>Windows users: need to install drivers specific to your device<br>Linux users: need to create USB config<br>See the wiki</div>
+				</section>
+
+				<section>
+					<h2 class="l_local_android">Local Android deployment</h2>
+					<div align="left"><ol>
+					<li class="l_connect_device">Connect device to USB port</li>
+					<li class="l_run_menu">From Run menu, choose Android Device</li>
+					</ul></div><br><br>
+					<p><img src="images/local-android.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_local_android"></p>Android deployment for testing is pretty simple<br>Can also manually install the APK via ADB<br>Or by transferring apk to device and opening with a file manager<br>Ti Studio signs APK with a debug compatible certificate. You could go through the signing steps but that’s unnecessary</div>
+				</section>
+
+
+				<section>
+					<h2 class="l_remote_android">Remote Android deployment</h2>
+					<p align="left" class="l_get_apk">Get the APK to the user's device</p><br>
+					<p align="left" class="l_email">Email</p><br>
+					<p align="left" class="l_post">Post on a web site</p><br>
+					<p align="left" class="l_distribution">Distribution framework</p><br>
+					<div class="slidenote"><p class="l_slidenote_remote_android"></p>Just get the APK onto the user’s device<br>Use the apk-debug version to skip code signing steps<br>Email, post on a web site, share through Dropbox<br>Over-the-air system like HockeyKit can automate deployment and updates</div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_deployment">iOS Deployment</h2>
+					<p><img src="images/ios-deployment.png" style="margin-top:60px;height:200px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_ios_deployment"></p></div>
+				</section>
+
+
+				<section>
+					<h2 class="l_ios_deployment_testing">iOS deployment for testing</h2>
+					<p><img src="images/ios-deployment-testing.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_ios_deployment_testing"></p>Six step of Apple’s process – don’t go in-depth here</div>
+				</section>
+				
+				<section>
+					<h2 class="l_apple_dev">Apple Developer Program</h2>
+					<p align="left" class="l_free_to">Free to register, download SDK</p><br>
+					<p align="left" class="l_annual">Annual fee for iOS Developer program</p><br>
+					<p align="left" class="l_individual">Individual, Company, Enterprise, & University programs</p><br>
+					<div class="slidenote"><p class="l_slidenote_apple_dev"></p>You can register for free<br>Need to pay to publish and distribute apps<br>Various levels with varying documentation requirements and fees</div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_dev_certificate">Developer's certificate</h2>
+					<p><img src="images/dev-certificate.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_ios_dev_certificate"></p>Certificate identifies you as the developer<br>Create with Keychain Access<br>Upload CSR file to provisioning portal<br>Download and install the resulting certificate into login keychain<br>Also need Apple’s WWDR certificate</div>
+				</section>
+				
+				<section>
+					<h2 class="l_register_devices">Register devices</h2>
+					<p><img src="images/register-devices.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_register_devices"></p>Register devices used for testing<br>Need the UDID<br>Get that from Xcode or iTunes<br>Enter at Provisioning Portal</div>
+				</section>
+
+				<section>
+					<h2 class="l_create_appid">Create an AppID</h2>
+					<p align="left" class="l_unique">Unique identifier for your app</p><br>
+					<p align="left" class="l_bundle">Bundle Seed ID - 10 character universally unique</p><br>
+					<p align="left" class="l_cf">CF Bundle Identifier - app name or wildcard</p><br>
+					<p align="left" class="l_bundle_id">Bundle Identifier must be unique for Push, In-App purchases, Game Center</p><br>
+					<div class="slidenote"><p class="l_slidenote_create_appid"></p>Bundle Seed ID generated by the Provisioning Portal<br>CF Bundle Identifier you specify<br>Could name a specific app<br>Could be asterisk (wildcard)<br>Need specific name, not wildcard for Push Notification, In-App purchases, and Game center</div>
+				</section>
+
+				<section>
+					<h2 class="l_prov_profile">Provisioning profile</h2>
+					<p><img src="images/prov-profile.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_prov_profile"></p>Provisioning profile = collection of your certificate, app ID, and device IDs<br>Install to device to enable testing<br>You’ll create a similar provisioning profile for final distribution</div>
+				</section>
+
+				<section>
+					<h2 class="l_install_prov_profile">Install the provisioning profile</h2><br><br>
+					<p align="center" class="l_option_1">Option 1: Drag & Drop to Xcode</p><br>
+					<p><img src="images/drag-and-drop.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_install_prov_profile"></p>Ultimately, you need to install to Xcode<br>You can drag & drop<br>or install via Ti Studio (next slide)</div>
+				</section>
+				
+				<section>
+					<h2 class="l_install_prov_profile">Install the provisioning profile</h2><br><br>
+					<p align="center" class="l_install_ti_studio">Option 2: Install via Titanium Studio</p><br>
+					<p><img src="images/ti-studio.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><p class="l_slidenote_install_prov_profile_ti"></p>If not installed via Xcode, click Upload and Ti Studio will install for you<br>Ti Studio should recognize certificates in your keychain</div>
+				</section>
+
+				<section>
+					<h2 class="l_install_local">Installing to local test device</h2>
+					<p align="left" class="l_connect_usb">Connect via USB</p><br>
+					<p align="left" class="l_choose_ios">Choose iOS Device from Run menu</p><br>
+					<p align="left" class="l_install_ipa">Install IPA using Xcode or iTunes sync</p><br>
+					<div class="slidenote"><p class="l_slidenote_install_local"></p>Finally, install to your locally connected device</div>
+				</section>
+
+				<section>
+					<h2 class="l_distr_remote">Distributing to remote testers</h2>
+					<p align="left" class="l_email_prov">Email mobileprovision file and IPA</p><br>
+					<p align="left" class="l_ota">Over-the-air distribution systems:</p><br>
+					<p align="left" class="l_testflight">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestFlightApp</p><br>
+					<p align="left" class="l_diawi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diawi</p><br>
+					<p align="left" class="l_appsendr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppSendr</p><br>
+					<p align="left" class="l_hockey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HockeyKit</p><br>
+					<div class="slidenote"><p class="l_slidenote_distr_remote"></p>Distribution systems: basically you upload to a web server<br>Users are notified on their devices to install or upgrade<br>Fee or free services<br>HockeyKit is an open source, DIY system you install on your web server, supports both iOS and Android distribution</div>
+				</section>
+
+				<section>
+					<h2 class="l_android_market">Android Market</h2>
+					<img src="images/android-market.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_android_market"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_qa">Q&A</h2>
+					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+				</section>
+				
+				<section>
+					<h2 class="l_lab_goals">Lab Goals</h2>
+					<p align="left" class="l_create_rss">Create an RSS Reader which pulls in an XML feed and displays a blog post in a web view.</p><br>
+					<p align="left" class="l_requirement">Requirements:</p><br>
+					<div align="left"><ul>
+						<li class="l_pull_in">Pull in an RSS feed and place the results in a TableView</li>
+						<li class="l_create_an">Create an "about" page using local HTML</li>
+					</ul></div>
+					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
+					<div class="slidenote"><p class="l_slidenote_lab_goals"></p><b>Demo – Lab285:</b><ol><li>Show scrolling list of news items</li><li>Click one to show web view</li><li>Click About tab to show local HTML data</li></ol><br>Switched RSS feed might have gone stale, use Dev blog instead:<br>http://developer.appcelerator.com/blog/feed</div>
+				</section>
+
+				<section>
+					<h2 class="l_lab_exercise">Lab Exercise</h2>
+					<img src="images/lab-exercise.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_lab_exercise"><b>Code Walkthrough – Lab285</b><br>app.js<ul><li>show URL at top</li><li>xhr.onload ~line 66</li><ul><li>xml = this.responseXML</li><li>talk through walking the XML DOM</li><li>loop through items array to build table rows</li><li>point out custom <b>row.link</b> property</li><li>tableview event listener</li><li>custom property <b>(win.myurl)</b> on window</li></ul></ul><u>showweb.js</u><ul><li>creating the web view (line 2)</li><li>loads url passed in via custom window property</li></ul>Scroll back to top to point out local HTML<br>Could load from about.html instead</p></div>
+				</section>
+				
+			</div>
+
+			<!-- MAKE NO CHANGES BELOW THIS LINE -->
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+			var presenterNotesWindow = null;
+			function openPresenterNotes() {
+				presenterNotesWindow = window.open('../presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=480,width=640");
+			}
+		</script>
+	</body>
+</html>
