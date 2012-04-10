@@ -1,0 +1,173 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title class="l_labname">Lab: Working with Remote Data</title>
+		<meta name="description" content="Building Native Mobile Apps, Working with Local Data">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../css/magula.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				LAB FILE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+<div class="slides">
+<div id="labwrapper">			
+<section>
+
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - Working with Remote Data</h1>
+<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will enhance the TiBountyHunter application by retrieving a list of fugitives from a remote web service and adding them to the local database. Once a fugitive is captured, you'll notify the remote web service, which keeps count of busted fugitives.</p>
+
+<p class="l_specification"><strong>Specification: </strong>Start with the TiBountyHunter project you created for the last assignment. We need to implement the logic to get the list of fugitives from the remote URL. This Web service will return that list as an array of objects in JSON format, where each object represents a fugitive. Each object has one property, "name", which is a string with the full name of the fugitive. Once this list is retrieved, we  store each fugitive in the local DB, using the functions created in the previous lab. This operation should be executed at the start of the app, and only one time. Each time the user clicks on the "Capture" button, a request will be sent to the remote web service. It will pass the device's MAC address as a parameter. The web service tracks the number of fugitives busted by the hunter-owner of that device, and returns the value.</p>
+
+<ul style="width:70%">
+	<li class="l_spec1">Retrieve bounties from http://bountyhunterapp.appspot.com/bounties (via GET call).</li>
+	<li class="l_spec2">Post captured bounties to the same address (via POST).</li>
+</ul>
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH255.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH255.zip</a></td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_labstep2">2. In the 'lib' folder, create a network module. It should contain two exported methods:<ul><li>getFugitives(FUNCTION) &mdash; Accepts a callback function, which will be called and passed the XHR payload in the HTTP client's onload handler. </li><li>bustFugitive(STRING, FUNCTION) &mdash; Accepts the MAC address as a string and a callback function. Pass the XHR payload to the callback in the HTTP client's onload handler. Post the MAC address in field named 'udid'.</li></ul></td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2"></td>
+	</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep3">3. Edit lib/db.js. At the end of the file, add a conditional block. If an app property named 'seeded' has <em>not</em> been set, require in your network library. Call the getFugitives() method. Pass to it a function that loops through the resulting data array and for each member calls the db.add() function. Within that callback, set the 'seeded' application property to any value so that this block won't be executed the next time the app is run.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation3"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step4">4. Update the /ui/common/DetailWindow.js file. In the Capture button's click handler, require your network library. Pass to it the device's MAC address and a callback function. That function should alert() the data returned from the network service. It should also close the window after a two-second delay on Android or immediately on iOS and Mobile Web.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5"></td>
+</tr>
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you connected TiBountyHunter to a remote web service. On the app's first run, it seeds its database from a remote data store. As the user captures fugitives, the web service counts their actions and returns a simple message. These tasks illustrate the types of network interactions your real-world apps might implement. </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">API docs: Network: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Network'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Network</a></li>
+	<li class="l_resources2">API docs: Properties <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.App.Properties'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.App.Properties</a></li>
+	<li class="l_resources3">Guides: Remote Data: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_Remote_Data_Sources'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_Remote_Data_Sources</a></li>
+	<li class="l_resources4">Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH255'>GitHub</a></li>
+</ul>
+
+
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+	</body>
+</html>

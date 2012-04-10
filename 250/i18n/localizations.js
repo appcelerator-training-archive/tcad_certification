@@ -66,6 +66,6 @@ String.toLocaleString({
 		"%l_lab": "Lab Exercise",
 		"%l_slidenote_lab": "",
 		"%l_solution": "Solution Walkthrough",
-		"%l_slidenote_solution": "Walk through &mdash; TiBH250<br><u>app.js</u><ul><li>new included file</li></ul><u>db.js</u><ul><li>DB open, create table, and close statements</li><li>list()</li><li>ternary operator</li><li>add() - not application level event</li><li>delete()</li><li>bust()</li></ul>"
+		"%l_slidenote_solution": "Walk through &mdash; TiBH250<br><ul><li><strong>lib/db.js</strong> &mdash; walk through all the functions</li><li><strong>ui/common/BountyTable.js</strong> &mdash; populate() function and event listener</li><li><strong>ui/common/DetailWindow.js</strong> &mdash; Capture and Delete event listeners</li><li><strong>ui/common/AddWindow.js</strong> &mdash; text field and button, event listener</li></ul>"
 	}
 });
