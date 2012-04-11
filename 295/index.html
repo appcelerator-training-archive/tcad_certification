@@ -202,29 +202,140 @@
 					<img src="images/android-market.png" style="margin-top:50px;height:200px;width:750px;"/>					
 					<div class="slidenote"><p class="l_slidenote_android_market"></p></div>
 				</section>
+
+				<section>
+					<h2 class="l_android_dep_release">Android deployment for release</h2>
+					<img src="images/android-dep-release.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_android_dep_release"></p>Steps of Android release process – don’t go into depth here</div>
+				</section>
+
+				<section>
+					<h2 class="l_android_market_reqs">Android Market requirements</h2>
+					<p align="left" class="l_google_acc">Google account</p><br>
+					<p align="left" class="l_android_dev_acc">Android Developer account</p><br>
+					<p align="left" class="l_one_time_fee">One-time fee</p><br>
+					<p align="left" class="l_sdk_tools">SDK tools: keytool, jarsigner, zipalign</p><br>
+					<div class="slidenote"><p class="l_slidenote_android_market_reqs"></p>Need a Google account (Gmail, Google Docs)<br>Sign up at market.android.com/publish<br>One-time $25 fee<br>Need an Google Checkout Account if you’ll be selling your app for a fee<br>Use SDK tools to sign and verify APK file</div>
+				</section>
+
+				<section>
+					<h2 class="l_gen_key_pair">Generate key pair and certificate</h2>
+					<img src="images/gen-key-pair.png" style="margin-top:50px;height:320px;"/>					
+					<div class="slidenote"><p class="l_slidenote_gen_key_pair"></p>Point out highlighted keytool command<br>Alias varies and is specific to your app<br>Can store multiple certificates in the same keystore<br>Make backup copies of your keystore file and save in safe location</div>
+				</section>
+
+				<section>
+					<h2 class="l_verify_keystore">Verify keystore</h2>
+					<img src="images/verify-keystore.png" style="margin-top:50px;height:300px;"/>					
+					<div class="slidenote"><p class="l_slidenote_verify_keystore"></p>Point out keytool command<br>Want to see “Valid from” and date 25 years from now or longer</div>
+				</section>
+
+				<section>
+					<h2 class="l_sign_app">Sign your application</h2>
+					<img src="images/sign-app.png" style="margin-top:50px;height:450px;"/>					
+					<div class="slidenote"><p class="l_slidenote_sign_app"></p>From Deploy menu, choose Distribute – Android<br>You’ll specify your keystore location, password, and alias</div>
+				</section>
+
+				<section>
+					<h2 class="l_verify_signed">Verify signed app</h2>
+					<img src="images/verify-signed.png" style="margin-top:50px;height:450px;"/>					
+					<div class="slidenote"><p class="l_slidenote_verify_signed"></p>Use Jarsigner to verify apk file<br>Looking for “jar verified”<br>Might need to use zipalign tool. Android.com site will inform you if you do.<br>Shouldn’t be needed after Titanium 1.4</div>
+				</section>
+
+				<section>
+					<h2 class="l_upload_publish">Uploading and publishing</h2>
+					<img src="images/upload-publish.png" style="margin-top:50px;height:450px;"/>					
+					<div class="slidenote"><p class="l_slidenote_upload_publish"></p>Upload at market.android.com/pubish<br>Some required info<br>Rest optional<br>Free or set price if you have Google Checkout account</div>
+				</section>
+
+				<section>
+					<h2 class="l_itunes_store">iTunes AppStore</h2>
+					<img src="images/itunes-appstore.png" style="margin-top:50px;height:200px;width:750px;"/>					
+					<div class="slidenote"><p class="l_slidenote_itunes_store"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_dep_release">iOS deployment for release</h2>
+					<img src="images/ios-dep-release.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_ios_dep_release"></p>Similar steps for release as testing<br>Done two steps already</div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_distr_certificate">Distribution certificate</h2>
+					<img src="images/ios-distr-certificate.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_ios_distr_certificate"></p>App needs to be signed with distribution certificate to be submitted to App Store<br>Corporate / team environment:<br>  - each developer creates their own CSR/Developer certificate<br>  - team manager creates distinct CSR/Distribution certificate<br>  - developer certs can be revoked without affecting other developers or distribution<br><br>Individual developers <br>  - can re-use development CSR to create distribution certificate<br>  - could create new if you’d like<br>Must be logged in as Agent role (one per developer account) to create<br>Install to keychain on machine that will be used for final build</div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_distr_profile">Distribution Provisioning Profile</h2>
+					<img src="images/ios-distr-profile.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_ios_distr_profile"></p>Not tied to specific devices<br>Required for App Store submission<br>Download the resulting mobileprovision file</div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_install_profile">Install the provisioning profile</h2>
+					<img src="images/ios-install-prov-profile.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_ios_install_profile"></p>Install into Ti Developer<br>- Upload button installs to Xcode or do separately<br>Should recognize certificates in your keychain<br>Package button builds your app, embeds the certificates, and creates IPA that you’ll upload to the App Store</div>
+				</section>
+
+				<section>
+					<h2 class="l_itunes_connect">iTunes Connect</h2>
+					<p align="left" class="l_portal">Portal for application management</p><br>
+					<p align="left" class="l_sales_stats">Sales statistics</p><br>
+					<p align="left" class="l_contracts">Contracts, taxes, payments, banking connections</p><br>
+					<p align="left" class="l_need_to">Need to create application within iTunes Connect</p><br>
+					<div class="slidenote"><p class="l_slidenote_itunes_connect"></p></div>
+				</section>
+
+				<section>
+					<h2 class="l_ios_app_itunes_connect">Creating an app in iTunes Connect</h2>
+					<img src="images/itunes-connect.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_ios_app_itunes_connect"></p>Bundle ID and suffix must match what you enter in Ti Studio<br>Step through series of pages to define price, content rating, etc.<br>You’ll need a 512x512 icon and at least one screenshot</div>
+				</section>
+				
+				<section>
+					<h2 class="l_validate_upload">Validating and uploading</h2>
+					<img src="images/validate-upload.png" style="margin-top:50px;height:350px;"/>					
+					<div class="slidenote"><p class="l_slidenote_validate_upload"></p>Xcode organizer, Archives window<br>Validate app – checks for app in iTunes Connect, required graphic assets, signing, etc.<br>Upload using the Application Loader (in Developer/Applications/Utilities folder)</div>
+				</section>
+
+				<section>
+					<h2 class="l_app_store_reqs">App Store Requirements</h2>
+					<p align="left" class="l_many_reqs">Many requirements - see iOS Dev Center for full details</p><br>
+					<p align="left" class="l_must_be">Must be useful, well-designed, run without errors</p><br>
+					<p align="left" class="l_no_download">No downloading code</p><br>
+					<p align="left" class="l_you_must">You must own trademarks</p><br>
+					<p align="left" class="l_no_hidden">No hidden features, use of non-public APIs</p>
+					<div class="slidenote"><p class="l_slidenote_app_store_reqs"></p>Feel free to describe relevant experiences</div>
+				</section>
+				
+				<section>
+					<h2 class="l_adhoc_distr">Ad Hoc distribution</h2>
+					<p align="left" class="l_distr_outside">Distribute outside of App Store</p><br>
+					<p align="left" class="l_limited_to">Limited to running on your registered devices</p><br>
+					<p align="left" class="l_adhoc">Ad Hoc builds expire after 90 days</p><br>
+					<p align="left" class="l_deploy_by">Deploy by email, over-the-air framework, USB install</p>
+					<div class="slidenote"><p class="l_slidenote_adhoc_distr"></p>Limited to 100 devices per year</div>
+				</section>
+
+				<section>
+					<h2 class="l_enterprise_distr">Enterprise distribution</h2>
+					<p align="left" class="l_inhouse">In-house distribution program</p><br>
+					<p align="left" class="l_distr_to">Distribute to employees or members</p><br>
+					<p align="left" class="l_register_as">Register as company or organization, DUNS number required</p><br>
+					<div class="slidenote"><p class="l_slidenote_enterprise_distr"></p></div>
+				</section>
 				
 				<section>
 					<h2 class="l_qa">Q&A</h2>
 					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+					<div class="slidenote"><p class="l_slidenote_qa"></p>Before we jump into the lab, what questions do you have?</div>
 				</section>
 				
 				<section>
-					<h2 class="l_lab_goals">Lab Goals</h2>
-					<p align="left" class="l_create_rss">Create an RSS Reader which pulls in an XML feed and displays a blog post in a web view.</p><br>
-					<p align="left" class="l_requirement">Requirements:</p><br>
-					<div align="left"><ul>
-						<li class="l_pull_in">Pull in an RSS feed and place the results in a TableView</li>
-						<li class="l_create_an">Create an "about" page using local HTML</li>
-					</ul></div>
-					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p><b>Demo – Lab285:</b><ol><li>Show scrolling list of news items</li><li>Click one to show web view</li><li>Click About tab to show local HTML data</li></ol><br>Switched RSS feed might have gone stale, use Dev blog instead:<br>http://developer.appcelerator.com/blog/feed</div>
-				</section>
-
-				<section>
 					<h2 class="l_lab_exercise">Lab Exercise</h2>
 					<img src="images/lab-exercise.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab_exercise"><b>Code Walkthrough – Lab285</b><br>app.js<ul><li>show URL at top</li><li>xhr.onload ~line 66</li><ul><li>xml = this.responseXML</li><li>talk through walking the XML DOM</li><li>loop through items array to build table rows</li><li>point out custom <b>row.link</b> property</li><li>tableview event listener</li><li>custom property <b>(win.myurl)</b> on window</li></ul></ul><u>showweb.js</u><ul><li>creating the web view (line 2)</li><li>loads url passed in via custom window property</li></ul>Scroll back to top to point out local HTML<br>Could load from about.html instead</p></div>
+					<div class="slidenote"><p class="l_slidenote_lab_exercise"></p></div>
 				</section>
 				
 			</div>
