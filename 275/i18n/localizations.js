@@ -68,11 +68,14 @@ String.toLocaleString({
 		"%l_slidenote_register": "Registering an app creates OAuth keys, and also creates app objects in our cloud servers.<br/><br/>You can do this in two ways:<br/><br/>Option 1 is simple and works great for Titanium apps. Simply check the box when you create your app.<br/>Option 2 is what you'd use for native or REST apps. You'll have to manually copy the keys into your app, which we'll cover on the next slide.",
 
 		"%l_configure": "Configure",
-		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:725px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
+		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:900px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
 		"%l_configure2": "Option 2: In code<br/><pre style='width:675px;'><code contenteditable>var Cloud = require('ti.cloud');\nCloud.apiKey = 'YOUR_API_KEY_HERE';\nCloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';\nCloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';		</code></pre>",
-		"%l_slidenote_configure": "You can add your API keys to either the tiapp.xml or in your code.<br/><br/>Both production and development keys will be generated<br/><br/>Adding to the code is more secure. The tiapp.xml file is stored as plain text in the app's package file while the JavaScript files are converted to bytecode or compiled. (Except in Mobile Web, where they're downloaded as part of the index.html file.)",
+		"%l_slidenote_configure": "You can add your API keys to either the tiapp.xml or in your code.<br/><br/>Both production and development keys will be generated<br/><br/>Because of server-side restrictions, admin functions via ACS APIs are prohibited and most actions require the user to be authenticated. These measures provide security for ACS and lessen the risks associated with losing or publicizing your keys.",
 
 		"%l_implement": "Implement",
+		"%l_implementcode": "
+var loggedIn = false;\nexports.login = function(username, password, callback) {\n  Cloud.Users.login({\n    login: username,\n    password: password\n  }, function (e) {\n    if (e.success) n      currentUser = e.users[0]n      loggedIn = true;\n      callback(loggedIn);\n    } else {\n      Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));\n      loggedIn = false;\n      currentUser = null;\n      callback(loggedIn);\n    }\n  });\n};\n ",
+
 		"%l_slidenote_implement": "Once you've registered and configured your app with your keys, you're ready to implement the ACS functions.<br/><br/>Key points - Point out the call to <code>Cloud.Users.login()</code> and the <code>e.success</code> test within the callback.<br/><br/>Important: the Cloud APIs are asynchronous, which means you can't rely on a <code>return</code> statement. You have to implement a callback as shown.",
 
 		"%l_manage": "Management",
@@ -95,6 +98,10 @@ String.toLocaleString({
 		"%l_labobjective4": "UI code pre-written for you",	
 		"%l_slidenote_lab": "You will download the starting point code. The UI-specific code is written so you can concentrate on the ACS-specific code.",
 		"%l_labURL": "Lab: <a href='https://wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services'>wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services</a>",
+
+		"%l_solution": "Solution Walkthrough",
+		"%l_slidenote_solution": "<b>Code Walk through &mdash; TiBH275</b><br><ul><li>tiapp.xml &mdash; show API keys</li><li>lib/acs.js &mdash; require(ti.cloud)</li><li>lib/acs.js &mdash; explain each of the functions</li><li>ui/common/DetailWindow.js &mdash; show how the ACS functions are called in the brag button event listener (don't have to cover all of them, just point out the overall pattern)</li></ul>",
+
 
 	}
 });
