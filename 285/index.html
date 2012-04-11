@@ -1,15 +1,15 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
-		<title>Integrating Web Content</title>
-		<meta name="description" content="Integrating Web Content">
+		<title class="l_lessontitle">Integrating Web Content</title>
+		<meta name="description" content="Building Native Mobile Apps, Integrating Web Content">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -43,18 +43,18 @@
 				
 				<section>
 					<h1 style="margin-top:100px;" class="l_lessontitle">Integrating Web Content</h1>
-					<!--h5 class="l_subtitle">Address Book & Social APIs</h5-->
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(Teaching: 15 mins, lab: 45 mins)</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 60 mins</b><br/>(Teaching: 15 mins, lab: 45 mins)</div></div>
 				</section>
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">Agenda</h1>
-			    	<ul>
+			    	<ul style="width:100%">
 			    		<li class="l_agenda1">Integrating the WebView component</li>
 			    		<li class="l_agenda2">WebView gotchas</li>
 			    		<li class="l_agenda3">Novel uses of the WebView</li>
@@ -65,7 +65,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda"></p></div>
+						<div class="l_slidenote_agenda"></div></div>
 				</section>
 				
 				<section>
@@ -78,28 +78,28 @@
 					<li class="l_integrating">Integrating existing web-based tools</li>
 					<li class="l_walking">Walking HTML documents</li>
 					</ul></div>
-					<div class="slidenote"><p class="l_slidenote_integrating_web"></p>Many business-use cases for using HTML/CSS in your app<br>Might be easiest way to go<br>Canvas for animations<br>Existing libraries (graphing, jquery)<br>DOM manipulations and access</div>
+					<div class="slidenote"><div class="l_slidenote_integrating_web">Many business-use cases for using HTML/CSS in your app<br>Might be easiest way to go<br>Canvas for animations<br>Existing libraries (graphing, jquery)<br>DOM manipulations and access</div></div>
 				</section>
 			
 				<section>
 					<h2 class="l_remote_web">Remote Web Content</h2>
 					<p align="left" class="l_uses_might">Uses might include pulling in blog content from an RSS feed (hint) or re-purposing (semi) static content from an existing site</p>
 					<p><img src="images/remote-web-content.png" style="margin-top:30px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_remote_web"></p>Static / existing web pages<br>Dynamic data from a CMS or web service<br>Embed a web view anywhere in your app (views, windows)</div>
+					<div class="slidenote"><div class="l_slidenote_remote_web">Static / existing web pages<br>Dynamic data from a CMS or web service<br>Embed a web view anywhere in your app (views, windows)</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_local_web">Local Web Content</h2>
 					<p align="left" class="l_webkit_can">Webkit can sometimes do something we can't, or we need to re-use existing code (ours or someone else's) - in those cases, we can ship HTML/CSS/JS with our app</p>
 					<p><img src="images/local-web-content.png" style="margin-top:30px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_local_web"></p>Integrated webkit has lots of power and capabilities<br>Easy way to embed custom UI, pre-existing content, formatted text<br>Point URL to local web content file<br>Loaded relative to Resources directory</div>
+					<div class="slidenote"><div class="l_slidenote_local_web">Integrated webkit has lots of power and capabilities<br>Easy way to embed custom UI, pre-existing content, formatted text<br>Point URL to local web content file<br>Loaded relative to Resources directory</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_local_web_inline">Local Web Content - Inline</h2>
 					<p align="left" class="l_sometimes">Sometimes HTML markup is the best way to display small chunks of text or links (Android handles both natively)</p>
 					<p><img src="images/local-web-content-inline.png" style="margin-top:30px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_local_web_inline"></p>Use HTML property for inline content<br>Native Android support for HTML in labels and some other components<br>E.g. linkify() method will turn links and phone numbers into clickable links<br>See the API docs for more information</div>
+					<div class="slidenote"><div class="l_slidenote_local_web_inline">Use HTML property for inline content<br>Native Android support for HTML in labels and some other components<br>E.g. linkify() method will turn links and phone numbers into clickable links<br>See the API docs for more information</div></div>
 				</section>
 
 				<section>
@@ -111,7 +111,7 @@
 					<li class="l_app_level">Application Level Events<br> (Ti.App.fireEvent/addEventListener)</li>
 					</ul></div><br><br>
 					<p align="left" class="l_native_api">Native APIs must be accessed indirectly via application level events</p>
-					<div class="slidenote"><p class="l_slidenote_communicating_wrapper"></p>Embedded webview is its own execution context<br>Use custom events to communicate with rest of the app<br>For example, geolocation: grab data in native app, fire event passing results to webview<br>Remote content doesn’t have access to Ti APIs<br>But you can inject some JS into a remote page to give limited access</div>
+					<div class="slidenote"><div class="l_slidenote_communicating_wrapper">Embedded webview is its own execution context<br>Use custom events to communicate with rest of the app<br>For example, geolocation: grab data in native app, fire event passing results to webview<br>Remote content doesn't have access to Ti APIs<br>But you can inject some JS into a remote page to give limited access</div></div>
 				</section>
 
 				<section>
@@ -121,7 +121,7 @@
 					<p align="left" class="l_common_misuse">Common misuse - inside TableViewRows (bad performance)</p><br>
 					<p align="left" class="l_its_possible">It is possible to implement your whole UI in HTML/CSS, but native UI is what your users expect</p><br>
 					<p align="left" class="l_cant_download">Can't download/run unapproved code from a server</p>
-					<div class="slidenote"><p class="l_slidenote_webview_gotchas"></p>Scrollable views, table views – Touch events can get messed up, bad performance</div>
+					<div class="slidenote"><div class="l_slidenote_webview_gotchas">Scrollable views, table views &mdash; Touch events can get messed up, bad performance</div></div>
 				</section>
 				
 				<section>
@@ -130,45 +130,46 @@
 					<p align="left" class="l_display_pdf">Display PDF documents and more (iOS, see next slide)</p><br>
 					<p align="left" class="l_retrieve_parse">Retrieve and parse HTML using the DOM (easier than in native Ti code, where you'd need to do string gymnastics)</p><br>
 					<p align="left" class="l_longer_forms">Longer forms on iOS (next/previous buttons, auto resizing)</p>
-					<div class="slidenote"><p class="l_slidenote_novel_webview"></p>iOS – view PDF (built into Safari) on Android, has to be done through 3rd party app<br>Parsing HTML – use jquery or other libraries to walk the DOM<br>Forms - auto resizing, auto-scrolling, auto “Next” button on iOS to ease data entry.</div>
+					<div class="slidenote"><div class="l_slidenote_novel_webview">iOS &mdash; view PDF (built into Safari) on Android, has to be done through 3rd party app<br>Parsing HTML &mdash; use jquery or other libraries to walk the DOM<br>Forms - auto resizing, auto-scrolling, auto 'Next' button on iOS to ease data entry.</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_embedded_docs">Embedded Documents on iOS</h2>
-					<br><br><p align="left" class="l_webview_ios">WebView on iOS can display embedded:</p><br><br>
+					<p class="l_webview_ios">WebView on iOS can display embedded:</p><br>
+					<div style="width:70%; margin: 5px auto;">
 					<table border="0" align="center">
 					<tr>
 						<td align="left" class="l_excel"><b>Excel</b></td>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td width="175"></td>
 						<td align="right" class="l_powerpoint"><b>PowerPoint</b></td>
 					</tr>
 					<tr>
 						<td align="left" class="l_keynote">Keynote</td>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td></td>
 						<td align="right" class="l_word">Word</td>
 					</tr>
 					<tr>
 						<td align="left" class="l_numbers">Numbers</td>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td></td>
 						<td align="right" class="l_rtf">RTF</td>
 					</tr>
 					<tr>
 						<td align="left" class="l_pages">Pages</td>
-						<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+						<td></td>
 						<td align="right" class="l_rtf_dir">RTF Directory</td>
 					</tr>
 					<tr>
 						<td align="left" class="l_pdf">PDF</td>
 					</tr>
 				</table>
-					<div class="slidenote"><p class="l_slidenote_embedded_docs"></p>Source: http://developer.apple.com/library/ios/#qa/qa1630/_index.html</div>
+					</div>
+					<div class="slidenote"><div class="l_slidenote_embedded_docs">Source: http://developer.apple.com/library/ios/#qa/qa1630/_index.html</div></div>
 				</section>				
 
 				
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_qa"></p></div>
+					<h1 class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
 				<section>
@@ -179,14 +180,13 @@
 						<li class="l_pull_in">Pull in an RSS feed and place the results in a TableView</li>
 						<li class="l_create_an">Create an "about" page using local HTML</li>
 					</ul></div>
-					<p align="left" class="l_demo_lab">Demo and Lab URL</p>
-					<div class="slidenote"><p class="l_slidenote_lab_goals"></p><b>Demo – Lab285:</b><ol><li>Show scrolling list of news items</li><li>Click one to show web view</li><li>Click About tab to show local HTML data</li></ol><br>Switched RSS feed might have gone stale, use Dev blog instead:<br>http://developer.appcelerator.com/blog/feed</div>
+					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;"><a href='https://wiki.appcelerator.org/display/td/285+Integrating+Web+Content'>wiki.appcelerator.org/display/td/285+Integrating+Web+Content</a></p>
+					<div class="slidenote"><div class="l_slidenote_lab_goals">Demo &mdash; Lab285:</b><ol><li>Show scrolling list of news items</li><li>Click one to show web view</li><li>Click About tab to show local HTML data</li></ol><br/>The UI, network, and RSS feed parsing is done already.</div></div>
 				</section>
 
 				<section>
-					<h2 class="l_lab_exercise">Lab Exercise</h2>
-					<img src="images/lab-exercise.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab_exercise"><b>Code Walkthrough – Lab285</b><br>app.js<ul><li>show URL at top</li><li>xhr.onload ~line 66</li><ul><li>xml = this.responseXML</li><li>talk through walking the XML DOM</li><li>loop through items array to build table rows</li><li>point out custom <b>row.link</b> property</li><li>tableview event listener</li><li>custom property <b>(win.myurl)</b> on window</li></ul></ul><u>showweb.js</u><ul><li>creating the web view (line 2)</li><li>loads url passed in via custom window property</li></ul>Scroll back to top to point out local HTML<br>Could load from about.html instead</p></div>
+					<h2 class="l_solution">Solution Walkthrough</h2>
+					<div class="slidenote"><div class="l_slidenote_solution"><b>Code Walk through &mdash; TiBH285</b><br><ul><li>RSSWindow &mdash; table event listener, e.rowData argument, opening modal window, also App-level event listener to load articles once data is retrieved from the network</li><li>ArticleWindow &mdash; 'article' parameter, webview url property</li><li>AboutWindow &mdash; webview url property</li></ul></div></div>
 				</section>
 				
 			</div>
@@ -195,7 +195,7 @@
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">

@@ -1,0 +1,190 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title class="l_labname">Lab: Integrating Web Content</title>
+		<meta name="description" content="Building Native Mobile Apps, Integrating Web Content">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				LAB FILE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+<div class="slides">
+<div id="labwrapper">			
+<section>
+
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - Integrating Web Content</h1>
+<p class="l_mission"><strong>Mission: </strong>In this lab, you will integrate web content into a partially-completed RSS reader. Individual articles will be displayed in a web view within a modal window. A local HTML file will be shown in an 'About' tab.</p>
+
+<p class="l_specification"><strong>Specification: </strong>You will download a partially-completed file and add the missing functionality. The finished app will look like this:<br/><img src='labimages/webview1.png' height='300' align='left'><img src='labimages/webview2.png' height='300' align='left'><img src='labimages/webview3.png' height='300' align='left'></p>
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1. Download the starting file set from <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBH285'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip'>AWS/S3</a> and import the resulting files as a new Titanium Mobile project.</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step2">2. Examine the contents of the app.js, ui/TabGroup.js, and lib/network.js files. These files have been completed for you.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation2">We've written most of the UI features and network functions so that you can concentrate on adding the web view functionality. Of course, at this point, the app doesn't do anything.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step3">3. Open the <strong>ui/RSSWindow.js</strong> file. In the table event listener, follow the code comments to require in the appropriate module, instantiate the window, and open it.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation3">When users tap on a row, this window will open and display the contents of the blog article.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step4">4. Open <strong>ui/ArticleWindow.js</strong> and following the comments in that file, write the code to define the window that will contain the web view for showing the blog articles.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. Open <strong>ui/AboutWindow.js</strong> and following the comments in that file, write the code to define the window that will display the index.html file on the 'About' tab.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep6">6. Save your changes in all files and build your project for the simulator/emulator.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation6"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep7">7. Test your work by viewing an article or two and by displaying the About tab. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation7">Correct any errors and rebuild the app, if necessary.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep8">8. Close the simulator/emulator and all open files in Studio.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation8"></td>
+</tr>
+
+
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you implemented web views in two different ways. In one, the contents of a blog post are displayed in a web view. In the other, the contents of a local HTML file are displayed within a web view to illustrate how you can display formatted text in that manner. </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">API docs: WebView: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.UI.WebView'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.UI.WebView</a></li>
+	<li class="l_resources2">Guides: Integrating Web Content: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content</a></li>
+	<li class="l_resources3">Finished code: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH285'>GitHub</a></li>
+</ul>
+
+
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+	</body>
+</html>
