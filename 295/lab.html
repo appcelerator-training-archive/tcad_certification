@@ -1,0 +1,222 @@
+<!doctype html>  
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title class="l_labname">Lab: Deploy and Distribute</title>
+		<meta name="description" content="Building Native Mobile Apps, Integrating Web Content">
+    	<meta name="author" content="Appcelerator, Inc." />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/presentation.css">
+		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
+		<script type="text/javascript" src="i18n/lablocalizations.js"></script>
+		<style>
+		html, body {
+			overflow: always !important;
+		}
+		.slides {
+			top: 40% !important;
+		}
+		</style>
+	</head>
+	
+	<body>
+		<div id="reveal">	
+			<!-- Any section element inside of this container is displayed as a slide -->
+
+			<!--
+				LAB FILE INSTRUCTIONS:
+					- Set the <title> tag to this lesson's US English title
+					- Set the <meta description tag to the US English course & lesson title
+					- Add one <section></section> for each slide. Slides can contain most any valid HTML
+					- Each text tag (<p> or <li> or <h1> etc.) must have a class name that begins with
+						"l_" and is unique. Each of those class names must be added to the i18n/localizations.js
+						file and their values must be set equal to the US English version of the strings. That 
+						file is used for translation and its contents OVERRIDES the text in this file.
+					- Each slide must have a <div class="slidenote"></div> container, which can be empty. These
+						are used for presenter notes. They also must be given unique "l_" classnames and strings
+						provided in the localizations.js file.
+					- Please use inline CSS on the slides to size & arrange contents.
+					- Graphics should be placed in the images folder and cropped/sized appropriately.
+					- Assume a 1024 x 768 display resolution
+					- A link to the index.html for each lesson must be added in order to the coursename/index.html
+						title slide.
+			-->
+			
+			
+<div class="slides">
+<div id="labwrapper">			
+<section>
+
+<!-- YOUR LAB CONTENT GOES HERE -->
+<h1 class="l_labname">Lab - Deploy and Distribute</h1>
+<p class="l_mission"><strong>Mission: </strong>In this lab, you will deploy an app for testing on physical devices and follow the critical steps for publishing that app to the Android Market and iTunes App Store. </p>
+
+<p class="l_specification"><strong>Specification: </strong>You will need the following resources to complete all aspects of this lab: </p>
+
+<ul style="width:70%">
+	<li class="l_spec1">An Android device and USB cable</li>
+	<li class="l_spec2">An iOS device and USB cable</li>
+	<li class="l_spec3">A Google Play (Android Market) account</li>
+	<li class="l_spec4">An iOS Developer’s Account</li>
+</ul>
+
+
+<table>
+	<tr>
+		<td colspan="2" class="labinstructions l_step1">1: Download the app starting code from <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip</a> and the <a href='labimages/ti_bounty_icon_512.png'>512x512 icon</a>. Import the project into Titanium Studio. Build and run the app in the iOS or Android simulator/emulator to confirm that the files were downloaded correctly and you created the project successfully.</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation1"></td>
+	</tr>
+	<tr>
+		<td colspan="2" class="labinstructions l_step2">2: Connect your Android device and deploy the app to it. Test the app. It should offer the same functionality, considering Android platform specifics, as you see in the iOS simulator. <br/><br/>
+
+	With your Android device still connected, open ddms and select your device in the top-left pane. Choose Device, Screen Capture. Save two representative screenshots to your desktop or home directory. Close ddms. Disconnect your device following your operating system’s procedure for safely removing USB devices. 		</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation2"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step3">3: Log onto your Apple Developer account and access the iOS Provisioning Portal. Create a developer’s certificate and install it to your keychain. Determine your iOS device’s UDID and register that device in the Provisioning Portal. Create an AppID for the TiBountyHunter using a wildcard CF Bundle ID. Create a Development Provisioning profile associating your certificate, device, and AppID. Download it to your computer. <br/><br/>
+
+	Connect your iOS device. Using Titanium Studio, install the provisioning profile to XCode. Then install the app to your device. Test the app. It should offer the same functionality as you see in the iOS simulator. Disconnect your device following your operating system’s procedure for safely removing USB devices. 		</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation3"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step4">4: Using the Android SDK keytool utility, generate a key pair, storing the keystore file in your home directory or other location of your choice. Use tibh as the alias and titanium as the password (or use your existing password if you have a keystore already). When prompted, enter your name, company name, and location information. Use keytool to verify your keystore. <br/><br/>
+
+	Using Titanium Studio, package the app for Android distribution. Use the keystore you created, entering the alias and password into the fields in Studio. When done, use jarsigner to verify the APK file. 		</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation4"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step5">5: Visit http://market.android.com/publish and log onto your Android Market account. Click Upload Application and then upload your APK. If prompted to, use zipalign to align your APK file then re-upload. Upload your two screenshots. Upload the 512x512 icon that you downloaded at the start of this lab. Name the app TiBountyHunter and enter a description of your choice. Select an application type and category, such as Games, Casual. Select Everyone (or Low Maturity) for the Content Rating. Check the two consent checkboxes to acknowledge Google’s terms and agreements. <br/><br/>
+
+	Observe, but do not click the Save and Publish buttons. You won’t actually publish the app (the Market doesn’t need a thousand TiBountyHunter apps published by all our students). Click Delete or simply navigate away from the page to cancel. 		</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation5"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step6">6: Log onto the iOS Dev Center and access the iOS Provisioning Portal. Create a Distribution certificate and install it to your keychain. Create a Distribution Provisioning profile associating your distribution certificate and AppID. Download it to your computer. <br/><br/>
+
+	Using Titanium Studio, install the distribution provisioning profile to XCode. Select your distribution certificate and then package the app for distribution. 		</td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation6"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step7">7: Build and run the app in the iOS simulator and then use ⌘↑4 to capture a representative screenshot of the app. Using Preview, crop the screen to 320x480. Alternatively, you can use a tool like the iOS-Simulator Cropper listed in the Resources section below to automate the screen capture process. </td>
+	</tr>
+	<tr>
+		<td class="tdfiller"><!-- leave empty--></td>
+		<td class="labexplanations l_stepexplanation7"></td>
+	</tr>
+
+
+	<tr>
+		<td colspan="2" class="labinstructions l_step8">8: In the iOS Dev Center, access the iTunes Connect portal. Using the Manage Your Applications page, create an app entry for TiBountyHunter, noting the correct Bundle Seed ID and Suffix. Enter a description and select Games as the Primary Category and Educational as the Subcategory. Select None for each of the audience rating options. Upload the required screenshot and large icon (from the lab’s graphic assets). Save your changes. <br/><br/>
+
+	Open Xcode and display the Organizer window. Click the Archives button. Your packaged app should be listed. Click Validate and enter your iOS Dev Center credentials when prompted. It can take considerable time for your app to be available for validation after entering it on iTunes Connect. If that process hasn't finished, the validation will fail with an “app not found” message.  <br/><br/>
+
+	Do not upload the app. Apple will likely reject the app and the App Store doesn’t need lots of copies of TiBountyHunter anyway.</td>
+	</tr>
+	<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation8"></td>
+	</tr>
+
+</table>
+
+<h2 class="l_summary">Summary</h2>
+<p class="l_summarypara">In this lab, you worked through the steps to publish an app to the iTunes App Store and the Google Market, now called Google Play.  </p>
+
+<h2 class="l_resources">Resources</h2>
+
+<ul>
+	<li class="l_resources1">iOS Simulator/Cropper, an optional but helpful tool for capturing iOS simulator screenshots in the correct sizes: <a href='http://www.curioustimes.de/iphonesimulatorcropper/'>http://www.curioustimes.de/iphonesimulatorcropper/</a></li>
+	<li class="l_resources2">Guides: Preparing for Distribution: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution</a></li>
+</ul>
+
+
+<!-- MAKE NO CHANGES BELOW THIS LINE -->
+</section>
+</div>
+</div>
+
+			<!-- Appc logo and presenter notes -->
+			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Displays presentation progress, max value changes via JS to reflect # of slides -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+		
+		<script src="../../presentation-engine/reveal.js/js/reveal.js"></script>
+		<script src="../../presentation-engine/reveal.js/lib/highlight.js"></script>
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+		<script src="../../presentation-engine/js/localize.js"></script>
+	</body>
+</html>

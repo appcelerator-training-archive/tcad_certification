@@ -1,15 +1,15 @@
 <!doctype html>  
-<html lang="en-US">
+<html>
 	<head>
 		<meta charset="utf-8">
-		<title>Deployment & Distribution</title>
-		<meta name="description" content="Deployment & Distribution">
+		<title class="l_lessontitle">Deployment &amp; Distribution</title>
+		<meta name="description" content="Building Native Mobile Apps, Deployment &amp; Distribution">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -42,19 +42,19 @@
 			<div class="slides">
 				
 				<section>
-					<h1 style="margin-top:100px;" class="l_lessontitle">Deployment & Distribution</h1>
-					<!--h5 class="l_subtitle">Address Book & Social APIs</h5-->
+					<h1 style="margin-top:100px;" class="l_lessontitle">Deployment &amp; Distribution</h1>
+					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins</b>(30 mins teaching, 30 mins for lab)</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 60 mins</b><br/>(30 mins teaching, 30 mins for lab)</p></div>
 				</section>
 				
 				<section id="agenda">
 					<h1 style="margin-top:50px;" class="l_agenda_title">Agenda</h1>
-			    	<ul>
+			    	<ul style="width:100%;">
 			    		<li class="l_agenda1">Deploying to a device for testing</li>
 			    		<li class="l_agenda2">Publishing to the Android Market</li>
 			    		<li class="l_agenda3">Publishing to the AppStore</li>
@@ -66,7 +66,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda"></p>Present the agenda...</div>
+						<div class="l_slidenote_agenda">Present the agenda...</div>
 				</section>
 				
 				<section>
@@ -75,35 +75,34 @@
 					<p align="left" class="l_locally_connected">Locally connected devices</p><br>
 					<p align="left" class="l_remote_devices">Remote devices</p><br>
 					<p align="left" class="l_ios_android">iOS and Android processes very different</p><br>
-					<div class="slidenote"><p class="l_slidenote_deployment"></p>You can deploy over a USB connection<br>There are techniques for deploying to remote devices<br>iOS/Android processes different</div>
+					<div class="slidenote"><div class="l_slidenote_deployment">You can deploy over a USB connection<br>There are techniques for deploying to remote devices<br>iOS/Android processes different</div>
 				</section>
 			
 				<section>
-					<h2 class="l_android_deployment">Android Deployment</h2>
-					<p><img src="images/android-deployment.png" style="margin-top:60px;height:200px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_android_deployment"></p>Let’s talk first about deploying your app for testing on Android devices</div>
+					<h1 class="l_android_deployment">Android Deployment</h1>
+					<div class="slidenote"><div class="l_slidenote_android_deployment">Let's talk first about deploying your app for testing on Android devices</div>
 				</section>
 
 				<section>
 					<h2 class="l_android_deployment_testing">Android deployment for testing</h2>
-					<p><img src="images/android-deployment-testing.png" style="margin-top:60px;height:250px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_android_deployment_testing"></p>Simple, two-step process for Android</div>
+					<p class="l_android_deployment_image"><img src="images/android-deployment-testing.png" style="margin-top:60px;height:250px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_android_deployment_testing">Simple, two-step process for Android</div>
 				</section>
 
 				<section>
 					<h2 class="l_configure_device">Configure device for testing</h2>
-					<p><img src="images/configure-device.png" style="margin-top:60px;height:450px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_configure_device"></p>First, configure device for testing<br>Windows users: need to install drivers specific to your device<br>Linux users: need to create USB config<br>See the wiki</div>
+					<p class="l_configure_device_image"><img src="images/configure-device.png" style="margin-top:60px;height:450px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_configure_device">First, configure device for testing<br>Windows users: need to install drivers specific to your device<br>Linux users: need to create USB config<br>See the wiki</div>
 				</section>
 
 				<section>
 					<h2 class="l_local_android">Local Android deployment</h2>
-					<div align="left"><ol>
+					<p style="float:right;width:280px;margin-top:-20px;" class="l_local_android_image"><img src="images/local-android.png" style="margin-top:60px;height:350px;align:center"></p>
+					<ol style="width:60%;margin-top:20px;">
 					<li class="l_connect_device">Connect device to USB port</li>
 					<li class="l_run_menu">From Run menu, choose Android Device</li>
-					</ul></div><br><br>
-					<p><img src="images/local-android.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_local_android"></p>Android deployment for testing is pretty simple<br>Can also manually install the APK via ADB<br>Or by transferring apk to device and opening with a file manager<br>Ti Studio signs APK with a debug compatible certificate. You could go through the signing steps but that’s unnecessary</div>
+					</ol>
+					<div class="slidenote"><div class="l_slidenote_local_android">Android deployment for testing is pretty simple<br>Can also manually install the APK via ADB<br>Or by transferring apk to device and opening with a file manager<br>Ti Studio signs APK with a debug compatible certificate. You could go through the signing steps but that's unnecessary</div>
 				</section>
 
 
@@ -113,40 +112,39 @@
 					<p align="left" class="l_email">Email</p><br>
 					<p align="left" class="l_post">Post on a web site</p><br>
 					<p align="left" class="l_distribution">Distribution framework</p><br>
-					<div class="slidenote"><p class="l_slidenote_remote_android"></p>Just get the APK onto the user’s device<br>Use the apk-debug version to skip code signing steps<br>Email, post on a web site, share through Dropbox<br>Over-the-air system like HockeyKit can automate deployment and updates</div>
+					<div class="slidenote"><div class="l_slidenote_remote_android">Just get the APK onto the user's device<br>Use the apk-debug version to skip code signing steps<br>Email, post on a web site, share through Dropbox<br>Over-the-air system like HockeyKit can automate deployment and updates</div>
 				</section>
 
 				<section>
-					<h2 class="l_ios_deployment">iOS Deployment</h2>
-					<p><img src="images/ios-deployment.png" style="margin-top:60px;height:200px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_ios_deployment"></p></div>
+					<h1 class="l_ios_deployment">iOS Deployment</h1>
+					<div class="slidenote"><div class="l_slidenote_ios_deployment"></div>
 				</section>
 
 
 				<section>
 					<h2 class="l_ios_deployment_testing">iOS deployment for testing</h2>
-					<p><img src="images/ios-deployment-testing.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_ios_deployment_testing"></p>Six step of Apple’s process – don’t go in-depth here</div>
+					<p class="l_ios_deployment_image"><img src="images/ios-deployment-testing.png" style="margin-top:60px;height:350px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_ios_deployment_testing">Six step of Apple's process &mdash; don't go in-depth here</div>
 				</section>
 				
 				<section>
 					<h2 class="l_apple_dev">Apple Developer Program</h2>
 					<p align="left" class="l_free_to">Free to register, download SDK</p><br>
 					<p align="left" class="l_annual">Annual fee for iOS Developer program</p><br>
-					<p align="left" class="l_individual">Individual, Company, Enterprise, & University programs</p><br>
-					<div class="slidenote"><p class="l_slidenote_apple_dev"></p>You can register for free<br>Need to pay to publish and distribute apps<br>Various levels with varying documentation requirements and fees</div>
+					<p align="left" class="l_individual">Individual, Company, Enterprise, &amp; University programs</p><br>
+					<div class="slidenote"><div class="l_slidenote_apple_dev">You can register for free<br>Need to pay to publish and distribute apps<br>Various levels with varying documentation requirements and fees</div>
 				</section>
 
 				<section>
 					<h2 class="l_ios_dev_certificate">Developer's certificate</h2>
-					<p><img src="images/dev-certificate.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_ios_dev_certificate"></p>Certificate identifies you as the developer<br>Create with Keychain Access<br>Upload CSR file to provisioning portal<br>Download and install the resulting certificate into login keychain<br>Also need Apple’s WWDR certificate</div>
+					<p class="l_dev_certificate_image"><img src="images/dev-certificate.png" style="margin-top:60px;width:800px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_ios_dev_certificate">Certificate identifies you as the developer<br>Create with Keychain Access<br>Upload CSR file to provisioning portal<br>Download and install the resulting certificate into login keychain<br>Also need Apple's WWDR certificate</div>
 				</section>
 				
 				<section>
 					<h2 class="l_register_devices">Register devices</h2>
-					<p><img src="images/register-devices.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_register_devices"></p>Register devices used for testing<br>Need the UDID<br>Get that from Xcode or iTunes<br>Enter at Provisioning Portal</div>
+					<p class="l_register_devices_image"><img src="images/register-devices.png" style="margin-top:60px;width:800px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_register_devices">Register devices used for testing<br>Need the UDID<br>Get that from Xcode or iTunes<br>Enter at Provisioning Portal</div>
 				</section>
 
 				<section>
@@ -155,27 +153,27 @@
 					<p align="left" class="l_bundle">Bundle Seed ID - 10 character universally unique</p><br>
 					<p align="left" class="l_cf">CF Bundle Identifier - app name or wildcard</p><br>
 					<p align="left" class="l_bundle_id">Bundle Identifier must be unique for Push, In-App purchases, Game Center</p><br>
-					<div class="slidenote"><p class="l_slidenote_create_appid"></p>Bundle Seed ID generated by the Provisioning Portal<br>CF Bundle Identifier you specify<br>Could name a specific app<br>Could be asterisk (wildcard)<br>Need specific name, not wildcard for Push Notification, In-App purchases, and Game center</div>
+					<div class="slidenote"><div class="l_slidenote_create_appid">Bundle Seed ID generated by the Provisioning Portal<br>CF Bundle Identifier you specify<br>Could name a specific app<br>Could be asterisk (wildcard)<br>Need specific name, not wildcard for Push Notification, In-App purchases, and Game center</div>
 				</section>
 
 				<section>
 					<h2 class="l_prov_profile">Provisioning profile</h2>
-					<p><img src="images/prov-profile.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_prov_profile"></p>Provisioning profile = collection of your certificate, app ID, and device IDs<br>Install to device to enable testing<br>You’ll create a similar provisioning profile for final distribution</div>
+					<p class="l_prov_profile_image"><img src="images/prov-profile.png" style="margin-top:60px;width:800px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_prov_profile">Provisioning profile = collection of your certificate, app ID, and device IDs<br>Install to device to enable testing<br>You'll create a similar provisioning profile for final distribution</div>
 				</section>
 
 				<section>
 					<h2 class="l_install_prov_profile">Install the provisioning profile</h2><br><br>
-					<p align="center" class="l_option_1">Option 1: Drag & Drop to Xcode</p><br>
-					<p><img src="images/drag-and-drop.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_install_prov_profile"></p>Ultimately, you need to install to Xcode<br>You can drag & drop<br>or install via Ti Studio (next slide)</div>
+					<p align="center" class="l_option_1">Option 1: Drag &amp; Drop to Xcode</p><br>
+					<p class="l_install_profile_image"><img src="images/drag-and-drop.png" style="margin-top:40px;height:275px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_install_prov_profile">Ultimately, you need to install to Xcode<br>You can drag &amp; drop<br>or install via Ti Studio (next slide)</div>
 				</section>
 				
 				<section>
 					<h2 class="l_install_prov_profile">Install the provisioning profile</h2><br><br>
 					<p align="center" class="l_install_ti_studio">Option 2: Install via Titanium Studio</p><br>
-					<p><img src="images/ti-studio.png" style="margin-top:60px;height:350px;align:center"></p>
-					<div class="slidenote"><p class="l_slidenote_install_prov_profile_ti"></p>If not installed via Xcode, click Upload and Ti Studio will install for you<br>Ti Studio should recognize certificates in your keychain</div>
+					<p class="l_install_profile2_image"><img src="images/ti-studio.png" style="margin-top:20px;height:450px;align:center"></p>
+					<div class="slidenote"><div class="l_slidenote_install_prov_profile_ti">If not installed via Xcode, click Upload and Ti Studio will install for you<br>Ti Studio should recognize certificates in your keychain</div>
 				</section>
 
 				<section>
@@ -183,99 +181,100 @@
 					<p align="left" class="l_connect_usb">Connect via USB</p><br>
 					<p align="left" class="l_choose_ios">Choose iOS Device from Run menu</p><br>
 					<p align="left" class="l_install_ipa">Install IPA using Xcode or iTunes sync</p><br>
-					<div class="slidenote"><p class="l_slidenote_install_local"></p>Finally, install to your locally connected device</div>
+					<div class="slidenote"><div class="l_slidenote_install_local">Finally, install to your locally connected device</div>
 				</section>
 
 				<section>
 					<h2 class="l_distr_remote">Distributing to remote testers</h2>
 					<p align="left" class="l_email_prov">Email mobileprovision file and IPA</p><br>
-					<p align="left" class="l_ota">Over-the-air distribution systems:</p><br>
-					<p align="left" class="l_testflight">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestFlightApp</p><br>
-					<p align="left" class="l_diawi">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Diawi</p><br>
-					<p align="left" class="l_appsendr">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AppSendr</p><br>
-					<p align="left" class="l_hockey">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;HockeyKit</p><br>
-					<div class="slidenote"><p class="l_slidenote_distr_remote"></p>Distribution systems: basically you upload to a web server<br>Users are notified on their devices to install or upgrade<br>Fee or free services<br>HockeyKit is an open source, DIY system you install on your web server, supports both iOS and Android distribution</div>
+					<p align="left" class="l_ota">Over-the-air distribution systems:</p>
+					<ul style="width:100%;">
+						<li class="l_testflight">TestFlightApp</li>
+						<li class="l_diawi">Diawi</li>
+						<li class="l_appsendr">AppSendr</li>
+						<li class="l_hockey">HockeyKit</li>
+					</ul>
+					<div class="slidenote"><div class="l_slidenote_distr_remote">Distribution systems: basically you upload to a web server<br>Users are notified on their devices to install or upgrade<br>Fee or free services<br>HockeyKit is an open source, DIY system you install on your web server, supports both iOS and Android distribution</div>
 				</section>
 
 				<section>
-					<h2 class="l_android_market">Android Market</h2>
-					<img src="images/android-market.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_android_market"></p></div>
+					<h1 class="l_android_market">Google Play</h1>
+					<p class="l_android_play">(formerly the Android Market)</p>
+					<div class="slidenote"><div class="l_slidenote_android_market"></div>
 				</section>
 
 				<section>
 					<h2 class="l_android_dep_release">Android deployment for release</h2>
-					<img src="images/android-dep-release.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_android_dep_release"></p>Steps of Android release process – don’t go into depth here</div>
+					<p class="l_android_release_image"><img src="images/android-dep-release.png" style="margin-top:50px;height:400px;"/></p>					
+					<div class="slidenote"><div class="l_slidenote_android_dep_release">Steps of Android release process &mdash; don't go into depth here</div>
 				</section>
 
 				<section>
-					<h2 class="l_android_market_reqs">Android Market requirements</h2>
+					<h2 class="l_android_market_reqs">Google Play requirements</h2>
 					<p align="left" class="l_google_acc">Google account</p><br>
 					<p align="left" class="l_android_dev_acc">Android Developer account</p><br>
 					<p align="left" class="l_one_time_fee">One-time fee</p><br>
 					<p align="left" class="l_sdk_tools">SDK tools: keytool, jarsigner, zipalign</p><br>
-					<div class="slidenote"><p class="l_slidenote_android_market_reqs"></p>Need a Google account (Gmail, Google Docs)<br>Sign up at market.android.com/publish<br>One-time $25 fee<br>Need an Google Checkout Account if you’ll be selling your app for a fee<br>Use SDK tools to sign and verify APK file</div>
+					<div class="slidenote"><div class="l_slidenote_android_market_reqs">Need a Google account (Gmail, Google Docs)<br>Sign up at market.android.com/publish<br>One-time $25 fee<br>Need an Google Checkout Account if you'll be selling your app for a fee<br>Studio provides graphical interface to command-line tools. But you still might need to use the SDK tools, such as to verify APK file</div>
 				</section>
 
 				<section>
 					<h2 class="l_gen_key_pair">Generate key pair and certificate</h2>
-					<img src="images/gen-key-pair.png" style="margin-top:50px;height:320px;"/>					
-					<div class="slidenote"><p class="l_slidenote_gen_key_pair"></p>Point out highlighted keytool command<br>Alias varies and is specific to your app<br>Can store multiple certificates in the same keystore<br>Make backup copies of your keystore file and save in safe location</div>
+					<p class="l_gen_keypair_image"><img src="images/gen-key-pair.png" style="margin-top:50px;height:480px;"/></p>					
+					<div class="slidenote"><div class="l_slidenote_gen_key_pair">When you choose to Distribute to the Android Market, Studio provides this dialog for creating a certificate pair and keystore.<br/>Used to have to do this with the <code>keytool</code> command<br>Alias varies and is specific to your app<br>Can store multiple certificates in the same keystore<br>Make backup copies of your keystore file and save in safe location</div>
 				</section>
 
 				<section>
 					<h2 class="l_verify_keystore">Verify keystore</h2>
-					<img src="images/verify-keystore.png" style="margin-top:50px;height:300px;"/>					
-					<div class="slidenote"><p class="l_slidenote_verify_keystore"></p>Point out keytool command<br>Want to see “Valid from” and date 25 years from now or longer</div>
+					<p class="l_verify_keystore_image"><img src="images/verify-keystore.png" style="margin-top:50px;height:450px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_verify_keystore">Optional step, but you should do it anyway<br>If you lose the keystore or it's invalid, you won't be able to issue updates in the market<br/>Point out keytool command<br>Want to see 'Valid From' and date 25 years from now or longer</div>
 				</section>
 
 				<section>
 					<h2 class="l_sign_app">Sign your application</h2>
-					<img src="images/sign-app.png" style="margin-top:50px;height:450px;"/>					
-					<div class="slidenote"><p class="l_slidenote_sign_app"></p>From Deploy menu, choose Distribute – Android<br>You’ll specify your keystore location, password, and alias</div>
+					<p class="l_sign_app_image"><img src="images/sign-app.png" style="margin-top:50px;height:450px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_sign_app">From Deploy menu, choose Distribute &mdash; Android<br>You'll specify your keystore location, password, and alias</div>
 				</section>
 
 				<section>
 					<h2 class="l_verify_signed">Verify signed app</h2>
-					<img src="images/verify-signed.png" style="margin-top:50px;height:450px;"/>					
-					<div class="slidenote"><p class="l_slidenote_verify_signed"></p>Use Jarsigner to verify apk file<br>Looking for “jar verified”<br>Might need to use zipalign tool. Android.com site will inform you if you do.<br>Shouldn’t be needed after Titanium 1.4</div>
+					<p class="l_verify_signed_image"><img src="images/verify-signed.png" style="margin-top:50px;height:450px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_verify_signed">Again, this is optional but recommended<br/>Use <code>jarsigner</code> to verify apk file<br>Looking for 'jar verified'<br>Might need to use zipalign tool. Android.com site will inform you if you do.<br>Shouldn't be needed after Titanium 1.4</div>
 				</section>
 
 				<section>
 					<h2 class="l_upload_publish">Uploading and publishing</h2>
-					<img src="images/upload-publish.png" style="margin-top:50px;height:450px;"/>					
-					<div class="slidenote"><p class="l_slidenote_upload_publish"></p>Upload at market.android.com/pubish<br>Some required info<br>Rest optional<br>Free or set price if you have Google Checkout account</div>
+					<p class="l_upload_publish_image"><img src="images/upload-publish.png" style="margin-top:50px;height:550px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_upload_publish">Upload at market.android.com/pubish<br>Some required info<br>Rest optional<br>Free or set price if you have Google Checkout account</div>
 				</section>
 
 				<section>
-					<h2 class="l_itunes_store">iTunes AppStore</h2>
-					<img src="images/itunes-appstore.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_itunes_store"></p></div>
+					<h1 class="l_itunes_store">iTunes AppStore</h1>
+					<div class="slidenote"><div class="l_slidenote_itunes_store"></div>
 				</section>
 
 				<section>
 					<h2 class="l_ios_dep_release">iOS deployment for release</h2>
-					<img src="images/ios-dep-release.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_ios_dep_release"></p>Similar steps for release as testing<br>Done two steps already</div>
+					<p class="l_ios_dep_release_image"><img src="images/ios-dep-release.png" style="margin-top:50px;height:350px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_ios_dep_release">Similar steps for release as testing<br>Done two steps already</div>
 				</section>
 
 				<section>
 					<h2 class="l_ios_distr_certificate">Distribution certificate</h2>
-					<img src="images/ios-distr-certificate.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_ios_distr_certificate"></p>App needs to be signed with distribution certificate to be submitted to App Store<br>Corporate / team environment:<br>  - each developer creates their own CSR/Developer certificate<br>  - team manager creates distinct CSR/Distribution certificate<br>  - developer certs can be revoked without affecting other developers or distribution<br><br>Individual developers <br>  - can re-use development CSR to create distribution certificate<br>  - could create new if you’d like<br>Must be logged in as Agent role (one per developer account) to create<br>Install to keychain on machine that will be used for final build</div>
+					<p class="l_ios_distr_certificate_image"><img src="images/ios-distr-certificate.png" style="margin-top:50px;height:550px;"/></p>					
+					<div class="slidenote"><div class="l_slidenote_ios_distr_certificate">App needs to be signed with distribution certificate to be submitted to App Store<br>Corporate / team environment:<br>  - each developer creates their own CSR/Developer certificate<br>  - team manager creates distinct CSR/Distribution certificate<br>  - developer certs can be revoked without affecting other developers or distribution<br><br>Individual developers <br>  - can re-use development CSR to create distribution certificate<br>  - could create new if you'd like<br>Must be logged in as Agent role (one per developer account) to create<br>Install to keychain on machine that will be used for final build</div>
 				</section>
 
 				<section>
 					<h2 class="l_ios_distr_profile">Distribution Provisioning Profile</h2>
-					<img src="images/ios-distr-profile.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_ios_distr_profile"></p>Not tied to specific devices<br>Required for App Store submission<br>Download the resulting mobileprovision file</div>
+					<p class="l_ios_distr_profile_image"><img src="images/ios-distr-profile.png" style="margin-top:50px;height:550px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_ios_distr_profile">Not tied to specific devices<br>Required for App Store submission<br>Download the resulting mobileprovision file</div>
 				</section>
 
 				<section>
-					<h2 class="l_ios_install_profile">Install the provisioning profile</h2>
-					<img src="images/ios-install-prov-profile.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_ios_install_profile"></p>Install into Ti Developer<br>- Upload button installs to Xcode or do separately<br>Should recognize certificates in your keychain<br>Package button builds your app, embeds the certificates, and creates IPA that you’ll upload to the App Store</div>
+					<h2 class="l_ios_install_profile">Build for Distribution</h2>
+					<p class="l_ios_install_profile_image"><img src="images/ios-install-prov-profile.png" style="margin-top:50px;height:550px;"/></p>					
+					<div class="slidenote"><div class="l_slidenote_ios_install_profile">Install into Ti Developer<br>- Upload button installs to Xcode or do separately<br>Should recognize certificates in your keychain<br>Package button builds your app, embeds the certificates, and creates IPA that you'll upload to the App Store</div>
 				</section>
 
 				<section>
@@ -284,19 +283,19 @@
 					<p align="left" class="l_sales_stats">Sales statistics</p><br>
 					<p align="left" class="l_contracts">Contracts, taxes, payments, banking connections</p><br>
 					<p align="left" class="l_need_to">Need to create application within iTunes Connect</p><br>
-					<div class="slidenote"><p class="l_slidenote_itunes_connect"></p></div>
+					<div class="slidenote"><div class="l_slidenote_itunes_connect"></div>
 				</section>
 
 				<section>
 					<h2 class="l_ios_app_itunes_connect">Creating an app in iTunes Connect</h2>
-					<img src="images/itunes-connect.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_ios_app_itunes_connect"></p>Bundle ID and suffix must match what you enter in Ti Studio<br>Step through series of pages to define price, content rating, etc.<br>You’ll need a 512x512 icon and at least one screenshot</div>
+					<p class="l_itunesconnect_image"><img src="images/itunes-connect.png" style="margin-top:50px;height:550px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_ios_app_itunes_connect">Bundle ID and suffix must match what you enter in Ti Studio<br>Step through series of pages to define price, content rating, etc.<br>You'll need a 512x512 icon and at least one screenshot</div>
 				</section>
 				
 				<section>
 					<h2 class="l_validate_upload">Validating and uploading</h2>
-					<img src="images/validate-upload.png" style="margin-top:50px;height:350px;"/>					
-					<div class="slidenote"><p class="l_slidenote_validate_upload"></p>Xcode organizer, Archives window<br>Validate app – checks for app in iTunes Connect, required graphic assets, signing, etc.<br>Upload using the Application Loader (in Developer/Applications/Utilities folder)</div>
+					<p class="l_validateupload_image"><img src="images/validate-upload.png" style="margin-top:50px;height:550px;"/></p>
+					<div class="slidenote"><div class="l_slidenote_validate_upload">Xcode organizer, Archives window<br>Validate app &mdash; checks for app in iTunes Connect, required graphic assets, signing, etc.<br>Click Validate to validate the app and its configuration on the AppStore<br/>Click Submit - to submit. You can also upload using the Application Loader (in Developer/Applications/Utilities folder)</div>
 				</section>
 
 				<section>
@@ -306,7 +305,7 @@
 					<p align="left" class="l_no_download">No downloading code</p><br>
 					<p align="left" class="l_you_must">You must own trademarks</p><br>
 					<p align="left" class="l_no_hidden">No hidden features, use of non-public APIs</p>
-					<div class="slidenote"><p class="l_slidenote_app_store_reqs"></p>Feel free to describe relevant experiences</div>
+					<div class="slidenote"><div class="l_slidenote_app_store_reqs">Feel free to describe relevant experiences</div>
 				</section>
 				
 				<section>
@@ -315,7 +314,7 @@
 					<p align="left" class="l_limited_to">Limited to running on your registered devices</p><br>
 					<p align="left" class="l_adhoc">Ad Hoc builds expire after 90 days</p><br>
 					<p align="left" class="l_deploy_by">Deploy by email, over-the-air framework, USB install</p>
-					<div class="slidenote"><p class="l_slidenote_adhoc_distr"></p>Limited to 100 devices per year</div>
+					<div class="slidenote"><div class="l_slidenote_adhoc_distr">Limited to 100 devices per year</div>
 				</section>
 
 				<section>
@@ -323,19 +322,24 @@
 					<p align="left" class="l_inhouse">In-house distribution program</p><br>
 					<p align="left" class="l_distr_to">Distribute to employees or members</p><br>
 					<p align="left" class="l_register_as">Register as company or organization, DUNS number required</p><br>
-					<div class="slidenote"><p class="l_slidenote_enterprise_distr"></p></div>
+					<div class="slidenote"><div class="l_slidenote_enterprise_distr"></div>
 				</section>
 				
 				<section>
-					<h2 class="l_qa">Q&A</h2>
-					<img src="images/qa.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_qa"></p>Before we jump into the lab, what questions do you have?</div>
+					<h1 class="l_qa">Q&amp;A</h1>
+					<div class="slidenote"><div class="l_slidenote_qa">Before we jump into the lab, what questions do you have?</div>
 				</section>
 				
 				<section>
-					<h2 class="l_lab_exercise">Lab Exercise</h2>
-					<img src="images/lab-exercise.png" style="margin-top:50px;height:200px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_lab_exercise"></p></div>
+					<h1 style="" class="l_lab">Lab Objectives</h1>
+					<ul>
+						<li class="l_labobjective1">Optional: If time permits</li>
+						<li class="l_labobjective2">Build and package TiBountyHunter for the markets</li>
+						<li class="l_labobjective3">Go through all steps, but stop before actually submitting</li>
+						<li class="l_labobjective4">Need Google Play and/or iTunes App Store accounts</li>
+					</ul>
+					<p class="l_labURL" style="font-size:0.65em;">Lab: <a href='https://wiki.appcelerator.org/display/td/295+Deploy+and+Distribute'>wiki.appcelerator.org/display/td/295+Deploy+and+Distribute</a></p>
+					<div class="slidenote"><div class="l_slidenote_lab_exercise"></div>
 				</section>
 				
 			</div>
@@ -344,7 +348,7 @@
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">
