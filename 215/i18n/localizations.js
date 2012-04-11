@@ -168,6 +168,6 @@ String.toLocaleString({
 		"%l_become": "Become familiar with foundational JavaScript coding techniques",
 		"%l_ibounty": "iBountyHunter demo, Lab Demo",
 		"%l_labURL": "<a href='http://wiki.appcelerator.org/display/td/215+Cross+Platform+Mobile+Development+in+Titanium'>wiki.appcelerator.org/display/td/215+Cross+Platform+Mobile+Development+in+Titanium</a>",
-		"%l_slidenote_lab_goals": "Demo original iBountyHunter -- code at:<br>http://examples.oreilly.com/9780596803551/Chapter_9.zip<br>Demo TiBountyHunter as of end of this lab<ul><li>Two tabs</li><li>Separate window titles</li><li>Compile and run on both platforms</li></ul>Code Walkthrough - TiBH215<br><u>app.js</u><ul><li>namespace definition</li><li>include statements</li></ul><u>ui.js</u><ul><li>explain basic UI elements</li></ul><u>i18n</u><ul><li>language strings file</li></ul>"
+		"%l_slidenote_lab_goals": "Demo original iBountyHunter -- code at:<br>http://examples.oreilly.com/9780596803551/Chapter_9.zip<br>Demo TiBountyHunter as of end of this lab<ul><li>Two tabs</li><li>Separate window titles</li><li>Compile and run on both platforms</li>"
 	}
 });
