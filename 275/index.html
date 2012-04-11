@@ -9,7 +9,7 @@
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/reset.css">
 		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/main.css">
-		<link rel="stylesheet" href="../../presentation-engine/reveal.js/lib/zenburn.css">
+		<link rel="stylesheet" href="../css/magula.css">
 		<link rel="stylesheet" href="../css/presentation.css">
 		<script type="text/javascript" src="../../presentation-engine/js/l10n.js"></script>
 		<script type="text/javascript" src="i18n/localizations.js"></script>
@@ -151,7 +151,7 @@
 				<section>
 					<h2 style="" class="l_configure">Configure</h2>
 					<ul>
-						<li class="l_configure1">Option 1: In tiapp.xml<br/><pre style='width:725px;'><code contenteditable>
+						<li class="l_configure1">Option 1: In tiapp.xml<br/><pre style='width:800px;'><code contenteditable>
 &lt;property name='acs-api-key' type='string'>YOUR_API_KEY_HERE&lt;/property>
 &lt;property name='acs-oauth-key' type='string'>YOUR_OAUTH_KEY_HERE&lt;/property>
 &lt;property name='acs-oauth-secret' type='string'>YOUR_OAUTH_SECRET_HERE&lt;/property>
@@ -163,31 +163,31 @@ Cloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';
 Cloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';
 						</code></pre></li>
 					</ul>
-					<div class="slidenote"><div class="l_slidenote_configure">You can add your API keys to either the tiapp.xml or in your code. Adding to the code is more secure. The tiapp.xml file is stored as plain text in the app's package file while the JavaScript files are converted to bytecode or compiled. (Except in Mobile Web, where they're downloaded as part of the index.html file.)</div></div>
+					<div class="slidenote"><div class="l_slidenote_configure">You can add your API keys to either the tiapp.xml or in your code.<br/><br/>Both production and development keys will be generated<br/><br/>Because of server-side restrictions, admin functions via ACS APIs are prohibited and most actions require the user to be authenticated. These measures provide security for ACS and lessen the risks associated with losing or publicizing your keys.</div></div>
 				</section>
 
 
 				<section>
 					<h2 class="l_implement">Implement</h2>
 					<p style="font-size:0.65em;">http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud</p>
-				<pre style="width:750px;"><code contenteditable>
+				<pre style="width:850px;"><code contenteditable class="l_implementcode">
 var loggedIn = false;
 exports.login = function(username, password, callback) {
-	Cloud.Users.login({
-	    login: username,
-	    password: password
-	}, function (e) {
-	    if (e.success) {
-	    	currentUser = e.users[0];
-	    	loggedIn = true;
-	    	callback(loggedIn);
-	    } else {
-	        Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));
-	        loggedIn = false;
-	        currentUser = null;
-	        callback(loggedIn);
-	    }
-	});	
+  Cloud.Users.login({
+    login: username,
+    password: password
+  }, function (e) {
+    if (e.success) {
+      currentUser = e.users[0];
+      loggedIn = true;
+      callback(loggedIn);
+    } else {
+      Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));
+      loggedIn = false;
+      currentUser = null;
+      callback(loggedIn);
+    }
+  });	
 };
 
 				</code></pre>
@@ -228,6 +228,11 @@ exports.login = function(username, password, callback) {
 					</ul>
 					<p class="l_labURL" style="font-size:0.65em;">Lab: <a href='https://wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services'>wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services</a></p>
 					<div class="slidenote"><div class="l_slidenote_lab">You will download the starting point code. The UI-specific code is written so you can concentrate on the ACS-specific code.</div></div>
+				</section>
+
+				<section>
+					<h2 class="l_solution">Solution Walkthrough</h2>
+					<div class="slidenote"><div class="l_slidenote_solution"><b>Code Walk through &mdash; TiBH275</b><br><ul><li>tiapp.xml &mdash; show API keys</li><li>lib/acs.js &mdash; require(ti.cloud)</li><li>lib/acs.js &mdash; explain each of the functions</li><li>ui/common/DetailWindow.js &mdash; show how the ACS functions are called in the brag button event listener (don't have to cover all of them, just point out the overall pattern)</li></ul></div></div>
 				</section>
 
 

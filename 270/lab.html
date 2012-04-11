@@ -2,8 +2,8 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title class="l_labname">Lab: Working with Media and the File System</title>
-		<meta name="description" content="Building Native Mobile Apps, Working with Local Data">
+		<title class="l_labname">Lab: Using Location Services</title>
+		<meta name="description" content="Building Native Mobile Apps,  Using Location Services">
     	<meta name="author" content="Appcelerator, Inc." />
 		
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -52,66 +52,80 @@
 <section>
 
 <!-- YOUR LAB CONTENT GOES HERE -->
-<h1 class="l_labname">Lab - Working with Media and the File System</h1>
-<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will use the camera to add an image to your fugitive. You will save the image to the file system, and provide a url to the database for easy retrieval. You will also learn how to repopulate your database with remote data.</p>
+<h1 class="l_labname">Lab -  Using Location Services</h1>
+<p class="l_mission"><img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>Mission: </strong>In this lab assignment, you will add geolocation support to TiBountyHunter. You will capture the latitude and longitude values marking the location where a fugitive is captured and store that data in the database. You'll offer the user an option to plot that location on a map.</p>
 
-<p class="l_specification"><strong>Specification: </strong>Start with the TiBountyHunter project you created for the last assignment. You will now add the camera function and mechanisms to support taking a picture, saving it, and retrieving it for viewing in a detail window. To successfully complete this lab, you must develop an application that meets the following description:</p>
+<p class="l_specification"><strong>Specification: </strong>Start with the TiBountyHunter project you created for the last assignment. You will add the features needed to support location services. To successfully complete this lab, you must develop an application that meets the following description:</p>
 
 <ul style="width:70%">
-	<li class="l_spec1">Add a button in the detail view to snap a picture with the camera.</li>
-	<li class="l_spec2">Save the image to the file system and in the database as a url.</li>
-	<li class="l_spec3">Extend the database model with the addPhoto function</li>
-	<li class="l_spec4">Extend the UI with the needed buttons and images</li>
+	<li class="l_spec1">Modify the database to store the latitude and longitude of where the fugitive was captured. For simplicity, rather than altering the existing database, modify the CREATE TABLE statement to define fields for those values. Then, uninstall the app from the simulator/emulator to force the database to be created again.</li>
+	<li class="l_spec2">When the Capture button is tapped, store the geo location in the database</li>
+	<li class="l_spec3">Add a Show on Map button that will display a map when clicked. The map should display the region surrounding the location where the fugitive was captured. An annotation should mark the specific location.</li>
+	<li class="l_spec4">Tip: To install onto an Android device, use the Google maps key from the Kitchen Sink app so that the map will work.</li>
 </ul>
 
 <table>
 	<tr>
-		<td colspan="2" class="labinstructions l_step1">1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH260.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH260.zip</a></td>
+		<td colspan="2" class="labinstructions l_step1">1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH270.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH270.zip</a></td>
 	</tr>
 	<tr>
 		<td class="tdfiller"><!-- leave empty--></td>
 		<td class="labexplanations l_stepexplanation1"></td>
 	</tr>
 	<tr>
-		<td colspan="2" class="labinstructions l_labstep2">2. Edit the lib/db.js file. <ul style='list-style:none;'><li>Update the 'bootstrap' code so that your database will include a TEXT field named 'url' to store the path to the fugitive's photo.</li><li>update list() to return the value of the 'url' field</li><li>Add a new addPhoto() function that will accept the fugitive's ID and the photo URL. It should fire the 'database updated' event.</li></ul></td>
+		<td colspan="2" class="labinstructions l_labstep2">2. Edit the lib/db.js file. <ul style='list-style:none;'><li>Update the 'bootstrap' code so that your database will include two new REAL fields named capturedLat and capturedLong</li><li>Update list() to return the value of those fields</li><li>Update the bust() function to accept two arguments for the latitude and longitude; store those values in the database</li></ul></td>
 	</tr>
 	<tr>
 		<td class="tdfiller"><!-- leave empty--></td>
 		<td class="labexplanations l_stepexplanation2">Because you're changing the database and we're not writing any alter-table statements, you will need to uninstall the app from the simulator/emulator. If you're starting a new project rather than editing your earlier work, this won't be a problem for you.</td>
 	</tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep3">3. Edit the ui/common/DetailWindow.js file. <ul style='list-style:none;'><li>Add an ImageView at the top of the window that will show either the fugitive's photo or '/images/burglar.png' image if a photo isn't available.</li><li>Below the image, add an 'Add Photo' button that when clicked will show either the camera or photo gallery picker (if the camera isn't supported). Save the resulting image to the applicationDataDirectory with the name 'photo'+bountyID+'.png'. Save the path to that file to the database. Enable editing and save the result back to the gallery.</li></ul></td>
+	<td colspan="2" class="labinstructions l_labstep3">3. Edit the ui/common/DetailWindow.js file. In the Capture button's event listener, make these changes:<ul style='list-style:none;'><li>Add a geolocation purpose message to support iOS.</li><li>Use an if/else block and determine if location services are enabled. If so, set the accuracy to <code>ACCURACY_HIGH</code> on Android and <code>ACCURACY_BEST</code> on iOS.</li><li>Grab the one-time location value and if there's no error, call <code>db.bust()</code> and pass the lat/long values.</li><li>If there is an error, alert() the error to the user.</li><li>You'll need one more else block for the outer-if block: if location services are disabled, alert() a message to the user with the details.</ul></td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation3"></td>
+	<td class="labexplanations l_labstepexplanation3">You will need to keep the existing net.bustFugitive() code; it should be within the block that successfully grabs the current location information.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_step4">4. Make sure to update the internationalization strings.xml file.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_stepexplanation4"></td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep5">5. Build your app for the iOS simulator or Android emulator. Add images to the photo gallery. Test the Add Photo functionality. Correct any problems that exist. </td>
+	<td colspan="2" class="labinstructions l_labstep4">4. Below the Capture button, add a 'Show on Map' button. When tapped, instantiate a map window (you'll write the module for that next), which you should open as a modal window. You'll be putting this module's file in the ui/common folder. Pass the bounty object to the map window's constructor.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation5">Don't forget to uninstall the old version of the app before running the new version.</td>
+	<td class="labexplanations l_labstepexplanation4"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep5">5. In the ui/common folder, add a new module file for your map window. In that module, create a Window that contains a Map view. The map should have one annotation marking the fugitive's latitude and longitude. Use the Standard map type, show a region bounded by one-tenth of a degree centered on the fugitive's location. For iOS, you'll need a navigation bar button to close the window.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation5">5</td>
+</tr>
+
+<tr>
+	<td colspan="2" class="labinstructions l_labstep6">6. Make sure to update the internationalization strings.xml file.</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation6"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_labstep7">7. Build your app for the iOS simulator or Android emulator. Capture a fugitive; on iOS you should permit location services. Test the Show on Map functionality with a captured fugitive. Correct any problems that exist. </td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_labstepexplanation7">Don't forget to uninstall the old version of the app before running the new version.</td>
 </tr>
 </table>
 
 <h2 class="l_summary">Summary</h2>
-<p class="l_summarypara">In this lab, you added images and support for the camera or photo gallery to TiBountyHunter. You saved those images to the local file system, and saved the path to those images in the database to limit the chances of over-consuming memory when you later read that database.</p>
+<p class="l_summarypara">In this lab, you added geolocation support and a plotted a map showing where fugitives were captured. You handled platform differences and geolocation errors.</p>
 
 <h2 class="l_resources">Resources</h2>
 
 <ul>
-	<li class="l_resources1">API docs: Media: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Media'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Media</a></li>
-	<li class="l_resources2">API docs: Filesystem <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Filesystem'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Filesystem</a></li>
-	<li class="l_resources3">Guides: Filesystem Access and Storage: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage</a></li>
-	<li class="l_resources4">Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH260'>GitHub</a></li>
+	<li class="l_resources1">API docs: Geolocation: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Geolocation'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Geolocation</a></li>
+	<li class="l_resources2">Guides: Tracking Postion and Heading: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading</a></li>
+	<li class="l_resources3">Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH270'>GitHub</a></li>
 </ul>
 
 

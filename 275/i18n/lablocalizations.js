@@ -25,7 +25,7 @@ String.toLocaleString({
 		"%l_stepexplanation5": "",
 
 		"%l_step6": "6. Open the tiapp.xml file and click <strong>Enable Cloud Services</strong>. Switch to the XML view and examine the tags added to the file.",
-		"%l_stepexplanation6": "Clicking this button registered the app with the cloud.appcelerator.com site, generates the necessary keys, and added the required tags to your tiapp.xml file. Remember that for a production app, you'd want to move these keys to the JavaScript code to prevent their compromise.",
+		"%l_stepexplanation6": "Clicking this button registered the app with the cloud.appcelerator.com site, generates the necessary keys, and added the required tags to your tiapp.xml file.",
 
 		"%l_step7": "7. Save your changes in all files and build your project for the simulator/emulator.",
 		"%l_stepexlpanation7": "",
