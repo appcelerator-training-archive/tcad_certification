@@ -42,7 +42,7 @@
 			<div class="slides">
 				
 				<section>
-					<h2 style="margin-top:100px;" class="l_lessontitle">Using Location Services</h2>
+					<h1 style="margin-top:100px;" class="l_lessontitle">Using Location Services</h1>
 					<h5 class="l_subtitle">Building Native Mobile Apps With Appcelerator Titanium</h5>
 					<script>
 						// DO NOT REMOVE THIS, MUST BE INCLUDED WITH THE FIRST SLIDE
@@ -87,12 +87,13 @@
 
 				<section>
 					<h2 style="" class="l_geoios">iOS Geolocation</h2>
+					<div style="float:right;width:300px;" class="l_iosgeoimage"><img src='images/geopurpose.png' width='240'/></div>
 					<p align="left" class="l_geoios1">Must set Ti.Geolocation.purpose</p>
 					<p align="left" class="l_geoios2">Check for authorization before using</p>
 					<p align="left" class="l_geoios3">Primary configuration: Ti.Geolocation.accuracy property (e.g. ACCURACY_BEST)</p>
 					<p align="left" class="l_geoios4">Also Ti.Geolocation.distanceFilter</p>
 					<p align="left" class="l_geoios5">Based on those, iOS chooses provider and tunings</p>
-					<div class="slidenote"><div class="l_slidenote_geoios"></div></div>
+					<div class="slidenote"><div class="l_slidenote_geoios">Accuracy constants are qualifiers like BEST, NEAREST_TEN_METERS, etc.<br/>distanceFilter is in meters</div></div>
 				</section>
 
 				<section>
@@ -102,7 +103,7 @@
 					<p align="left" class="l_geoandroid3">Legacy, Simple, and Manual modes</p>
 					<p align="left" class="l_geoandroid4">Simple: enable with accuracy = ACCURACY_HIGH or ACCURACY_LOW</p>
 					<p align="left" class="l_geoandroid5">Manual: More control, more precision, more provider options</p>
-					<div class="slidenote"><div class="l_slidenote_geoandroid"></div></div>
+					<div class="slidenote"><div class="l_slidenote_geoandroid">Implementing iOS model led to inefficiencies and inaccuracies<br/>Simple mode is a compromise: easy to set up but not hugely accurate<br/>Manual involves more work but can be very precise.<br/>One-time geo fixes normally return a cached location on Android</div></div>
 				</section>
 
 				<section>
@@ -111,7 +112,7 @@
 					<p align="left" class="l_geomw2">Implementation &amp; accuracy varies</p>
 					<p align="left" class="l_geomw3">User must grant permission</p>
 					<p align="left" class="l_geomw4">But, you can't change the message</p>
-					<div class="slidenote"><div class="l_slidenote_geomw"></div></div>
+					<div class="slidenote"><div class="l_slidenote_geomw">Generally limited by the browser environment<br/>That environment varies by device, operating system, and browser version.</div></div>
 				</section>
 
 				
@@ -162,7 +163,7 @@
 				</section>
 
 				<section>
-					<h2 class="l_qa">Q&amp;A</h2>
+					<h1 class="l_qa">Q&amp;A</h1>
 					<div class="slidenote"><div class="l_slidenote_qa"></div></div>
 				</section>
 				
@@ -192,7 +193,7 @@
 
 			<!-- Appc logo and presenter notes -->
 			<div id="appclogo"><a href="../index.html"><img src="../images/appu_thumb.png"/></a></div>
-			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes' width="30"/></a>
+			<a id="presenternotes" onClick="openPresenterNotes()"><img src="../images/presenternotes.png" title='Open Presenter Notes Window' alt='Presenter notes'/></a>
 
 			<!-- The navigational controls UI -->
 			<aside class="controls">

@@ -25,15 +25,16 @@ String.toLocaleString({
 		"%l_obtain_once": "Obtain once or continually monitor the user's location",
 		"%l_device_compass": "Device Compass (if available)",
 		"%l_forward_and": "Forward and reverse geo-coding",
-		"%l_slidenote_geolocation_support": "We'll look at platform specifics on the upcoming slides",
+		"%l_slidenote_geolocation_support": "Forward: Address -> lat/long<br>Reverse: lat/long -> address<br/><br/>We'll look at platform specifics on the upcoming slides",
 
 		"%l_geoios": "iOS Geolocation",
+		"%l_iosgeoimage": "<img src='images/geopurpose.png' width='240'/>",
 		"%l_geoios1": "iOS: Must set Ti.Geolocation.purpose",
 		"%l_geoios2": "Check for authorization before using",
 		"%l_geoios3": "Primary configuration: Ti.Geolocation.accuracy property (e.g. ACCURACY_BEST)",
 		"%l_geoios4": "Also Ti.Geolocation.distanceFilter",
 		"%l_geoios5": "Based on those, iOS chooses provider and tunings",
-		"%l_slidenote_geoios": "",
+		"%l_slidenote_geoios": "Accuracy constants are qualifiers like BEST, NEAREST_TEN_METERS, etc.<br/>distanceFilter is in meters",
 
 
 		"%l_geoandroid": "Android Geolocation",
@@ -42,14 +43,14 @@ String.toLocaleString({
 		"%l_geoandroid3": "Legacy, Simple, and Manual modes",
 		"%l_geoandroid4": "Simple: enable with accuracy = ACCURACY_HIGH or ACCURACY_LOW",
 		"%l_geoandroid5": "Manual: More control, more precision, more provider options",
-		"%l_slidenote_geoandroid": "",
+		"%l_slidenote_geoandroid": "Implementing iOS model led to inefficiencies and inaccuracies<br/>Simple mode is a compromise: easy to set up but not hugely accurate<br/>Manual involves more work but can be very precise.<br/>One-time geo fixes normally return a cached location on Android",
 
 		"%l_geomw": "Mobile Web Geolocation",
 		"%l_geomw1": "Browser must support W3C Geolocation spec",
 		"%l_geomw2": "Implementation &amp; accuracy varies",
 		"%l_geomw3": "User must grant permission",
 		"%l_geomw4": "But, you can't change the message",
-		"%l_slidenote_geomw": "",
+		"%l_slidenote_geomw": "Generally limited by the browser environment<br/>That environment varies by device, operating system, and browser version.",
 
 		"%l_geolocation_gotchas": "Geolocation Gotchas",
 		"%l_continually_monitoring": "Continually monitoring GPS drains battery faster",
@@ -57,11 +58,11 @@ String.toLocaleString({
 		"%l_android_emulator_no_default": "Android emulator: no default location<br>    Use DDMS to send location",
 		"%l_android_need": "Android: need API key from Google for maps",
 		"%l_maps_demo": "Maps demo",
-		"%l_slidenote_geolocation_gotchas": "If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed<br>Used to have to delete/re-create the AVD. Can edit it to add GPS emulation<br><b>Demo &mdash; do on Android</b><ol><li>Start Android emulator</li><li>Open Maps &mdash; no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here &mdash; you can demo more about maps on the next slides",
+		"%l_slidenote_geolocation_gotchas": "If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed to stop geolocation services.<br><br/><b>Demo &mdash; do on Android</b><ol><li>Start Android emulator</li><li>Open Maps &mdash; no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here &mdash; you can demo more about maps on the upcoming slides",
 
 		"%l_geodemo": "Geolocation Demo",
-		"%l_demo_kitchen_sink": "Demo: Kitchen Sink Geolocation",
-		"%l_slidenote_geodemo": "You can (1st three bullets)<br>Forward: Address -> lat/long<br>Reverse: lat/long -> address<br>Must set geolocation purpose<br>User will be prompted<br>Demo: Kitchen Sink > Phone > Geolocation<br><ul><li>Explain fields</li></ul><br>Code: examples/geolocation.js<ul><li>purpose</li><li>if(locationServicesEnabled==false)</li><li>authorization</li><li>getCurrentPosition() &mdash; single shot</li><ul><li>coords object</li></ul><li>addEventListener and locationCallback function</li><li>forward and reverse geo</li><li>point out Android lifecycle events for managing GPS</li></ul>",
+		"%l_demo_kitchen_sink": "Demo: Kitchen Sink Geolocation<br/>Kitchen Sink > Phone > Geolocation",
+		"%l_slidenote_geodemo": "Demo: Kitchen Sink > Phone > Geolocation<br>Code: examples/geolocation.js<ul><li>purpose</li><li>if(locationServicesEnabled==false)</li><li>authorization</li><li>getCurrentPosition() &mdash; single shot</li><ul><li>coords object</li></ul><li>addEventListener and locationCallback function</li><li>forward and reverse geo</li><li>point out Android lifecycle events for managing GPS</li></ul>",
 
 
 		"%l_native_map_kits": "Native Map Kits",
