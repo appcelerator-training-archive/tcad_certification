@@ -7,7 +7,7 @@ String.toLocaleString({
 	"en-US": {
 		"%l_filetitle": "This is the lesson title",
 		"%l_lessontitle": "Appcelerator Cloud Services",
-		"%l_subtitle": "(aka CocoaFish)",
+		"%l_subtitle": "Building Native Mobile Apps With Appcelerator Titanium",
 		"%l_slidenote_titleslide": "Teaching time: 30 mins<br/>Lab time: 30 mins",
 
 		"%l_agenda_title": "AGENDA",
