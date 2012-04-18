@@ -79,6 +79,12 @@
 	font-weight: normal;
 	font-style: normal;
 }
+@font-face {
+	font-family: 'Museo';
+	src: url('../../presentation-engine/fonts/MuseoSans_700.otf') format('opentype');
+	font-weight: normal;
+	font-style: normal;
+}
 #presenter {
 	/* CONTROLS TEXT OUTPUT IN THE PRESENTER NOTES WINDOW */
 	margin:5px 10px;
@@ -121,26 +127,26 @@ html {
 #reveal h2, 
 #reveal h3, 
 #reveal h4 {
-	color: #333;
+	color: #222;
 	text-shadow: 0.02em 0.02em 0.07em #666;
 }
-p, div, li, td, span { color: #333 !important; }
-section a { color: #333 !important; text-decoration:underline !important;}
+p, div, li, td, h5 { color: #222 !important; font-family: 'Museo' !important; }
+section a { color: #222 !important; text-decoration:underline !important;}
 li { padding-bottom: 5px; }
 
 #reveal pre code {
-	font-size: 1.2em;
+	font-size: 1.5em !important;
 	line-height: 1.2em;
 }
 
 #reveal .slides {
 	position: absolute;
-	width: 900px;
-	height: 600px;
+	width: 1024px;
+	height: 800px;
 	
 	left: 50%;
 	top: 40%;
-	margin-left: -450px;
+	margin-left: -516px;
 	margin-top: -320px;
 	padding: 20px 0px;
 }

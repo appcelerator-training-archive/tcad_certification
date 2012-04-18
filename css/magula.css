@@ -9,7 +9,7 @@ Music: Aphex Twin / Xtal
 
 pre code {
   display: block; padding: 0.5em;
-  background-color: #f4f4f4;
+  background-color: #fcfcfc;
 }
 
 pre code,
@@ -39,7 +39,7 @@ pre .flow,
 pre .stream,
 pre .bash .variable,
 pre .apache .cbracket {
-  color: #050;
+  color: #030;
 }
 
 pre .comment,
@@ -47,7 +47,7 @@ pre .annotation,
 pre .template_comment,
 pre .diff .header,
 pre .chunk {
-  color: #777;
+  color: #444;
 }
 
 pre .number,
@@ -58,7 +58,7 @@ pre .smalltalk .symbol,
 pre .smalltalk .char,
 pre .change,
 pre .tex .special {
-  color: #800;
+  color: #500;
 }
 
 pre .label,
