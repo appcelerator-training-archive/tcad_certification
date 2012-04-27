@@ -316,5 +316,23 @@
 				presenterNotesWindow = window.open('presenternotes.html', presenterNotesWindow, "location=0,menubar=no,toolbar=no,height=600,width=800");
 			}
 		</script>
+		<script>
+		var s = (function load(){
+			var s = {};
+			if(window.outerHeight){
+				s = { w: window.outerWidth, h: window.outerHeight};
+			}
+			else {
+				s = { w: document.body.clientWidth, h: document.body.clientHeight};
+			}
+			return s;
+		})();
+		if(s.w < 1000 || s.h < 800) {
+			var slides = document.querySelectorAll( '#reveal .slides' );
+			for( var i = 0, len = slides.length; i < len; i++ ) {
+				slides[i].classList.add( 'smallscreen' );
+		    }
+		}
+		</script>
 	</body>
 </html>

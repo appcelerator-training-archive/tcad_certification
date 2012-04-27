@@ -150,6 +150,14 @@ li { padding-bottom: 5px; }
 	margin-top: -320px;
 	padding: 20px 0px;
 }
+/* small screen version */
+.smallscreen {
+	width: 780px !important;
+	height: 640px !important;
+	margin-left: -390px !important;
+	margin-top: -280px !important;
+}
+
 
 #reveal .controls a {
 	opacity: 0.25 !important;
