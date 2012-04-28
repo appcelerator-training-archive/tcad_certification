@@ -1,13 +1,15 @@
 /* Japanese specific style overrides */
 @font-face {
-	font-family: 'Mincho';
-	src: url('../../presentation-engine/fonts/MS Mincho.ttf') format('truetype');
+/*	font-family: 'Mincho';
+	src: url('../../presentation-engine/fonts/MS Mincho.ttf') format('truetype');*/
+	font-family: 'IPAPGothic';
+	src: url('../../presentation-engine/fonts/ipagp.ttf') format('truetype');
 	font-weight: normal;
 	font-style: normal;
 }
 
 #presenter {
-	font-family: 'MS Mincho' !important;
+	font-family: 'IPAPGothic' !important;
 }
 
-p, div, li, td, h1, h2, h3, h4, h5 { font-family: 'Mincho' !important;}
+p, div, li, td, h1, h2, h3, h4, h5 { font-family: 'IPAPGothic' !important;}
