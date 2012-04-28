@@ -43,5 +43,46 @@ String.toLocaleString({
 		"%l_resources2": "Guides: Integrating Web Content: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content</a>",
 		"%l_resources3": "Finished code: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH285'>GitHub</a>",
 
+	},
+	"ja": {
+		"%l_labname": "実習: Webコンテンツとの統合",
+		
+		"%l_mission": "<strong>ミッション: </strong>この実習では、部分的に完成されたRSSリーダーにWebコンテンツを統合します。個々の記事はモーダルウィンドウ内のWebviewに表示されます。AboutタブにはローカルHTMLファイルが表示されます。",
+		"%l_specification": "<strong>仕様: </strong>部分的に完成されたファイルをダウンロードし、不足している機能を追加します。最終的にアプリは以下のように見えます。<br/><img src='labimages/webview1.png' height='300' align='left'><img src='labimages/webview2.png' height='300' align='left'><img src='labimages/webview3.png' height='300' align='left'>",
+
+		"%l_step1": "1. <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip</a>から開始ファイルをダウンロードし、新規プロジェクトとしてファイルをインポートします。",
+		"%l_stepexplanation1": "",
+
+		"%l_step2": "2. app.js, ui/TabGroup.js, and lib/network.jsの中身を確認します。これらのファイルは完成しているはずです。",
+		"%l_stepexplanation2": "UIやネットワーク機能のほとんどは完成しているので、Webview機能の追加に集中できるでしょう。もちろんこの時点でアプリは何も処理をしません。",
+
+		"%l_step3": "3. <strong>ui/RSSWindow.js</strong>を開き、テーブルイベントリスナーの
+		In the table event listener, follow the code comments to require in the appropriate module, instantiate the window, and open it.",
+		"%l_stepexplanation3": "When users tap on a row, this window will open and display the contents of the blog article.",
+
+		"%l_step4": "4. Open <strong>ui/ArticleWindow.js</strong> and following the comments in that file, write the code to define the window that will contain the web view for showing the blog articles.",
+		"%l_stepexplanation4": "",
+
+		"%l_step5": "5. Open <strong>ui/AboutWindow.js</strong> and following the comments in that file, write the code to define the window that will display the index.html file on the 'About' tab.",
+		"%l_stepexplanation5": "",
+
+		"%l_step6": "6. 6. Save your changes in all files and build your project for the simulator/emulator.",
+		"%l_stepexplanation6": "",
+
+		"%l_step7": "7. Test your work by viewing an article or two and by displaying the About tab.",
+		"%l_stepexlpanation7": "",
+
+		"%l_step8": "8. Close the simulator/emulator and all open files in Studio.",
+		"%l_stepexplanation8": "",
+
+
+		"%l_summary": "Summary",
+		"%l_summarypara": "In this lab, you implemented web views in two different ways. In one, the contents of a blog post are displayed in a web view. In the other, the contents of a local HTML file are displayed within a web view to illustrate how you can display formatted text in that manner.",
+
+		"%l_resources": "Resources",
+		"%l_resources1": "API docs: WebView: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.UI.WebView'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.UI.WebView</a>",
+		"%l_resources2": "Guides: Integrating Web Content: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Integrating_Web_Content</a>",
+		"%l_resources3": "Finished code: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH285'>GitHub</a>",
+
 	}
 });
