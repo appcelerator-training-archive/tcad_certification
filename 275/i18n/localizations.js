@@ -102,5 +102,104 @@ String.toLocaleString({
 		"%l_slidenote_solution": "<b>Code Walk through &mdash; TiBH275</b><br><ul><li>tiapp.xml &mdash; show API keys</li><li>lib/acs.js &mdash; require(ti.cloud)</li><li>lib/acs.js &mdash; explain each of the functions</li><li>ui/common/DetailWindow.js &mdash; show how the ACS functions are called in the brag button event listener (don't have to cover all of them, just point out the overall pattern)</li></ul>",
 
 
+	},
+    	"ja": {
+		"%l_filetitle": "This is the lesson title",
+		"%l_lessontitle": "Appcelerator<br />クラウドサービス（ACS）",
+		"%l_subtitle": "Appcelerator Titaniumによるネイティブアプリ開発",
+		"%l_slidenote_titleslide": "指導時間：30分間<br/>実習時間: 30分間",
+
+		"%l_agenda_title": "アジェンダ",
+		"%l_agenda1": "ACSとは?",
+		"%l_agenda2": "ACS vs. D.I.Y.",
+		"%l_agenda3": "必要システムとセットアップ",
+		"%l_agenda4": "ACSの利用",
+		"%l_agenda5": "実習",
+		"%l_slidenote_agenda": "ACS、そして何に使うかについて検討します。また、ACSを使用するのと自前のウェブサービスを作成するのとを比較します。そして、ACSをアプリにインプリメントするのと同様に、設定や業務で必要な設定を含む、ACSインプリメント方法まで話を進め、実習まで終わらせます。",
+
+		"%l_whatis": "ACSとは?",
+		"%l_whatis1": "構築済みWebバックエンド",
+		"%l_whatis2": "25以上のAPI",
+		"%l_whatis3": "信頼性とスケーラブル",
+		"%l_whatis4": "お任せ管理",
+		"%l_whatis5": "クロスプラットフォーム対応Titanium用SDK、ネイティブ、そしてREST API",
+		"%l_slidenote_whatis": "ACSはアプリ用の構築済みクラウドバックエンドです。ホスティング管理されたサービスで、<ul><li>ユーザー管理</li><li>プッシュ通知</li><li>ソーシャル連携</li><li>ファイルや写真のストレージ</li><li>その他</li></ul><br/>を含む、25のAPIを提供します。<br/>Objective C, Java, REST (= web), and TitaniumのSDKが用意されています。",
+
+		"%l_apis": "APIs",
+		"%l_slidenote_apis": "ACSでは、多くの構築済みAPIやオブジェクトタイプを提供するだけでなく、カスタムオブジェクトも作成することが可能です。",
+
+		"%l_apis_users": "ユーザー",
+		"%l_apis_users_explanation": "作成、削除、及びユーザー検索<br/>更にポピュラーなソーシャルネットワーク<br>アカウント連携",
+		"%l_slidenote_users": "APIの多くは、ユーザーログインが必要。<br/>それにはユーザーAPIを使用することができます。<br/>別の方法では、FacebookまたはTwitterアカウント経由でユーザーログインさせるソーシャルAPIを使用することができます。",
+
+		"%l_apis_places": "プレイス",
+		"%l_apis_places_explanation": "プレイスの作成及び管理、そしてプレイスへのチェックイン機能",
+		"%l_slidenote_places": "プレイスを作成することで、そのプレイスのアクティビティーと結び付けることができます。例えば、ユーザーはそのプレイスにチェックインでき、そこに関係するメッセージを投稿することも可能です。",
+
+		"%l_apis_social": "ソーシャル連携",
+		"%l_apis_social_explanation": "Facebook,Twitter,LinkedIn等のメジャー<br>ソーシャルネットワークとの連携",
+		"%l_slidenote_social": "ユーザーは、ACSアカウントを作成せずに外部サービスのアカウントを使用してアプリにログインすることが可能です。ソーシャルネットワークアカウントでログインすると、ACSアカウントが存在していなければ作成されます。 もしくは、外部サービスのアカウント情報にマッチするユーザーを使用してログインします。",
+
+		"%l_apis_photos": "フォトコレクション",
+		"%l_apis_photos_explanation": "写真のアップロードと写真<br>またはコレクションの共有",
+		"%l_slidenote_photos": "コレクションには1枚またはそれ以上の写真やコレクションが含まれます。これらはユーザーのフォトアルバムとして使用されます。.<br/><br/>フォトファイルはAmazon S3に保存され、様々なサイズが自動的に提供されます。そのためサムネイルを作成する必要はありません。",
+
+		"%l_apis_keyvalues": "キーバリュー",
+		"%l_apis_keyvalues_explanation": "あらゆるタイプのキーバリュー型データを保存",
+		"%l_slidenote_keyvalues": "一般的なデータストレージについては、キーバリューAPIを使用することができます。<br/>キーは最大256文字で、バリューはストリングまたはバイナリーで最大2MBまで保存することができます",
+
+		"%l_acsdiy": "ACS vs. DIY",
+		"%l_acsdiy1": "構築済みWebバックエンド",
+		"%l_acsdiy2": "ITチーム不要",
+		"%l_acsdiy3": "スケーラブル",
+		"%l_acsdiy4": "使用規模としてのコスト規模",
+		"%l_slidenote_acsdiy": "<ul><li>ACSはより簡単で、そして一からWebバックエンドを作成するよりも安いです。</li><li>Appceleratorがシステムをメンテナンスし、24時間モニタリング及び管理します。</li><li>スケーラブルかつクラウドベースなので、必要に応じてサーバーを拡張することが可能です。</li><li>価格は現在未定となっていますが、恐らくクラウドデータセンターを利用するよりもずっと安く抑えることができるはずです。</li></ul>",
+
+		"%l_requirements": "必要条件とセットアップ",
+		"%l_require1": "アプリの登録",
+		"%l_require2": "アプリでACSを利用する設定",
+		"%l_require3": "ACS APIの実装",
+		"%l_slidenote_requirements": "こちらは概要のスライド。しょうは次のスライドから。",
+
+		"%l_register": "登録",
+		"%l_register1": "オプション1: tiapp.xml",
+		"%l_register2": "オプション2: 手動:<ul style='margin-left:30px;'><li style='font-size:smaller;'>cloud.appcelerator.comへ<br>アクセス</li><li style='font-size:smaller;'>ログイン</li><li style='font-size:smaller;'>クリック<strong>Register a new app</strong></li></ul>",
+		"%l_slidenote_register": "アプリを登録すると、OAuthキーが作成され、またクラウドサーバー内にもアプリが作成されます。<br/><br/>これを行うには2つの方法があります:<br/><br/>オプション1はシンプルで、Titanium側のアプリで機能します。アプリを作成する時にチェックボックスにチェックを入れておくだけです。<br/>オプション2はネイティブまたはRESTアプリを使用する場合です。アプリに対して手動でキーをコピーしなければなりません。次のスライドで解説します。",
+
+		"%l_configure": "設定",
+		"%l_configure1": "オプション1: tiapp.xml内<br/><pre style='width:900px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>そしてJavaScriptコード内で <code>var Cloud = require('ti.cloud');</code> を追加</p>",
+		"%l_configure2": "オプション2: JavaScriptコード内<br/><pre style='width:675px;'><code contenteditable>var Cloud = require('ti.cloud');\nCloud.apiKey = 'YOUR_API_KEY_HERE';\nCloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';\nCloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';		</code></pre>",
+		"%l_slidenote_configure": "tiapp.xmlまたはコード内どちらでもAPIキーを設定することができます。<br/><br/>productionキー、developmentキーの両方が生成されます。<br/><br/>サーバーサイドの制約のため、ACS経由の管理権限のAPIは禁止されており、ほとんどのアクションにはユーザー認証が必要とされます。これらの措置によりACSのセキュリティーを確保し、キーの紛失や流出に結びつくリスクを減らします。",
+
+		"%l_implement": "実装",
+		"%l_implementcode": "var loggedIn = false;\nexports.login = function(username, password, callback) {\n  Cloud.Users.login({\n    login: username,\n    password: password\n  }, function (e) {\n    if (e.success) n      currentUser = e.users[0]n      loggedIn = true;\n      callback(loggedIn);\n    } else {\n      Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));\n      loggedIn = false;\n      currentUser = null;\n      callback(loggedIn);\n    }\n  });\n};\n ",
+
+		"%l_slidenote_implement": "一旦あなたのキーで登録しアプリを設定したら、ACS機能を実装する準備は完了です。<br/><br/>キーポイント - Key points - <code>Cloud.Users.login()</code>を呼び出し、<code>e.success</code>コールバック内でテストします。<br/><br/>重要: クラウドAPIはasynchronousです。つまり<code>return</code>を当てにすることができません。表示のようにコールバックを実装しなければなりません。",
+
+		"%l_manage": "管理",
+		"%l_manage_explanation": "my.appcelerator.comでアプリを管理<br/><img src='images/acs_manage.png' style='height:400px'/>" ,
+		"%l_slidenote_manage": "You can view stats, see the objects that have been created, data that's been uploaded, and so forth via your my.appcelerator page.<br/><br/><em>During the pre-release phase, you have to visit cloud.appcelerator.com instead of my.appcelerator.com</em>",
+
+		"%l_analytics": "アナリティクス",
+		"%l_analytics1": "<strong>my.appcelerator.com</strong>ページにログイン",
+		"%l_analytics2": "Resourcesで右クリックして<strong>Open Analytics Page</strong>を選択",
+		"%l_analytics3": "<strong style='font-size:0.75em;'>http://analytics.appcelerator.net/#app=YOUR_APP_GUID</strong>にアクセス",
+		"%l_slidenote_analytics": "You have three options for viewing your app's statistics.<br/>Pre-launch, the my.appcelerator.com page isn't working.",
+
+		"%l_qa": "Q&amp;A",
+		"%l_slidenote_qa": "Questions?",
+
+		"%l_lab": "実習内容",
+		"%l_labobjective1": "TiBountyHunterアプリにACSをインプリメントする",
+		"%l_labobjective2": "捕獲を自慢する（ステータスメッセージ経由）",
+		"%l_labobjective3": "サポートにログインし、アカウントを作成する",
+		"%l_labobjective4": "作成済みUIコードはこちら",	
+		"%l_slidenote_lab": "開始ポイントのコードをダウンロードします。UI関係のコードは既に作成済みなので、ACS関連に集中することができます。",
+		"%l_labURL": "実習: <a href='https://wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services'>wiki.appcelerator.org/display/td/275+Appcelerator+Cloud+Services</a>",
+
+		"%l_solution": "ソリューションウォークスルー",
+		"%l_slidenote_solution": "<b>コードウォークスルー  TiBH275</b><br><ul><li>tiapp.xml &mdash; APIキー表示 </li><li>lib/acs.js &mdash; require(ti.cloud)</li><li>lib/acs.js &mdash; 関数の説明</li><li>ui/common/DetailWindow.js &mdash; 捕獲を自慢するボタンのイベントリスナー内でACS関数がどのように呼ばれるかを表示（全てをカバーする必要は無く、単に全般のパターンについて指摘する）</li></ul>​",
+
+
 	}
 });
