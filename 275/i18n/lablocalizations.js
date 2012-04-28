@@ -45,5 +45,44 @@ String.toLocaleString({
 		"%l_resources2": "<a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud'>API Docs: Cloud</a>",
 		"%l_resources3": "<a href='http://cloud.appcelerator.com/docs/quickstart'>Cloud QuickStart Guide</a>",
 
+	},
+"ja": {
+		"%l_labname": "実習: ACSとの統合",
+		"%l_mission": "<strong>ミッション: </strong>この実習では、ユーザーが捕まえた賞金首を自慢できるように、TiBountyHunterアプリにAppceleratorクラウドサービスを統合します。そしてユーザーが投稿したメッセージがACSクラウドに保存できるようにするにはACS Status APIを使用します。この実習では構築しないので、ユーザーがそれらの自慢を見れるのは恐らくWebページか、あるいはアプリにユーザーの自慢を見れる機能を付けましょう。そのような機能を作成するのは、各自に任せます。",
+		"%l_step1": "1. <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBH275'>GitHub</a> または <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH275.zip'>AWS/S3</a> からベースのソースコードをダウンロードし、新規Titanium Mobileプロジェクトとしてソースファイルをインポートします。",
+		"%l_stepexplanation1": "",
+		"%l_step2": "2. iPhoneシミュレーターまたはAndroidエミュレーターのどちらかでプロジェクトをビルドします。賞金首を捕まえて、Capturedタブをクリックします。捕まえた逃亡者の名前、次に「Tap Log in to Brag」をタップします。<div><img src='labimages/acs1.png' height='300' align='left'><img src='labimages/acs2.png' height='300' align='left'>",
+		"%l_stepexplanation2": "UI機能や変更のソースは書いてあるので、ACS機能追加に集中することができます。もちろん、この時点でフィールドやボタンは何も動作しません。",
+
+		"%l_step3": "3. <strong>ui/common/DetailWindow.js</strong>を開き、176行目辺りから始まるACS関連のコードを確認しましょう。",
+		"%l_stepexplanation3": "このコードでUIのボタンやWindowを作成し、イベントに反応します。ACS機能は別のファイルにあります。",
+
+		"%l_step4": "4. <strong>lib/acs.js</strong>を開き、内容を確認しましょう。",
+		"%l_stepexplanation4": "このファイルにはACSを有効にするために書く関数の骨組みが含まれています。",
+		"%l_step5": "5. acs.jsファイルにあるコメントに続いて、アプリのACS機能を有効にするために必要な各々の関数を書きましょう。",
+		
+		"%l_stepexplanation5": "",
+
+		"%l_step6": "6. tiapp.xmlファイルを開き、<strong>Enable Cloud Services</strong>をクリックします。XMLビューに切り替え、ファイル内のタグを確認します。",
+		"%l_stepexplanation6": "cloud.appcelerator.comサイトで登録されたアプリのボタンをクリックすると、必要なキーが生成され、tiapp.xmlファイルに必要なタグが追加されます。",
+
+		"%l_step7": "7. 全てのファイルの変更を保存し、シミュレータ／エミュレーター向けにプロジェクトをビルドします。",
+		"%l_stepexlpanation7": "",
+
+		"%l_step8": "8. アプリで逃亡者を捕まえ、詳細ページで<strong>Log in to Brag</strong>をクリックしてください。<strong>Create Account</strong>をクリックし、ユーザー名とパスワードを入力します。「Return」またはウィンドウの外をタップするとキーボードが非表示になります。<strong>Create Account</strong>をクリックします。",
+		"%l_stepexplanation8": "エラーが出た場合は修正し、メッセージが投稿され、自慢のリストが取得できるまでテストを繰り返してください。",
+
+		"%l_step9": "9. シミュレーター／エミュレーター、Titanium Studio内で開いていた全てのファイルを閉じます。",
+		"%l_stepexplanation9": "",
+
+
+		"%l_summary": "まとめ",
+		"%l_summarypara": "この実習では、いくつかのACS APIを実装してみましたが、まだ多くのAPIがあります。もちろん今回の実習だけでアプリは完成していません。まだメッセージを共有する方法や他のユーザーが投稿したメッセージを見る方法がありません。しかし、この実習を進めて行くことで、ACSで出来る事の一部が分かったと思います。そして、最も注目すべき点は、サーバーサイドコーディング無しでアプリにサーバーサイド機能を追加できる点です。",
+
+		"%l_resources": "リソース",
+		"%l_resources1": "最終コード: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBountyHunter'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>AWS/S3</a>",
+		"%l_resources2": "<a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud'>API Docs: Cloud</a>",
+		"%l_resources3": "<a href='http://cloud.appcelerator.com/docs/quickstart'>Cloud QuickStart Guide</a>",
+
 	}
 });

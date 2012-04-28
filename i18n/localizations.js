@@ -20,5 +20,24 @@ String.toLocaleString({
 		"%l_lesson10": "Appcelerator Cloud Services",
 		"%l_lesson11": "Integrating Web Content",
 		"%l_lesson12": "Deployment and Distribution"
+	},
+    	"ja": {
+		"%l_welcome": "Welcome To",
+		"%l_coursename": "Appcelerator Titaniumによるネイティブアプリ開発",
+		"%l_agenda1_title": "アジェンダ1",
+		"%l_agenda2_title": "アジェンダ2",
+		"%l_lesson1": "コース紹介",
+		"%l_lesson2": "Appcelerator Titaniumによるネイティブアプリ開発",
+		"%l_lesson3": "これからはネイティブアプリ開発者です。",
+		"%l_lesson4": "クロスプラットフォームJavaScriptアプリ",
+		"%l_lesson5": "UIの基礎",
+		"%l_lesson6": "ローカルデータ",
+		"%l_lesson7": "リモートデータ",
+		"%l_lesson8": "メディアとファイルシステム",
+		"%l_lesson9": "位置情報サービスの利用",
+		"%l_lesson10": "Appceleratorクラウドサービス",
+		"%l_lesson11": "Webコンテンツとの統合",
+		"%l_lesson12": "デプロイと配布"
 	}
+
 });
