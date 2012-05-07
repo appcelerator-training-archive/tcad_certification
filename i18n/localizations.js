@@ -30,14 +30,15 @@ String.toLocaleString({
 		"%l_lesson2": "Appcelerator Titaniumによるネイティブアプリ開発",
 		"%l_lesson3": "これからはネイティブアプリ開発者です。",
 		"%l_lesson4": "クロスプラットフォームJavaScriptアプリ",
-		"%l_lesson5": "UIの基礎",
-		"%l_lesson6": "ローカルデータ",
-		"%l_lesson7": "リモートデータ",
-		"%l_lesson8": "メディアとファイルシステム",
-		"%l_lesson9": "位置情報サービスの利用",
-		"%l_lesson10": "Appceleratorクラウドサービス",
-		"%l_lesson11": "Webコンテンツとの統合",
-		"%l_lesson12": "デプロイと配布"
+		"%l_lesson5": "Titanium Studio",
+		"%l_lesson6": "UIの基礎",
+		"%l_lesson7": "ローカルデータ",
+		"%l_lesson8": "リモートデータ",
+		"%l_lesson9": "メディアとファイルシステム",
+		"%l_lesson10": "位置情報サービスの利用",
+		"%l_lesson11": "Appceleratorクラウドサービス",
+		"%l_lesson12": "Webコンテンツとの統合",
+		"%l_lesson13": "デプロイと配布"
 	}
 
 });
