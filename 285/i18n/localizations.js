@@ -91,7 +91,7 @@ String.toLocaleString({
 		"%l_filetitle": "Webコンテンツとの統合",
 		"%l_lessontitle": "Webコンテンツとの統合",
 		"%l_subtitle": "Appcelerator Titaniumによるネイティブアプリ開発",
-		"%l_slidenote_titleslide": "<b>モジュールタイム: 60分</b><br/>(講習: 15分, 実習: 45分)",
+		"%l_slidenote_titleslide": "<b>所要時間: 60分</b><br/>(講習: 15分, 実習: 45分)",
 		"%l_agenda_title": "アジェンダ",
 		
 		"%l_agenda1": "WebViewコンポーネントとの統合",

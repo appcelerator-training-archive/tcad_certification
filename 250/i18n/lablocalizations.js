@@ -1,5 +1,5 @@
 /*
-	Localization strings file. To translate, copy the entire "en-US" branch, paste in as new member of the object, 
+	Localization strings file. To translate, copy the entire "en-US" branch, paste in as new member of the object,
 	set its name to be the two-letter language code, and translate each string.
 	As shown, strings can include simple HTML.
 */
@@ -14,7 +14,7 @@ String.toLocaleString({
 		"%l_spec4": "Allow the user to delete fugitives",
 		"%l_spec5": "Implement the “Capture” button, which will update a fugitive’s status in the database to “captured” and display him or her in the proper tab",
 
-		
+
 		"%l_labstep1": "1. Open the TiBountyHunter project you created for the last assignment, or download the starting point code and import it as a new project in Studio: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip</a>",
 		"%l_labstepexplanation1": "",
 
@@ -44,6 +44,48 @@ String.toLocaleString({
 		"%l_resources2": "API docs: Databases <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database</a>",
 		"%l_resources3": "KitchenSink database example: <a href='https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js'>https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js</a>",
 		"%l_resources4": "Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH250'>GitHub</a>",
+
+	},
+	"ja": {
+		"%l_labname": "実習 - ローカルデータの扱い",
+		"%l_mission": "<img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>目標: </strong>この実習では、ローカルのSQLデータベース(SQLite)にある実際のデータから逃亡者のリストを復元します。あなたはデータ駆動の逃亡者リストを表示し、データベースの変更に対して逐次更新します。",
+		"%l_specification": "<strong>仕様: </strong>前回の課題で作成したTiBountyHunterプロジェクトから始めます。あなたはローカルのデータベースを更新する為に、いよいよイベントハンドラーを追加します。この実習を成功裏に終わらせるには、以下の記述を満たすアプリケーションを作らなければなりません。",
+		"%l_spec1": "SQLデータベースからtableビューに追加します",
+		"%l_spec2": "データベースのどの変更に関しても逃亡者リストを最新に保つ",
+		"%l_spec3": "賞金稼ぎが新たな逃亡者をデータベースに追加できるよう、逃亡者リスト用の“Add”スクリーンを実装します",
+		"%l_spec4": "ユーザに逃亡者を削除できるようにします",
+		"%l_spec5": "逃亡者のデータベース内のステータスを“捕まった”に更新し、彼または彼女を適切なタブに表示する“Capture”ボタンを実装します",
+
+
+		"%l_step1": "1. 最後の課題で作成したTiBountyHunterプロジェクトを開くか、以下から開始地点となるコードをダウンロードし、Studioに新しいプロジェクトとしてインポートします: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH250.zip</a>",
+		"%l_labstepexplanation1": "",
+
+		"%l_labstep2": "2. 'lib' という名の新しいフォルダーを作成し、中にデータベースのモジュールファイルを入れます。そのファイルの中で'TiBountyHunter'という名前のデータベースを作成し、'fugitives'というテーブルを含めるステートメントを追加してください。.そのテーブルは以下のフィールド持たなければなりません:<ul style='list-style:none;'><li>id &mdash; INTEGER PRIMARY KEY</li><li>name &mdash; TEXT</li><li>captured &mdash; INTEGER</li></ul>",
+		"%l_stepexplanation2": "データベースとの接続をオープンし、コードが終わる時にクローズしていることを確認してください",
+
+		"%l_labstep3": "3. (他のモジュールから呼べるように)exportsリストに追加される以下の関数を記述してください:<ul style='list-style:none;'><li>list(BOOLEAN) &mdash; 逮捕された、あるいは逃亡中の逃亡者を表すテーブルの行を返す。各行は、title、id、hasChild=true、color='#fff'、name (titleの複製)そしてcaptured=booleanプロパティを持たなければいけません。</li><li>add(STRING) &mdash; 名付けられた逃亡者をデータベースに登録する。データベースが更新されたことを通知するためにアプリ-レベルのイベントを発行する。</li><li>del(PRIMARY_KEY) &mdash; 指定されたIDの逃亡者を削除する。'database updated'アプリ-レベルのイベントを発行する。</li><li>bust(PRIMARY_KEY) &mdash; 指定したIDの逃亡者を捕まったとマークする。'database updated'アプリ-レベルのイベントを発行する。</li></ul>",
+		"%l_labstepexplanation3": "",
+
+		"%l_step4": "4. ui/common/BountyTable.jsファイルを更新します。静的に定義されてたtableをdb.list()関数を呼ぶように入れ替える。あなたはモジュール内でrequireを使う必要があります。'database updated'イベントを受け取ったらpopulateData()関数をコールするようにアプリ-レベルのイベントリスナーを追加してください。",
+		"%l_labstepexplanation4": "",
+
+		"%l_labstep5": "5. /ui/common/DetailWindow.jsファイルを更新します。Captureボタンにクリックイベントリスナーを追加します。db.bust()関数を呼んだ後に詳細ウィンドウをクローズします。Deleteボタンに、db.del()関数を呼んでウィンドウをクローズするクリックイベントリスナーを追加します。イベントリスナーの中のデータベースライブラリー内でrequire()するのを忘れないでください。",
+		"%l_labstepexplanation5": "",
+
+		"%l_labstep6": "6. /ui/common/AddWindow.jsファイルを更新します。新しい逃亡者の名前を入力するように促すhintTextを含んだtext fieldを追加してください。クリックした時にdb.add()関数を呼ぶSaveボタンを追加してください。新しい逃亡者を保存した後にAddウィンドウをクローズしてください。イベントリスナーの中のデータベースライブラリー内でrequire()するのを忘れないでください。",
+		"%l_labstepexplanation6": "",
+
+		"%l_labstep7": "7. iOSシミュレータもしくはAndroidエミュレータ向けにアプリをビルドしてください。存在するどんな問題も修正してください。",
+		"%l_labstepexplanation7": "",
+
+		"%l_summary": "まとめ",
+		"%l_summarypara": "この実習では、TiBountyHunterをSQLiteデータベースを用いて状態を戻せるように改善しました。これで逃亡者はデータベースに保存され、容易に検索やアップデートができます。あなたは、追加、逮捕、そして削除の機能をほんの数行追加するだけで有効にしました。",
+
+		"%l_resources": "リソース",
+		"%l_resources1": "ガイド: Working with a SQLite Database: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_a_SQLite_Database'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Working_with_a_SQLite_Database</a>",
+		"%l_resources2": "API docs: Databases <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Database</a>",
+		"%l_resources3": "KitchenSink database example: <a href='https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js'>https://github.com/appcelerator/KitchenSink/blob/master/Resources/examples/database.js</a>",
+		"%l_resources4": "完成版のコード: 次の実習を見るか、ここ<a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH250'>GitHub</a>",
 
 	}
 });

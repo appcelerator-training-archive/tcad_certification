@@ -48,5 +48,51 @@ String.toLocaleString({
 		"%l_resources1": "iOS Simulator/Cropper, an optional but helpful tool for capturing iOS simulator screenshots in the correct sizes: <a href='http://www.curioustimes.de/iphonesimulatorcropper/'>http://www.curioustimes.de/iphonesimulatorcropper/</a>",
 		"%l_resources2": "Guides: Preparing for Distribution: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution</a>"
 
+	},
+	"ja": {
+		"%l_labname": "実習: デプロイと配布",
+		
+		"%l_mission": "<strong>ミッション: </strong>この実習では、テストのため実機にアプリをデプロイします。そして重要な手順に従ってGoogle PlayやApp Storeへアプリを公開します。",
+		"%l_specification": "<strong>仕様: </strong>この実習の全ての課題を完了するためには以下のリソースが必要です：",
+
+		"%l_spec1": "AndroidデバイスとUSBケーブル",
+		"%l_spec2": "iOSデバイスとUSBケーブル",
+		"%l_spec3": "Google Play (旧Android Market) アカウント",
+		"%l_spec4": "iOSデベロッパアカウント",
+
+
+		"%l_step1": "1. <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip</a>から開始ファイルをダウンロードし、Titanium Mobileプロジェクトとしてインポートします。",
+		"%l_stepexplanation1": "",
+
+		"%l_step2": "2: Androidデバイスを接続してアプリをデプロイしたらテストします。Androidプラットフォームの仕様に合わせていますが、iOSシミュレーター上で見るのと機能は同じです。<br/><br/>Androidデバイスがまだ接続されている状態で、ddmsを開き、ウィンドウ上部左側のデバイス名を選択します。 デバイスの選択をしたらスクリーンキャプチャーを撮ります。2種類のスクリーンショットをデスクトップまたはホームディレクトリに保存します。ddmsを閉じ、コンピュータシステムの指示に従って、安全にデバイスを取り外します。",
+		"%l_stepexplanation2": "",
+
+		"%l_step3": "3: Appleデベロッパーアカウントでログインし、iOS Provisioning Portalを開きます。デベロッパーの証明書を作成し、キーチェーンにインストールします。iOSデバイスのUDIDを確認し、Provisioning Portalでデバイスを登録します。ワイルドカードのCF Bundle IDを使用してTiBountyHunterAppIDを作成します。証明書、デバイス、AppIDに紐付いた開発用プロビジョニングファイルを作成し、コンピュータにダウンロードします。<br/><br/>iOSデバイスを接続します。Titanium Studioを使用して、XCodeにプロビジョニングファイルをインストールします。そしてアプリをデバイスにインストールし、テストします。iOSシミュレーター上で見るのと機能は同じです。コンピュータシステムの指示に従って、安全にデバイスを取り外します。",
+		"%l_stepexplanation3": "",
+
+		"%l_step4": "4: Android SDK keytoolユーティリティーを使用して鍵ペアを生成し、ホームディレクトリまたは任意の場所にkeystoreファイルを保存します。エイリアスにtibh、パスワードとしてtitanium（既にkeystoreを持っている場合は既存のパスワード）を使用します。 プロンプトが出たら、名前、会社名、住所を入力します。keytoolを使用してkeystoreを検証します。<br/><br/>Titanium Studioを使用してAndroidアプリの配布のためアプリをパッケージングします。作成したkeystoreを使用して、Titanium Studio内のフィールドに先ほどのエイリアスとパスワードを入力します。完了したらjarsignerでAPKファイルを検証します。",
+		"%l_stepexplanation4": "",
+
+		"%l_step5": "5: http://market.android.com/publishへアクセスし、Google Playにログインします。Upload Applicationをクリックし、APKファイルをアップロードします。プロンプトが出たら、zipalignを使用してAPKファイルを調整し、再度アップロードします。2枚スクリーンショットをアップロードします。この実習の最初にダウンロードした512x512サイズのアイコンをアップロードします。アプリ名をTiBountyHunterに設定し、アプリの説明を入力します。ゲーム、カジュアルなどのように、アプリのタイプやカテゴリを選択します。コンテンツレーティングでEveryone（または低年齢）を選択します。Googleの規約及び契約に同意するため2つのチェックボックスにチェックを入れます。<br/><br/>注意すること。保存や公開ボタンはクリックしないこと。実際にはアプリの公開はしません。Google Playでは、生徒達が作成した同じTiBountyHunterは必要ありません。Deleteをクリックするか、そのページからキャンセルまで移動します。",
+		"%l_stepexplanation5": "",
+
+		"%l_step6": "6: iOS Dev Centerへログインし、iOS Provisioning Portalへアクセスします。配布用証明書を作成し、キーチチェーンにインストールします。配布用の証明書とAppIDに紐付いた配布用プロビジョニングファイルを作成し、ダウンロードします。<br/><br/>Titanium Studioを使用して配布用プロビジョニングファイルをXCodeにインストールします。そして、配布用証明書を選択し、パッケージングします。",
+		"%l_stepexplanation6": "",
+
+		"%l_step7": "7: アプリをビルドし、iOSシミュレーターで実行します。そして⌘↑4でアプリのスクリーンショットをキャプチャーします。プレビュー.appを使用して、スクリーンショット画像を320ｘ480サイズにクロップします。あるいは、下のリソースセクションでリストアップしているiOSシミュレーターのようなツールのCropperを使って、スクリーンキャプチャー処理を自動化することができます。",
+		"%l_stepexlpanation7": "",
+
+		"%l_step8": "8: iOS Dev CenterでiTunes Connectへアクセスします。Manage Your Applicationsを選択し、Bundle Seed IDやSuffixを間違えないように注意して、TiBountyHunterアプリを登録します。アプリの説明を入力し、主要なカテゴリにゲーム、サブカテゴリにEducationalを選択します。各々のaudience ratingオプションにはNoneを選択します。必要なスクリーンショットと大きなアイコン（実習のグラフィック素材から）をアップロードします。そして変更を保存します。<br/><br/>XCodeを開き、Organizerウィンドウを表示します。Archivesボタンをクリックします。先ほどパッケージングしたアプリが表示されます。Validateをクリックし、プロンプトが出たらiOS Dev Centerのログイン情報を入力します。iTunes Connect上でアプリの登録を行った後、Validationが利用可能になるまでに時間がかかる場合があります。この処理が完了するまでは、Validationを行っても<em>app not found</em>と言うメッセージが出て失敗します。<br/><br/>リジェクトされるので、アプリはアップロードしないでください。App StoreはTiBountyHunterのコピーを幾つも必要としません。",
+		"%l_stepexplanation8": "",
+
+
+		"%l_summary": "まとめ",
+		"%l_summarypara": "この実習では、App StoreやGoogle Play(旧Android Market)にアプリを公開するための手順を行ってきました。 ",
+
+		"%l_resources": "リソース",
+		"%l_resources1": "iOSシミュレーター/Cropperは、便利なサードパーティーツールで、iOSシミュレーターのスクリーンショットを撮ることが可能です。: <a href='http://www.curioustimes.de/iphonesimulatorcropper/'>http://www.curioustimes.de/iphonesimulatorcropper/</a>",
+		"%l_resources2": "ガイド: 配布の準備: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Preparing_for_Distribution</a>"
+
 	}
+
 });

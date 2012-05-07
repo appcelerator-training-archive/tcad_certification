@@ -42,5 +42,44 @@ String.toLocaleString({
 		"%l_resources2": "Guides: Tracking Postion and Heading: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading</a>",
 		"%l_resources3": "Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH270'>GitHub</a>",
 
+	},
+	"ja": {
+		"%l_labname": "実習 - ロケーションサービスの利用",
+		"%l_mission": "<img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>目標: </strong>この実習ではTiBountyHunterに位置情報機能のサポートを追加します。逃亡者が捕まった位置を示す緯度と軽度を取得し、データベースにデータを保存します。ユーザーにはその位置をマップに描画するオプションを提供します。",
+		"%l_specification": "<strong>仕様: </strong>前回の実習で作成したTiBountyHunterプロジェクトから始めます。位置情報サービスをサポートするのに必要な機能を追加します。実習を完了するには以下の説明に従ってアプリを開発しなければいけません:",
+		"%l_spec1": "逃亡者が捕まった場所の緯度と経度を保存できるようにデータベースを変更します。簡単にするために既存のデータベースを変更するのではなく、フィールドを定義するCREATE TABLE文をこれらの値が保存できるように変更します。それからデータベースが再作成されるようにアプリをシミュレータ／エミュレータからアンインストールします。",
+		"%l_spec2": "「Capture」ボタンがタップされたらデータベースに位置情報を保存します。",
+		"%l_spec3": "「地図に表示」ボタンを追加してクリックされたら地図を表示します。地図には逃亡者を捕まえた場所の周辺地域を表示しなければいけません。",
+		"%l_spec4": "ヒント: Android端末にインストールする際はKitchen SinkのGoogleマップAPIキーを利用すればマップが動作します。",
+		
+		"%l_labstep1": "1. 前回の実習で作成したTiBountyHunterプロジェクトを開きます。または今回の実習用ソースコードをダウンロードしてTitanium Studioに新規プロジェクトとしてimportします: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH270.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH270.zip</a>",
+		"%l_labstepexplanation1": "",
+
+		"%l_labstep2": "2. lib/db.jsファイルを編集します。<ul style='list-style:none;'><li>「bootstrap」コードを更新し、データベースにcapturedLatとcapturedLongの2つの新しいフィールドが追加されるようにします。</li><li>list()関数を更新してこれらの値が返るようにします。</li><li>bust()関数が緯度と軽度の2つの引数を取るようにして、データベースにその値を保存させます。</li></ul>",
+		"%l_labstepexplanation2": "データベースを変更しましたがALTER TABLEを書いてはいませんのでアプリをシミュレータ／エミュレータからいったんアンインストールする必要があります。これまでのデータを更新しているのではなく新規にプロジェクトを作成している場合はその必要はありません。",
+
+		"%l_labstep3": "3. ui/common/DetailWindow.jsファイルを編集します。「Capture」ボタンのイベントリスナ内で以下を変更します:<ul style='list-style:none;'><li>位置情報の利用目的メッセージをiOS用に追加</li><li>if/elseを使って位置情報サービスが有効になっているかどうか確認し、有効ならAndroidの場合はaccuracyプロパティを<code>ACCURACY_HIGH</code>に、iOSは<code>ACCURACY_BEST</code>に設定。</li><li>現在の位置情報を取得してエラーが発生しなければ<code>db.bust()</code>を呼び出して緯度経度情報を渡します。</li><li>エラーが発生した場合はalert()でユーザーにエラーを表示します。</li><li>外側のif文にもう一つelseブロックを追加します: 位置情報サービスが無効になっている場合は、詳細をalert()でユーザに表示します。</ul>",
+		"%l_labstepexplanation3": "既存のnet.bustFugitive()コードを保存しておく必要があります。現在の位置情報を取得できた際に実行されるブロックにこれを入れておく必要があるからです。",
+
+		"%l_labstep4": "4. 「Capture」ボタンの下に「地図を表示」ボタンを追加します。タップされるとマップ用のウィンドウを初期化して(そのためのモジュールを次で作成します)、モーダルウィンドウとして表示できるようにします。このモジュールファイルはui/commonフォルダに保存します。逃亡者オブジェクトをマップ用ウィンドウのコンストラクターに渡します。",
+		"%l_labstepexplanation4": "",
+
+		"%l_labstep5": "5. ui/commonフォルダにマップ用ウィンドウのためのモジュールファイルを作成します。マップには逃亡者の緯度と軽度を示すアノテーションが一つ表示されている必要があります。マップのViewのtypeにはスタンダード(Titanium.Map.STANDARD_TYPE)を指定して、逃亡者の位置を中心に十分の一度の範囲で周辺地域を表示します。iOSではナビゲーションバーにウィンドウを閉じるためのボタンが必要になります。",
+		"%l_labstepexplanation5": "",
+
+		"%l_labstep6": "6. 国際化対応のためのstrings.xmlを更新します。",
+		"%l_labstepexplanation6": "",
+
+		"%l_labstep7": "7. iOSシミュレータまたはAndroidエミュレータでアプリをビルドします。逃亡者を捕まえて、iOSではロケーションサービスを許可しておきましょう。捕まえた逃亡者で「地図を表示」機能をテストします。問題があれば修正します。",
+		"%l_labstepexplanation7": "新バージョンを起動する前に古いバージョンを忘れずにアンインストールしておきましょう。",
+
+		"%l_summary": "まとめ",
+		"%l_summarypara": "この実習では位置情報のサポートと逃亡者がとこで捕まったのかを示す地図を追加しました。プラットフォーム毎の違いと位置情報のエラーも扱いました。",
+
+		"%l_resources": "資料",
+		"%l_resources1": "API 文書: Geolocation: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Geolocation'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Geolocation</a>",
+		"%l_resources2": "ガイド: Tracking Postion and Heading: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Tracking_Position_and_Heading</a>",
+		"%l_resources3": "完成版コード: 次の実習かこちらを参照<a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH270'>GitHub</a>",
+
 	}
 });

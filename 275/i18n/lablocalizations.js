@@ -80,9 +80,9 @@ String.toLocaleString({
 		"%l_summarypara": "この実習では、いくつかのACS APIを実装してみましたが、まだ多くのAPIがあります。もちろん今回の実習だけでアプリは完成していません。まだメッセージを共有する方法や他のユーザーが投稿したメッセージを見る方法がありません。しかし、この実習を進めて行くことで、ACSで出来る事の一部が分かったと思います。そして、最も注目すべき点は、サーバーサイドコーディング無しでアプリにサーバーサイド機能を追加できる点です。",
 
 		"%l_resources": "リソース",
-		"%l_resources1": "最終コード: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBountyHunter'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>AWS/S3</a>",
-		"%l_resources2": "<a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud'>API Docs: Cloud</a>",
-		"%l_resources3": "<a href='http://cloud.appcelerator.com/docs/quickstart'>Cloud QuickStart Guide</a>",
+		"%l_resources1": "完成コード: <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBountyHunter'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>AWS/S3</a>",
+		"%l_resources2": "<a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Cloud'>APIドキュメント: Cloud</a>",
+		"%l_resources3": "<a href='http://cloud.appcelerator.com/docs/quickstart'>Cloud クイックスタートガイド</a>",
 
 	}
 });

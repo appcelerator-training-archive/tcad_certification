@@ -85,46 +85,46 @@
 	<td class="labexplanations l_stepexplanation4"></td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep5">5. In the Resources directory, create a <strong>ui</strong>folder, which contains two folders: <strong>common</strong> and <strong>handheld</strong>.</td>
+	<td colspan="2" class="labinstructions l_step5">5. In the Resources directory, create a <strong>ui</strong>folder, which contains two folders: <strong>common</strong> and <strong>handheld</strong>.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation5">You will organize the files of your project in these folders. The 'handheld' folder will hold files for phone-size devices. While we won't create them in this course, presumably you'd have a 'tablet' folder within the ui folder and it would contain the tablet form-factor files.</td>
+	<td class="labexplanations l_stepexplanation5">You will organize the files of your project in these folders. The 'handheld' folder will hold files for phone-size devices. While we won't create them in this course, presumably you'd have a 'tablet' folder within the ui folder and it would contain the tablet form-factor files.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep6">6. In app.js, declare a variable named ApplicationTabGroup which will store the results of requiring the 'ui/common/ApplicationTabGroup' module. This module will create and return the tab group for your app. Create a new instance of ApplicationTabGroup and open it. Save and close the file.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation6">This is all you'll add to the app.js file. It simply bootstraps your application.</td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep7">Create the ApplicationTabGroup.js file and in it define a function to define a tab group, add two windows, and return the tab group. Tab 1 should be titled 'Fugitives' and tab 2 should be 'Captured' (make sure to use the internationalization file for these strings). Assign your function to the modules.export variable so that it can be used as a constructor.</td>
+	<td colspan="2" class="labinstructions l_step6">6. In app.js, declare a variable named ApplicationTabGroup which will store the results of requiring the 'ui/common/ApplicationTabGroup' module. This module will create and return the tab group for your app. Create a new instance of ApplicationTabGroup and open it. Save and close the file.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation7"></td>
+	<td class="labexplanations l_stepexplanation6">This is all you'll add to the app.js file. It simply bootstraps your application.</td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep8">8. You will need a new module, named Window, which will be form-factor specific. (So put it in the handheld directory.) In this file, write a module to create Ti.UI.Window objects for your app. Its constructor should accept a Boolean value, which will be used to specify whether the window is showing at-large vs. captured bounties. Set an appropriate internationalized title based on that Boolean value.</td>
-</tr>
-<tr>
-	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation8"></td>
-</tr>
-<tr>
-	<td colspan="2" class="labinstructions l_labstep9">9. Bonus: If you have time, download graphic assets for this app from <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/Lab215source.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/Lab215source.zip</a> and set the app icon and splash screen, as well as icons for the tab buttons and the window background. For iOS, set the title bar color to #6d0a0c (a dark red).</td>
+	<td colspan="2" class="labinstructions l_step7">Create the ApplicationTabGroup.js file and in it define a function to define a tab group, add two windows, and return the tab group. Tab 1 should be titled 'Fugitives' and tab 2 should be 'Captured' (make sure to use the internationalization file for these strings). Assign your function to the modules.export variable so that it can be used as a constructor.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation9">This step is optional.</td>
+	<td class="labexplanations l_stepexplanation7"></td>
 </tr>
 <tr>
-	<td colspan="2" class="labinstructions l_labstep10">10. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).</td>
+	<td colspan="2" class="labinstructions l_step8">8. You will need a new module, named Window, which will be form-factor specific. (So put it in the handheld directory.) In this file, write a module to create Ti.UI.Window objects for your app. Its constructor should accept a Boolean value, which will be used to specify whether the window is showing at-large vs. captured bounties. Set an appropriate internationalized title based on that Boolean value.</td>
 </tr>
 <tr>
 	<td class="tdfiller"><!-- leave empty--></td>
-	<td class="labexplanations l_labstepexplanation10">Consider the differences you see between the platforms. Be prepared to discuss these with your instructor and the class.</td>
+	<td class="labexplanations l_stepexplanation8"></td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step9">9. Bonus: If you have time, download graphic assets for this app from <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/Lab215source.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/Lab215source.zip</a> and set the app icon and splash screen, as well as icons for the tab buttons and the window background. For iOS, set the title bar color to #6d0a0c (a dark red).</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation9">This step is optional.</td>
+</tr>
+<tr>
+	<td colspan="2" class="labinstructions l_step10">10. Build your app for the iOS simulator or Android emulator. Correct any problems that exist. Build the app for Mobile Web (either in the browser or Android emulator).</td>
+</tr>
+<tr>
+	<td class="tdfiller"><!-- leave empty--></td>
+	<td class="labexplanations l_stepexplanation10">Consider the differences you see between the platforms. Be prepared to discuss these with your instructor and the class.</td>
 </tr>
 </table>
 

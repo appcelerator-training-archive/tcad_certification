@@ -37,5 +37,39 @@ String.toLocaleString({
 		"%l_resources3": "Guides: Filesystem Access and Storage: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage</a>",
 		"%l_resources4": "Finished code: See the next lab or <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH260'>GitHub</a>",
 
+	},
+	"ja": {
+		"%l_labname": "実習 - メディアとファイルシステム",
+		"%l_mission": "<img src='labimages/finished_iphone.png' style='height:300px;float:right;margin-top:-40px;margin-bottom: 10px;'><strong>目標: </strong>この実習では逃亡者データにカメラで画像を追加します。ファイルシステムに画像を保存して、簡単にアクセスできるようにデータベースにファイルのURLを渡します。またリモートデータを再投入するかを学んでいきます。",
+		"%l_specification": "<strong>仕様: </strong>前回の実習で作成したTiBountyHunterプロジェクトから始めます。ではカメラ機能と、写真を撮影して保存し、詳細画面で閲覧時に取得できるようにします。本実習を成功させるには次に説明する通りの機能を作らなければいけません:",
+		"%l_spec1": "詳細画面にカメラで撮影するボタンを追加",
+		"%l_spec2": "ファイルシステムに画像を保存してデータベースにそのURLを保存",
+		"%l_spec3": "addPhoto関数を追加してデータベースモデルを拡張",
+		"%l_spec4": "必要なボタンと画像でUIを拡張",
+		
+		"%l_labstep1": "1. 前回の実習で作成したTiBountyHunterプロジェクトを開きます。または今回の実習用ソースコードをダウンロードしてTitanium Studioに新規プロジェクトとしてimportします: <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH260.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH260.zip</a>",
+		"%l_labstepexplanation1": "",
+
+		"%l_labstep2": "2. lib/db.jsを編集します。<ul style='list-style:none;'><li>「bootstrap」コードを修正してデータベースに「url」フィールドをテキスト型で追加し、逃亡者データの画像ファイルへのパスを登録できるようにします。</li><li>list()関数を修正して「url」フィールドの値を返すようにします。</li><li>新たに逃亡者のIDと画像のURLを引数とするaddPhoto()関数を追加します。この中で「database updated」イベントを発生させる必要があります。</li></ul>",
+		"%l_labstepexplanation2": "データベースを変更しましたがALTER TABLEを書いてはいませんのでアプリをシミュレータ／エミュレータからいったんアンインストールする必要があります。これまでのデータを更新しているのではなく新規にプロジェクトを作成している場合はその必要はありません。",
+
+		"%l_labstep3": "3. ui/common/DetailWindow.jsファイルを編集します。<ul style='list-style:none;'><li>ウィンドウのトップに逃亡者の写真または写真が登録されていない場合には「/images/burglar.png」を表示するImageViewを追加します。</li><li>画像の下には「Add Photo」ボタンを追加して、クリックされたらカメラ（またはカメラがサポートされていない場合は）フォトギャラリーを表示します。画像はapplicationDataDirectoryに「photo」+「bountyID」+「.png」というファイル名で保存します。ファイルへのパスはデータベースに保存します。画像は編集可として、ギャラリーに保存するようにします。</li></ul>",
+		"%l_labstepexplanation3": "",
+
+		"%l_labstep4": "4. 国際化対応のためのstrings.xmlを更新します。",
+		"%l_labstepexplanation4": "",
+
+		"%l_labstep5": "5. iOSシミュレータまたはAndroidエミュレータでアプリをビルドします。画像をフォトギャラリーに追加しておきましょう。「Add Photo」機能をテストします。問題があれば修正します。",
+		"%l_labstepexplanation5": "新バージョンを起動する前に古いバージョンを忘れずにアンインストールしておきましょう。",
+
+		"%l_summary": "まとめ",
+		"%l_summarypara": "この実習ではTiBountyHunterに画像とカメラまたはフォトギャラリーのサポートを追加しました。画像をローカルのファイルシステムに保存し、ファイルへのパスをデータベースに保存しましたが、これにより後でデータベースを読み込む際にメモリ不足になる可能性を下げることになります。",
+
+		"%l_resources": "資料",
+		"%l_resources1": "API ドキュメント: Media: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Media'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Media</a>",
+		"%l_resources2": "API ドキュメント: Filesystem <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Filesystem'>http://docs.appcelerator.com/titanium/2.0/index.html#!/api/Titanium.Filesystem</a>",
+		"%l_resources3": "ガイド: Filesystem Access and Storage: <a href='http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage'>http://docs.appcelerator.com/titanium/2.0/index.html#!/guide/Filesystem_Access_and_Storage</a>",
+		"%l_resources4": "完成版ソースコード: 次の実習を参照するか<a href='https://github.com/appcelerator-training/tcad-code/tree/master/Finished_code/TiBH260'>GitHub</a>を参照",
+
 	}
 });

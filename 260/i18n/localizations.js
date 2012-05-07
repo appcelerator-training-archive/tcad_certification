@@ -66,7 +66,7 @@ String.toLocaleString({
 		"%l_filesystem_tempDir": "<b>Ti.Filesystem.tempDirectory - read/write</b>",
 		"%l_filesystem_extDir":"<b>Ti.Filesystem.externalStorageDirectory - read/write</b>",
 		"%l_plus": "plus Ti.Filesystem.isExternalStoragePresent()",
-		"%l_slidenote_filesystem": "Temp directory is wiped on reboot<br>externalStorageDirectory is Android only<br>SDK 1.8 adds iOS �do not backup� flag support for files that don't need to be synced to iCloud<br>That's a concern for iOS 5.x+ devices only (older iOS versions don't support iCloud)",
+		"%l_slidenote_filesystem": "Temp directory is wiped on reboot<br>externalStorageDirectory is Android only<br>SDK 1.8 adds iOS do not backup flag support for files that don't need to be synced to iCloud<br>That's a concern for iOS 5.x+ devices only (older iOS versions don't support iCloud)",
 
 		"%l_demo_file_io": "Demo: File I/O",
 		"%l_filedemo": "From KitchenSink:<br/>Persistence app",
@@ -94,5 +94,97 @@ String.toLocaleString({
 
 		"%l_solution": "Solution Walkthrough",
 		"%l_slidenote_solution": "Walk through &mdash; TiBH260<br><ul><li><strong>lib/db.js</strong> &mdash; new DB creation statement and new addPhoto() function</li><li><strong>ui/common/DetailWindow.js</strong> &mdash; imgView, photoButton, and its event listener</li></ul>"
+	},
+
+	"ja": {
+		"%l_filetitle": "メディアとファイルシステム",
+		"%l_lessontitle": "メディアとファイルシステム",
+		"%l_subtitle": "Appcelerator Titaniumでネイティブアプリ開発",
+		"%l_slidenote_titleslide": "<b>所要時間: 60分</b>(解説 30分、実習 30分)",
+
+		"%l_agenda1": "TitaniumのMedia APIを調べる",
+		"%l_agenda2": "アプリ内でメディアを利用する",
+		"%l_agenda3": "TitaniumのFilesystem APIを調べる",
+		"%l_agenda4": "ファイルシステムのどこにどうやってデータが保存されるのか理解する",
+		"%l_slidenote_agenda": "Media &mdash; KitchenSink の例を参照",
+
+		"%l_audio_api": "Audio API",
+		"%l_play_sounds": "ローカルまたはリモートの（音声）ファイルを再生する",
+		"%l_streaming_audio": "オーディオストリーミングのサポート (AudioPlayer)",
+		"%l_audio_recording": "音データの録音サポート",
+		"%l_demos_audio": "デモとコードウォークスルー",
+
+		"%l_slidenote_audio_api": "Kitchen Sinkのデモ<br><ul><li>Phoneタブ / Sounds / Local  (それぞれのボタンでデモ)</li><li>Sounds / Record (record with lo/hi fidelity & playback)</li></ul>参照するコード: examples/sound_local.js<ul><li>Show: createSound()</li><li>ボタンのイベントハンドラのplay()、 pause()、 stop()</li><li> 繰り返し処理</li></ul>",
+		"%l_video_api": "Video API",
+		"%l_play_video": "ローカルファイルから動画を再生",
+		"%l_streaming_video": "ストリーミング動画サポート - HTTP Live Streaming (iOS)、 RTSP (Android)、疑似ストリーミング",
+		"%l_video_capture": "ビデオ撮影サポート",
+		"%l_demos_video": "ローカルビデオのデモとコードウォークスルー",
+		"%l_slidenote_video_api": "Kitchen Sinkのデモ<br><ul><li>Phone タブ / Play Movie / Local -- オーバーレイについて説明</li><li>Phone タブ / Play Movie / Remote streaming</li></ul>参照するコード: examples/movie_local.js<ul><li>参照: contentURLプロパティ、ラベルオーバーレイ</li></ul>",
+
+		"%l_still_api": "静止画 API",
+		"%l_display_using": "ImageViewまたはbackgroundImageを利用して描画",
+		"%l_can_either": "ローカルでもリモートでも可",
+		"%l_can_be": "どちらもdensity別に振り分け可",
+		"%l_demo_local": "デモ: ローカルURLの画像",
+		"%l_demo_remote": "デモ: リモートURLの画像",
+		"%l_demo_blob": "デモ: ファイルのバイナリデータ",
+		"%l_slidenote_still_api": "Kitchen Sinkのデモ<br><ul><li>Base UI タブから/ Views / Image Views / Basic &mdash; イベントとその反応</li><li>Remote image</li><li>Animated &mdash; 画像の配列データ／flipbookエフェクト</li></ul>参照するコード:<ul><li>examples/imageview_basic.js -- 参照: createImageView</li><li>Examples/imageview_file.js &mdash; ローカルファイルを指すimageプロパティを参照</li><li>imageプロパティの柔軟さを説明すること（ファイルのパスもファイルシステムのオブジェクトも指定できる)</li></ul>",
+
+		"%l_capturing_images": "画像のキャプチャー",
+		"%l_can_get": "カメラやギャラリーを利用してデバイスから画像データを受け取ることが可能",
+		"%l_function_names": "関数名は違えどシングニチャーは同じ",
+		"%l_success": "<b>success:</b>画像の取得時に呼ばれる",
+		"%l_error": "<b>error:</b>デバイスエラー時に呼ばれる",
+		"%l_cancel": "<b>cancel:</b>ユーザーが画像の取得をキャンセルした際に呼ばれる",
+		"%l_slidenote_capturing_images": "シグネチャーが同じなのでカメラでもギャラリーでもほぼ同じコードを利用可能<br>次スライドにデモの注意事項あり",
+
+		"%l_demo_photo_gallery": "デモ: フォトギャラリー",
+		"%l_photodemo": "KitchenSinkより:<br/>Phone > Photo Gallery<br/>examples/photo_gallery.js と examples/camera_basic.js",
+		"%l_slidenote_demo_photo_gallery": "** 事前にシミュレータ／エミュレータに画像を用意しておくこと<br>Kitchen Sinkのデモ<ul><li>Phone タブから / Photo Gallery</li></ul>参照するコード: examples/photo_gallery.js<ul><li>createImageView (画像を保持)、openPhotoGalleryと3つのコールバック関数</li><li>allowEditingとmediaTypes</li><li>imageView.image</li></ul>参照するコード: examples/camera_basic.js<ul><li>showCamera</li><li>image = event.media</li><li>saveToPhotoGalleryとmediaTypesプロパティ</li></ul>",
+
+		"%l_files": "ファイルとファイルシステム",
+		"%l_many_titanium": "TitaniumのAPIの多数はバイナリデータを指すBlobオブジェクトを返す",
+		"%l_these_blobs": "これらのBlobやその他のデータ（文字列など）はファイルに書き込みが可能",
+		"%l_the_filesystem": "ファイルシステムはバイナリデータを保存するのに最適",
+		"%l_slidenote_files": "",
+
+		"%l_filesystem": "ファイルシステムのデータ永続性とセキュリティ",
+		"%l_your_app": "アプリのファイルシステムへの読み書きは制限付き",
+		"%l_filesystem_data": "ファイルシステムのデータはtempディレクトリ以外はアプリがアンインストールされるまで消えることはない",
+		"%l_filesystem_locations": "保存場所:",
+		"%l_filesystem_resourcesDir":"<b>Ti.Filesystem.resourcesDirectory  - 読み込みのみ</b>",
+		"%l_filesystem_appsDir":"<b>Ti.Filesystem.applicationDataDirectory - 読み書き</b>",
+		"%l_filesystem_tempDir": "<b>Ti.Filesystem.tempDirectory - 読み書き</b>",
+		"%l_filesystem_extDir":"<b>Ti.Filesystem.externalStorageDirectory - 読み書き</b>",
+		"%l_plus": "プラス Ti.Filesystem.isExternalStoragePresent()",
+		"%l_slidenote_filesystem": "Tempディレクトリは再起動で消去<br>externalStorageDirectoryはAndroidのみ<br>SDK 1.8からiOSにiCloudと同期する必要のないファイルのためのdo not backupフラグをサポート<br>iOS 5.x+のデバイスのみ(それ以前のiOSではiCloudは未サポート)",
+
+		"%l_demo_file_io": "デモ: File I/O",
+		"%l_filedemo": "KitchenSink:<br/>データ永続性確認アプリ",
+		"%l_slidenote_demo_file_io": "データの永続性確認アプリを利用する<br>シミュレータでアプリを起動し、Filesystemタブを表示<br>JSONファイルを読み込んでテキストフィールドにデータを表示<br>フィールドの内容を変更したらファイルシステム上のファイルに内容を反映させる<br>コードウォークスルー:	<ol><li>Persistenceプロジェクトを開く</li><li>Resources/test.jsonを開いて中身を説明</li><li>Resources/filesystem.jsを開いて解説:</li></ol><ol><li>シミュレータのみ&mdash; Resourcesディレクトリに書き込み</li><li>getFile()</li><li>JSON.parse()</li><li>各フィールドに値をセット</li><li>フィールドのイベントリスナ</li><li>保存ボタンと値を保存するイベントハンドラ</li></ol>",
+		
+		"%l_qa": "Q&A",
+		"%l_slidenote_qa": "",
+
+		"%l_images_in": "シミュレータのギャラリー画像",
+		"%l_no_images": "デフォルトでは画像は登録されていない",
+		"%l_open_gallery": "シミュレータでギャラリーを開き、いったん閉じる",
+		"%l_find_images": "シミュレータのウェブブラウザで画像を探す(Google画像検索など)",
+		"%l_press": "画像を長押し",
+		"%l_choose": "画像を保存",
+		"%l_slidenote_images_in": "この実習では画像ファイルが必要<br>お分かり？: 画像を保存できるようにするにはいちどギャラリーを開くこと",
+
+		"%l_lab_goals": "実習の目標",
+		"%l_make": "TiBountyHunterで画像を（カメラまたはギャラリーから）取得してファイルシステムに保存可能にする",
+		"%l_requirements": "要件:",
+		"%l_capture_image": "画像を取得（カメラまたはギャラリーから）",
+		"%l_store_image": "ファイルシステムに画像を保存",
+		"%l_associate_image": "データベースに画像に関する情報を保存",
+		"%l_labURL": "<a href='https://wiki.appcelerator.org/display/td/260+Working+With+Media+and+the+File+System'>wiki.appcelerator.org/display/td/260+Working+With+Media+and+the+File+System</a>",
+		"%l_slidenote_lab_goals": "データベース変更のためアプリをシミュレータからアンインストールする必要あり<br>データベースにはblobではなくファイルへのパスを保存<br>Wikiからデフォルト画像を取得<br>デモ - <b>TiBH260</b><ul><li>シミュレータのギャラリーに事前に画像を用意すること</li><li>シミュレータ／エミュレータ両方でアプリを表示</li><li>逃亡者用の画像を選択して貼付けるところを表示</li></ul>",
+
+		"%l_solution": "ソリューションウォークスルー",
+		"%l_slidenote_solution": "ウォークスルー &mdash; TiBH260<br><ul><li><strong>lib/db.js</strong> &mdash; 新規DB接続とaddPhoto()関数</li><li><strong>ui/common/DetailWindow.js</strong> &mdash; imgView、photoButtonとそのイベントリスナー</li></ul>"
 	}
 });
