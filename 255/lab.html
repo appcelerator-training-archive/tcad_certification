@@ -21,6 +21,25 @@
 			top: 40% !important;
 		}
 		</style>
+		<script>
+		function loadStyleSheet(url){
+		    if(document.createStyleSheet) {
+		        try {document.createStyleSheet(url);} catch (e) { }
+		    }
+		    else{
+		        var css;
+		        css         = document.createElement('link');
+		        css.rel     = 'stylesheet';
+		        css.type    = 'text/css';
+		        css.media   = "all";
+		        css.href    = url;
+		        document.getElementsByTagName("head")[0].appendChild(css);
+		    }
+		}
+		var browserlang = document.documentElement.lang || String.locale || 'en-US';
+		loadStyleSheet('../css/'+browserlang+'.css');
+		</script>
+		<link rel="stylesheet" href="../../presentation-engine/reveal.js/css/print.css" media="print">
 	</head>
 	
 	<body>
@@ -169,5 +188,23 @@
 			hljs.initHighlightingOnLoad();
 		</script>
 		<script src="../../presentation-engine/js/localize.js"></script>
+		<script>
+		var s = (function load(){
+			var s = {};
+			if(window.outerHeight){
+				s = { w: window.outerWidth, h: window.outerHeight};
+			}
+			else {
+				s = { w: document.body.clientWidth, h: document.body.clientHeight};
+			}
+			return s;
+		})();
+		if(s.w < 1000 || s.h < 800) {
+			var slides = document.querySelectorAll( '#reveal .slides' );
+			for( var i = 0, len = slides.length; i < len; i++ ) {
+				slides[i].classList.add( 'smallscreen' );
+		    }
+		}
+		</script>
 	</body>
 </html>
