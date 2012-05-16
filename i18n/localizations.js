@@ -12,14 +12,15 @@ String.toLocaleString({
 		"%l_lesson2": "Building Native Mobile Apps with Titanium",
 		"%l_lesson3": "You're a Native Developer Now",
 		"%l_lesson4": "Cross-platform JavaScript Apps",
-		"%l_lesson5": "UI Fundamentals",
-		"%l_lesson6": "Working with Local Data",
-		"%l_lesson7": "Working with Remote Data",
-		"%l_lesson8": "Media and the Filesystem",
-		"%l_lesson9": "Using Location Services",
-		"%l_lesson10": "Appcelerator Cloud Services",
-		"%l_lesson11": "Integrating Web Content",
-		"%l_lesson12": "Deployment and Distribution"
+		"%l_lesson5": "Titanium Studio",
+		"%l_lesson6": "UI Fundamentals",
+		"%l_lesson7": "Working with Local Data",
+		"%l_lesson8": "Working with Remote Data",
+		"%l_lesson9": "Media and the Filesystem",
+		"%l_lesson10": "Using Location Services",
+		"%l_lesson11": "Appcelerator Cloud Services",
+		"%l_lesson12": "Integrating Web Content",
+		"%l_lesson13": "Deployment and Distribution"
 	},
     	"ja": {
 		"%l_welcome": "Welcome To",
