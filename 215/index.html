@@ -68,8 +68,8 @@
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 1:30</b>(60 mins teach, 30 mins lab)<br>This module will cover best practices for creating cross-platform mobile apps
-				</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 1:30</b>(60 mins teach, 30 mins lab)<br>This module will cover best practices for creating cross-platform mobile apps
+				</div></div>
 				</section>
 				
 				<section id="agenda">
@@ -86,7 +86,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda">How to structure JS code in large application<br>Coping with platform differences, but taking advantage of those differences<br>We'll introduce our lab and sample application and lay the foundation for the rest of that app.</p>
+						<div class="l_slidenote_agenda">How to structure JS code in large application<br>Coping with platform differences, but taking advantage of those differences<br>We'll introduce our lab and sample application and lay the foundation for the rest of that app.</p>
 						
 					</div>
 				</section>
@@ -101,7 +101,7 @@
 						<li class="l_be_modular">Be modular (mix of OO and module pattern)</li>
 						<li class="l_need_to_strive">Need to strive to keep code DRY</li>
 					</ul>
-					<div class="slidenote"><p class="l_slidenote_large_js_apps">>Ti projects go beyond DOM manipulation on a web page. Need strategies for organizing and writing JS code.<br> You have to write well-formed, strictly syntactically correct code to compile without errors on both platforms. <br>Protecting the global scope means being careful with global variables and scope.<br>Being <i>modular</i> means creating JavaScript business objects when it makes sense (for actual data model objects, for instance), and modules when that makes sense (data or network access)<br>DRY means Don't Repeat Yourself.  Need to reuse code as much as possible for the sake of maintainability</p></div>
+					<div class="slidenote"><div class="l_slidenote_large_js_apps">>Ti projects go beyond DOM manipulation on a web page. Need strategies for organizing and writing JS code.<br> You have to write well-formed, strictly syntactically correct code to compile without errors on both platforms. <br>Protecting the global scope means being careful with global variables and scope.<br>Being <i>modular</i> means creating JavaScript business objects when it makes sense (for actual data model objects, for instance), and modules when that makes sense (data or network access)<br>DRY means Don't Repeat Yourself.  Need to reuse code as much as possible for the sake of maintainability</div></div>
 				</section>
 				
 				<section>
@@ -114,8 +114,8 @@
 						<li class="l_local_storage">Local storage and focused remote data access</li>
 					</ul>
 					<p align="left" class="l_component_oriented">Component Oriented, Event Driven (more later)</p>
-					<div class="slidenote"><p class="l_slidenote_write_rich_js_apps">Titanium Mobile applications have a lot in common with rich client browser apps written in Flex or ExtJS<br>Native Cocoa Touch and Android controls<br>Business-related data objects on the client side<br>
-Remote data -- web API, just data &amp; no presentation logic<br>Component oriented -- UI loosely coupled from app logic</p></div>
+					<div class="slidenote"><div class="l_slidenote_write_rich_js_apps">Titanium Mobile applications have a lot in common with rich client browser apps written in Flex or ExtJS<br>Native Cocoa Touch and Android controls<br>Business-related data objects on the client side<br>
+Remote data -- web API, just data &amp; no presentation logic<br>Component oriented -- UI loosely coupled from app logic</div></div>
 				</section>
 				
 				<section>
@@ -124,7 +124,7 @@ Remote data -- web API, just data &amp; no presentation logic<br>Component orien
 					<p align="left" class="l_code_runs">Code runs in an "execution context", similar to the single JS thread in the browser (more soon)</p>
 					<p align="left" class="l_app_js">app.js defines the root application context</p>
 					<p align="left" class="l_most_of">Most of the time, one context is okay</p>
-					<div class="slidenote"><p class="l_slidenote_titanium_js_env"></p></div>
+					<div class="slidenote"><div class="l_slidenote_titanium_js_env"></div></div>
 				</section>
 				
 				<section>
@@ -231,7 +231,7 @@ myapp.ui.mainWindow.open(); // open our app's main UI component
 				<section>
 					<h2 style="" class="l_saneapp2">So what does a sane app look like?</h2>
 					<p align="left" class="l_saneapp2_explanation">Or take it even further...no global variables!</p>
-<pre><code contenteditable class="l_saneapp2code" style="width:800px">
+<pre style="width:800px"><code contenteditable class="l_saneapp2code" style="width:800px">
 (function() {
 	var myapp = {}; // define your app's namespace
 	myapp.someproperty = 'foo'; // runtime variables are stored w/in myapp
@@ -403,7 +403,7 @@ if(Ti.Platform.name == 'android') {
 				
 				<section>
 					<h1 class="l_qa">Q&amp;A</h1>
-					<div class="slidenote"><p class="l_slidenote_qa">Before we move into the lab, what questions do you have?</p></div>
+					<div class="slidenote"><div class="l_slidenote_qa">Before we move into the lab, what questions do you have?</div></div>
 				</section>
 				
 				<section>

@@ -45,7 +45,7 @@ String.toLocaleString({
 		"%l_media": "** Media/Filesystem",
 		"%l_qa": "Q&amp;A, Hacking",
 		"%l_location": "Location Services",
-		"%l_contacts": "Contacts/ Social API",
+		"%l_2contacts": "Appcelerator Cloud Services",
 		"%l_web": "Web Content",
 		"%l_deploy": "Deploy & Distribute",
 		"%l_study": "Study Session/Review",

@@ -56,6 +56,10 @@ String.toLocaleString({
 		"%l_acsdiy4": "Cost Scales as Use Scales",
 		"%l_slidenote_acsdiy": "<ul><li>ACS is easier and less expensive than creating your own Web backend.</li><li>Appcelerator maintains the system and provides 24/7 monitoring and management.</li><li>Scaleable and cloud based so your server grows as you need.</li><li>Pricing not settled yet, but is likely to be far less than staffing your own cloud data center.</li></ul>",
 
+		"%l_cost": "ACS Cost",
+		"%l_costimg": "<img src='images/apis_costs.png' height='560'/>",
+		"%l_slidenote_cost": "Each pricing tier gets a certain number of API calls, push &amp; email messages, and storage per month for free. API calls are divided into Tier 1 and Tier 2 classifications. Check the appcelerator.com site for current pricing.",
+
 		"%l_requirements": "Requirements & Setup",
 		"%l_require1": "Register your App",
 		"%l_require2": "Configure App to Use ACS",
@@ -68,24 +72,29 @@ String.toLocaleString({
 		"%l_slidenote_register": "Registering an app creates OAuth keys, and also creates app objects in our cloud servers.<br/><br/>You can do this in two ways:<br/><br/>Option 1 is simple and works great for Titanium apps. Simply check the box when you create your app.<br/>Option 2 is what you'd use for native or REST apps. You'll have to manually copy the keys into your app, which we'll cover on the next slide.",
 
 		"%l_configure": "Configure",
-		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:900px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
+		"%l_configure1": "Option 1: In tiapp.xml<br/><pre style='width:900px;'><code contenteditable>&lt;property name='acs-api-key-production' type='string'>\n     API_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-key-production' type='string'>\n     OAUTH_KEY_HERE&lt;/property>\n&lt;property name='acs-oauth-secret-production' type='string'>\n     OAUTH_SECRET_HERE&lt;/property>		</code></pre><p style='font-size:0.65em;'>Then, add <code>var Cloud = require('ti.cloud');</code> in JavaScript</p>",
 		"%l_configure2": "Option 2: In code<br/><pre style='width:675px;'><code contenteditable>var Cloud = require('ti.cloud');\nCloud.apiKey = 'YOUR_API_KEY_HERE';\nCloud.consumerKey = 'YOUR_OAUTH_KEY_HERE';\nCloud.consumerSecret = 'YOUR_OAUTH_SECRET_HERE';		</code></pre>",
 		"%l_slidenote_configure": "You can add your API keys to either the tiapp.xml or in your code.<br/><br/>Both production and development keys will be generated<br/><br/>Because of server-side restrictions, admin functions via ACS APIs are prohibited and most actions require the user to be authenticated. These measures provide security for ACS and lessen the risks associated with losing or publicizing your keys.",
 
 		"%l_implement": "Implement",
-		"%l_implementcode": "var loggedIn = false;\nexports.login = function(username, password, callback) {\n  Cloud.Users.login({\n    login: username,\n    password: password\n  }, function (e) {\n    if (e.success) n      currentUser = e.users[0]n      loggedIn = true;\n      callback(loggedIn);\n    } else {\n      Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));\n      loggedIn = false;\n      currentUser = null;\n      callback(loggedIn);\n    }\n  });\n};\n ",
+		"%l_implementcode": "var loggedIn = false;\nexports.login = function(username, password, callback) {\n  Cloud.Users.login({\n    login: username,\n    password: password\n  }, function (e) {\n    if (e.success)\n      currentUser = e.users[0]\n      loggedIn = true;\n      callback(loggedIn);\n    } else {\n      Ti.API.info('Error:\\n' + ((e.error &amp;&amp; e.message) || JSON.stringify(e)));\n      loggedIn = false;\n      currentUser = null;\n      callback(loggedIn);\n    }\n  });\n};\n ",
 
 		"%l_slidenote_implement": "Once you've registered and configured your app with your keys, you're ready to implement the ACS functions.<br/><br/>Key points - Point out the call to <code>Cloud.Users.login()</code> and the <code>e.success</code> test within the callback.<br/><br/>Important: the Cloud APIs are asynchronous, which means you can't rely on a <code>return</code> statement. You have to implement a callback as shown.",
 
+		"%l_acsks": "ACS Kitchen Sink",
+		"%l_acskstext": "<img src='images/acs_example.png' align='right' width='400'/>Example application provided with SDK<br/><br/>Installed to SDK directory<br/><br/>Not a full project; copy files to new project",
+		"%l_slidenote_acsks": "A 'Kitchen Sink' style example app is included with the SDK.<br/><br/>You need to create a project in Studio, then copy the files from here to that project's Resources directory.",
+
+
 		"%l_manage": "Management",
 		"%l_manage_explanation": "Visit my.appcelerator.com to manage your apps.<br/><img src='images/acs_manage.png' style='height:400px'/>" ,
-		"%l_slidenote_manage": "You can view stats, see the objects that have been created, data that's been uploaded, and so forth via your my.appcelerator page.<br/><br/><em>During the pre-release phase, you have to visit cloud.appcelerator.com instead of my.appcelerator.com</em>",
+		"%l_slidenote_manage": "You can view stats, see the objects that have been created, data that's been uploaded, and so forth via your my.appcelerator page.<br/><br/>Demo: <ol><li>Log into your my.appcelerator.com page</li><li>Click Go To My Apps</li><li>Once page is fully loaded, click Manage next to an ACS enabled app</li><li>Log in again.</li><li>Point out Development/Production options; click an API bucket with stats (e.g. Photos); click item if applicable to show more details</li></ol>",
 
 		"%l_analytics": "Analytics",
 		"%l_analytics1": "Log onto your <strong>my.appcelerator.com</strong> page",
 		"%l_analytics2": "Right-click Resources, choose <strong>Open Analytics Page</strong>",
 		"%l_analytics3": "Visit <strong style='font-size:0.75em;'>http://analytics.appcelerator.net/#app=YOUR_APP_GUID</strong>",
-		"%l_slidenote_analytics": "You have three options for viewing your app's statistics.<br/>Pre-launch, the my.appcelerator.com page isn't working.",
+		"%l_slidenote_analytics": "You have three options for viewing your app's statistics.",
 
 		"%l_qa": "Q&amp;A",
 		"%l_slidenote_qa": "Questions?",

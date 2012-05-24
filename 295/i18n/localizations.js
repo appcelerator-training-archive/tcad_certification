@@ -38,7 +38,7 @@ String.toLocaleString({
 		"%l_local_android": "Local Android deployment",
 		"%l_connect_device": "Connect device to USB port",
 		"%l_run_menu": "From Run menu, choose Android Device",
-		"%l_local_android_image": "<img src='images/local-android.png' style='margin-top:60px;height:350px;align:center'>",
+		"%l_local_android_image": "<img src='images/buildforandroid.png' style='margin-top:60px;height:350px;align:center'>",
 		"%l_slidenote_local_android": "Android deployment for testing is pretty simple<br>Can also manually install the APK via ADB<br>Or by transferring apk to device and opening with a file manager<br>Ti Studio signs APK with a debug compatible certificate. You could go through the signing steps but that's unnecessary)",
 
 		"%l_remote_android": "Remote Android deployment",
@@ -86,7 +86,7 @@ String.toLocaleString({
 
 		"%l_slidenote_install_prov_profile": "Ultimately, you need to install to Xcode<br>You can drag & drop<br>or install via Ti Studio (next slide)",
 		"%l_install_ti_studio": "Option 2: Install via Titanium Studio",
-		"%l_install_profile2_image": "<img src='images/ti-studio.png' style='margin-top:20px;height:450px;align:center'>",
+		"%l_install_profile2_image": "<img src='images/iosdeploy.png' style='margin-top:20px;height:450px;align:center'>",
 		"%l_slidenote_install_prov_profile_ti": "If not installed via Xcode, click Upload and Ti Studio will install for you<br>Ti Studio should recognize certificates in your keychain",
 
 		"%l_install_local": "Installing to local test device",

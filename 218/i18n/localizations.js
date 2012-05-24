@@ -7,7 +7,7 @@ String.toLocaleString({
 	"en-US": {
 		"%l_filetitle": "Titanium Studio",
 		"%l_lessontitle": "Titanium Studio",
-		"%l_slidenote_titleslide": "<b>Module time: 15 mins</b>(no lab)",
+		"%l_slidenote_2titleslide": "<b>Module time: 15 mins</b> (no lab)<br/><br/>* This is an optional lesson, skip it if your class is comfortable with Studio or if you think there won't be time to complete the remaining lessons.",
 		"%l_agenda1": "Intro / Review",
 		"%l_agenda2": "Titanium-specific features",
 		"%l_agenda3": "Deployment and distribution features",

@@ -68,7 +68,7 @@
 						if( navigator.userAgent.match( /(iPhone|iPad|iPod|Android)/i ) )
 						document.write( '<p style="color: rgba(0,0,0,0.3); text-shadow: none;">('+'Tap to navigate'+')</p>' );
 					</script>
-				<div class="slidenote"><p class="l_slidenote_titleslide"><b>Module time: 60 mins (20 mins teaching</b>, 20 mins for Android lab, 20 mins for iPhone lab)<br><b>Be brief, do not cover the native tools in depth></b><br>Goal is to be aware of native tools and workflows. Might need to use some of these tools during development or debugging.</p></div>
+				<div class="slidenote"><div class="l_slidenote_titleslide"><b>Module time: 60 mins (20 mins teaching</b>, 20 mins for Android lab, 20 mins for iPhone lab)<br><b>Be brief, do not cover the native tools in depth></b><br>Goal is to be aware of native tools and workflows. Might need to use some of these tools during development or debugging.</div></div>
 				</section>
 				
 				<section id="agenda">
@@ -86,7 +86,7 @@
 						<!-- Please use a classname that relates to the associated slide content. For example, this
 							slide is the agenda, thus the class is l_slidenote_agenda
 						 -->
-						<p class="l_slidenote_agenda">Present the agenda...</p>
+						<div class="l_slidenote_agenda">Present the agenda...</div>
 						
 					</div>
 				</section>
@@ -94,8 +94,8 @@
 				<section>
 					<h2 class="l_toolchain">Tool Chains - Everybody Has Them</h2>
 					<p style="margin-top:150px;" class="l_aaa" style="align:left;">DEFINITION<br>A tool chain is a set of executables/scripts that together form a work flow from code to distributed applications</p>
-					<div class="slidenote"><p class="l_slidenote_introduction">They are usually a set of executables/scripts that can be invoked outside an IDE (integrated development environment)<br>Titanium abstracts away a lot of the daunting work of the tool chain setup and maintaining the environment, however to be effective it is essential to understand the background tools of that process<br>Titanium executes those tools as necessary to make your life easier and more productive.
-</p></div>
+					<div class="slidenote"><div class="l_slidenote_introduction">They are usually a set of executables/scripts that can be invoked outside an IDE (integrated development environment)<br>Titanium abstracts away a lot of the daunting work of the tool chain setup and maintaining the environment, however to be effective it is essential to understand the background tools of that process<br>Titanium executes those tools as necessary to make your life easier and more productive.
+</div></div>
 				</section>
 
 				
@@ -103,21 +103,21 @@
 					<h2 class="l_generic_toolchain">A Generic Tool Chain</h2>
 					<p><img src="images/generic-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
-					<div class="slidenote"><p class="l_slidenote_generic_toolchain"></p></div>
+					<div class="slidenote"><div class="l_slidenote_generic_toolchain"></div></div>
 				</section>
 				
 				<section>
 					<h2 class="l_android_toolchain">The Android Tool Chain</h2>
 					<p><img src="images/android-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
-					<div class="slidenote"><p class="l_slidenote_android_toolchain"></p></div>
+					<div class="slidenote"><div class="l_slidenote_android_toolchain"></div></div>
 				</section>
 				
 				
 				<section>
 					<h1 class="l_whats_in_the_box">What's in the box?</h1>
 					<img src="images/android_logo.png" style="margin-top:170px;height:200px;"/>					
-					<div class="slidenote"><p class="l_slidenote_whats_in_the_box">Quick tour of what comes with the Android SDK<br>
+					<div class="slidenote"><div class="l_slidenote_whats_in_the_box">Quick tour of what comes with the Android SDK<br>
 					<ul>
 						<li>Show SDK location</li>
 						<li>Describe platforms directory (OS version files)</li>
@@ -125,13 +125,13 @@
 						<li>Difference between vanilla and google-apis SDKs</li>
 						<li>Describe tools / platform-tools directory</li>
 						<li>Briefly describe adb, ddms, and android files</li>
-					</ul></p></div>
+					</ul></div></div>
 				</section>
 				
 				<section>
 					<h1 class="l_hello_world">Hello World</h1>
 					<p class="l_hiworldtoolchain"><strong><em>for the Android Native Tool Chain</em></strong>
-					<div class="slidenote"><p class="l_slidenote_hello_world">Now lets demonstrate how to create, build and run your first hello world application on the emulator of Android.<br>This demonstration is based on the command line approach of Android development.</p>
+					<div class="slidenote"><div class="l_slidenote_hello_world">Now lets demonstrate how to create, build and run your first hello world application on the emulator of Android.<br>This demonstration is based on the command line approach of Android development.</p>
 					</div>
 				</section>
 				
@@ -147,7 +147,7 @@ C:\Lab> android create project
 
 </code></pre>
 					<img src="images/android-project-explorer.png" style="margin-top:15px;height:200px;width:750px;"/>
-					<div class="slidenote"><p class="l_slidenote_creating_hello_world"></p>
+					<div class="slidenote"><div class="l_slidenote_creating_hello_world"></p>
 					<ol>
 					<li>Describe command and its arguments...target # is NOT the android SDK version<br></li>
 					<li>Do it in the terminal></li>
@@ -160,7 +160,7 @@ C:\Lab> android create project
 				<section>
 					<h2 class="l_application_starting_point">Application starting point</h2>
 					<img src="images/application-starting-point.png" style="margin-top:15px;height:500px;"/>
-					<div class="slidenote"><p class="l_slidenote_application_starting_point">View layouts are represented by xml files and properties in the XML files.Here we can see a simple TextView specified on the view layout.</p>
+					<div class="slidenote"><div class="l_slidenote_application_starting_point">View layouts are represented by xml files and properties in the XML files.Here we can see a simple TextView specified on the view layout.</p>
 					</div>
 				</section>
 				
@@ -171,21 +171,21 @@ C:\Lab> ant debug
 
 </code></pre>
 					<img src="images/ant-cmd.png" style="margin-top:15px;height:320px;width:750px;"/>
-					<div class="slidenote"><p class="l_slidenote_how_to_build">Build using Apache Ant (might not be installed on your system)<br>Watch for 'Build Successful'<br>Next we need a virtual device in which to run our app</p>
+					<div class="slidenote"><div class="l_slidenote_how_to_build">Build using Apache Ant (might not be installed on your system)<br>Watch for 'Build Successful'<br>Next we need a virtual device in which to run our app</p>
 					</div>
 				</section>
 				
 				<section>
 					<h2 class="l_create_virtual_device">Creating a virtual device</h2>
 					<img src="images/create-virtual-device.png" style="margin-top:15px;height:450px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_create_virtual_device">When issuing the command �android� stand alone it will start this android virtual device manager, by clicking new you will be able to create a new virtual device for your needs.<br> Note that Titanium creates AVDs for you</p>
+					<div class="slidenote"><div class="l_slidenote_create_virtual_device">When issuing the command �android� stand alone it will start this android virtual device manager, by clicking new you will be able to create a new virtual device for your needs.<br> Note that Titanium creates AVDs for you</p>
 					</div>
 				</section>
 				
 				<section>
 					<h2 class="l_virtual_device_parameters">Virtual Device Parameters</h2>
 					<img src="images/virtual-device-parameters.png" style="margin-top:15px;height:450px;width:750px;"/>				
-					<div class="slidenote"><p class="l_slidenote_virtual_device_parameters">Options dialog permits settings for each virtual device. It is possible to customize hardware settings as well.<br>Before installation you need to start your virtual device, in the android virtual manager, simply click start and it will show up, it takes about a minute or two.</p>
+					<div class="slidenote"><div class="l_slidenote_virtual_device_parameters">Options dialog permits settings for each virtual device. It is possible to customize hardware settings as well.<br>Before installation you need to start your virtual device, in the android virtual manager, simply click start and it will show up, it takes about a minute or two.</p>
 					</div>
 				</section>
 				
@@ -197,14 +197,14 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 </code></pre>
 
 					<img src="images/android-emulator.png" style="margin-top:15px;width:550px;"/>
-					<div class="slidenote"><p class="l_slidenote_how_to_install">You install the apk file to the target with the help of the android debug bridge tool by specifying an install argument.<br>It can be installed onto an emulated device or the connected phone.</p>
+					<div class="slidenote"><div class="l_slidenote_how_to_install">You install the apk file to the target with the help of the android debug bridge tool by specifying an install argument.<br>It can be installed onto an emulated device or the connected phone.</p>
 					</div>
 				</section>
 
 				<section>
 					<h2 class="l_hello_world_running">Hello World application running</h2>
 					<img src="images/android-hello-world.png" style="margin-top:15px;height:500;"/>
-					<div class="slidenote"><p class="l_slidenote_hello_world_running">When the application is running you can use the emulator to simulate things on the phone as well as stimulating it's user interface.</p>
+					<div class="slidenote"><div class="l_slidenote_hello_world_running">When the application is running you can use the emulator to simulate things on the phone as well as stimulating it's user interface.</p>
 					</div>
 				</section>
 				
@@ -212,7 +212,7 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 				<section>
 					<h2 class="l_dalvik_debug_monitor">Dalvik Debug Monitor</h2>
 					<img src="images/dalvik-debug-monitor.png" style="margin-top:15px;height:500px;"/>
-					<div class="slidenote"><p class="l_slidenote_dalvik_debug_monitor">With the Dalvik Monitor you can monitor threads, processes and memory in Android emulated or target devices.<br>Demo ddms: show log output, simple filter, plus setting GPS coords<br>Also demo / introduce adb -d logcat (use -e for emulator)</p>
+					<div class="slidenote"><div class="l_slidenote_dalvik_debug_monitor">With the Dalvik Monitor you can monitor threads, processes and memory in Android emulated or target devices.<br>Demo ddms: show log output, simple filter, plus setting GPS coords<br>Also demo / introduce adb -d logcat (use -e for emulator)</p>
 					</div>
 				</section>
 				
@@ -220,7 +220,7 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 					<h2 class="l_iphone_toolchain">The iPhone Tool Chain</h2>
 					<p><img src="images/iphone-toolchain.png" style="margin-top:50px;height:600px;"></p>
 					
-					<div class="slidenote"><p class="l_slidenote_iPhone_toolchain">** Apple has replaced gcc with LLVM compiler<br>
+					<div class="slidenote"><div class="l_slidenote_iPhone_toolchain">** Apple has replaced gcc with LLVM compiler<br>
 					** Apple has replaced gdb with LLDB debugger<br>
 					Using the iPhone tool chain is done in the IDE and at first glance it may seem that you need less steps to build your application than in Android, however the difference is that in XCode the build process is linked to the debugger and simulator more tightly.<br>
 					Project manager.<br>
@@ -242,7 +242,7 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 				<section>
 					<h2 class="l_iphone_whats_in_the_box">What's in the box?</h2>
 					<img src="images/apple-logo.png" style="margin-top:170px;height:200px;"/>					
-					<div class="slidenote"><p class="l_slidenote_iphone_whats_in_the_box">Quick tour of what comes with the iOS SDK<br>
+					<div class="slidenote"><div class="l_slidenote_iphone_whats_in_the_box">Quick tour of what comes with the iOS SDK<br>
 					<ul>
 						<li>Show SDK location</li>
 						<li>Describe Applications directory</li>
@@ -261,14 +261,14 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 				<section>
 					<h2 class="l_hello_world_iphone">Hello World</h2>
 					<p class="l_hiworldtoolchainios"><strong><em>for the iPhone Native Tool Chain</em></strong>
-					<div class="slidenote"><p class="l_slidenote_hello_world_iphone">Creating apps for iPhone is mainly done in Xcode, included in Macintosh computers.<br>XCode is an IDE which wrappes all the tools you need, similar to Eclipse in Android.</p>
+					<div class="slidenote"><div class="l_slidenote_hello_world_iphone">Creating apps for iPhone is mainly done in Xcode, included in Macintosh computers.<br>XCode is an IDE which wrappes all the tools you need, similar to Eclipse in Android.</p>
 					</div>
 				</section>
 				
 				<section>
 					<h2 class="l_create_new_iphone_project">Create a new XCode project for iPhone</h2>
 					<img src="images/create-iphone-project.png" style="margin-top:15px;height:380px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_create_new_iphone_project">
+					<div class="slidenote"><div class="l_slidenote_create_new_iphone_project">
 					<ol>
 					<li>Find and boot the XCode IDE, chose to make an new XCode project.</li>
 					<li>Click Application in iOS (for iPhone) and then a template<br>Use either the view based or tabbbed application template</li>
@@ -282,31 +282,31 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 				<section>
 					<h2 class="l_xcode_ide_tools">The XCode IDE tools</h2>
 					<img src="images/xcode-ide-tools.png" style="margin-top:15px;height:380px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_xcode_ide_tools"></p></div>
+					<div class="slidenote"><div class="l_slidenote_xcode_ide_tools"></div></div>
 				</section>
 
 				<section>
 					<h2 class="l_storyboard_editor">Storyboard Editor</h2>
 					<img src="images/storyboard-editor.png" style="margin-top:15px;height:400px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_storyboard_editor">Storyboard shows graphical outline of your apps screens</p></div>
+					<div class="slidenote"><div class="l_slidenote_storyboard_editor">Storyboard shows graphical outline of your apps screens</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_storyboard_editor_contd">Storyboard Editor, continued</h2>
 					<img src="images/storyboard-details.png" style="margin-top:15px;height:400px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_storyboard_editor_contd">Target can be iPhone or iPad depending on project<br>Select a view/window next<br>Select any control it contains<br>Then, you can drag&drop new controls to page</p></div>
+					<div class="slidenote"><div class="l_slidenote_storyboard_editor_contd">Target can be iPhone or iPad depending on project<br>Select a view/window next<br>Select any control it contains<br>Then, you can drag&drop new controls to page</div></div>
 				</section>
 
 				<section>
 					<h2 class="l_running_your_app">Running your application on the simulator</h2>
 					<img src="images/iphone-simulator.png" style="margin-top:15px;height:400px;width:200px;"/>					
-					<div class="slidenote"><p class="l_slidenote_running_your_app"></p></div>
+					<div class="slidenote"><div class="l_slidenote_running_your_app"></div></div>
 				</section>
 
 				<section>
 					<h2 class="l_instrument">Instruments</h2>
 					<img src="images/instrument.png" style="margin-top:15px;height:400px;width:750px;"/>					
-					<div class="slidenote"><p class="l_slidenote_instrument">Just like the dalvik monitor in Android, you can start different instrumentation tools to find memory leaks, track threads and processes and to find potential errors. These can be found in the run/run with performance tools menu.</p></div>
+					<div class="slidenote"><div class="l_slidenote_instrument">Just like the dalvik monitor in Android, you can start different instrumentation tools to find memory leaks, track threads and processes and to find potential errors. These can be found in the run/run with performance tools menu.</div></div>
 				</section>
 
 				<section>
@@ -314,16 +314,16 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 					<p align="left" class="l_python">Titanium Studio relies on Python build scripts(mobile SDK)</p>
 					<p align="left" class="l_scripts">Scripts interact with native tool chains</p>
 					<p align="left" class="l_mobile_sdk">Titanium Mobile SDK requires and is dependent on these native tool chains</p>
-					<p align="left" class="l_native_toolchain">Will still need to use native tool chains (on occasion)</p>
-					<div class="slidenote"><p class="l_slidenote_titanium_studio"><b>Slide Flow</b><br>
+					<p align="left" class="l_2native_toolchain">Will still need to use native tool chains (on occasion)</p>
+					<div class="slidenote"><div class="l_slidenote_titanium_studio"><b>Slide Flow</b><br>
 					Titanium Studio calls the build scripts in the mobile SDK<br>
 					<b>Demo:</b> Navigate to the mobile SDK directory on the filesystem, show build scripts and brief explanation of what they are used for (invoking the compilers, shipping to a device)<br>
-					Since the build scripts interface with command line tools like adb, the native SDKs are a hard requirement for mobile development.<br> Ti Studio Premium offers built-in debugging tools, but you may need to use the native tools for debugging<br> In some cases, if your application gets very large or uses lots of different media assets at once, you may need to start profiling your applications memory use and experiment with ways to reduce memory consumption, but this is a very rare case since Titanium handles memory management for you.</p></div>
+					Since the build scripts interface with command line tools like adb, the native SDKs are a hard requirement for mobile development.<br> Ti Studio Premium offers built-in debugging tools, but you may need to use the native tools for debugging<br> In some cases, if your application gets very large or uses lots of different media assets at once, you may need to start profiling your applications memory use and experiment with ways to reduce memory consumption, but this is a very rare case since Titanium handles memory management for you.</div></div>
 				</section>
 				
 				<section>
 					<h1 class="l_qa">Q&amp;A</h1>
-					<div class="slidenote"><p class="l_slidenote_qa">Before we jump into the lab, what questions do you have? tools menu.</p></div>
+					<div class="slidenote"><div class="l_slidenote_qa">Before we jump into the lab, what questions do you have? tools menu.</div></div>
 				</section>
 				
 				<section>
@@ -336,7 +336,7 @@ C:\Lab> adb install bin/MyAndroidApp-debug.apk
 					<p class="l_labURL" style="font-size:0.7em;margin-top:20px;">Android: <a href='http://wiki.appcelerator.org/display/td/210+Native+Android+Development'>wiki.appcelerator.org/display/td/210+Native+Android+Development</a></p>
 					<p class="l_labURL2" style="font-size:0.7em;">iOS: <a href='http://wiki.appcelerator.org/display/td/210+Native+iPhone+Development'>wiki.appcelerator.org/display/td/210+Native+iPhone+Development</a></p>
 
-					<div class="slidenote"><p class="l_slidenote_lab">We don't expect you to be working a lot with the native tools, but some of them are handy at times. <br>In the lab, you'll create Android and iOS projects using the native tool chains.<br>Roughly 25-30 mins for both labs</p></div>
+					<div class="slidenote"><div class="l_slidenote_lab">We don't expect you to be working a lot with the native tools, but some of them are handy at times. <br>In the lab, you'll create Android and iOS projects using the native tool chains.<br>Roughly 25-30 mins for both labs</div></div>
 				</section>
 
 			</div>

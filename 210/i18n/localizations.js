@@ -65,7 +65,7 @@ String.toLocaleString({
 		"%l_python": "Titanium Studio relies on Python build scripts (mobile SDK)",
 		"%l_scripts": "Scripts interact with native tool chains",
 		"%l_mobile_sdk": "Titanium Mobile SDK requires and is dependent on these native tool chains",
-		"%l_native_toolchain": "Will still need to use native tool chains (on occasion",
+		"%l_2native_toolchain": "Will still need to use native tool chains (on occasion)",
 		"%l_slidenote_titanium_studio": "<b>Slide Flow</b><br> Titanium Studio calls the build scripts in the mobile SDK<br><b>Demo:</b> Navigate to the mobile SDK directory on the filesystem, show build scripts and brief explanation of what they are used for (invoking the compilers, shipping to a device)<br>Since the build scripts interface with command line tools like adb, the native SDKs are a hard requirement for mobile development.<br> Ti Studio Premium offers built-in debugging tools, but you may need to use the native tools for debugging<br> In some cases, if your application gets very large or uses lots of different media assets at once, you may need to start profiling your applicationís memory use and experiment with ways to reduce memory consumption, but this is a very rare case since Titanium handles memory management for you.",
 		"%l_qa": "Q&amp;A",
 		"%l_slidenote_qa": "Before we jump into the lab, what questions do you have?",

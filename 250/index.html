@@ -123,7 +123,21 @@
 				
 				<section>
 					<h2 class="l_simple_obj">Simple Object Storage</h2>
-					<p><img src="images/simple-obj.png" style="margin-top:0px;height:300px;align:center"></p>
+<pre><code contenteditable class="l_simpleobjcode">
+var user = {
+   username: 'kevin',
+   preferences: {
+      soundOn: false,
+      difficulty: 'easy'
+   }
+};
+
+// save user object to a property
+Ti.App.Properties.setString('userData', JSON.stringify(user));
+
+// later, retrieve it and rehydrate it
+var sameUser = JSON.parse(Ti.App.Properties.getString('userData'));
+</code></pre>
 					<div class="slidenote"><div class="l_slidenote_simple_obj">Ti Properties can be used to store simple objects<br>Example user object<br>Save to userData property via JSON.stringify()<br>Reconstitute using JSON.parse()</div></div>
 				</section>
 				

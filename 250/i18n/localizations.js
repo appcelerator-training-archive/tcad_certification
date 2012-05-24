@@ -34,6 +34,7 @@ String.toLocaleString({
 		"%l_demo_string_props": "Demo: String Properties",
 		"%l_slidenote_demo_string_props": "Demo for plain old properties uses the 'Persistence' demo app<br><ol><li>Launch in Developer and demo app</li><li>Enter data and quit</li><li>Fully quit app</li><li>Re-open to demonstrate persistence</li></ul><br>Code review:<ul><li>Open Resources/properties.js</li><li>Ti.App.Properties.getString() and mention data types</li><li>createTextField()</li><li>Change event listener, setString()</li></ul>",
 		"%l_simple_obj": "Simple Object Storage",
+		"%l_simpleobjcode": "\nvar user = {\n   username: 'kevin',\n   preferences: {\n      soundOn: false,\n      difficulty: 'easy'\n   }\n};\n\n// save user object to a property\nTi.App.Properties.setString('userData', JSON.stringify(user));\n\n// later, retrieve it and rehydrate it\nvar sameUser = JSON.parse(Ti.App.Properties.getString('userData'));\n",
 		"%l_slidenote_simple_obj": "Ti Properties can be used to store simple objects<br>Example user object<br>Save to userData property via JSON.stringify()<br>Reconstitute using JSON.parse()",
 		"%l_database_api": "Database API",
 		"%l_each_platform": "Each platform features and embedded SQLite database",
