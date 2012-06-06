@@ -53,7 +53,7 @@ String.toLocaleString({
 		"%l_titanium_python": "Titanium's Python build scripts interact with native SDK tools",
 		"%l_titanium_javascript": "JavaScript is statically analyzed, native project stub generated",
 		"%l_javascript_precompiled": "JavaScript precompiled to bytecode (Android) or inlined in a generated C file (iOS)",
-		"%l_javascript_and_native": "JavaScript and native code bindings are shipped along with JavaScriptCore (iOS) or Rhino (Android) to interpret JS code at runtime",
+		"%l_javascript_and_native": "JavaScript and native code bindings are shipped along with JavaScriptCore (iOS) or V8/Rhino (Android) to interpret JS code at runtime",
 		"%l_resources": "Resources",
 		"%l_slidenote_resources": "",
 		"%l_my": "My.Appcelerator.com",

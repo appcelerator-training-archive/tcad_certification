@@ -16,7 +16,7 @@ String.toLocaleString({
 		"%l_spec4": "An iOS Developer’s account",
 
 
-		"%l_step1": "1. Download the starting file set from <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip</a> and import the resulting files as a new Titanium Mobile project.",
+		"%l_step1": "1. Download the starting file set from <a href='assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip</a> and import the resulting files as a new Titanium Mobile project.",
 		"%l_stepexplanation1": "",
 
 		"%l_step2": "2: Connect your Android device and deploy the app to it. Test the app. It should offer the same functionality, considering Android platform specifics, as you see in the iOS simulator. <br/><br/>With your Android device still connected, open ddms and select your device in the top-left pane. Choose Device, Screen Capture. Save two representative screenshots to your desktop or home directory. Close ddms. Disconnect your device following your operating system’s procedure for safely removing USB devices.",
@@ -61,7 +61,7 @@ String.toLocaleString({
 		"%l_spec4": "iOSデベロッパアカウント",
 
 
-		"%l_step1": "1. <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip'>http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH285.zip</a>から開始ファイルをダウンロードし、Titanium Mobileプロジェクトとしてインポートします。",
+		"%l_step1": "1. <a href='assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip'>assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBountyHunter.zip</a>から開始ファイルをダウンロードし、Titanium Mobileプロジェクトとしてインポートします。",
 		"%l_stepexplanation1": "",
 
 		"%l_step2": "2: Androidデバイスを接続してアプリをデプロイしたらテストします。Androidプラットフォームの仕様に合わせていますが、iOSシミュレーター上で見るのと機能は同じです。<br/><br/>Androidデバイスがまだ接続されている状態で、ddmsを開き、ウィンドウ上部左側のデバイス名を選択します。 デバイスの選択をしたらスクリーンキャプチャーを撮ります。2種類のスクリーンショットをデスクトップまたはホームディレクトリに保存します。ddmsを閉じ、コンピュータシステムの指示に従って、安全にデバイスを取り外します。",
