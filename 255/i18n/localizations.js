@@ -43,6 +43,12 @@ String.toLocaleString({
 		"%l_onsendstream": "<b>onsendstream/ondatastream:</b>file upload/download</p>",
 		"%l_slidenote_lifecycle": "XHR centered around callbacks<br>So, asynchronous<br>Could probably do sync but that's not a best practice<br>As of SDK 1.8, HTTP 4xx & 5xx errors cause onerror() to be called rather than onload()",
 
+		"%l_mobileweb": "Mobile Web Considerations",
+		"%l_mw1": "Must consider cross-domain issues",
+		"%l_mw2": "Set up CORS header support",
+		"%l_mw3": "Configure a proxy service",
+		"%l_slidenote_mobileweb": "Network requests must account for cross-domain access. Typically, you'll enable CORS header support on your server or set up a proxy service to handle network requests on behalf of your mobile web users",
+
 		"%l_demo_download": "Demo: File Download",
 		"%l_filedemo": "From KitchenSink:<br/>Platform > XHR > File Download<br/>Platform > XHR > File Upload",
 		"%l_slidenote_demo_download": "Demo - KitchenSink<br>Platform > XHR > File Download<br>- click Set Web View (url)<br/><br/><u>examples/xhr_filedownload.js ‾line 28</u><ul><li>show onload(), responseData, and webview</li><li>show ondatastream()</li><li>show onerror()</li>Then, show open() and send()</li></ul>",

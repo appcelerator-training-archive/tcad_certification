@@ -58,16 +58,24 @@
 	position: absolute;
 	bottom: 20px;
 	left: 20px;
-	width: 90px;
-	height: 50px;
+	width: 60px;
+	height: 60px;
+}
+#appclogo img {
+	width: 60px;
+	height: 60px;
 }
 #presenternotes {
 	/* ICON/BUTTON IN SLIDESHOW */
 	position: absolute;
-	bottom: 32px;
-	left: 125px;
-	width: 36px;
-	height: 36px;
+	bottom: 20px;
+	left: 110px;
+	width: 48px;
+	height: 48px;
+}
+#presenternotes img {
+	width: 48px;
+	height: 48px;
 }
 .slidenote {
 	/* HIDES PRESENTER NOTES IN THE SLIDESHOW ITSELF */

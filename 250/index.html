@@ -102,17 +102,8 @@
 					<h2 class="l_properties_api">Properties API</h2>
 					<p align="left" class="l_lightweight">Lightweight Key/Value Store</p>
 					<p align="left" class="l_best_suited">Best suited for light persistence needs (configuration options, saved application state)</p>
-					<p align="left" class="l_coupled">Coupled with JSON, can be used to store complex JavaScript objects</p>
-					<div class="slidenote"><div class="l_slidenote_properties_api">Properties plus JSON is live-coded in the persistence app, with you writing out a JavaScript object to a string property and then reading it back in.</div></div>
-				</section>
-				
-				<section>
-					<h2 class="l_json">JSON = JavaScript Object Notation</h2>
-					<p align="left" class="l_language">Language-independent text-based means to represent arrays and objects (without methods)</p>
-					<p align="left" class="l_compact">Compact data format, efficient over slow networks</p>
-					<p align="left" class="l_standardized">Standardized and widely supported, see json.org</p>
-					<p><img src="images/json.png" style="margin-top:20px;height:200px;align:right"></p>
-					<div class="slidenote"><div class="l_slidenote_json">Quick intro to JSON<br>Skip if students are familiar with topic</div></div>
+					<p align="left" class="l_coupledV2">Ti.App.Properties has get/set methods for strings, Booleans, numbers, and objects</p>
+					<div class="slidenote"><div class="l_slidenote_properties_apiV2"></div></div>
 				</section>
 				
 				<section>
@@ -120,27 +111,7 @@
 					<p><img src="images/demo.png" style="margin-top:0px;height:420px;align:center"></p>
 					<div class="slidenote"><div class="l_slidenote_demo_string_props">Demo for plain old properties uses the 'Persistence' demo app<br><ol><li>Launch in Developer and demo app</li><li>Enter data and quit</li><li>Fully quit app</li><li>Re-open to demonstrate persistence</li></ul><br>Code review:<ul><li>Open Resources/properties.js</li><li>Ti.App.Properties.getString() and mention data types</li><li>createTextField()</li><li>Change event listener, setString()</li></ul></div></div>
 				</section>
-				
-				<section>
-					<h2 class="l_simple_obj">Simple Object Storage</h2>
-<pre><code contenteditable class="l_simpleobjcode">
-var user = {
-   username: 'kevin',
-   preferences: {
-      soundOn: false,
-      difficulty: 'easy'
-   }
-};
-
-// save user object to a property
-Ti.App.Properties.setString('userData', JSON.stringify(user));
-
-// later, retrieve it and rehydrate it
-var sameUser = JSON.parse(Ti.App.Properties.getString('userData'));
-</code></pre>
-					<div class="slidenote"><div class="l_slidenote_simple_obj">Ti Properties can be used to store simple objects<br>Example user object<br>Save to userData property via JSON.stringify()<br>Reconstitute using JSON.parse()</div></div>
-				</section>
-				
+								
 				<section>
 					<h2 class="l_database_api">Database API</h2>
 					<p align="left" class="l_each_platform">Each platform features and embedded SQLite database</p>

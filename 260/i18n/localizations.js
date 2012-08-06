@@ -63,6 +63,7 @@ String.toLocaleString({
 		"%l_filesystem_locations": "Locations:",
 		"%l_filesystem_resourcesDir":"<b>Ti.Filesystem.resourcesDirectory  - read-only</b>",
 		"%l_filesystem_appsDir":"<b>Ti.Filesystem.applicationDataDirectory - read/write</b>",
+		"%l_filesystem_cacheDir": "<b>Ti.Filesystem.applicationCacheDirectory - read/write</b>",
 		"%l_filesystem_tempDir": "<b>Ti.Filesystem.tempDirectory - read/write</b>",
 		"%l_filesystem_extDir":"<b>Ti.Filesystem.externalStorageDirectory - read/write</b>",
 		"%l_plus": "plus Ti.Filesystem.isExternalStoragePresent()",

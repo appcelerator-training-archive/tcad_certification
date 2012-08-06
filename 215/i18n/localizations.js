@@ -107,7 +107,7 @@ String.toLocaleString({
 
 		"%l_platform_specific": "Platform-Specific Examples",
 		"%l_android": "Android: intents, background services, hardware menu button",
-		"%l_ios": "iOS: routes in maps, pre-built animations, Cocoa UI",
+		"%l_iosv2": "iOS: pre-built animations, Cocoa UI",
 		"%l_platform": "Platform-specific APIs are implemented in a platform-specific namespace",
 		"%l_slidenote_platform_specific": "Special api sections, platform only supported logic, etc<br> resolutions, services, intents/actions.<br>Because you have these diffs, the API provided is not always supported in all platforms, be aware of this.",
 

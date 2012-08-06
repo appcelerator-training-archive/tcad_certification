@@ -147,6 +147,14 @@ xhr.send({myvariable: 'value'});
 					<p align="left" class="l_onsendstream"><b>onsendstream/ondatastream:</b>file upload/download</p>
 					<div class="slidenote"><div class="l_slidenote_lifecycle">XHR centered around callbacks<br>So, asynchronous<br>Could probably do sync but that's not a best practice<br>As of SDK 1.8, HTTP 4xx &amp; 5xx errors cause onerror() to be called rather than onload()</div></div>
 				</section>				
+
+				<section>
+					<h2 style="" class="l_mobileweb">Mobile Web Considerations</h2>
+					<p align="left" class="l_mw1">Must consider cross-domain issues</p>
+					<p align="left" class="l_mw2">Set up CORS header support</p>
+					<p align="left" class="l_mw3">Configure a proxy service</p>
+					<div class="slidenote"><div class="l_slidenote_mobileweb">Network requests must account for cross-domain access. Typically, you'll enable CORS header support on your server or set up a proxy service to handle network requests on behalf of your mobile web users</div></div>
+				</section>
 				
 			
 				<section>
