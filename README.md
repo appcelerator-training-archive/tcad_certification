@@ -13,7 +13,7 @@ Unless otherwise stated, the slides and contents of this repository are licensed
 These slides use [Crystal Clear](http://commons.wikimedia.org/wiki/Crystal_Clear) icons, which are licensed under the [LGPL](http://www.everaldo.com/crystal/?action=license) license.
 
 
-## Instructions
+## Instructions 
 
 1. Download a copy of [presentation-engine](https://github.com/appcelerator-training/presentation-engine) to a suitable directory on your computer.
 2. Download a copy of the course slides to that same directory so that you end up with a structure like this:
@@ -40,6 +40,18 @@ some_folder
 Press right or left arrow keys to move forward/back in a presentation. Some slides include "vertically nested" sub-slides. Such nested slides will show a down-pointing arrow. Press the down-arrow key to move through those sub-slides.
 
 Press the Spacebar to see a partial overview of the slides in a presentation.
+
+### Downloading a specific version of the slides
+
+We recently started tagging releases of these slides with the corresponding Titanium version. That way, you can download slides for a given version.
+
+1. Step 1: Click Tags as shown:
+
+![Downloading at a given tag step 1](https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png)
+
+2. Step 2: Click the download version; you'll get a zip of the repo at that state:
+
+![Download the zip file](https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png)
 
 # Corrections and Contributions
 
@@ -118,5 +130,4 @@ Appcelerator thanks these great Titanium community supporters for translating ou
 * toshiro yagi (@yagi_)
 * go ando (@goando)
 
-![Downloading at a given tag step 1](https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png)
 
