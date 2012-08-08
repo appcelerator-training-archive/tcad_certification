@@ -118,4 +118,5 @@ Appcelerator thanks these great Titanium community supporters for translating ou
 * toshiro yagi (@yagi_)
 * go ando (@goando)
 
+![Downloading at a given tag step 1](https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png)
 
