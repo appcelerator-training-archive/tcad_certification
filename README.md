@@ -45,13 +45,15 @@ Press the Spacebar to see a partial overview of the slides in a presentation.
 
 We recently started tagging releases of these slides with the corresponding Titanium version. That way, you can download slides for a given version.
 
-1. Step 1: Click Tags as shown:
+**Step 1:** Click Tags as shown:
 
 ![Downloading at a given tag step 1](https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png)
 
-2. Step 2: Click the download version; you'll get a zip of the repo at that state:
+**Step 2:** Click the download version; you'll get a zip of the repo at that state:
 
 ![Download the zip file](https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png)
+
+<img src='https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png' width='500' alt='Download the zip file'/>
 
 # Corrections and Contributions
 
