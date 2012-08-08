@@ -47,11 +47,11 @@ We recently started tagging releases of these slides with the corresponding Tita
 
 **Step 1:** Click Tags as shown:
 
-<img src='https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png' width='640' alt='Downloading at a given tag step 1'/ style='border: 1px solid #000'>
+<img src='https://img.skitch.com/20120808-cushunc9ksj4i2tux99sxka2hc.png' width='640' alt='Downloading at a given tag step 1' style='border: 1px solid #000;'>
 
 **Step 2:** Click the download version; you'll get a zip of the repo at that state:
 
-<img src='https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png' width='640' alt='Download the zip file'/ style='border: 1px solid #000'>
+<img src='https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png' width='640' alt='Download the zip file' style='border: 1px solid #000;'>
 
 # Corrections and Contributions
 
