@@ -61,8 +61,10 @@ String.toLocaleString({
 		"%l_slidenote_geolocation_gotchas": "If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed to stop geolocation services.<br><br/><b>Demo &mdash; do on Android</b><ol><li>Start Android emulator</li><li>Open Maps &mdash; no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here &mdash; you can demo more about maps on the upcoming slides",
 
 		"%l_geodemo": "Geolocation Demo",
-		"%l_demo_kitchen_sink": "Demo: Kitchen Sink Geolocation<br/>Kitchen Sink > Phone > Geolocation",
-		"%l_slidenote_geodemo": "Demo: Kitchen Sink > Phone > Geolocation<br>Code: examples/geolocation.js<ul><li>purpose</li><li>if(locationServicesEnabled==false)</li><li>authorization</li><li>getCurrentPosition() &mdash; single shot</li><ul><li>coords object</li></ul><li>addEventListener and locationCallback function</li><li>forward and reverse geo</li><li>point out Android lifecycle events for managing GPS</li></ul>",
+		"%l_geodemo1": "iOS: Kitchen Sink &mdash; Phone > Geolocation",
+		"%l_geodemo2": "Mobile Web: Kitchen Sink &mdash; Phone > Geolocation",
+		"%l_geodemo3": "Android: AndroidGeo app",
+		"%l_slidenote_geodemoV2": "Demo: iOS &amp; Mobile Web (examples/geolocation.js)<br/>Make sure to point out purpose, checking for location services being enabled, and checking authorization. Load demo in iOS Simulator and Mobile Web (browser) to show permissions messages.<br/><br/>Android - demo is in tcad-code repo, called AndroidGeo. Works best (only?) on a device not in emulator. In app.js, show provider and rules definitions, explain locationCallback(), and point out Android lifecycle events for managing GP &amp; battery life. In buttons.js, show the click handlers that turn on/off the various providers.",
 
 
 		"%l_native_map_kits": "Native Map Kits",
