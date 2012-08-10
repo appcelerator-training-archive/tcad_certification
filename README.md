@@ -20,7 +20,7 @@ These slides use [Crystal Clear](http://commons.wikimedia.org/wiki/Crystal_Clear
 
 ```
 some_folder  
-   - presentation-engine (folder)  
+   - presentation-engine (folder, must be named as shown here!)  
    - tcad_certification (folder)  
       - index.html  <-- TOC for the whole course  
          - 000 (folder)  
@@ -52,6 +52,8 @@ We recently started tagging releases of these slides with the corresponding Tita
 **Step 2:** Click the download version; you'll get a zip of the repo at that state:
 
 <img src='https://img.skitch.com/20120808-mk19ffd8bc1t9sgpu3muj37w9x.png' width='640' alt='Download the zip file' style='border: 1px solid #000;'>
+
+**Step 3:** Unzip the archive you downloaded and rename it to **tcad_certification**
 
 # Corrections and Contributions
 
