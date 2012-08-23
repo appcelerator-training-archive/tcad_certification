@@ -212,7 +212,7 @@ MyApp.DB = {}; // a 'sub-namespace' for specific, related functionality
 					<p align="left" class="l_defines">Defines app's name space</p>
 					<p align="left" class="l_includes">Requires in the app's files</p>
 					<p align="left" class="l_creates">Creates and opens the first UI component</p>
-<pre><code contenteditable class="l_saneapp1code">
+<pre style="width:1000px;"><code contenteditable class="l_saneapp1code">
 var myapp = {}; // define your app's namespace
 myapp.someproperty = 'foo'; // runtime variables are stored w/in myapp
 
@@ -231,7 +231,7 @@ myapp.ui.mainWindow.open(); // open our app's main UI component
 				<section>
 					<h2 style="" class="l_saneapp2">So what does a sane app look like?</h2>
 					<p align="left" class="l_saneapp2_explanation">Or take it even further...no global variables!</p>
-<pre style="width:800px"><code contenteditable class="l_saneapp2code" style="width:800px">
+<pre style="width:1000px"><code contenteditable class="l_saneapp2code">
 (function() {
 	var myapp = {}; // define your app's namespace
 	myapp.someproperty = 'foo'; // runtime variables are stored w/in myapp
@@ -253,7 +253,7 @@ myapp.ui.mainWindow.open(); // open our app's main UI component
 				
 				<section>
 					<h2 class="l_modules">CommonJS modules implement app functionality</h2>
-<pre><code contenteditable class="l_modulescode">
+<pre style="width:1000px;"><code contenteditable class="l_modulescode">
 // file is mainWindow.js
 
 var foo = 'bar'; // this is a local variable
@@ -399,6 +399,19 @@ if(Ti.Platform.name == 'android') {
 					<p align="left" class="l_functionality">Platform-specific functionality is broken out into sub-namespaces where appropriate</p>
 					<p><img src="images/internationalization.png" style="margin-top:0px;height:500px;align:right"></p>
 					<div class="slidenote"><div class="l_slidenote_l_internationalization">Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app's name</div></div>
+				</section>
+
+				<section>
+					<h2 style="" class="l_jssfiles">JavaScript Style Sheets</h2>
+					<ul style="width:80%;">
+						<li class="l_jss1">CSS-like syntax for formatting UI elements</li>
+						<li class="l_jss2">File name matches associated JS filename (app.js -&gt; app.jss)</li>
+						<li class="l_jss3">Set <code>className</code> or <code>id</code> properties on Ti component</li>
+						<li class="l_jss4">Platform-specific and resolution-specific versions<br/><ul style="margin-left:35px;"><li>app.android.jss or app.iphone.jss</li><li>app.android.high.jss (or medium or low)</li></ul></li>
+						<li class="l_jss5">Doesn't work well with CommonJS though</li>
+					</ul>
+
+					<div class="slidenote"><div class="l_slidenote_jssfiles">JSS is a CSS-like markup language for UI components. Still supported, though it doesn't work as well with CommonJS-structured projects. Something like this will make a return in the Alloy framework, so it's worth introducing now. </div></div>
 				</section>
 				
 				<section>

@@ -56,9 +56,8 @@ String.toLocaleString({
 		"%l_continually_monitoring": "Continually monitoring GPS drains battery faster",
 		"%l_android_emulator": "Android emulator: GPS might not be enabled<br>    Edit the AVD to add GPS support",
 		"%l_android_emulator_no_default": "Android emulator: no default location<br>    Use DDMS to send location",
-		"%l_android_need": "Android: need API key from Google for maps",
 		"%l_maps_demo": "Maps demo",
-		"%l_slidenote_geolocation_gotchas": "If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed to stop geolocation services.<br><br/><b>Demo &mdash; do on Android</b><ol><li>Start Android emulator</li><li>Open Maps &mdash; no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here &mdash; you can demo more about maps on the upcoming slides",
+		"%l_slidenote_geolocation_gotchasV2": "If you set a listener, especially on Android make sure to remove it when the app is backgrounded or closed to stop geolocation services.<br><br/><b>Demo &mdash; do on Android</b><ol><li>Start Android emulator</li><li>Open Maps &mdash; no user location available</li><li>Open DDMS, send location</li><li>In emulator, open Maps, location now available</li></ul>** stop here &mdash; you can demo more about maps on the upcoming slides.<br/>Map API keys are no longer needed for Android.",
 
 		"%l_geodemo": "Geolocation Demo",
 		"%l_geodemo1": "iOS: Kitchen Sink &mdash; Phone > Geolocation",
@@ -70,9 +69,9 @@ String.toLocaleString({
 		"%l_native_map_kits": "Native Map Kits",
 		"%l_native_maps": "Native maps provide zooming, scrolling, and different display types",
 		"%l_points_of": "Points of interest are added with Annotations (pins)",
-		"%l_support_for": "Support for drawing routes (iOS)",
+		"%l_support_forV2": "Support for drawing routes (iOS and Android)",
 		"%l_can_choose": "Can choose center point and initial display range",
-		"%l_slidenote_native_map_kits": "Embed or full screen maps<br>Routes on iOS, check the Q&amp;A for an Android solution",
+		"%l_slidenote_native_map_kitsV2": "Embed or full screen maps<br>Routes on iOS, recently added for Android",
 
 		"%l_more_on": "More on Annotations",
 		"%l_annotations_can": "Annotations can be added on or after creation",
@@ -81,10 +80,10 @@ String.toLocaleString({
 		"%l_title_sub": "Title/Subtitle",
 		"%l_right_left": "Right/Left Button",
 		"%l_can_individually": "Can individually update pins, all are set at the same time",
-		"%l_slidenote_more_on": "Adding Points of Interest (POI)<br>Create annotations prior to rendering the map or add dynamically after<br>Pins/annotations customizable<br>Gotchas:<ul><li>Need Google API extensions for Android</li><li>Android: need a map key (free) see KitchenSink</li></ul>",
+		"%l_slidenote_more_onV2": "Adding Points of Interest (POI)<br>Create annotations prior to rendering the map or add dynamically after<br>Pins/annotations customizable<br>Gotchas:<ul><li>Need Google API extensions for Android</li></ul>",
 
 		"%l_demo": "Demo",
-		"%l_slidenote_demo": "KitchenSink: Base UI > Views > Map View<ul><li>embedded map</li><li>discuss annotation components</li><li>map types</li><li>zooming</li><li>user location (no default on Android)</li></ul>examples/map_view.js<ul><li>~line 22 createAnnotation()</li><li>~line 60 createMapView()</li><ul><li>mapType reference API docs</li><li>region: lat/long &amp; delta</li><li>userLocation</li><li>annotations</li></ul><li>tiapp.xml</li><ul><li>Google map keys &amp; link to get your own</li></ul></ul>",
+		"%l_slidenote_demoV2": "KitchenSink: Base UI > Views > Map View<ul><li>embedded map</li><li>discuss annotation components</li><li>map types</li><li>zooming</li><li>user location (no default on Android)</li></ul>examples/map_view.js<ul><li>~line 22 createAnnotation()</li><li>~line 60 createMapView()</li><ul><li>mapType reference API docs</li><li>region: lat/long &amp; delta</li><li>userLocation</li><li>annotations</li></ul></ul>",
 
 		"%l_qa": "Q&amp;A",
 		"%l_slidenote_qa": "",
@@ -103,7 +102,7 @@ String.toLocaleString({
 		"%l_slidenote_lab": "",
 
 		"%l_solution": "Solution Walkthrough",
-		"%l_slidenote_solution": "<b>Code Walk through &mdash; TiBH270</b><br><u>db.js</u><ul><li>new database fields</li><li>list() &mdash; new properties for lat/long</li><li>bust() &mdash; new lat/long properties saved</li></ul><u>ui.js</u><ul><li>createMapWindow() function</li><ul><li>accepts _bounty which has lat/long data</li><li>annotation</li><li>createMapView()</li></ul><li>Geolocation.purpose</li><li>createDetailWindow()</li><ul><li>changes to capture button event handler(one-time geolocation, call to bust() )</li><li>New map button</li></ul>"
+		"%l_slidenote_solutionV2": "<b>Code Walk through &mdash; TiBH270</b><br><u>db.js</u><ul><li>new database fields</li><li>list() &mdash; new properties for lat/long</li><li>bust() &mdash; new lat/long properties saved</li></ul><u>DetailWindow.js</u><ul><li>Capture button click handler: geolocation code and call to bust() with lat/long</li><li>New map button</li><u>MapWindow.js</u><ul><li>Accepts _bounty</li><li>Opens modal window with map</li></ul>"
 	},
 
 	"ja": {

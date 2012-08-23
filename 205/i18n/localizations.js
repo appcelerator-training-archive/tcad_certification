@@ -65,6 +65,13 @@ String.toLocaleString({
 		"%l_slidenote_example_code": "",
 		"%l_getting_help": "Getting Help",
 		"%l_slidenote_getting_help": "",
+
+		"%l_coursefiles": "Course Files",
+		"%l_coursefiles_explanation": "github.com/appcelerator training",
+		"%l_coursefiles1": "Slides: Download both the presentation-engine and tcad_certification repos",
+		"%l_coursefiles2": "Labs: Download tcad-code repo",
+		"%l_slidenote_coursefiles": "Slides and lab code are free to download from GitHub<br/><br/>Make sure directories are named to match their repo names on GitHub. Put presentation-engine and tcad_certification into same folder. Lab code, you'll import the starting files into Studio. (Optional to copy to workspace directory but in the Downloads directory is not recommended)",
+
 		"%l_qa_slide": "Q&amp;A",
 		"%l_slidenote_qa": ""
 	},

@@ -9,7 +9,7 @@ String.toLocaleString({
 		
 		"%l_mission": "<strong>Mission: </strong>In this lab, you will integrate Appcelerator Cloud Services into the TiBountyHunter application to enable users to boast about their captured bounties. You will use the ACS Status API to enable users to post messages that are saved in the ACS cloud. While we won't be building it in this lab, presumably there would be a Web page where user would see those boasts or perhaps the app would feature a way to see other users' boasts. Creating those features is an 'exercise left to the reader.'",
 
-		"%l_step1": "1. Download the starting file set from <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBH275'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH275.zip'>AWS/S3<a> and import the resulting files as a new Titanium Mobile project.",
+		"%l_step1V2": "1. Download the starting file set from <a href='https://github.com/appcelerator-training/tcad-code/tree/master/Starting_code/TiBH275'>GitHub</a> or <a href='http://assets.appcelerator.com.s3.amazonaws.com/app_u/code/TiBH275.zip'>AWS/S3</a>. You have to create a new cloud-enabled project, and copy the Resources folder from this download to that project. ACS requires unique GUIDs, so you can't simply import the downloaded project.",
 		"%l_stepexplanation1": "",
 
 		"%l_step2": "2. Build the project for either the iPhone simulator or Android emulator. Capture a bounty and then click the Captured tab. Tap the captured fugitive's name. Tap Log in to Brag.<div><img src='labimages/acs1.png' height='300' align='left'><img src='labimages/acs2.png' height='300' align='left'>",

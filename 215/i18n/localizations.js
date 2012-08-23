@@ -158,6 +158,16 @@ String.toLocaleString({
 		"%l_internationalization": "Internationalization",
 		"%l_functionality": "Platform-specific functionality is broken out into sub-namespaces where appropriate",
 		"%l_slidenote_l_internationalization": "Project/i18n/<i>lang</i>/strings.xml<br><i>lang</i> = language name per ISO 639-1 standard<br><i>component</i>refers to most any of the UI elements: buttons, views, etc.<br>Use titleid instead of title property<br>app.xml defines the internationalized version of your app's name",
+
+		"%l_jssfiles": "JavaScript Style Sheets",
+		"%l_jss1": "CSS-like syntax for formatting UI elements",
+		"%l_jss2": "File name matches associated JS filename (app.js -&gt; app.jss)",
+		"%l_jss3": "Set <code>className</code> or <code>id</code> properties on Ti component",
+		"%l_jss4": "Platform-specific and resolution-specific versions<br/><ul style="margin-left:35px;"><li>app.android.jss or app.iphone.jss</li><li>app.android.high.jss (or medium or low)</li></ul>",
+		"%l_jss5": "Doesn't work well with CommonJS though",
+		"%l_slidenote_jssfiles": "JSS is a CSS-like markup language for UI components. Still supported, though it doesn't work as well with CommonJS-structured projects. Something like this will make a return in the Alloy framework, so it's worth introducing now. ",
+
+
 		"%l_qa": "Q&amp;A",
 		"%l_slidenote_qa": "Before we move into the lab, what questions do you have?",
 		"%l_introducing": "Introducing TiBountyHunter",
