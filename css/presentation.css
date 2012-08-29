@@ -181,6 +181,26 @@ li { padding-bottom: 5px; }
     text-transform: none;
     font-variant: small-caps;
 }
+section table {
+	width: 90%;
+	margin: 5px auto;
+	border: none;
+}
+section table th {
+	border: 1px solid #ababab;
+	border-bottom: 2px solid #444;
+	text-align: left !important;
+	padding: 10px;
+	font-size: 0.8em;
+	background-color: #888;
+	color: #fff;
+}
+section table td {
+	border: 1px solid #ababab;
+	text-align: left !important;
+	padding: 10px;
+	font-size: 0.8em;
+}
 
 /* FOR THE LAB SLIDES */
 #labwrapper a:not(.image) {
