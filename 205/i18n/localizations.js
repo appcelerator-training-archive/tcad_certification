@@ -87,7 +87,7 @@ String.toLocaleString({
 		"%l_agenda5": "",
 		"%l_slidenote_agenda": "このモジュールでは、これらの事項をカバーする。",
 		"%l_introduction": "はじめに",
-		"%l_2introduction_text": "TitaniumはJavaScript、HTMLやCSS等のオープンなWebテクノロジーを使ってネイティブなモバイルアプリや、デスクトップまたはタブレットのアプリを開発する事を可能にします。",
+		"%l_2introduction_text": "TitaniumはJavaScript、HTMLやCSS等のオープンなWebテクノロジーを使ってネイティブなモバイルまたはタブレットのアプリを開発する事を可能にします。",
 		"%l_slidenote_introduction": "",
 		"%l_key_facts": "Titaniumのついての事実",
 		"%l_open_source": "オープンソース (Apache 2.0)",
