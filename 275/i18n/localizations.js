@@ -20,11 +20,11 @@ String.toLocaleString({
 
 		"%l_whatis": "What is ACS?",
 		"%l_whatis1": "Pre-built Web Backend",
-		"%l_whatis2": "25+ APIs",
+		"%l_whatis2v2": "21 APIs",
 		"%l_whatis3": "Reliable &amp; Scalable",
 		"%l_whatis4": "Managed for You",
 		"%l_whatis5": "Cross-platform SDKs for Titanium, Native, &amp; REST",
-		"%l_slidenote_whatis": "ACS is a pre-built cloud hosted backend for your apps. It provides 25 pre-built APIs, including:<ul><li>User management</li><li>Push notifications</li><li>Social integration</li><li>File/photo storage</li><li>and more</li></ul><br/>It is a hosted and managed service.<br/>SDKs for Objective C, Java, REST (= web), and Titanium",
+		"%l_slidenote_whatisv2": "ACS is a pre-built cloud hosted backend for your apps. It provides 21 pre-built APIs, including:<ul><li>User management</li><li>Push notifications</li><li>Social integration</li><li>File/photo storage</li><li>and more</li></ul><br/>It is a hosted and managed service.<br/>SDKs for Objective C, Java, REST (= web), and Titanium",
 
 		"%l_apis": "APIs",
 		"%l_slidenote_apis": "ACS offers many pre-built APIs and object types. You can create custom obects too.",
@@ -58,7 +58,11 @@ String.toLocaleString({
 
 		"%l_cost": "ACS Cost",
 		"%l_costimg": "<img src='images/apis_costs.png' height='560'/>",
-		"%l_slidenote_cost": "Each pricing tier gets a certain number of API calls, push &amp; email messages, and storage per month for free. API calls are divided into Tier 1 and Tier 2 classifications. Check the appcelerator.com site for current pricing.",
+		"%l_slidenote_costv2": "Each pricing tier gets a certain number of API calls, email messages, and storage per month for free. (API calls used to be divided into Tier 1 and Tier 2 classifications. That distinction was recently removed.) Check the appcelerator.com site for current pricing.",
+
+		"%l_pushcosts": "Push Costs",
+		"%l_pushcostsimg": "<img src='images/acs_push_costs.png' height='520'/>",
+		"%l_slidenote_pushcosts": "Push message prices are separate and are calculated based on the number of active devices, not the number of messages you send.",
 
 		"%l_requirements": "Requirements & Setup",
 		"%l_require1": "Register your App",
@@ -92,9 +96,9 @@ String.toLocaleString({
 
 		"%l_analytics": "Analytics",
 		"%l_analytics1": "Log onto your <strong>my.appcelerator.com</strong> page",
-		"%l_analytics2": "Right-click Resources, choose <strong>Open Analytics Page</strong>",
+		"%l_analytics2v2": "Right-click Resources, choose <strong>View Analytics</strong>",
 		"%l_analytics3": "Visit <strong style='font-size:0.75em;'>http://analytics.appcelerator.net/#app=YOUR_APP_GUID</strong>",
-		"%l_slidenote_analytics": "You have three options for viewing your app's statistics.",
+		"%l_slidenote_analyticsv2": "You have three options for viewing your app's statistics. For each, you'll be asked to log onto your Developer Center account.",
 
 		"%l_qa": "Q&amp;A",
 		"%l_slidenote_qa": "Questions?",

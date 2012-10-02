@@ -198,18 +198,16 @@ var view = Ti.UI.createView({
 					<h2 style="" class="l_layoutmethods">Batch Updates</h2>
 					<ul style="text-align:left;width:90%;">
 						<li class="l_layoutmethod1">Default: Coordinate/dimension changes are processed serially</li>
-						<li class="l_layoutmethod2">Call <code>startLayout()</code> before, <code>finishLayout()</code> after to batch changes</li>
-						<li class="l_layoutmethod3">Or call <code>updateLayout(params)</code></li>
+						<li class="l_layoutmethod2v2">Call <code>applyProperties()</code> to batch changes</li>
+						<li class="l_layoutmethod3v2">(<code>startLayout()</code> and <code>finishLayout()</code> are now deprecated)</li>
 					</ul>
-<pre style="width:40%;float:left;"><code contenteditable class="l_layoutbatch" style="height:150px;">
-view.startLayout();
+<pre><code contenteditable class="l_layoutbatchv2">
+// instead of this:
 view.top = 50;
 view.left = 50;
-view.finishLayout();
-</code></pre>
-<pre style="width:40%;margin-left:20px;float:left;"><code contenteditable class="l_layoutbatch2" style="height:150px;">
-// this is equivalent
-view.updateLayout({
+
+// use this to apply new values at once
+view.applyProperties({
   top: 50,
   left: 50
 });

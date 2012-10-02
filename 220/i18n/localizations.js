@@ -66,10 +66,9 @@ String.toLocaleString({
 
 		"%l_layoutmethods": "Batch Updates",
 		"%l_layoutmethod1": "Default: Coordinate/dimension changes are processed serially",
-		"%l_layoutmethod2": "Call <code>startLayout()</code> before, <code>finishLayout()</code> after to batch changes",
-		"%l_layoutmethod3": "Or call <code>updateLayout(params)</code>",
-		"%l_layoutbatch": "view.startLayout();\nview.top = 50;\nview.left = 50;\nview.finishLayout();\n",
-		"%l_layoutbatch2": "// this is equivalent\nview.updateLayout({\n  top: 50,\n  left: 50\n});\n",
+		"%l_layoutmethod2v2": "Call <code>applyProperties()</code> to batch changes",
+		"%l_layoutmethod3v2": "(<code>startLayout()</code> and <code>finishLayout()</code> are now deprecated)",
+		"%l_layoutbatchv2": "\n// instead of this:\nview.top = 50;\nview.left = 50;\n\n// use this to apply new values at once\nview.applyProperties({\n  top: 50,\n  left: 50\n});\n ",
 		"%l_slidenote_layoutmethods": "When moving or resizing objects, changes are processed one at a time<br/>Use these techniques to perform those changes as a single batch -- <em>faster</em>",
 
 

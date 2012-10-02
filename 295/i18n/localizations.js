@@ -142,6 +142,13 @@ String.toLocaleString({
 		"%l_itunes_store": "iTunes AppStore",
 		"%l_slidenote_itunes_store": "",
 
+		"%l_itunesgraphics": "iTunes Graphics Required",
+		"%l_itunesgraphics1": "At least one screenshot per device type your app supports",
+		"%l_itunesgraphics2": "A 1024 x 1024 app icon",
+		"%l_itunesgraphics3": "App icons, launch images, supporting graphics appropriate for the devices your app supports",
+		"%l_itunesgraphicspara": "See <a href='http://appcel.us/e9RqM' target='_blank'>http://appcel.us/e9RqM</a> for complete list",
+		"%l_slidenote_itunesgraphics": "For example, for iPhone, you'll need iPhone4 &amp; iPhone5 sized screens, the large icon, plus launch images, iTunesArtwork file, and appicons in various sizes.",
+
 		"%l_ios_dep_release": "iOS deployment for release",
 		"%l_ios_dep_release_image": "<img src='images/ios-dep-release.png' style='margin-top:50px;height:350px;'/>",
 		"%l_slidenote_ios_dep_release": "Similar steps for release as testing<br>Done two steps already",
@@ -173,7 +180,7 @@ String.toLocaleString({
 		"%l_validateupload_image": "<img src='images/validate-upload.png' style='margin-top:50px;height:550px;'/>",
 		"%l_slidenote_validate_upload": "Xcode organizer, Archives window<br>Validate app &mdash; checks for app in iTunes Connect, required graphic assets, signing, etc.<br>Click Validate to validate the app and its configuration on the AppStore<br/>Click Submit - to submit. You can also upload using the Application Loader (in Developer/Applications/Utilities folder)",
 
-		"%l_app_store_reqs": "App Store Requirements",
+		"%l_app_store_reqsv2": "App Store Review Requirements",
 		"%l_many_reqs": "Many requirements &mdash; see iOS Dev Center for full details",
 		"%l_must_be": "Must be useful, well-designed, run without errors",
 		"%l_no_download": "No downloading code",
@@ -182,7 +189,7 @@ String.toLocaleString({
 		"%l_slidenote_app_store_reqs": "Feel free to describe relevant experiences",
 
 		"%l_adhoc_distr": "Ad Hoc distribution",
-		"%l_distr_outside": "Distribute outside of App Store",
+		"%l_distr_outside": "Distribute outside of App Store (e.g. TestFlight)",
 		"%l_limited_to": "Limited to running on your registered devices",
 		"%l_adhoc": "Ad Hoc builds expire after 90 days",
 		"%l_deploy_by": "Deploy by email, over-the-air framework, USB install",

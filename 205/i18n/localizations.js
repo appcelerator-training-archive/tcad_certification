@@ -37,7 +37,7 @@ String.toLocaleString({
 		"%l_cloudservices": "Appcelerator Cloud Services",
 		"%l_slidenote_titanium_projects": "Some of the products and projects that Appcelerator offers include    ",
 		"%l_powered_by": "Powered By Titanium",
-		"%l_slidenote_powered_by": "<p><strong>35,000 apps<br>2 million developers</strong></p><p><strong>Apps: </strong>NBC app for iOS and Android, Late Night with Jimmy Fallon, TripLingo</p><p><strong>Companies: </strong>NBC/ Universal, Kellogg's, eBay and PayPal, Reuters, and more</p>",
+		"%l_slidenote_powered_by": "<p><strong>40,000 apps<br>370,000 developers</strong></p><p><strong>Apps: </strong>NBC app for iOS and Android, TripLingo, ZipCar, Pintly, Univ. Wisconsin at Milwaukee, Legoland, GoExplore</p><p><strong>Companies: </strong>NBC/ Universal, Kellogg's, McDonalds, eBay and PayPal, Reuters, and many more</p>",
 		"%l_titanium_mobile_exists": "Titanium Mobile exists to help developers build native apps that...",
 		"%l_run_cross_platform": "Run cross-platform",
 		"%l_leverage_common": "Leverage common skill sets and a gorgeous dynamic programming language",
@@ -67,7 +67,7 @@ String.toLocaleString({
 		"%l_slidenote_getting_help": "",
 
 		"%l_coursefiles": "Course Files",
-		"%l_coursefiles_explanation": "github.com/appcelerator training",
+		"%l_coursefiles_explanationv2": "github.com/appcelerator-training",
 		"%l_coursefiles1": "Slides: Download both the presentation-engine and tcad_certification repos",
 		"%l_coursefiles2": "Labs: Download tcad-code repo",
 		"%l_slidenote_coursefiles": "Slides and lab code are free to download from GitHub<br/><br/>Make sure directories are named to match their repo names on GitHub. Put presentation-engine and tcad_certification into same folder. Lab code, you'll import the starting files into Studio. (Optional to copy to workspace directory but in the Downloads directory is not recommended)",
