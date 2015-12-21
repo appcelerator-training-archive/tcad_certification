@@ -1,3 +1,5 @@
+# DEPRECATED
+
 # TCAD Certification Training
 
 This project houses the training materials needed for the Building Native Mobile Apps (BNAPPs) course, which corresponds to the Titanium Certified Application Developer (TCAD) certification exam.
